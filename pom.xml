@@ -1,0 +1,161 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.amur</groupId>
+    <artifactId>home-edu</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>home-service</module>
+        <module>home-service-api</module>
+        <module>home-ops</module>
+        <module>home-common</module>
+        <module>home-gateway</module>
+        <module>home-admin</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>home-edu</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <home.project.version>1.0.0</home.project.version>
+        <java.version>1.8</java.version>
+        <maven.plugin.version>3.8.1</maven.plugin.version>
+
+        <knife4j.version>4.0.0</knife4j.version>
+        <net.devh.grpc.starter.version>2.14.0.RELEASE</net.devh.grpc.starter.version>
+        <shardingsphere.version>5.2.1</shardingsphere.version>
+        <com.baomidou.mp.version>3.5.2</com.baomidou.mp.version>
+        <com.alibaba.fastjson.version>2.0.21</com.alibaba.fastjson.version>
+        <sa-token.version>1.34.0</sa-token.version>
+
+        <alibaba.nacos.version>2.1.0</alibaba.nacos.version>
+        <spring.boot.admin.version>2.6.11</spring.boot.admin.version>
+        <skywalking.version>8.14.0</skywalking.version>
+        <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
+
+        <spring.boot.version>2.6.11</spring.boot.version>
+        <spring.cloud.version>2021.0.4</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
+
+
+        <!--Registry2仓库的地址，ip:port-->
+        <!--<docker.repository.url>192.168.172.128:5000</docker.repository.url>-->
+        <docker.repository.url>registry.cn-beijing.aliyuncs.com</docker.repository.url>
+        <!--上传的Docker镜像前缀，此前缀一定要和Harbor中的项目名称一致，和阿里云仓库的命名空间一致-->
+        <docker.registry.name>amur</docker.registry.name>
+        <docker.maven.plugin.version>1.4.13</docker.maven.plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-core</artifactId>
+                <version>${spring.plugin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-metadata</artifactId>
+                <version>${spring.plugin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- 2.8版本后从settings.xml读取nexus私服配置-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.plugin.version}</version>
+                <configuration>
+                    <!--fork:如果没有该项配置,整个devtools不会起作用-->
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+            <!--            <plugin>-->
+            <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+            <!--                <version>${maven.plugin.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <source>${java.version}</source>-->
+            <!--                    <target>${java.version}</target>-->
+            <!--                    <encoding>UTF-8</encoding>-->
+            <!--                    <compilerArgs>-->
+            <!--                        <arg>-parameters</arg>-->
+            <!--                    </compilerArgs>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+        </plugins>
+    </build>
+
+    <!--    <repositories>-->
+    <!--        &lt;!&ndash; APIJSON 必须用到的托管平台 &ndash;&gt;-->
+    <!--        <repository>-->
+    <!--            <id>jitpack.io</id>-->
+    <!--            <url>https://jitpack.io</url>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
+
+    <!--        <repository>-->
+    <!--            <id>spring-snapshots</id>-->
+    <!--            <url>https://repo.spring.io/snapshot</url>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
+    <!--        <repository>-->
+    <!--            <id>spring-milestones</id>-->
+    <!--            <url>https://repo.spring.io/milestone</url>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
+</project>
