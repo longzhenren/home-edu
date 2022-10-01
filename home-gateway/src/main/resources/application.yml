@@ -1,0 +1,222 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: home-gateway
+  banner:
+    location: banner.txt
+  redis:
+    port: ${REDIS_PORT:6379}
+    host: ${REDIS_HOST:127.0.0.1}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+      config:
+        group: DEFAULT_GROUP
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            #是否允许cookie跨域  true允许
+            allowCredentials: true
+            #允许跨域的url * 则允许全部
+            allowedOriginPatterns: '*'
+#            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+        add-to-simple-url-handler-mapping: true
+      default-filters:
+        - DedupeResponseHeader=Vary Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
+      routes:
+        - id: nacos
+          uri: http://127.0.0.1:8848
+          predicates:
+            - Path=/admin/nacos/**
+        - id: seata
+          uri: http://127.0.0.1:7091
+          predicates:
+            - Path=/admin/seata/**
+        - id: minio
+          uri: http://127.0.0.1:9000
+          predicates:
+            - Path=/admin/minio/**
+        - id: sw
+          uri: http://127.0.0.1:8808
+          predicates:
+            - Path=/admin/sw/**
+        - id: minio
+          uri: http://127.0.0.1:9001
+          predicates:
+            - Path=/admin/minio/**
+#          filters:
+#            - name: RequestRateLimiter
+#              args:
+#                key-resolver: "#{@remoteAddressKeyResolver}"
+#                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+#                redis-rate-limiter.burstCapacity: 1
+        - id: home-user
+          uri: lb://home-user
+          predicates:
+            - Path=/home-user/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-tinyid
+          uri: lb://home-tinyid
+          predicates:
+            - Path=/home-tinyid/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-sba
+          uri: lb://home-sba
+          predicates:
+            - Path=/home-sba/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-auth
+          uri: lb://home-auth
+          predicates:
+            - Path=/home-auth/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-course
+          uri: lb://home-course
+          predicates:
+            - Path=/home-course/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-trc
+          uri: lb://home-rtc
+          predicates:
+            - Path=/home-rtc/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-msg
+          uri: lb://home-msg
+          predicates:
+            - Path=/home-msg/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-schedule
+          uri: lb://home-schedule
+          predicates:
+            - Path=/home-schedule/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+        - id: home-msg-ws
+          uri: lb:ws//home-msg
+          predicates:
+            - Path=/home-msg/ws
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
+      #          filters:
+      #            - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+  config:
+    import:
+      - optional:nacos:home-gateway.yml
+grpc:
+  server:
+    port: ${GRPC_PORT:9080}
+  client:
+    home-user:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-user'
+      negotiation-type: plaintext
+    home-auth:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-auth'
+      negotiation-type: plaintext
+#debug: true
+# sa-token配置，考虑到要支持前后端分离项目，我们关闭从 cookie 中读取 token，改为从 head 中读取 token
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: "Authorization"
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 86400
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  token-style: uuid # token风格
+  is-log: true # 是否输出操作日志
+  is-read-cookie: false # 是否从cookie中读取token
+  is-read-header: true # 是否从head中读取token
+  is-write-header: true
+  is-print: off #关闭控制台banner
+  tokenPrefix: "Bearer" # token前缀
+knife4j:
+  gateway:
+    enable: ${KNIFE4J_ENABLE:true}
+    routes:
+      - name: 分布式ID服务
+        url: /home-tinyid/v3/api-docs?group=default
+        service-name: id-service
+        order: 1
+      - name: 用户服务
+        url: /home-user/v3/api-docs?group=default
+        service-name: user-service
+        order: 2
+      - name: 消息服务
+        url: /home-msg/v3/api-docs?group=default
+        service-name: msg-service
+        order: 3
+      - name: 课程服务
+        url: /home-course/v3/api-docs?group=default
+        service-name: course-service
+        order: 4
+      - name: 认证服务
+        url: /home-auth/v3/api-docs?group=default
+        service-name: auth-service
+        order: 5
+      - name: 日程备忘服务
+        url: /home-schedule/v3/api-docs?group=default
+        service-name: schedule-service
+        order: 6
