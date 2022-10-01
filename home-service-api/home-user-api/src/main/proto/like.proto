@@ -1,0 +1,195 @@
+syntax = "proto3";
+
+package com.amur.home.user.rpc;
+import "ServiceResult.proto";
+
+option java_package = "com.amur.home.user.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "LikeServiceProto";
+
+service LikeService {
+  rpc GetLikeCourses(GetLikeCoursesRequest) returns (GetLikeCoursesResponse) {}
+  rpc AddLikeCourse(AddLikeCourseRequest) returns (AddLikeCourseResponse) {}
+  rpc DelLikeCourse(DelLikeCourseRequest) returns (DelLikeCourseResponse) {}
+  rpc GetLikeHomes(GetLikeHomesRequest) returns (GetLikeHomesResponse) {}
+  rpc AddLikeHome(AddLikeHomeRequest) returns (AddLikeHomeResponse) {}
+  rpc DelLikeHome(DelLikeHomeRequest) returns (DelLikeHomeResponse) {}
+  rpc GetLikeUsers(GetLikeUsersRequest) returns (GetLikeUsersResponse) {}
+  rpc AddLikeUser(AddLikeUserRequest) returns (AddLikeUserResponse) {}
+  rpc DelLikeUser(DelLikeUserRequest) returns (DelLikeUserResponse) {}
+  rpc GetLikeCourseLists(GetLikeCourseListsRequest) returns (GetLikeCourseListsResponse) {}
+  rpc AddLikeCourseList(AddLikeCourseListRequest) returns (AddLikeCourseListResponse) {}
+  rpc DelLikeCourseList(DelLikeCourseListRequest) returns (DelLikeCourseListResponse) {}
+  rpc GetLikeCourseWares(GetLikeCourseWaresRequest) returns (GetLikeCourseWaresResponse) {}
+  rpc AddLikeCourseWare(AddLikeCourseWareRequest) returns (AddLikeCourseWareResponse) {}
+  rpc DelLikeCourseWare(DelLikeCourseWareRequest) returns (DelLikeCourseWareResponse) {}
+  rpc GetLikeIssues(GetLikeIssuesRequest) returns (GetLikeIssuesResponse) {}
+  rpc AddLikeIssue(AddLikeIssueRequest) returns (AddLikeIssueResponse) {}
+  rpc DelLikeIssue(DelLikeIssueRequest) returns (DelLikeIssueResponse) {}
+}
+
+
+message GetLikeIssuesRequest {
+  int64 userId = 1;
+}
+
+message GetLikeIssuesResponse {
+  repeated int64 issueIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddLikeIssueRequest {
+  int64 userId = 1;
+  int64 issueId = 2;
+}
+
+message AddLikeIssueResponse {
+  ServiceResult result = 1;
+}
+
+message DelLikeIssueRequest {
+  int64 userId = 1;
+  int64 issueId = 2;
+}
+
+message DelLikeIssueResponse {
+  ServiceResult result = 1;
+}
+
+
+message GetLikeHomesRequest {
+  int64 userId = 1;
+}
+
+message GetLikeHomesResponse {
+  repeated int64 homeIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddLikeHomeRequest {
+  int64 userId = 1;
+  int64 homeId = 2;
+}
+
+message AddLikeHomeResponse {
+  ServiceResult result = 1;
+}
+
+message DelLikeHomeRequest {
+  int64 userId = 1;
+  int64 homeId = 2;
+}
+
+message DelLikeHomeResponse {
+  ServiceResult result = 1;
+}
+
+message GetLikeUsersRequest {
+  int64 userId = 1;
+}
+
+message GetLikeUsersResponse {
+  repeated int64 userIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddLikeUserRequest {
+  int64 userId = 1;
+  int64 likeUserId = 2;
+}
+
+message AddLikeUserResponse {
+  ServiceResult result = 1;
+}
+
+message DelLikeUserRequest {
+  int64 userId = 1;
+  int64 likeUserId = 2;
+}
+
+message DelLikeUserResponse {
+  ServiceResult result = 1;
+}
+
+
+message GetLikeCoursesRequest {
+  int64 userId = 1;
+}
+
+message GetLikeCoursesResponse {
+  repeated int64 courseIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddLikeCourseRequest {
+  int64 userId = 1;
+  int64 courseId = 2;
+}
+
+message AddLikeCourseResponse {
+  ServiceResult result = 1;
+}
+
+message DelLikeCourseRequest {
+  int64 userId = 1;
+  int64 courseId = 2;
+}
+
+message DelLikeCourseResponse {
+  ServiceResult result = 1;
+}
+
+message GetLikeCourseListsRequest {
+  int64 userId = 1;
+}
+
+message GetLikeCourseListsResponse {
+  repeated int64 courseListIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddLikeCourseListRequest {
+  int64 userId = 1;
+  int64 courseListId = 2;
+}
+
+message AddLikeCourseListResponse {
+  ServiceResult result = 1;
+}
+
+message DelLikeCourseListRequest {
+  int64 userId = 1;
+  int64 courseListId = 2;
+}
+
+message DelLikeCourseListResponse {
+  ServiceResult result = 1;
+}
+
+message GetLikeCourseWaresRequest {
+  int64 userId = 1;
+}
+
+message GetLikeCourseWaresResponse {
+  repeated int64 courseWareIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddLikeCourseWareRequest {
+  int64 userId = 1;
+  int64 courseWareId = 2;
+}
+
+message AddLikeCourseWareResponse {
+  ServiceResult result = 1;
+}
+
+message DelLikeCourseWareRequest {
+  int64 userId = 1;
+  int64 courseWareId = 2;
+}
+
+message DelLikeCourseWareResponse {
+  ServiceResult result = 1;
+}
+
