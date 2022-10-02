@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package com.amur.home.user.rpc;
+
+import "google/protobuf/timestamp.proto";
+import "ServiceResult.proto";
+
+option java_package = "com.amur.home.user.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "UserServiceProto";
+
+service UserService {
+  rpc GetUserInfo(UserIdRequest) returns (UserInfoResponse) {}
+  rpc UpdateUser(UserInfoRequest) returns (ServiceResult) {}
+  rpc DeleteUser(UserIdRequest) returns (ServiceResult) {}
+  rpc CreateUser(CreateUserRequest) returns (UserIdResponse) {}
+  rpc GetUserByName(UserNameRequest) returns (UserInfoResponse) {}
+  rpc CheckUserExists(UserIdRequest) returns (CheckUserExistsResponse) {}
+}
+
+message UserIdRequest {
+  int64 user_id = 1;
+}
+
+message CheckUserExistsResponse {
+  bool exists = 1;
+  ServiceResult result = 2;
+}
+
+message UserInfoRequest {
+  UserInfo user_info = 1;
+}
+
+message CreateUserRequest{
+  string user_name = 1;
+}
+
+message UserInfoResponse {
+  UserInfo user_info = 1;
+  ServiceResult result = 2;
+}
+
+message UserNameRequest {
+  string user_name = 1;
+}
+
+message UserIdResponse {
+  int64 user_id = 1;
+  ServiceResult result = 2;
+}
+
+message UserInfo {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  string phone = 4;
+  string email = 5;
+  string avatar_url = 6;
+  int64 home_id = 7;
+  string sex = 8;
+  int32 age = 9;
+  UserRelativeType relative_type = 10;
+  google.protobuf.Timestamp create_time = 11;
+  google.protobuf.Timestamp update_time = 12;
+}
+
+message UserFavorite {
+  int64 id = 1;
+  int64 user_id = 2;
+  repeated int64 home_ids = 3;
+  repeated int64 course_ids = 4;
+  repeated int64 course_ware_ids = 5;
+  repeated int64 course_list_ids = 6;
+  map<int64, string> user_map = 7;
+  google.protobuf.Timestamp create_time = 8;
+  google.protobuf.Timestamp update_time = 9;
+  int32 version = 10;
+  bool deleted = 11;
+}
+
+enum UserRelativeType{
+  FATHER = 0;
+  MOTHER = 1;
+  SON = 2;
+  DAUGHTER = 3;
+  GRANDFATHER = 4;
+  GRANDMOTHER = 5;
+  BROTHER = 6;
+  SISTER = 7;
+  UNCLE = 8;
+  AUNT = 9;
+  OTHER = 10;
+}
