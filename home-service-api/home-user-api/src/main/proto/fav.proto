@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package com.amur.home.user.rpc;
+import "ServiceResult.proto";
+
+option java_package = "com.amur.home.user.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "FavServiceProto";
+
+service FavService {
+  rpc GetFavCourses(GetFavCoursesRequest) returns (GetFavCoursesResponse) {}
+  rpc AddFavCourse(AddFavCourseRequest) returns (AddFavCourseResponse) {}
+  rpc DelFavCourse(DelFavCourseRequest) returns (DelFavCourseResponse) {}
+  rpc GetFavCourseLists(GetFavCourseListsRequest) returns (GetFavCourseListsResponse) {}
+  rpc AddFavCourseList(AddFavCourseListRequest) returns (AddFavCourseListResponse) {}
+  rpc DelFavCourseList(DelFavCourseListRequest) returns (DelFavCourseListResponse) {}
+  rpc GetFavCourseWares(GetFavCourseWaresRequest) returns (GetFavCourseWaresResponse) {}
+  rpc AddFavCourseWare(AddFavCourseWareRequest) returns (AddFavCourseWareResponse) {}
+  rpc DelFavCourseWare(DelFavCourseWareRequest) returns (DelFavCourseWareResponse) {}
+  rpc GetFavIssues(GetFavIssuesRequest) returns (GetFavIssuesResponse) {}
+  rpc AddFavIssue(AddFavIssueRequest) returns (AddFavIssueResponse) {}
+  rpc DelFavIssue(DelFavIssueRequest) returns (DelFavIssueResponse) {}
+}
+
+message GetFavIssuesRequest {
+  int64 userId = 1;
+}
+
+message GetFavIssuesResponse {
+  repeated int64 issueIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddFavIssueRequest {
+  int64 userId = 1;
+  int64 issueId = 2;
+}
+
+message AddFavIssueResponse {
+  ServiceResult result = 1;
+}
+
+message DelFavIssueRequest {
+  int64 userId = 1;
+  int64 issueId = 2;
+}
+
+message DelFavIssueResponse {
+  ServiceResult result = 1;
+}
+
+message GetFavCoursesRequest {
+  int64 userId = 1;
+}
+
+message GetFavCoursesResponse {
+  repeated int64 courseIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddFavCourseRequest {
+  int64 userId = 1;
+  int64 courseId = 2;
+}
+
+message AddFavCourseResponse {
+  ServiceResult result = 1;
+}
+
+message DelFavCourseRequest {
+  int64 userId = 1;
+  int64 courseId = 2;
+}
+
+message DelFavCourseResponse {
+  ServiceResult result = 1;
+}
+
+message GetFavCourseListsRequest {
+  int64 userId = 1;
+}
+
+message GetFavCourseListsResponse {
+  repeated int64 courseListIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddFavCourseListRequest {
+  int64 userId = 1;
+  int64 courseListId = 2;
+}
+
+message AddFavCourseListResponse {
+  ServiceResult result = 1;
+}
+
+message DelFavCourseListRequest {
+  int64 userId = 1;
+  int64 courseListId = 2;
+}
+
+message DelFavCourseListResponse {
+  ServiceResult result = 1;
+}
+
+message GetFavCourseWaresRequest {
+  int64 userId = 1;
+}
+
+message GetFavCourseWaresResponse {
+  repeated int64 courseWareIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddFavCourseWareRequest {
+  int64 userId = 1;
+  int64 courseWareId = 2;
+}
+
+message AddFavCourseWareResponse {
+  ServiceResult result = 1;
+}
+
+message DelFavCourseWareRequest {
+  int64 userId = 1;
+  int64 courseWareId = 2;
+}
+
+message DelFavCourseWareResponse {
+  ServiceResult result = 1;
+}
+
