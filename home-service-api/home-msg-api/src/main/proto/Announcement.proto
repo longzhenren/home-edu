@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package com.amur.home.msg.rpc;
+
+import "google/protobuf/timestamp.proto";
+import "ServiceResult.proto";
+
+option java_package = "com.amur.home.msg.rpc";
+option java_outer_classname = "AnnouncementServiceProto";
+option java_multiple_files = false;
+
+service AnnouncementService {
+  rpc GetAnnouncementList (GetAnnouncementListRequest) returns (GetAnnouncementListResponse);
+  rpc GetAnnouncement (GetAnnouncementRequest) returns (GetAnnouncementResponse);
+  rpc CreateAnnouncement (CreateAnnouncementRequest) returns (CreateAnnouncementResponse);
+  rpc UpdateAnnouncement (UpdateAnnouncementRequest) returns (UpdateAnnouncementResponse);
+  rpc DeleteAnnouncement (DeleteAnnouncementRequest) returns (DeleteAnnouncementResponse);
+}
+
+message SystemAnnouncement {
+  int64 id = 1;
+  string title = 2;
+  string message = 3;
+  repeated int64 user_ids = 4 [packed = true];
+  google.protobuf.Timestamp send_time = 5;
+}
+
+message HomeAnnouncement {
+  int64 id = 1;
+  string title = 2;
+  string message = 3;
+  int64 home_id = 4;
+  repeated int64 user_ids = 5 [packed = true];
+  google.protobuf.Timestamp send_time = 6;
+}
+
+message GetAnnouncementListRequest {
+  int64 home_id = 1;
+  int64 user_id = 2;
+  int32 page = 3;
+  int32 page_size = 4;
+}
+
+message GetAnnouncementListResponse {
+  ServiceResult result = 1;
+  repeated SystemAnnouncement system_announcements = 2;
+  repeated HomeAnnouncement home_announcements = 3;
+}
+
+message GetAnnouncementRequest {
+  int64 id = 1;
+}
+
+message GetAnnouncementResponse {
+  ServiceResult result = 1;
+  oneof announcement {
+    SystemAnnouncement system_announcement = 2;
+    HomeAnnouncement home_announcement = 3;
+  }
+}
+
+message CreateAnnouncementRequest {
+  oneof announcement {
+    SystemAnnouncement system_announcement = 1;
+    HomeAnnouncement home_announcement = 2;
+  }
+}
+
+message CreateAnnouncementResponse {
+  ServiceResult result = 1;
+}
+
+message UpdateAnnouncementRequest {
+  oneof announcement {
+    SystemAnnouncement system_announcement = 1;
+    HomeAnnouncement home_announcement = 2;
+  }
+}
+
+message UpdateAnnouncementResponse {
+  ServiceResult result = 1;
+}
+
+message DeleteAnnouncementRequest {
+  int64 id = 1;
+}
+
+message DeleteAnnouncementResponse {
+  ServiceResult result = 1;
+}
+
