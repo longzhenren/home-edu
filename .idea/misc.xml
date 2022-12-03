@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/home-service/home-class/pom.xml" />
         <option value="$PROJECT_DIR$/home-service/home-msg/pom.xml" />
         <option value="$PROJECT_DIR$/home-service/home-rtc/pom.xml" />
+        <option value="$PROJECT_DIR$/home-gateway/pom.xml" />
       </list>
     </option>
   </component>

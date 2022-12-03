@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/src/main/java/com/amur/gateway/HomeGatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/src/test/java/com/amur/gateway/HomeGatewayApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service-api/home-class-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service-api/home-msg-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="Init project structure">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +40,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -69,6 +53,13 @@
     <configuration name="HomeClassApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="home-class" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.amur.homeclass.HomeClassApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="home-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.amur.homegateway.HomeGatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,8 +104,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670027242137</updated>
-      <workItem from="1670027243645" duration="2652000" />
+      <workItem from="1670027243645" duration="3307000" />
     </task>
+    <task id="LOCAL-00001" summary="Init project structure">
+      <created>1670042167532</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670042167532</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Init project structure">
+      <created>1670042358258</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670042358258</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,5 +136,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init project structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init project structure" />
   </component>
 </project>
