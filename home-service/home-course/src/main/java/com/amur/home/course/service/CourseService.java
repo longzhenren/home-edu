@@ -1,0 +1,97 @@
+package com.amur.home.course.service;
+
+import com.amur.home.common.Constants;
+import com.amur.home.course.dto.UserCourseInterDTO;
+import com.amur.home.course.entity.CourseInfo;
+import com.amur.home.course.entity.CourseShare;
+import com.amur.home.dto.PageResult;
+import com.amur.home.util.ServiceResult;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
+@Service
+public interface CourseService {
+    ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl, Boolean open);
+
+    ServiceResult<String> courseAddCover(MultipartFile cover);
+
+    ServiceResult<Void> courseDel(Long courseId);
+
+    ServiceResult<PageResult<CourseInfo>> courseSearch(Long homeId, String keyword, Integer pageNum, Integer pageSize);
+
+    ServiceResult<Void> courseUpdate(Long courseId, String name, String description, String coverUrl, String status, Date startTime, Date endTime, Boolean open);
+
+    ServiceResult<CourseInfo> courseInfo(Long courseId);
+
+    ServiceResult<?> courseInfoByUserId(Long userId);
+
+    ServiceResult<?> courseInfoByHomeId(Long homeId);
+
+    ServiceResult<?> rank(Long courseId, Double rank);
+
+    ServiceResult<?> commentAdd(Long courseId, Long userId, String comment, Double score);
+
+    ServiceResult<?> commentDel(Long courseId, Long userId);
+
+    ServiceResult<?> commentInfoList(Long courseId);
+
+    ServiceResult<?> commentInfoList(Long courseId, String keyword);
+
+    ServiceResult<?> commentInfoByUserId(Long userId);
+
+    ServiceResult<?> share(Long courseId, Long inviterId, Constants.InviteAs as, Date expireTime);
+
+    ServiceResult<CourseShare> shareInfo(String shareToken);
+
+    ServiceResult<CourseShare> joinByToken(String shareToken, Long userId);
+
+    ServiceResult<?> shareInfoByUserId(Long userId);
+
+    ServiceResult<?> shareInfoById(Long courseId);
+
+    ServiceResult<?> shareCancel(String shareToken);
+
+    ServiceResult<?> addStudent(Long courseId, Long userId);
+
+    ServiceResult<?> delStudent(Long courseId, Long userId);
+
+    ServiceResult<Set<Long>> listStudent(Long courseId);
+
+    ServiceResult<?> addTeacher(Long courseId, Long userId);
+
+    ServiceResult<?> delTeacher(Long courseId, Long userId);
+
+    ServiceResult<?> listTeacher(Long courseId);
+
+    ServiceResult<?> createList(Long homeId, String title, String description, boolean open, List<Long> courseIdList);
+
+    ServiceResult<?> courseListInfo(Long courseId);
+
+    ServiceResult<?> courseListSearch(String keyword);
+
+    ServiceResult<?> courseListInfoByHomeId(Long homeId);
+
+    ServiceResult<?> deleteList(Long listId);
+
+    ServiceResult<?> listAdd(Long listId, Long courseId);
+
+    ServiceResult<?> listRemove(Long listId, Long courseId);
+
+    ServiceResult<?> addLikeCourse(Long courseId, Long userId);
+
+    ServiceResult<?> delLikeCourse(Long courseId, Long userId);
+
+    ServiceResult<?> listUpdate(Long id, String title, String description, String coverUrl, Boolean open);
+
+    ServiceResult<UserCourseInterDTO> userCourseRelation(Long userId, Long courseId);
+
+    ServiceResult<?> addCourseScore(Long userId, Long courseId, Double score);
+
+    ServiceResult<?> delCourseScore(Long userId, Long courseId);
+
+    ServiceResult<List<CourseInfo>> getNowCourse(Long userId);
+}

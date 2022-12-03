@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.amur.home.msg.rpc;
+
+import "google/protobuf/timestamp.proto";
+import "ServiceResult.proto";
+
+option java_package = "com.amur.home.msg.rpc";
+option java_outer_classname = "NotifyServiceProto";
+option java_multiple_files = false;
+
+service NotifyService {
+  rpc GetNotifyStreamByUserId (UserIdRequest) returns (stream Notify);
+}
+
+message UserIdRequest {
+  int64 user_id = 1;
+}
+
+message Notify {
+  int64 id = 1;
+  string type = 2;
+  string title = 3;
+  string content = 4;
+  google.protobuf.Timestamp send_time = 5;
+}
