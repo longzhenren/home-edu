@@ -5,10 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="Init project structure">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-auth/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-class/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-msg/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application-test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/home-class-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-class-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/home-msg-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-msg-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/home-rtc-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-rtc-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-class/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +51,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2INg0no8RC7kdICAtI80sNWy3qi" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,7 +69,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "corretto-1.8",
-    "last_opened_file_path": "/Users/zhangzhibo/IdeaProjects/home-edu",
+    "last_opened_file_path": "/Users/zhangzhibo/IdeaProjects/home-edu/home-service/home-user/src/main/java/com/amur/homeuser",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -46,8 +81,19 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser" />
+      <recent name="$PROJECT_DIR$/home-service/home-rtc/src/main/java/com/amur/homertc" />
+      <recent name="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg" />
+      <recent name="$PROJECT_DIR$/home-service/home-user/src/main/resources" />
+      <recent name="$PROJECT_DIR$/home-service/home-rtc/src/main/resources" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.HomeUserApplication">
     <configuration name="HomeClassApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -104,7 +150,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670027242137</updated>
-      <workItem from="1670027243645" duration="3307000" />
+      <workItem from="1670027243645" duration="3978000" />
+      <workItem from="1670053399791" duration="7032000" />
     </task>
     <task id="LOCAL-00001" summary="Init project structure">
       <created>1670042167532</created>
@@ -120,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670042358258</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Init project structure">
+      <created>1670042592185</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670042592185</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
