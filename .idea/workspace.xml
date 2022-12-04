@@ -4,39 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="Init project structure">
-      <change afterPath="$PROJECT_DIR$/home-auth/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-class/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-msg/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-user/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application-test.yml" afterDir="false" />
+    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="config POM for api and service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service-api/home-class-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-class-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service-api/home-msg-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-msg-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service-api/home-rtc-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-rtc-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-gateway/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/home-class/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/home-msg/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/home-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -62,23 +36,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "corretto-1.8",
-    "last_opened_file_path": "/Users/zhangzhibo/IdeaProjects/home-edu/home-service/home-user/src/main/java/com/amur/homeuser",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhangzhibo/IdeaProjects/home-edu/home-service/home-user/src/main/java/com/amur/homeuser&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0d1997bdf41b229b9fc590ecbe06a64b&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser" />
@@ -151,7 +127,9 @@
       <option name="presentableId" value="Default" />
       <updated>1670027242137</updated>
       <workItem from="1670027243645" duration="3978000" />
-      <workItem from="1670053399791" duration="7032000" />
+      <workItem from="1670053399791" duration="11089000" />
+      <workItem from="1670165614819" duration="560000" />
+      <workItem from="1670166190727" duration="536000" />
     </task>
     <task id="LOCAL-00001" summary="Init project structure">
       <created>1670042167532</created>
@@ -174,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670042592185</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="config POM for api and service">
+      <created>1670146699298</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670146699298</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +178,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init project structure" />
+    <MESSAGE value="config POM for api and service" />
+    <option name="LAST_COMMIT_MESSAGE" value="config POM for api and service" />
   </component>
 </project>
