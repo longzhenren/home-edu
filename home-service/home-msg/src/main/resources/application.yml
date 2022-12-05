@@ -1,0 +1,150 @@
+spring:
+  application:
+    name: home-msg
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: true # 启用注册,本地环境设置为false避免混乱
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 127.0.0.1:8848
+  config:
+    import:
+      - optional:nacos:home-msg.yml
+  aop:
+    auto: true
+    proxy-target-class: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  #  TODO:datasource临时测试用, 后续接入nacos-config
+  datasource:
+    url: jdbc:mysql://localhost:3306/homeedu?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      validation-timeout: 3000
+  #  Springboot2.6+ 解决swagger启动报错
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  banner:
+    location: banner.txt
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8801
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+    banner: false
+
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.amur.home.msg.controller
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-host: true
+    enable-host-text: 127.0.0.1/home-msg #填写为网关地址,用于在网关聚合界面调试接口
+  basic:
+    enable: false
+    username: admin
+    password: 123456
+  # 开启生产环境屏蔽
+  production: false
+
+server:
+  port: 8702
+
+grpc:
+  server:
+    port: 9702
+  client:
+    home-tinyid:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-tinyid'
+      negotiation-type: plaintext
+    home-user:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-user'
+      negotiation-type: plaintext
+#logging:
+#  level:
+#    root: DEBUG
+# sa-token配置，考虑到要支持前后端分离项目，我们关闭从 cookie 中读取 token，改为从 head 中读取 token
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: "Authorization"
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 86400
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  token-style: uuid # token风格
+  is-log: false # 是否输出操作日志
+  is-read-cookie: false # 是否从cookie中读取token
+  is-read-header: true # 是否从head中读取token
+  is-write-header: true
+  is-print: off #关闭控制台banner
+  tokenPrefix: "Bearer" # token前缀
+
+minio:
+  endpoint: http://127.0.0.1:9001
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: msg
+
+seata:
+  grpc:
+    applicationId: home-msg
+    serviceGroup: default_tx_group
