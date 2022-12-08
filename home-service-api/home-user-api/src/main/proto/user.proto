@@ -1,0 +1,25 @@
+syntax = "proto3";
+package com.amur.homeuser.api;
+
+message HomeUserRequest {
+  string id = 1;
+  int32 page_number = 2;
+  int32 result_per_page = 3;
+}
+
+service HomeUserService {
+  rpc GetHomeUser(HomeUserRequest) returns (HomeUserResponse) {}
+}
+
+message HomeUserResponse {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string phone = 4;
+  string address = 5;
+  string city = 6;
+  string state = 7;
+  string country = 8;
+  string created_at = 9;
+  string updated_at = 10;
+}
