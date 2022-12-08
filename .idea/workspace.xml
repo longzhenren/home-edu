@@ -4,26 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="config POM for api and service">
+    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="test grpc and proto">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-class/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-msg/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -36,32 +45,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zhangzhibo/IdeaProjects/home-edu/home-service/home-user/src/main/java/com/amur/homeuser&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;0d1997bdf41b229b9fc590ecbe06a64b&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "corretto-1.8",
+    "last_opened_file_path": "/Users/zhangzhibo/IdeaProjects/home-edu/home-service/home-user/src/main/java/com/amur/homeuser/config",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "build.tools",
+    "spring.configuration.checksum": "6cdb4bc60969495256508ee746bfbd82"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/config" />
+      <recent name="$PROJECT_DIR$/home-service/home-rtc/src/main/java/com/amur/homertc/config" />
+      <recent name="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg/config" />
+      <recent name="$PROJECT_DIR$/home-service/home-class/src/main/java/com/amur/homeclass/config" />
       <recent name="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser" />
-      <recent name="$PROJECT_DIR$/home-service/home-rtc/src/main/java/com/amur/homertc" />
-      <recent name="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg" />
-      <recent name="$PROJECT_DIR$/home-service/home-user/src/main/resources" />
-      <recent name="$PROJECT_DIR$/home-service/home-rtc/src/main/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -129,7 +138,12 @@
       <workItem from="1670027243645" duration="3978000" />
       <workItem from="1670053399791" duration="11089000" />
       <workItem from="1670165614819" duration="560000" />
-      <workItem from="1670166190727" duration="536000" />
+      <workItem from="1670166190727" duration="3621000" />
+      <workItem from="1670210174796" duration="6388000" />
+      <workItem from="1670515904468" duration="173000" />
+      <workItem from="1670516171118" duration="594000" />
+      <workItem from="1670516771510" duration="108000" />
+      <workItem from="1670516896589" duration="115000" />
     </task>
     <task id="LOCAL-00001" summary="Init project structure">
       <created>1670042167532</created>
@@ -159,7 +173,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670146699298</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="config POM for api and service">
+      <created>1670166876677</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166876677</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test grpc and proto">
+      <created>1670517001244</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670517001244</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +207,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init project structure" />
     <MESSAGE value="config POM for api and service" />
-    <option name="LAST_COMMIT_MESSAGE" value="config POM for api and service" />
+    <MESSAGE value="test grpc and proto" />
+    <option name="LAST_COMMIT_MESSAGE" value="test grpc and proto" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
