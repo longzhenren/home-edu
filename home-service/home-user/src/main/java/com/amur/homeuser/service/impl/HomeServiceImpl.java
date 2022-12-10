@@ -1,0 +1,4 @@
+package com.amur.homeuser.service.impl;
+
+public class HomeServiceImpl {
+}

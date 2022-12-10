@@ -2,7 +2,7 @@ server:
   port: 8001
 spring:
   application:
-    name: home-msg
+    name: home-ops
   cloud:
     nacos:
       discovery:
@@ -15,4 +15,4 @@ spring:
         server-addr: 192.168.2.154:8848
   config:
     import:
-      - optional:nacos:home-msg.yml
+      - optional:nacos:home-ops.yml

@@ -1,25 +1,85 @@
 syntax = "proto3";
-package com.amur.homeuser.api;
+package com.amur.homeuser.rpc;
 
-message HomeUserRequest {
-  string id = 1;
-  int32 page_number = 2;
-  int32 result_per_page = 3;
+service UserRpcService {
+    rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+    rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
+    rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+message GetUserRequest {
+    string id = 1;
+}
+message GetUserResponse {
+    Status status = 1;
+    User user = 2;
+}
+message CreateUserRequest {
+    User user = 1;
+}
+message CreateUserResponse {
+    Status status = 1;
+    User user = 2;
+}
+message UpdateUserRequest {
+  User user=2;
+}
+message UpdateUserResponse {
+  Status status = 1;
+  User user=2;
+}
+message DeleteUserRequest {
+    string id = 1;
+}
+message DeleteUserResponse {
+    string id = 1;
+}
+message User {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string phone = 4;
+    string password = 5;
+    string address = 6;
+    string city = 7;
+    string state = 8;
+    string country = 9;
+    string zip = 10;
+    string role = 11;
+    string status = 12;
+    string created_at = 13;
+    string updated_at = 14;
 }
 
-service HomeUserService {
-  rpc GetHomeUser(HomeUserRequest) returns (HomeUserResponse) {}
+message HomeMemberRpcResp {
+  repeated HomeMemberRpc homeMembers = 1;
 }
 
-message HomeUserResponse {
+message HomeMember
+
+message
+
+message HomeMemberRpcReq {
+  string home_id = 1;
+}
+
+message HomeUserRpcReq {
   string id = 1;
-  string name = 2;
-  string email = 3;
-  string phone = 4;
-  string address = 5;
+}
+
+message HomeUserInfoDetailRpcResp {
+  string id = 1;
+  string home_id = 2;
+  string name = 3;
+  string email = 4;
+  string phone = 5;
   string city = 6;
   string state = 7;
   string country = 8;
-  string created_at = 9;
-  string updated_at = 10;
+  string avatar_url = 11;
+}
+
+enum Status {
+  SUCCESS = 0;
+  FAILED = 1;
 }

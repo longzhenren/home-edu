@@ -1,0 +1,20 @@
+syntax = "proto3";
+package com.amur.homeuser.rpc;
+
+service HomeRpcService {
+    rpc GetHome(GetHomeRequest) returns (GetHomeResponse) {}
+    rpc GetHomeList(GetHomeListRequest) returns (GetHomeListResponse) {}
+    rpc CreateHome(CreateHomeRequest) returns (CreateHomeResponse) {}
+    rpc UpdateHome(UpdateHomeRequest) returns (UpdateHomeResponse) {}
+    rpc DeleteHome(DeleteHomeRequest) returns (DeleteHomeResponse) {}
+    rpc GetHomeUserList(GetHomeUserListRequest) returns (GetHomeUserListResponse) {}
+    rpc CreateHomeUser(CreateHomeUserRequest) returns (CreateHomeUserResponse) {}
+}
+
+message GetHomeRequest {
+    string home_id = 1;
+}
+
+message GetHomeResponse {
+    Home home = 1;
+}

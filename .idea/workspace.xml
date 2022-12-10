@@ -4,10 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="test grpc and proto">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="config data model">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-auth/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-gateway/src/main/java/com/amur/homegateway/config/NacosConfigConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-gateway/src/main/java/com/amur/homegateway/config/NacosDiscoveryConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-ops/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-class-api/src/main/proto/ClassInfo.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-msg-api/src/main/proto/ChatRoom.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-msg-api/src/main/proto/Forum.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-msg-api/src/main/proto/Issue.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-msg-api/src/main/proto/MailBox.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-user-api/src/main/java/com/amur/homeuser/entity/HomeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-user-api/src/main/java/com/amur/homeuser/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service-api/home-user-api/src/main/proto/home.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/mapper/HomeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/mapper/HomeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/HomeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/HomeRpcServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/HomeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-gateway/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/home-user-api/src/main/proto/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-user-api/src/main/proto/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/HomeUserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/HomeUserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/UserRpcServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/UserRpcServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/test/java/com/amur/homeuser/HomeUserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/test/java/com/amur/homeuser/HomeUserApplicationTestsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +50,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -47,12 +81,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "corretto-1.8",
-    "last_opened_file_path": "/Users/zhangzhibo/IdeaProjects/home-edu/home-service/home-user/src/main/java/com/amur/homeuser/config",
+    "last_opened_file_path": "/Users/zhangzhibo/IdeaProjects/home-edu/home-auth/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,16 +99,16 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "build.tools",
-    "spring.configuration.checksum": "6cdb4bc60969495256508ee746bfbd82"
+    "spring.configuration.checksum": "ca3f7d3eab65f5a4afc9ca6c47e77c3c"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/home-auth/src/main/resources" />
+      <recent name="$PROJECT_DIR$/home-ops/src/main/resources" />
+      <recent name="$PROJECT_DIR$/home-gateway/src/main/java/com/amur/homegateway" />
       <recent name="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/config" />
       <recent name="$PROJECT_DIR$/home-service/home-rtc/src/main/java/com/amur/homertc/config" />
-      <recent name="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg/config" />
-      <recent name="$PROJECT_DIR$/home-service/home-class/src/main/java/com/amur/homeclass/config" />
-      <recent name="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -80,7 +118,10 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.HomeUserApplication">
+  <component name="RunManager" selected="Spring Boot.HomeGatewayApplication">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="HomeClassApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="home-class" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.amur.homeclass.HomeClassApplication" />
@@ -123,6 +164,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
@@ -144,6 +190,8 @@
       <workItem from="1670516171118" duration="594000" />
       <workItem from="1670516771510" duration="108000" />
       <workItem from="1670516896589" duration="115000" />
+      <workItem from="1670562366595" duration="1437000" />
+      <workItem from="1670567197842" duration="8977000" />
     </task>
     <task id="LOCAL-00001" summary="Init project structure">
       <created>1670042167532</created>
@@ -187,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670517001244</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="config POM for api and service">
+      <created>1670517502087</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670517502087</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,9 +261,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init project structure" />
-    <MESSAGE value="config POM for api and service" />
     <MESSAGE value="test grpc and proto" />
-    <option name="LAST_COMMIT_MESSAGE" value="test grpc and proto" />
+    <MESSAGE value="config POM for api and service" />
+    <MESSAGE value="config data model" />
+    <option name="LAST_COMMIT_MESSAGE" value="config data model" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
