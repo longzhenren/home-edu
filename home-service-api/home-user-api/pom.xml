@@ -12,6 +12,13 @@
     <artifactId>home-user-api</artifactId>
     <name>${project.artifactId}</name>
     <version>${home.project.version}</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.amur</groupId>
+            <artifactId>home-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     <packaging>jar</packaging>
 
     <properties>
@@ -40,8 +47,8 @@
                     <protoSourceRoot>${basedir}/src/main/proto</protoSourceRoot>
                     <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
                     <!-- 生成文件的目录, 可以让其在源码目录生成 -->
-                     <outputDirectory>${project.basedir}/target/generated-source</outputDirectory>
-<!--                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
+<!--                     <outputDirectory>${project.basedir}/target/generated-source</outputDirectory>-->
+                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
                     <!-- 生成文件前是否把目标目录清空，这个最好设置为false，以免误删项目文件 -->
                      <clearOutputDirectory>false</clearOutputDirectory>
                 </configuration>

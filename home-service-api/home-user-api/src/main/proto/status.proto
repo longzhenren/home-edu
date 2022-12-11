@@ -1,0 +1,10 @@
+syntax = "proto3";
+package com.amur.homeuser.rpc;
+
+enum Status {
+  SUCCESS = 0;
+  FAILED = 1;
+  INVALID_PARAM = 2;
+  NOT_FOUND = 3;
+  NO_AUTH = 4;
+}

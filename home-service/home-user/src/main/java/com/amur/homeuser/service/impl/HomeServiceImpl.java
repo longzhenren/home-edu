@@ -1,4 +1,6 @@
 package com.amur.homeuser.service.impl;
 
-public class HomeServiceImpl {
+import com.amur.homeuser.service.HomeService;
+
+public class HomeServiceImpl implements HomeService {
 }

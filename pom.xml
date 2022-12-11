@@ -10,6 +10,7 @@
         <module>home-service-api</module>
         <module>home-ops</module>
         <module>home-auth</module>
+        <module>home-common</module>
     </modules>
     <packaging>pom</packaging>
 

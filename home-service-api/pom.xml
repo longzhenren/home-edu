@@ -72,15 +72,15 @@
         </extensions>
 
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.7.1</version>
-                <configuration>
-                    <skip>true</skip>
-                    <finalName>${project.name}</finalName>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <version>2.7.1</version>-->
+<!--                <configuration>-->
+<!--                    <skip>true</skip>-->
+<!--                    <finalName>${project.name}</finalName>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
