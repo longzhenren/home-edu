@@ -25,10 +25,11 @@
         <!--    <swagger.version>2.10.5</swagger.version>-->
         <!--    <swagger.models.version>1.6.2</swagger.models.version>-->
         <!--    <knife4j.version>2.0.9</knife4j.version>-->
-        <!--    <protostuff.version>1.6.0</protostuff.version>-->
-        <!--    <captcha.version>1.6.2</captcha.version>-->
-        <!--    <easyexcel.version>2.2.6</easyexcel.version>-->
-        <!--    <mica.auto.version>1.2.5</mica.auto.version>-->
+
+        <net.devh.grpc.starter.version>2.14.0.RELEASE</net.devh.grpc.starter.version>
+        <com.baomidou.mp.version>3.5.2</com.baomidou.mp.version>
+        <com.alibaba.fastjson.version>2.0.21</com.alibaba.fastjson.version>
+
         <alibaba.nacos.version>2.1.0</alibaba.nacos.version>
         <spring.boot.admin.version>2.6.11</spring.boot.admin.version>
         <spring.plugin.version>2.6.11</spring.plugin.version>

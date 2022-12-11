@@ -14,7 +14,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
      */
     @Override
     public void createUser(CreateUserRequest request, StreamObserver<CreateUserResponse> responseObserver) {
-        super.createUser(request, responseObserver);
+        CreateUserResponse response = CreateUserResponse.newBuilder().build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
     /**
@@ -23,7 +25,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
      */
     @Override
     public void updateUser(UpdateUserRequest request, StreamObserver<UpdateUserResponse> responseObserver) {
-        super.updateUser(request, responseObserver);
+        UpdateUserResponse response = UpdateUserResponse.newBuilder().build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
     /**
@@ -32,7 +36,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
      */
     @Override
     public void deleteUser(DeleteUserRequest request, StreamObserver<DeleteUserResponse> responseObserver) {
-        super.deleteUser(request, responseObserver);
+        DeleteUserResponse response = DeleteUserResponse.newBuilder().build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
     /**
@@ -41,7 +47,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
      */
     @Override
     public void getUserBaseInfo(GetUserBaseRequest request, StreamObserver<GetUserBaseResponse> responseObserver) {
-        super.getUserBaseInfo(request, responseObserver);
+        GetUserBaseResponse response = GetUserBaseResponse.newBuilder().build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
     /**
@@ -50,6 +58,8 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
      */
     @Override
     public void getUserDetailInfo(GetUserDetailRequest request, StreamObserver<GetUserDetailResponse> responseObserver) {
-        super.getUserDetailInfo(request, responseObserver);
+        GetUserDetailResponse response = GetUserDetailResponse.newBuilder().build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 }

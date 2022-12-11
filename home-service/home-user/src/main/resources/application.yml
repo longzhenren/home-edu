@@ -1,1 +1,22 @@
-
+spring:
+  application:
+    name: home-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.2.154:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 192.168.2.154:8848
+  config:
+    import:
+      - optional:nacos:home-user.yml
+  #  TODO:datasource临时测试用, 后续接入nacos-config
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8mb4&useSSL=false&serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+server:
+  port: 7001
