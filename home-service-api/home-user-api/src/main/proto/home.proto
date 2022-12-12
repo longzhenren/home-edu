@@ -5,7 +5,7 @@ import "status.proto";
 
 service HomeService {
     rpc GetHomeBaseInfo(GetHomeBaseRequest) returns (GetHomeBaseResponse) {}
-    rpc GetHomeDetailInfo(GetHomeBaseRequest) returns (GetHomeDetailResponse) {}
+    rpc GetHomeDetailInfo(GetHomeDetailRequest) returns (GetHomeDetailResponse) {}
     rpc GetHomeList(google.protobuf.Empty) returns (GetHomeListResponse) {}
     rpc CreateHome(CreateHomeRequest) returns (CreateHomeResponse) {}
     rpc UpdateHome(UpdateHomeRequest) returns (UpdateHomeResponse) {}

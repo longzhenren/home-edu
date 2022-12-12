@@ -4,8 +4,14 @@ import com.amur.homeuser.rpc.Home.*;
 import com.amur.homeuser.rpc.HomeServiceGrpc;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 
+import javax.annotation.Resource;
+
+@GrpcService
 public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
+    @Resource
+    private HomeServiceImpl homeService;
     /**
      * @param request
      * @param responseObserver
@@ -13,6 +19,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void getHomeBaseInfo(GetHomeBaseRequest request, StreamObserver<GetHomeBaseResponse> responseObserver) {
         GetHomeBaseResponse response = GetHomeBaseResponse.newBuilder().build();
+        homeService.getHomeBaseInfo(request);
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -24,6 +31,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void getHomeDetailInfo(GetHomeBaseRequest request, StreamObserver<GetHomeDetailResponse> responseObserver) {
         GetHomeDetailResponse response = GetHomeDetailResponse.newBuilder().build();
+        homeService.getHomeDetailInfo(request);
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -35,6 +43,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void getHomeList(Empty request, StreamObserver<GetHomeListResponse> responseObserver) {
         GetHomeListResponse response = GetHomeListResponse.newBuilder().build();
+        homeService.getHomeList();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -46,6 +55,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void createHome(CreateHomeRequest request, StreamObserver<CreateHomeResponse> responseObserver) {
         CreateHomeResponse response = CreateHomeResponse.newBuilder().build();
+        homeService.createHome(request);
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -57,6 +67,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void updateHome(UpdateHomeRequest request, StreamObserver<UpdateHomeResponse> responseObserver) {
         UpdateHomeResponse response = UpdateHomeResponse.newBuilder().build();
+        homeService.updateHome(request);
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -68,6 +79,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void deleteHome(DeleteHomeRequest request, StreamObserver<DeleteHomeResponse> responseObserver) {
         DeleteHomeResponse response = DeleteHomeResponse.newBuilder().build();
+        homeService.deleteHome(request);
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
