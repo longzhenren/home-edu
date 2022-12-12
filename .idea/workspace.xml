@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="config user data">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-common/src/main/java/com/amur/home/common/api/ResponseWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-common/src/main/java/com/amur/home/util/ObjectUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/sql/home.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/sql/user.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-common/src/main/java/com/amur/home/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-common/src/main/java/com/amur/home/common/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service-api/home-user-api/src/main/proto/home.proto" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/home-user-api/src/main/proto/home.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/HomeUserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/HomeUserApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/HomeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/HomeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/HomeRpcServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/HomeRpcServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/HomeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/HomeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/test/java/com/amur/homeuser/HomeMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/test/java/com/amur/homeuser/HomeMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/test/java/com/amur/homeuser/UserMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/test/java/com/amur/homeuser/UserMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +247,7 @@
       <workItem from="1670562366595" duration="1437000" />
       <workItem from="1670567197842" duration="13778000" />
       <workItem from="1670726180568" duration="8920000" />
-      <workItem from="1670742554052" duration="13937000" />
+      <workItem from="1670742554052" duration="14055000" />
     </task>
     <task id="LOCAL-00001" summary="Init project structure">
       <created>1670042167532</created>
@@ -338,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670769979820</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="config user data">
+      <created>1670865011467</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670865011467</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

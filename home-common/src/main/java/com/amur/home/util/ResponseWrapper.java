@@ -1,8 +1,7 @@
-package com.amur.home.common.api;
+package com.amur.home.util;
 
 import com.amur.home.common.Constants.ResponseCode;
 import com.amur.home.common.Constants.SystemConstants;
-import com.amur.home.util.ObjectUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

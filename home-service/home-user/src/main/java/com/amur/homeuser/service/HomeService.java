@@ -11,6 +11,6 @@ public interface HomeService {
     public UpdateHomeUserResp updateHomeUser(UpdateHomeUserReq request);
     public DeleteHomeUserReq deleteHomeUser(DeleteHomeUserResp request);
     public SetHomeAdminReq setHomeAdmin(SetHomeAdminResp request);
-    public AddHomeImageResp addHomeImage(AddHomeImageReq ?);
+    public AddHomeImageResp addHomeImage(AddHomeImageReq request);
 
 }
