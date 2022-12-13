@@ -4,149 +4,141 @@ import "google/protobuf/empty.proto";
 import "status.proto";
 
 service HomeService {
-    rpc GetHomeBaseInfo(GetHomeBaseRequest) returns (GetHomeBaseResponse) {}
-    rpc GetHomeDetailInfo(GetHomeDetailRequest) returns (GetHomeDetailResponse) {}
-    rpc GetHomeList(google.protobuf.Empty) returns (GetHomeListResponse) {}
-    rpc CreateHome(CreateHomeRequest) returns (CreateHomeResponse) {}
-    rpc UpdateHome(UpdateHomeRequest) returns (UpdateHomeResponse) {}
-    rpc DeleteHome(DeleteHomeRequest) returns (DeleteHomeResponse) {}
-    rpc GetHomeUserList(GetHomeUserListRequest) returns (GetHomeUserListResponse) {}
-    rpc UpdateHomeUser(UpdateHomeUserRequest) returns (UpdateHomeUserResponse) {}
-    rpc DeleteHomeUser(DeleteHomeUserRequest) returns (DeleteHomeUserResponse) {}
-    rpc SetHomeAdmin(SetHomeAdminRequest) returns (SetHomeAdminResponse) {}
-    rpc addHomeImage(AddHomeImageRequest) returns (AddHomeImageResponse) {}
+  rpc GetHomeBaseInfo(GetHomeBaseRequest) returns (GetHomeBaseResponse) {}
+  rpc GetHomeDetailInfo(GetHomeDetailRequest) returns (GetHomeDetailResponse) {}
+  rpc GetHomeList(google.protobuf.Empty) returns (GetHomeListResponse) {}
+  rpc CreateHome(CreateHomeRequest) returns (CreateHomeResponse) {}
+  rpc UpdateHome(UpdateHomeRequest) returns (UpdateHomeResponse) {}
+  rpc DeleteHome(DeleteHomeRequest) returns (DeleteHomeResponse) {}
+  rpc GetHomeUserList(GetHomeUserListRequest) returns (GetHomeUserListResponse) {}
+  rpc UpdateHomeUser(UpdateHomeUserRequest) returns (UpdateHomeUserResponse) {}
+  rpc DeleteHomeUser(DeleteHomeUserRequest) returns (DeleteHomeUserResponse) {}
+  rpc SetHomeAdmin(SetHomeAdminRequest) returns (SetHomeAdminResponse) {}
+  rpc addHomeImage(AddHomeImageRequest) returns (AddHomeImageResponse) {}
 }
 
 message GetHomeBaseRequest {
-    string home_id = 1;
+  int64 home_id = 1;
 }
 
 message GetHomeDetailRequest {
-    string home_id = 1;
+  int64 home_id = 1;
 }
 
 message DeleteHomeRequest{
-    string home_id = 1;
+  int64 home_id = 1;
 }
 
 message GetHomeUserListRequest{
-    string home_id = 1;
+  int64 home_id = 1;
 }
 
 message UpdateHomeUserRequest{
-    string home_id = 1;
-    string user_id = 2;
-    string role = 3;
+  int64 home_id = 1;
+  int64 user_id = 2;
+  string role = 3;
 }
 message DeleteHomeUserRequest{
-    string home_id = 1;
-    string user_id = 2;
+  int64 home_id = 1;
+  int64 user_id = 2;
 }
 
 message SetHomeAdminRequest{
-    string home_id = 1;
-    string user_id = 2;
+  int64 home_id = 1;
+  int64 user_id = 2;
 }
 
 message UpdateHomeRequest {
-    string home_id = 1;
-    string home_name = 2;
-    string home_address = 3;
-    string home_description = 4;
+  int64 home_id = 1;
+  string home_name = 2;
+  string home_address = 3;
+  string home_description = 4;
+  string home_avatar_url = 5;
 }
 
 message CreateHomeRequest {
-    string user_id = 1;
-    string home_name = 2;
-    string home_address = 3;
-    string home_description = 4;
+  int64 user_id = 1;
+  string home_name = 2;
+  string home_address = 3;
+  string home_description = 4;
 }
 
 message AddHomeImageRequest{
-    string home_id = 1;
-    string image_url = 2;
+  int64 home_id = 1;
+  repeated string image_url = 2;
 }
 
 message GetHomeBaseResponse {
-    Status status = 1;
-    message data{
-        HomeBase home_base = 1;
-    }
+  Status status = 1;
+  HomeBase home_base = 2;
 }
 
 message GetHomeDetailResponse{
-    Status status = 1;
-    message data{
-        HomeDetail home_detail = 1;
-    }
+  Status status = 1;
+  HomeDetail home_detail = 2;
 }
 
 message GetHomeUserListResponse{
-    Status status = 1;
-    message data{
-        repeated HomeUser home_user_list = 1;
-    }
+  Status status = 1;
+  repeated HomeUser home_user_list = 2;
 }
 
 message GetHomeListResponse {
-    Status status = 1;
-    message data{
-        repeated HomeBase home_list = 1;
-    }
+  Status status = 1;
+  repeated HomeBase home_list = 2;
 }
 
 message UpdateHomeUserResponse{
-    Status status = 1;
+  Status status = 1;
 }
 
 message CreateHomeResponse {
-    Status status = 1;
-    message data{
-        string home_id = 1;
-    }
+  Status status = 1;
+  int64 home_id = 2;
 }
 
 message UpdateHomeResponse{
-    Status status = 1;
+  Status status = 1;
 }
 
 message DeleteHomeResponse{
-    Status status = 1;
+  Status status = 1;
 }
 
 message DeleteHomeUserResponse{
-    Status status = 1;
+  Status status = 1;
 }
 
 message SetHomeAdminResponse{
-    Status status = 1;
+  Status status = 1;
 }
 
 message AddHomeImageResponse{
-    Status status = 1;
+  Status status = 1;
 }
 
 message HomeBase{
-    string home_id = 1;
-    string home_name = 2;
-    string home_avatar = 3;
-    string home_member_count = 4;
+  int64 home_id = 1;
+  string home_name = 2;
+  string home_avatar = 3;
+  int64 home_member_count = 4;
 }
 
 message HomeDetail{
-    string home_id = 1;
-    string home_name = 2;
-    string home_address = 3;
-    string home_member_count = 4;
-    string home_description = 6;
-    repeated string home_image = 7;
-    string home_status = 8;
-    string home_reg_time = 9;
+  int64 home_id = 1;
+  string home_name = 2;
+  string home_address = 3;
+  int64 home_member_count = 4;
+  string home_description = 6;
+  repeated string home_image = 7;
+  string home_status = 8;
+  string home_reg_time = 9;
+  string home_avatar = 10;
 }
 
 message HomeUser{
-    string user_id = 1;
-    string user_name = 2;
-    string user_avatar = 3;
-    string user_role = 4;
+  int64 user_id = 1;
+  string user_name = 2;
+  string user_avatar = 3;
+  string user_role = 4;
 }

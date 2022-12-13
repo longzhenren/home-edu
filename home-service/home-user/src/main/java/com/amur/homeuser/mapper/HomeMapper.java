@@ -7,4 +7,7 @@ import org.springframework.stereotype.Component;
 @Component(value ="homeMapper")
 public interface HomeMapper extends BaseMapper<HomeEntity> {
 
+    HomeEntity getHomeById(Long id);
+
+
 }

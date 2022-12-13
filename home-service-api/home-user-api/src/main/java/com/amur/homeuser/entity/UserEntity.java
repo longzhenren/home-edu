@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TableName("user")
 public class UserEntity {
-    private String id;
+    private Long id;
     private String name;
     private String description;
     private String avatarUrl;

@@ -12,11 +12,11 @@ service UserService {
 
 }
 message GetUserBaseRequest {
-  string home_id = 1;
+  int64 home_id = 1;
 }
 
 message GetUserDetailRequest {
-  string home_id = 1;
+  int64 home_id = 1;
 }
 
 message CreateUserRequest{
@@ -26,7 +26,7 @@ message CreateUserRequest{
   string description = 4;
 }
 message UpdateUserRequest{
-  string user_id = 1;
+  int64 user_id = 1;
   string name = 2;
   string email = 3;
   string phone = 4;
@@ -35,28 +35,22 @@ message UpdateUserRequest{
 }
 
 message DeleteUserRequest{
-  string user_id = 1;
+  int64 user_id = 1;
 }
 
 
 message GetUserBaseResponse{
   Status status = 1;
-  message data{
-    UserBase user_base = 1;
-  }
+  UserBase user_base = 2;
 }
 message GetUserDetailResponse {
   Status status = 1;
-  message data{
-    UserDetail user_detail = 1;
-  }
+  UserDetail user_detail = 2;
 }
 
 message CreateUserResponse {
   Status status = 1;
-  message data{
-    string user_id = 1;
-  }
+  string user_id = 2;
 }
 
 message UpdateUserResponse {
@@ -68,20 +62,20 @@ message DeleteUserResponse{
 }
 
 message UserBase{
-  string id = 1;
+  int64 id = 1;
   string name = 2;
   string avatar_url = 6;
   MemberType member_type = 9;
 }
 
 message UserDetail{
-  string id = 1;
+  int64 id = 1;
   string name = 2;
   string email = 3;
   string phone = 4;
   string description = 5;
   string avatar_url = 6;
-  string home_id = 7;
+  int64 home_id = 7;
   string created_at = 8;
   MemberType member_type = 9;
 }

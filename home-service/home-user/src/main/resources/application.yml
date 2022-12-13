@@ -12,6 +12,10 @@ spring:
   config:
     import:
       - optional:nacos:home-user.yml
+  aop:
+    auto: true
+    proxy-target-class: true
+
 
   #  TODO:datasource临时测试用, 后续接入nacos-config
   datasource:
@@ -27,6 +31,15 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
       validation-timeout: 3000
+  zipkin:
+    enabled: true
+    base-url: http://192.168.2.154:9411
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
@@ -36,6 +49,8 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       id-type: auto
+
+
 
 server:
   port: 7001

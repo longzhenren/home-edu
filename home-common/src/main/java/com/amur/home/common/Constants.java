@@ -20,7 +20,7 @@ public class Constants {
 
     @AllArgsConstructor
     @Getter
-    public enum ResponseCode implements Serializable {
+    public enum StatusCode implements Serializable {
         SUCCESS(HttpServletResponse.SC_OK, "操作成功"),
         FAILURE(HttpServletResponse.SC_BAD_REQUEST, "业务异常"),
         UN_AUTHORIZED(HttpServletResponse.SC_UNAUTHORIZED, "请求未授权"),

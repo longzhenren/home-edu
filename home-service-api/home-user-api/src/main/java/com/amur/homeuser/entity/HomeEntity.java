@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -13,13 +14,15 @@ import java.util.List;
 @NoArgsConstructor
 @TableName("home")
 public class HomeEntity {
-    private String id;
+    private Long id;
     private String name;
+    private String address;
     private String description;
     private String avatarUrl;
-    private List<String> photoUrls;
-    private String adminId;
-    private List<String> homeUserIds;
+    private List<String> imageUrls;
+    private Long adminId;
+    private List<Long> homeUserIds;
+    private Date createTime;
     @Version
     private Integer version;
 }

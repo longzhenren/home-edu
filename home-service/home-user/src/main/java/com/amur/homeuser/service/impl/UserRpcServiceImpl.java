@@ -3,9 +3,11 @@ package com.amur.homeuser.service.impl;
 import com.amur.homeuser.rpc.User.*;
 import com.amur.homeuser.rpc.UserServiceGrpc;
 import io.grpc.stub.StreamObserver;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 @GrpcService
+@Slf4j
 public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
 
     /**
