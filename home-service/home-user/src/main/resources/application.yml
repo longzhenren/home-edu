@@ -50,7 +50,5 @@ mybatis-plus:
       logic-not-delete-value: 0
       id-type: auto
 
-
-
 server:
-  port: 7001
+  port: 8701

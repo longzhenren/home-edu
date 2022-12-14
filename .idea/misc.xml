@@ -8,13 +8,13 @@
         <option value="$PROJECT_DIR$/home-service/home-info/pom.xml" />
         <option value="$PROJECT_DIR$/home-service/pom.xml" />
         <option value="$PROJECT_DIR$/home-service-api/pom.xml" />
-        <option value="$PROJECT_DIR$/home-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/home-ops/pom.xml" />
         <option value="$PROJECT_DIR$/home-service-api/home-class-api/pom.xml" />
         <option value="$PROJECT_DIR$/home-service-api/home-msg-api/pom.xml" />
         <option value="$PROJECT_DIR$/home-service-api/home-rtc-api/pom.xml" />
         <option value="$PROJECT_DIR$/home-service-api/home-user-api/pom.xml" />
         <option value="$PROJECT_DIR$/home-common/pom.xml" />
+        <option value="$PROJECT_DIR$/home-gateway/pom.xml" />
       </list>
     </option>
   </component>

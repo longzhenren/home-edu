@@ -49,46 +49,53 @@
     </dependencyManagement>
     <build>
         <plugins>
+            <!-- 构建和推动Docker镜像 -->
             <plugin>
                 <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>${docker.plugin.version}</version>
-                <configuration>
-                    <imageName>${docker.registry.url}/home/${project.artifactId}:${project.version}</imageName>
-                    <dockerDirectory>${project.basedir}</dockerDirectory>
-                    <dockerHost>${docker.registry.host}</dockerHost>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                    <registryUrl>${docker.registry.url}</registryUrl>
-                    <serverId>${docker.registry.url}</serverId>
-                    <pushImage>true</pushImage>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${docker.maven.plugin.version}</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <id>default</id>
                         <goals>
-                            <goal>run</goal>
+                            <!--如果package时不想用docker打包,就注释掉这个goal-->
+                            <goal>build</goal>
+                            <goal>push</goal>
                         </goals>
-                        <configuration>
-                            <tasks>
-                                <!--suppress UnresolvedMavenProperty -->
-                                <copy overwrite="true"
-                                      tofile="${session.executionRootDirectory}/target/${artifactId}.jar"
-                                      file="${project.build.directory}/${artifactId}.jar" />
-                            </tasks>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <contextDirectory>${project.basedir}</contextDirectory>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                    <repository>${docker.repository.url}/${docker.registry.name}/${project.artifactId}</repository>
+                    <username>${docker.registry.username}</username>
+                    <password>${docker.registry.password}</password>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-antrun-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>run</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <tasks>-->
+<!--                                &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;-->
+<!--                                <copy overwrite="true"-->
+<!--                                      tofile="${session.executionRootDirectory}/target/${artifactId}.jar"-->
+<!--                                      file="${project.build.directory}/${artifactId}.jar" />-->
+<!--                            </tasks>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 <!--            <plugin>-->
 <!--                <groupId>org.springframework.boot</groupId>-->
 <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->

@@ -97,14 +97,14 @@
 <!--                    <finalName>${project.name}</finalName>-->
 <!--                </configuration>-->
 <!--            </plugin>-->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>${docker.plugin.version}</version>
-                <configuration>
-                    <skipDockerBuild>true</skipDockerBuild>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
+<!--                <version>${docker.maven.plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <skipDockerBuild>true</skipDockerBuild>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>

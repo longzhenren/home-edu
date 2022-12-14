@@ -38,9 +38,16 @@
         <spring.cloud.version>2021.0.4</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
 
-        <docker.registry.url>192.168.2.206</docker.registry.url>
-        <docker.registry.host>http://${docker.registry.url}:8888</docker.registry.host>
-        <docker.plugin.version>1.2.0</docker.plugin.version>
+
+
+        <!--Registry2仓库的地址，ip:port-->
+        <!--<docker.repository.url>192.168.172.128:5000</docker.repository.url>-->
+        <docker.repository.url>registry.cn-beijing.aliyuncs.com</docker.repository.url>
+        <!--上传的Docker镜像前缀，此前缀一定要和Harbor中的项目名称一致，和阿里云仓库的命名空间一致-->
+        <docker.registry.name>amur</docker.registry.name>
+        <docker.registry.username>amur-home@1878710631379585.onaliyun.com</docker.registry.username>
+        <docker.registry.password>!@#$%12345</docker.registry.password>
+        <docker.maven.plugin.version>1.4.13</docker.maven.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -86,4 +93,13 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
