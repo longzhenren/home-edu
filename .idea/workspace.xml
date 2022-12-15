@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="Add Home Web Controller, Add Maven Docker Plugin support">
+    <list default="true" id="57312ff7-5a8a-4ecd-8a84-74427dff3dee" name="Changes" comment="Add Maven Docker Plugin settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-auth/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/home-auth/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/home-gateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-class/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-class/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-class/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg/HomeMsgApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/amur/homemsg/HomeMsgApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg/config/MyBatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/amur/homemsg/config/MyBatisPlusConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg/config/NacosConfigConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/amur/homemsg/config/NacosConfigConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/example/homemsg/config/NacosDiscoveryConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/main/java/com/amur/homemsg/config/NacosDiscoveryConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-msg/src/test/java/com/example/homemsg/HomeMsgApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-msg/src/test/java/com/amur/homemsg/HomeMsgApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-rtc/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-rtc/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/home-user/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/home-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/HomeUserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/home-user/src/main/java/com/amur/homeuser/HomeUserApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/home-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -106,7 +121,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.home-user/Dockerfile">
+  <component name="RunManager" selected="Spring Boot.HomeUserApplication">
     <configuration name="HomeMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="home-user" />
       <extension name="coverage">
@@ -154,24 +169,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserMapperTest.getUserById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="home-user" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.amur.homeuser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.amur.homeuser" />
-      <option name="MAIN_CLASS_NAME" value="com.amur.homeuser.UserMapperTest" />
-      <option name="METHOD_NAME" value="getUserById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="home-user-api-1.0.0.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/home-service-api/home-user-api/target/home-user-api-1.0.0.jar" />
+    <configuration name="home-gateway [deploy]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="deploy" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/home-gateway" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
       <method v="2" />
     </configuration>
     <configuration name="HomeClassApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -216,6 +236,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="home-msg/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker2">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="home-service/home-msg/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="home-user/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker2">
       <deployment type="dockerfile">
         <settings>
@@ -226,11 +254,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.home-msg/Dockerfile" />
       <item itemvalue="Docker.home-user/Dockerfile" />
-      <item itemvalue="JAR Application.home-user-api-1.0.0.jar" />
       <item itemvalue="JUnit.HomeMapperTest" />
       <item itemvalue="JUnit.HomeMapperTest.getHomeById" />
-      <item itemvalue="JUnit.UserMapperTest.getUserById" />
+      <item itemvalue="Maven.home-gateway [deploy]" />
       <item itemvalue="Spring Boot.HomeUserApplication" />
       <item itemvalue="Spring Boot.HomeClassApplication" />
       <item itemvalue="Spring Boot.HomeGatewayApplication" />
@@ -240,11 +268,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Maven.home-gateway [deploy]" />
+        <item itemvalue="Docker.home-msg/Dockerfile" />
         <item itemvalue="Docker.home-user/Dockerfile" />
         <item itemvalue="JUnit.HomeMapperTest.getHomeById" />
         <item itemvalue="JUnit.HomeMapperTest" />
-        <item itemvalue="JUnit.UserMapperTest.getUserById" />
-        <item itemvalue="JUnit.UserMapperTest.getUserById" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +303,8 @@
       <workItem from="1671004322752" duration="217000" />
       <workItem from="1671004556468" duration="2044000" />
       <workItem from="1671007987856" duration="336000" />
-      <workItem from="1671030117157" duration="2765000" />
+      <workItem from="1671030117157" duration="4861000" />
+      <workItem from="1671035843947" duration="7737000" />
     </task>
     <task id="LOCAL-00001" summary="Init project structure">
       <created>1670042167532</created>
@@ -375,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671008036729</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add Maven Docker Plugin settings">
+      <created>1671033254183</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671033254183</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +437,8 @@
     <MESSAGE value="fix util" />
     <MESSAGE value="Add Response Wrapper, Update Home RPC Service and Service Impl." />
     <MESSAGE value="Add Home Web Controller, Add Maven Docker Plugin support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Home Web Controller, Add Maven Docker Plugin support" />
+    <MESSAGE value="Add Maven Docker Plugin settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Maven Docker Plugin settings" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

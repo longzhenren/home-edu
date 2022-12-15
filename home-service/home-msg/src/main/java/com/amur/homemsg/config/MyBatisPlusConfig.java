@@ -1,4 +1,4 @@
-package com.example.homemsg.config;
+package com.amur.homemsg.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
