@@ -6,7 +6,6 @@ import com.amur.homeuser.entity.UserEntity;
 import com.amur.homeuser.rpc.Home.*;
 import com.amur.homeuser.rpc.HomeServiceGrpc;
 import com.amur.homeuser.rpc.StatusOuterClass.Status;
-import com.amur.homeuser.rpc.User;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;

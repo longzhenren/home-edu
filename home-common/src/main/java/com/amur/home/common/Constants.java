@@ -41,19 +41,20 @@ public class Constants {
     @AllArgsConstructor
     @Getter
     public enum UserRelativeType {
-        FATHER("FATHER", "父亲"),
-        MOTHER("MOTHER", "母亲"),
-        SON("SON", "儿子"),
-        DAUGHTER("DAUGHTER", "女儿"),
-        GRANDFATHER("GRANDFATHER", "祖父"),
-        GRANDMOTHER("GRANDMOTHER", "祖母"),
-        BROTHER("BROTHER", "哥哥"),
-        SISTER("SISTER", "姐姐"),
-        UNCLE("UNCLE", "叔叔"),
-        AUNT("AUNT", "阿姨"),
-        OTHER("OTHER", "其他");
-        private final String value;
+        FATHER("FATHER", "父亲",0),
+        MOTHER("MOTHER", "母亲",1),
+        SON("SON", "儿子",2),
+        DAUGHTER("DAUGHTER", "女儿",3),
+        GRANDFATHER("GRANDFATHER", "祖父",4),
+        GRANDMOTHER("GRANDMOTHER", "祖母",5),
+        BROTHER("BROTHER", "哥哥",6),
+        SISTER("SISTER", "姐姐",7),
+        UNCLE("UNCLE", "叔叔",8),
+        AUNT("AUNT", "阿姨",9),
+        OTHER("OTHER", "其他",10);
+        private final String description;
         private final String name;
+        private final int value;
     }
 
     public enum Home {

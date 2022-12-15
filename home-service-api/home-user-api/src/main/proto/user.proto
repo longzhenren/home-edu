@@ -12,11 +12,11 @@ service UserService {
 
 }
 message GetUserBaseRequest {
-  int64 home_id = 1;
+  int64 user_id = 1;
 }
 
 message GetUserDetailRequest {
-  int64 home_id = 1;
+  int64 user_id = 1;
 }
 
 message CreateUserRequest{
@@ -50,7 +50,7 @@ message GetUserDetailResponse {
 
 message CreateUserResponse {
   Status status = 1;
-  string user_id = 2;
+  int64 user_id = 2;
 }
 
 message UpdateUserResponse {
@@ -64,8 +64,9 @@ message DeleteUserResponse{
 message UserBase{
   int64 id = 1;
   string name = 2;
+  string phone = 4;
   string avatar_url = 6;
-  MemberType member_type = 9;
+  UserRelativeType relative_type = 9;
 }
 
 message UserDetail{
@@ -77,10 +78,10 @@ message UserDetail{
   string avatar_url = 6;
   int64 home_id = 7;
   string created_at = 8;
-  MemberType member_type = 9;
+  UserRelativeType relative_type = 9;
 }
 
-enum MemberType{
+enum UserRelativeType{
   FATHER = 0;
   MOTHER = 1;
   SON = 2;
