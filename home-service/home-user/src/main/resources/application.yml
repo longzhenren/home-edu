@@ -40,6 +40,10 @@ spring:
         enabled: true
     sampler:
       probability: 1.0
+#  Springboot2.6+ 解决swagger启动报错
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml

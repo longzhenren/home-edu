@@ -22,10 +22,8 @@
         <home.project.version>1.0.0</home.project.version>
         <java.version>1.8</java.version>
         <maven.plugin.version>3.8.1</maven.plugin.version>
-        <!--    <swagger.version>2.10.5</swagger.version>-->
-        <!--    <swagger.models.version>1.6.2</swagger.models.version>-->
-        <!--    <knife4j.version>2.0.9</knife4j.version>-->
 
+        <knife4j.version>3.0.3</knife4j.version>
         <net.devh.grpc.starter.version>2.14.0.RELEASE</net.devh.grpc.starter.version>
         <com.baomidou.mp.version>3.5.2</com.baomidou.mp.version>
         <com.alibaba.fastjson.version>2.0.21</com.alibaba.fastjson.version>
@@ -37,7 +35,6 @@
         <spring.boot.version>2.6.11</spring.boot.version>
         <spring.cloud.version>2021.0.4</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
-
 
 
         <!--Registry2仓库的地址，ip:port-->
@@ -105,18 +102,18 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.plugin.version}</version>
             </plugin>
-<!--            <plugin>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>${maven.plugin.version}</version>-->
-<!--                <configuration>-->
-<!--                    <source>${java.version}</source>-->
-<!--                    <target>${java.version}</target>-->
-<!--                    <encoding>UTF-8</encoding>-->
-<!--                    <compilerArgs>-->
-<!--                        <arg>-parameters</arg>-->
-<!--                    </compilerArgs>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+            <!--                <version>${maven.plugin.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <source>${java.version}</source>-->
+            <!--                    <target>${java.version}</target>-->
+            <!--                    <encoding>UTF-8</encoding>-->
+            <!--                    <compilerArgs>-->
+            <!--                        <arg>-parameters</arg>-->
+            <!--                    </compilerArgs>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 </project>
