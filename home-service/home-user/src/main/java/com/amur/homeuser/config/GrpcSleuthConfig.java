@@ -4,19 +4,17 @@ import brave.Tracing;
 import brave.grpc.GrpcTracing;
 import io.grpc.ClientInterceptor;
 import io.grpc.ServerInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.interceptor.GlobalServerInterceptorConfigurer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import zipkin2.Span;
 import zipkin2.reporter.Reporter;
 
+@Slf4j
 @Configuration
 public class GrpcSleuthConfig {
-
-    private static final Logger logger = LoggerFactory.getLogger(GrpcSleuthConfig.class);
 
     @Bean
     public GrpcTracing grpcTracing(Tracing tracing) {
@@ -41,7 +39,7 @@ public class GrpcSleuthConfig {
     @Bean
     @ConditionalOnProperty(value = "sample.zipkin.enabled", havingValue = "false")
     public Reporter<Span> spanReporter() {
-        return span -> logger.info("{}", span);
+        return span -> log.info("{}", span);
     }
 
     @Bean

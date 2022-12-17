@@ -45,10 +45,26 @@ mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
   global-config:
     db-config:
-      logic-delete-field: isDeleted
+      logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
       id-type: auto
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+        use-model-v3: true
+
+knife4j:
+  # 开启增强
+  enable: true
+  # 开启登录认证
+  basic:
+    enable: true
+    username: admin
+    password: 123456
 
 server:
   port: 8701
