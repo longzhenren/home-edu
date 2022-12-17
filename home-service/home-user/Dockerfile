@@ -1,4 +1,7 @@
-FROM anapsix/alpine-java:8_server-jre_unlimited
+#上amd64用 体积小 arm64需要转译速度慢
+#FROM anapsix/alpine-java:8_server-jre_unlimited
+#arm64原生支持 速度更快 体积大
+FROM openjdk:8-jre
 MAINTAINER hljzhangzhibo@126.com
 ARG JAR_FILE
 ARG APP_NAME
