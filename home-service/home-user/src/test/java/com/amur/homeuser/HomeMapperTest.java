@@ -1,5 +1,6 @@
 package com.amur.homeuser;
 
+import com.amur.homeuser.entity.HomeEntity;
 import com.amur.homeuser.mapper.HomeMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,5 +17,42 @@ public class HomeMapperTest {
     @Test
     public void getHomeById() {
         homeMapper.selectById(1);
+    }
+
+    @Test
+    public void getHomeList() {
+        System.out.println(homeMapper.selectList(null));
+    }
+
+    @Test
+    public void createHome() {
+        HomeEntity homeEntity = new HomeEntity();
+        homeEntity.setId(1L);
+        homeEntity.setName("test");
+        homeEntity.setAddress("test");
+        homeEntity.setDescription("test");
+        homeEntity.setAvatarUrl("test");
+        homeEntity.setImageUrls("test");
+        homeEntity.setAdminId(1L);
+        homeEntity.setHomeUserIds("test");
+        homeMapper.insert(homeEntity);
+    }
+
+    @Test
+    public void deleteHome() {
+        homeMapper.deleteById(1);
+    }
+    @Test
+    public void updateHome() {
+        HomeEntity homeEntity = homeMapper.selectById(1);
+        homeEntity.setId(1L);
+        homeEntity.setName("test");
+        homeEntity.setAddress("test");
+        homeEntity.setDescription("test");
+        homeEntity.setAvatarUrl("test1");
+        homeEntity.setImageUrls("test");
+        homeEntity.setAdminId(1L);
+        homeEntity.setHomeUserIds("test");
+        homeMapper.updateById(homeEntity);
     }
 }

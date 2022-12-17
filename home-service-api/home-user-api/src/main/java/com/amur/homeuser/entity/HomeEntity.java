@@ -1,7 +1,6 @@
 package com.amur.homeuser.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,15 +13,23 @@ import java.util.List;
 @NoArgsConstructor
 @TableName("home")
 public class HomeEntity {
+    @TableId(value = "id")
     private Long id;
     private String name;
     private String address;
     private String description;
     private String avatarUrl;
-    private List<String> imageUrls;
+    private String imageUrls;
     private Long adminId;
-    private List<Long> homeUserIds;
+    private String homeUserIds;
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
+    @TableField(fill = FieldFill.INSERT)
+    private Date updateTime;
     @Version
+    @TableField(fill = FieldFill.INSERT)
     private Integer version;
+    @TableLogic
+    @TableField(fill = FieldFill.INSERT)
+    private Integer deleted;
 }

@@ -1,5 +1,7 @@
 package com.amur.homeuser.service.impl;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
 import com.amur.homeuser.dto.AddHomeImageDto;
 import com.amur.homeuser.entity.HomeEntity;
 import com.amur.homeuser.entity.UserEntity;
@@ -70,7 +72,7 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public List<UserEntity> getHomeUserList(Long homeId) {
         HomeEntity homeEntity = homeMapper.getHomeById(homeId);
-        return homeEntity.getHomeUserIds().stream().map(entity -> {
+        return JSON.parseArray(homeEntity.getHomeUserIds(),Long.class).stream().map(entity -> {
             UserEntity userEntity = new UserEntity();
             userEntity.setId(entity);
             return userEntity;
@@ -85,7 +87,9 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public boolean updateHomeUser(Long homeId, Long userId) {
         HomeEntity homeEntity = homeMapper.getHomeById(homeId);
-        homeEntity.getHomeUserIds().add(userId);
+        List<Long> userIds = JSON.parseArray(homeEntity.getHomeUserIds(),Long.class);
+        userIds.add(userId);
+        homeEntity.setHomeUserIds(JSONArray.toJSONString(userIds));
         return homeMapper.updateById(homeEntity) > 0;
     }
 
@@ -97,7 +101,9 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public boolean deleteHomeUser(Long homeId, Long userId) {
         HomeEntity homeEntity = homeMapper.getHomeById(homeId);
-        homeEntity.getHomeUserIds().remove(userId);
+        List<Long> userIds = JSON.parseArray(homeEntity.getHomeUserIds(),Long.class);
+        userIds.remove(userId);
+        homeEntity.setHomeUserIds(JSONArray.toJSONString(userIds));
         return homeMapper.updateById(homeEntity) > 0;
     }
 
@@ -120,7 +126,9 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public boolean addHomeImage(AddHomeImageDto request) {
         HomeEntity homeEntity = homeMapper.getHomeById(request.getHomeId());
-        homeEntity.getImageUrls().addAll(request.getImageUrl());
+        List<String> imageUrls = JSON.parseArray(homeEntity.getImageUrls(),String.class);
+        imageUrls.addAll(request.getImageUrl());
+        homeEntity.setImageUrls(JSONArray.toJSONString(imageUrls));
         return homeMapper.updateById(homeEntity) > 0;
     }
 }

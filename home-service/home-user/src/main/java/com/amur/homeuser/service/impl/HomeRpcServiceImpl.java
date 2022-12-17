@@ -1,5 +1,6 @@
 package com.amur.homeuser.service.impl;
 
+import com.alibaba.fastjson2.JSON;
 import com.amur.homeuser.dto.AddHomeImageDto;
 import com.amur.homeuser.entity.HomeEntity;
 import com.amur.homeuser.entity.UserEntity;
@@ -34,7 +35,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
                     .setHomeId(homeEntity.getId())
                     .setHomeName(homeEntity.getName())
                     .setHomeAvatar(homeEntity.getAvatarUrl())
-                    .setHomeMemberCount(homeEntity.getHomeUserIds().size())
+                    .setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size())
                     .build()).setStatus(Status.SUCCESS).build();
         } else {
             response = GetHomeBaseResponse.newBuilder().setStatus(Status.FAILED).build();
@@ -58,8 +59,8 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
                     .setHomeAddress(homeEntity.getAddress())
                     .setHomeRegTime(homeEntity.getCreateTime().toString())
                     .setHomeAvatar(homeEntity.getAvatarUrl())
-                    .setHomeMemberCount(homeEntity.getHomeUserIds().size())
-                    .addAllHomeImage(homeEntity.getImageUrls())
+                    .setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size())
+                    .addAllHomeImage(JSON.parseArray(homeEntity.getImageUrls(), String.class))
                     .build()).setStatus(Status.SUCCESS).build();
         } else {
             response = GetHomeDetailResponse.newBuilder().setStatus(Status.FAILED).build();
@@ -81,7 +82,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
                     .setHomeId(homeEntity.getId())
                     .setHomeName(homeEntity.getName())
                     .setHomeAvatar(homeEntity.getAvatarUrl())
-                    .setHomeMemberCount(homeEntity.getHomeUserIds().size())
+                    .setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size())
                     .build());
         }
         response.toBuilder().setStatus(Status.SUCCESS).build();
