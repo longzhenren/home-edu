@@ -26,7 +26,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public HomeEntity getHomeInfo(Long homeId) {
-        return homeMapper.getHomeById(homeId);
+        return homeMapper.selectById(homeId);
     }
 
     /**
@@ -71,7 +71,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public List<UserEntity> getHomeUserList(Long homeId) {
-        HomeEntity homeEntity = homeMapper.getHomeById(homeId);
+        HomeEntity homeEntity = homeMapper.selectById(homeId);
         return JSON.parseArray(homeEntity.getHomeUserIds(),Long.class).stream().map(entity -> {
             UserEntity userEntity = new UserEntity();
             userEntity.setId(entity);
@@ -86,7 +86,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public boolean updateHomeUser(Long homeId, Long userId) {
-        HomeEntity homeEntity = homeMapper.getHomeById(homeId);
+        HomeEntity homeEntity = homeMapper.selectById(homeId);
         List<Long> userIds = JSON.parseArray(homeEntity.getHomeUserIds(),Long.class);
         userIds.add(userId);
         homeEntity.setHomeUserIds(JSONArray.toJSONString(userIds));
@@ -100,7 +100,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public boolean deleteHomeUser(Long homeId, Long userId) {
-        HomeEntity homeEntity = homeMapper.getHomeById(homeId);
+        HomeEntity homeEntity = homeMapper.selectById(homeId);
         List<Long> userIds = JSON.parseArray(homeEntity.getHomeUserIds(),Long.class);
         userIds.remove(userId);
         homeEntity.setHomeUserIds(JSONArray.toJSONString(userIds));
@@ -114,7 +114,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public boolean setHomeAdmin(Long homeId, Long userId) {
-        HomeEntity homeEntity = homeMapper.getHomeById(homeId);
+        HomeEntity homeEntity = homeMapper.selectById(homeId);
         homeEntity.setAdminId(userId);
         return homeMapper.updateById(homeEntity) > 0;
     }
@@ -125,7 +125,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public boolean addHomeImage(AddHomeImageDto request) {
-        HomeEntity homeEntity = homeMapper.getHomeById(request.getHomeId());
+        HomeEntity homeEntity = homeMapper.selectById(request.getHomeId());
         List<String> imageUrls = JSON.parseArray(homeEntity.getImageUrls(),String.class);
         imageUrls.addAll(request.getImageUrl());
         homeEntity.setImageUrls(JSONArray.toJSONString(imageUrls));

@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@Api(tags = "用户模块")
+@Api(value = "用户模块", tags = "user")
 @Slf4j
 @RestController
-@RequestMapping("/home-user")
+@RequestMapping("/user")
 public class UserController {
     @Resource
     private UserService userService;
+
 }

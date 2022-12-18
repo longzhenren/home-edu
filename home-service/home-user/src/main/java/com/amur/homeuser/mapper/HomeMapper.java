@@ -8,8 +8,4 @@ import org.springframework.stereotype.Repository;
 @Component(value ="homeMapper")
 @Repository
 public interface HomeMapper extends BaseMapper<HomeEntity> {
-
-    HomeEntity getHomeById(Long id);
-
-
 }

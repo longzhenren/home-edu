@@ -19,17 +19,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableKnife4j
 public class Swagger2Config {
     @Bean
-    public Docket createRestApi() {
+    public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.amur.homeuser.controller"))
-                .paths(PathSelectors.any())
-                .build()
                 .apiInfo(new ApiInfoBuilder()
                         .title("家庭用户管理")
                         .description("远程家教系统用户管理微服务")
                         .version("1.0")
                         .contact(new Contact("longzhenren", "", "hljzhangzhibo@126.com")
-                        ).build());
+                        ).build())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.amur.homeuser.controller"))
+                .paths(PathSelectors.any())
+                .build();
     }
 }

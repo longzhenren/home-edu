@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserEntity getUserInfo(Long userId) {
-        return userMapper.getUserById(userId);
+        return userMapper.selectById(userId);
     }
 
     /**
