@@ -31,6 +31,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
+<!--        解决nacos和springcloud gateway自带的负载均衡ribbon不兼容导致的503问题-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -40,6 +45,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+<!--        解决M1 Mac Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider异常-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver-dns-native-macos</artifactId>
+            <version>4.1.86.Final</version>
+            <classifier>osx-aarch_64</classifier>
         </dependency>
     </dependencies>
     <build>

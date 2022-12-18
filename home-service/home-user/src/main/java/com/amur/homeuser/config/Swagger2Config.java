@@ -9,19 +9,18 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 /**
  * Swagger API相关配置
  */
 @Configuration
-@EnableSwagger2
+@EnableSwagger2WebMvc
 @EnableKnife4j
 public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .pathMapping("/")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.amur.homeuser.controller"))
                 .paths(PathSelectors.any())

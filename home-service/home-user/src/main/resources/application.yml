@@ -15,6 +15,10 @@ spring:
   aop:
     auto: true
     proxy-target-class: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
 
 
   #  TODO:datasource临时测试用, 后续接入nacos-config
@@ -40,7 +44,7 @@ spring:
         enabled: true
     sampler:
       probability: 1.0
-#  Springboot2.6+ 解决swagger启动报错
+  #  Springboot2.6+ 解决swagger启动报错
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -54,13 +58,6 @@ mybatis-plus:
       logic-not-delete-value: 0
       id-type: auto
 
-springfox:
-  documentation:
-    swagger:
-      v2:
-        path: /api-docs
-        use-model-v3: true
-
 knife4j:
   # 开启增强
   enable: true
@@ -69,6 +66,12 @@ knife4j:
     enable: true
     username: admin
     password: 123456
+  # 开启生产环境屏蔽
+  production: false
 
 server:
   port: 8701
+
+#logging:
+#  level:
+#    root: DEBUG

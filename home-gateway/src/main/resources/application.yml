@@ -9,30 +9,29 @@ spring:
         server-addr: 192.168.2.154:8848
         username: nacos
         password: nacos
-        namespace: dev
       config:
         group: DEFAULT_GROUP
         server-addr: 192.168.2.154:8848
     gateway:
       routes:
-        - id: home-class
-          uri: lb://home-class
-          predicates:
-            - Path=/home-class/**
-          filters:
-            - StripPrefix=1
-        - id: home-msg
-          uri: lb://home-msg
-          predicates:
-            - Path=/home-msg/**
-          filters:
-            - StripPrefix=1
-        - id: home-rtc
-          uri: lb://home-rtc
-          predicates:
-            - Path=/home-rtc/**
-          filters:
-            - StripPrefix=1
+#        - id: home-class
+#          uri: lb://home-class
+#          predicates:
+#            - Path=/home-class/**
+#          filters:
+#            - StripPrefix=1
+#        - id: home-msg
+#          uri: lb://home-msg
+#          predicates:
+#            - Path=/home-msg/**
+#          filters:
+#            - StripPrefix=1
+#        - id: home-rtc
+#          uri: lb://home-rtc
+#          predicates:
+#            - Path=/home-rtc/**
+#          filters:
+#            - StripPrefix=1
         - id: home-user
           uri: lb://home-user
           predicates:
@@ -47,3 +46,6 @@ spring:
   config:
     import:
       - optional:nacos:home-gateway.yml
+  web:
+    resources:
+      add-mappings: true
