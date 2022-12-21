@@ -16,6 +16,7 @@
         <module>home-msg-api</module>
         <module>home-user-api</module>
         <module>home-rtc-api</module>
+        <module>home-tinyid-api</module>
     </modules>
 
     <properties>

@@ -38,7 +38,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.amur.homeuser.HomeUserApplication</mainClass>
+                    <mainClass>com.amur.home.user.HomeUserApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

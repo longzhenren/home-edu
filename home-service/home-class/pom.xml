@@ -32,7 +32,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.amur.homeclass.HomeClassApplication</mainClass>
+                    <mainClass>com.amur.home.class.HomeClassApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

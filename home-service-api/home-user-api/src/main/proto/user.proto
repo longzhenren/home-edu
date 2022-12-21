@@ -1,5 +1,5 @@
 syntax = "proto3";
-package com.amur.homeuser.rpc;
+package com.amur.home.user.rpc;
 
 import "status.proto";
 
