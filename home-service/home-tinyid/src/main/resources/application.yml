@@ -1,0 +1,45 @@
+server:
+  port: 8700
+  servlet:
+    context-path: /tinyid
+datasource:
+  tinyid:
+    names: primary
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    primary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/tinyid?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+batch:
+  size:
+    max: 100000
+spring:
+  application:
+    name: home-tinyid
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.2.154:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 192.168.2.154:8848
+  config:
+    import:
+      - optional:nacos:home-tinyid.yml
+  zipkin:
+    enabled: true
+    base-url: http://192.168.2.154:9411
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
+  banner:
+    location: banner.txt
+
+mybatis-plus:
+  global-config:
+    banner: false

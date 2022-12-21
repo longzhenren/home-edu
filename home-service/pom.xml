@@ -16,6 +16,7 @@
         <module>home-user</module>
         <module>home-msg</module>
         <module>home-rtc</module>
+        <module>home-tinyid</module>
     </modules>
 
     <properties>
@@ -84,9 +85,15 @@
         <dependency>
             <groupId>io.zipkin.brave</groupId>
             <artifactId>brave-instrumentation-grpc</artifactId>
-            <version>5.14.1</version>
+            <version>5.14.0</version>
         </dependency>
-<!--        微服务模式下,子模块不需引入前端ui,仅引入后端micro包即可-->
+        <!-- 从阿里云私服引入 tinyid客户端-->
+        <dependency>
+            <groupId>com.xiaoju.uemc.tinyid</groupId>
+            <artifactId>tinyid-client</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- 微服务模式下,子模块不需引入前端ui,仅引入后端micro包即可-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -95,9 +102,9 @@
 
 
         <!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-zipkin</artifactId>-->
-<!--        </dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-zipkin</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -111,6 +118,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.amur</groupId>
+            <artifactId>home-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -130,7 +142,7 @@
                         <id>default</id>
                         <goals>
                             <!--如果package时不想用docker打包,就注释掉这个goal-->
-                            <goal>build</goal>
+                            <!--                            <goal>build</goal>-->
                             <goal>push</goal>
                         </goals>
                     </execution>

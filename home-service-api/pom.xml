@@ -51,6 +51,11 @@
             <artifactId>protobuf-java</artifactId>
             <version>${protobuf.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.amur</groupId>
+            <artifactId>home-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
