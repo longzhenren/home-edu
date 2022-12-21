@@ -1,4 +1,4 @@
-package com.amur.homeuser.service.impl;
+package com.amur.homeuser.service.rpc;
 
 import com.alibaba.fastjson2.JSON;
 import com.amur.homeuser.dto.AddHomeImageDto;
@@ -7,6 +7,7 @@ import com.amur.homeuser.entity.UserEntity;
 import com.amur.homeuser.rpc.Home.*;
 import com.amur.homeuser.rpc.HomeServiceGrpc;
 import com.amur.homeuser.rpc.StatusOuterClass.Status;
+import com.amur.homeuser.service.impl.HomeServiceImpl;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;

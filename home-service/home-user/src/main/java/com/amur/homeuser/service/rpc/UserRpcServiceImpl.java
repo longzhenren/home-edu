@@ -1,9 +1,10 @@
-package com.amur.homeuser.service.impl;
+package com.amur.homeuser.service.rpc;
 
 import com.amur.homeuser.entity.UserEntity;
 import com.amur.homeuser.rpc.StatusOuterClass.Status;
 import com.amur.homeuser.rpc.User.*;
 import com.amur.homeuser.rpc.UserServiceGrpc;
+import com.amur.homeuser.service.impl.UserServiceImpl;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;

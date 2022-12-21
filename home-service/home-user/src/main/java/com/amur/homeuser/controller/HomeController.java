@@ -41,33 +41,33 @@ public class HomeController {
 
     @ApiOperation("更新家庭信息")
     @PostMapping("/update")
-    public ResponseWrapper<Boolean> updateHome(@ApiParam(value = "homeEntity", required = true) HomeEntity homeEntity) {
-        return ResponseWrapper.data(homeService.updateHome(homeEntity));
+    public ResponseWrapper updateHome(@ApiParam(value = "homeEntity", required = true) HomeEntity homeEntity) {
+        return ResponseWrapper.status(homeService.updateHome(homeEntity));
     }
 
     @PostMapping("/delete")
-    public ResponseWrapper<Boolean> deleteHome(@RequestParam("homeid") Long homeId) {
-        return ResponseWrapper.data(homeService.deleteHome(homeId));
+    public ResponseWrapper deleteHome(@ApiParam(value = "homeId", required = true) Long homeId) {
+        return ResponseWrapper.status(homeService.deleteHome(homeId));
     }
 
     @PostMapping("/updateuser")
-    public ResponseWrapper<Boolean> updateHomeUser(@RequestParam("homeid") Long homeId, @RequestParam("userid") Long userId) {
-        return ResponseWrapper.data(homeService.updateHomeUser(homeId, userId));
+    public ResponseWrapper updateHomeUser(@ApiParam(value = "homeId", required = true) Long homeId, @ApiParam(value = "userId", required = true) Long userId) {
+        return ResponseWrapper.status(homeService.updateHomeUser(homeId, userId));
     }
 
     @PostMapping("/deleteuser")
-    public ResponseWrapper<Boolean> deleteHomeUser(@RequestParam("homeid") Long homeId, @RequestParam("userid") Long userId) {
-        return ResponseWrapper.data(homeService.deleteHomeUser(homeId, userId));
+    public ResponseWrapper deleteHomeUser(@ApiParam(value = "homeId", required = true) Long homeId, @ApiParam(value = "userId", required = true) Long userId) {
+        return ResponseWrapper.status(homeService.deleteHomeUser(homeId, userId));
     }
 
     @PostMapping("/setadmin")
-    public ResponseWrapper<Boolean> setHomeAdmin(@RequestParam("homeid") Long homeId, @RequestParam("userid") Long userId) {
-        return ResponseWrapper.data(homeService.setHomeAdmin(homeId, userId));
+    public ResponseWrapper setHomeAdmin(@ApiParam(value = "homeId", required = true) Long homeId, @ApiParam(value = "userId", required = true) Long userId) {
+        return ResponseWrapper.status(homeService.setHomeAdmin(homeId, userId));
     }
 
     @PostMapping("/addimage")
-    public ResponseWrapper<Boolean> addHomeImage(@RequestBody AddHomeImageDto request) {
-        return ResponseWrapper.data(homeService.addHomeImage(request));
+    public ResponseWrapper addHomeImage(@ApiParam(value = "AddHomeImageDto", required = true) @RequestBody AddHomeImageDto request) {
+        return ResponseWrapper.status(homeService.addHomeImage(request));
     }
 
 }

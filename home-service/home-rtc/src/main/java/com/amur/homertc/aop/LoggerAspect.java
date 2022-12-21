@@ -1,4 +1,4 @@
-package com.amur.homeuser.aop;
+package com.amur.homertc.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -21,7 +21,7 @@ public class LoggerAspect {
     private String appName;
 
     // 切入点
-    @Pointcut("execution(* com.amur.homeuser.controller.*.*(..))")
+    @Pointcut("execution(* com.amur.homertc.controller.*.*(..))")
     public void pointcut() {}
 
     // 前置通知

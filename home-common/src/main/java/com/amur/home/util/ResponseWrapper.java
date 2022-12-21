@@ -47,9 +47,7 @@ public class ResponseWrapper<T> implements Serializable {
     }
 
     public static boolean isSuccess(@Nullable ResponseWrapper<?> result) {
-        return Optional.ofNullable(result)
-                .map(x -> ObjectUtil.nullSafeEquals(StatusCode.SUCCESS.getCode(), x.code))
-                .orElse(Boolean.FALSE);
+        return Optional.ofNullable(result).map(x -> ObjectUtil.nullSafeEquals(StatusCode.SUCCESS.getCode(), x.code)).orElse(Boolean.FALSE);
     }
 
     public static boolean isNotSuccess(@Nullable ResponseWrapper<?> result) {

@@ -21,6 +21,8 @@ public class UserEntity {
     private String email;
     private String avatarUrl;
     private Long homeId;
+    private String sex;
+    private Integer age;
     private UserRelativeType relativeType;
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
