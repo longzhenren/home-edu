@@ -37,7 +37,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.amur.homertc.HomeRtcApplication</mainClass>
+                    <mainClass>com.amur.home.rtc.HomeRtcApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

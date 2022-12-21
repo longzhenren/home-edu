@@ -32,7 +32,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.amur.homemsg.HomeMsgApplication</mainClass>
+                    <mainClass>com.amur.home.msg.HomeMsgApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
