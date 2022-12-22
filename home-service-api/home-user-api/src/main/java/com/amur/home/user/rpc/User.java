@@ -284,13 +284,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.GetUserBaseRequest.class, com.amur.home.user.rpc.User.GetUserBaseRequest.Builder.class);
     }
@@ -471,13 +471,13 @@ public final class User {
         com.amur.home.user.rpc.User.GetUserBaseRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.GetUserBaseRequest.class, com.amur.home.user.rpc.User.GetUserBaseRequest.Builder.class);
       }
@@ -508,7 +508,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseRequest_descriptor;
       }
 
       @java.lang.Override
@@ -773,13 +773,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.GetUserDetailRequest.class, com.amur.home.user.rpc.User.GetUserDetailRequest.Builder.class);
     }
@@ -960,13 +960,13 @@ public final class User {
         com.amur.home.user.rpc.User.GetUserDetailRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.GetUserDetailRequest.class, com.amur.home.user.rpc.User.GetUserDetailRequest.Builder.class);
       }
@@ -997,7 +997,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailRequest_descriptor;
       }
 
       @java.lang.Override
@@ -1327,13 +1327,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserRequest_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserRequest_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.CreateUserRequest.class, com.amur.home.user.rpc.User.CreateUserRequest.Builder.class);
     }
@@ -1683,13 +1683,13 @@ public final class User {
         com.amur.home.user.rpc.User.CreateUserRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserRequest_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.CreateUserRequest.class, com.amur.home.user.rpc.User.CreateUserRequest.Builder.class);
       }
@@ -1726,7 +1726,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
       }
 
       @java.lang.Override
@@ -2375,13 +2375,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserRequest_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserRequest_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.UpdateUserRequest.class, com.amur.home.user.rpc.User.UpdateUserRequest.Builder.class);
     }
@@ -2802,13 +2802,13 @@ public final class User {
         com.amur.home.user.rpc.User.UpdateUserRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserRequest_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.UpdateUserRequest.class, com.amur.home.user.rpc.User.UpdateUserRequest.Builder.class);
       }
@@ -2849,7 +2849,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor;
       }
 
       @java.lang.Override
@@ -3519,13 +3519,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserRequest_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserRequest_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.DeleteUserRequest.class, com.amur.home.user.rpc.User.DeleteUserRequest.Builder.class);
     }
@@ -3706,13 +3706,13 @@ public final class User {
         com.amur.home.user.rpc.User.DeleteUserRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserRequest_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.DeleteUserRequest.class, com.amur.home.user.rpc.User.DeleteUserRequest.Builder.class);
       }
@@ -3743,7 +3743,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserRequest_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor;
       }
 
       @java.lang.Override
@@ -4043,13 +4043,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.GetUserBaseResponse.class, com.amur.home.user.rpc.User.GetUserBaseResponse.Builder.class);
     }
@@ -4278,13 +4278,13 @@ public final class User {
         com.amur.home.user.rpc.User.GetUserBaseResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.GetUserBaseResponse.class, com.amur.home.user.rpc.User.GetUserBaseResponse.Builder.class);
       }
@@ -4321,7 +4321,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor;
       }
 
       @java.lang.Override
@@ -4771,13 +4771,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.GetUserDetailResponse.class, com.amur.home.user.rpc.User.GetUserDetailResponse.Builder.class);
     }
@@ -5006,13 +5006,13 @@ public final class User {
         com.amur.home.user.rpc.User.GetUserDetailResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.GetUserDetailResponse.class, com.amur.home.user.rpc.User.GetUserDetailResponse.Builder.class);
       }
@@ -5049,7 +5049,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor;
       }
 
       @java.lang.Override
@@ -5482,13 +5482,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserResponse_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserResponse_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.CreateUserResponse.class, com.amur.home.user.rpc.User.CreateUserResponse.Builder.class);
     }
@@ -5698,13 +5698,13 @@ public final class User {
         com.amur.home.user.rpc.User.CreateUserResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserResponse_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.CreateUserResponse.class, com.amur.home.user.rpc.User.CreateUserResponse.Builder.class);
       }
@@ -5737,7 +5737,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_CreateUserResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor;
       }
 
       @java.lang.Override
@@ -6067,13 +6067,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserResponse_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserResponse_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.UpdateUserResponse.class, com.amur.home.user.rpc.User.UpdateUserResponse.Builder.class);
     }
@@ -6260,13 +6260,13 @@ public final class User {
         com.amur.home.user.rpc.User.UpdateUserResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserResponse_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.UpdateUserResponse.class, com.amur.home.user.rpc.User.UpdateUserResponse.Builder.class);
       }
@@ -6297,7 +6297,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UpdateUserResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor;
       }
 
       @java.lang.Override
@@ -6592,13 +6592,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserResponse_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserResponse_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.DeleteUserResponse.class, com.amur.home.user.rpc.User.DeleteUserResponse.Builder.class);
     }
@@ -6785,13 +6785,13 @@ public final class User {
         com.amur.home.user.rpc.User.DeleteUserResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserResponse_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.DeleteUserResponse.class, com.amur.home.user.rpc.User.DeleteUserResponse.Builder.class);
       }
@@ -6822,7 +6822,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_DeleteUserResponse_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor;
       }
 
       @java.lang.Override
@@ -7185,13 +7185,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserBase_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserBase_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserBase_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserBase_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.UserBase.class, com.amur.home.user.rpc.User.UserBase.Builder.class);
     }
@@ -7545,13 +7545,13 @@ public final class User {
         com.amur.home.user.rpc.User.UserBaseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserBase_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserBase_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserBase_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserBase_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.UserBase.class, com.amur.home.user.rpc.User.UserBase.Builder.class);
       }
@@ -7590,7 +7590,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserBase_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserBase_descriptor;
       }
 
       @java.lang.Override
@@ -8299,13 +8299,13 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserDetail_descriptor;
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserDetail_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserDetail_fieldAccessorTable
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserDetail_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.amur.home.user.rpc.User.UserDetail.class, com.amur.home.user.rpc.User.UserDetail.Builder.class);
     }
@@ -8826,13 +8826,13 @@ public final class User {
         com.amur.home.user.rpc.User.UserDetailOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserDetail_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserDetail_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserDetail_fieldAccessorTable
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserDetail_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.amur.home.user.rpc.User.UserDetail.class, com.amur.home.user.rpc.User.UserDetail.Builder.class);
       }
@@ -8879,7 +8879,7 @@ public final class User {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.user.rpc.User.internal_static_com_amur_homeuser_rpc_UserDetail_descriptor;
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_UserDetail_descriptor;
       }
 
       @java.lang.Override
@@ -9643,65 +9643,65 @@ public final class User {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_descriptor;
+    internal_static_com_amur_home_user_rpc_GetUserBaseRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_GetUserBaseRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_descriptor;
+    internal_static_com_amur_home_user_rpc_GetUserDetailRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_GetUserDetailRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_CreateUserRequest_descriptor;
+    internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_CreateUserRequest_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_UpdateUserRequest_descriptor;
+    internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_UpdateUserRequest_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_UpdateUserRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_DeleteUserRequest_descriptor;
+    internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_DeleteUserRequest_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_DeleteUserRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_descriptor;
+    internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_GetUserBaseResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_descriptor;
+    internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_GetUserDetailResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_CreateUserResponse_descriptor;
+    internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_CreateUserResponse_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_CreateUserResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_UpdateUserResponse_descriptor;
+    internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_UpdateUserResponse_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_UpdateUserResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_DeleteUserResponse_descriptor;
+    internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_DeleteUserResponse_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_DeleteUserResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_UserBase_descriptor;
+    internal_static_com_amur_home_user_rpc_UserBase_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_UserBase_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_UserBase_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_homeuser_rpc_UserDetail_descriptor;
+    internal_static_com_amur_home_user_rpc_UserDetail_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_homeuser_rpc_UserDetail_fieldAccessorTable;
+      internal_static_com_amur_home_user_rpc_UserDetail_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9711,131 +9711,132 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\022\025com.amur.home.user.rpc\032\014sta" +
-      "tus.proto\"%\n\022GetUserBaseRequest\022\017\n\007user_" +
-      "id\030\001 \001(\003\"\'\n\024GetUserDetailRequest\022\017\n\007user" +
-      "_id\030\001 \001(\003\"T\n\021CreateUserRequest\022\014\n\004name\030\001" +
-      " \001(\t\022\r\n\005email\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\023\n\013de" +
-      "scription\030\004 \001(\t\"y\n\021UpdateUserRequest\022\017\n\007" +
-      "user_id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001" +
-      "(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\022" +
-      "\n\navatar_url\030\006 \001(\t\"$\n\021DeleteUserRequest\022" +
-      "\017\n\007user_id\030\001 \001(\003\"x\n\023GetUserBaseResponse\022" +
-      "-\n\006status\030\001 \001(\0162\035.com.amur.home.user.rpc." +
-      "Status\0222\n\tuser_base\030\002 \001(\0132\037.com.amur.hom" +
-      "euser.rpc.UserBase\"~\n\025GetUserDetailRespo" +
-      "nse\022-\n\006status\030\001 \001(\0162\035.com.amur.home.user." +
-      "rpc.Status\0226\n\013user_detail\030\002 \001(\0132!.com.am" +
-      "ur.homeuser.rpc.UserDetail\"T\n\022CreateUser" +
-      "Response\022-\n\006status\030\001 \001(\0162\035.com.amur.home" +
-      "user.rpc.Status\022\017\n\007user_id\030\002 \001(\003\"C\n\022Upda" +
-      "teUserResponse\022-\n\006status\030\001 \001(\0162\035.com.amu" +
-      "r.homeuser.rpc.Status\"C\n\022DeleteUserRespo" +
-      "nse\022-\n\006status\030\001 \001(\0162\035.com.amur.home.user." +
-      "rpc.Status\"\207\001\n\010UserBase\022\n\n\002id\030\001 \001(\003\022\014\n\004n" +
-      "ame\030\002 \001(\t\022\r\n\005phone\030\004 \001(\t\022\022\n\navatar_url\030\006" +
-      " \001(\t\022>\n\rrelative_type\030\t \001(\0162\'.com.amur.h" +
-      "omeuser.rpc.UserRelativeType\"\322\001\n\nUserDet" +
-      "ail\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003" +
-      " \001(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013description\030\005 \001(\t" +
-      "\022\022\n\navatar_url\030\006 \001(\t\022\017\n\007home_id\030\007 \001(\003\022\022\n" +
-      "\ncreated_at\030\010 \001(\t\022>\n\rrelative_type\030\t \001(\016" +
-      "2\'.com.amur.home.user.rpc.UserRelativeTyp" +
-      "e*\234\001\n\020UserRelativeType\022\n\n\006FATHER\020\000\022\n\n\006MO" +
-      "THER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013GRANDFA" +
-      "THER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BROTHER\020\006\022\n\n\006" +
-      "SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005OTHER\020\n" +
-      "2\232\004\n\013UserService\022j\n\017GetUserBaseInfo\022).co" +
-      "m.amur.homeuser.rpc.GetUserBaseRequest\032*" +
-      ".com.amur.home.user.rpc.GetUserBaseRespon" +
-      "se\"\000\022p\n\021GetUserDetailInfo\022+.com.amur.hom" +
-      "euser.rpc.GetUserDetailRequest\032,.com.amu" +
-      "r.homeuser.rpc.GetUserDetailResponse\"\000\022c" +
-      "\n\nCreateUser\022(.com.amur.home.user.rpc.Cre" +
-      "ateUserRequest\032).com.amur.home.user.rpc.C" +
-      "reateUserResponse\"\000\022c\n\nUpdateUser\022(.com." +
-      "amur.homeuser.rpc.UpdateUserRequest\032).co" +
-      "m.amur.homeuser.rpc.UpdateUserResponse\"\000" +
-      "\022c\n\nDeleteUser\022(.com.amur.home.user.rpc.D" +
-      "eleteUserRequest\032).com.amur.home.user.rpc" +
-      ".DeleteUserResponse\"\000b\006proto3"
+      "\n\nuser.proto\022\026com.amur.home.user.rpc\032\014st" +
+      "atus.proto\"%\n\022GetUserBaseRequest\022\017\n\007user" +
+      "_id\030\001 \001(\003\"\'\n\024GetUserDetailRequest\022\017\n\007use" +
+      "r_id\030\001 \001(\003\"T\n\021CreateUserRequest\022\014\n\004name\030" +
+      "\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\023\n\013d" +
+      "escription\030\004 \001(\t\"y\n\021UpdateUserRequest\022\017\n" +
+      "\007user_id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 " +
+      "\001(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022" +
+      "\022\n\navatar_url\030\006 \001(\t\"$\n\021DeleteUserRequest" +
+      "\022\017\n\007user_id\030\001 \001(\003\"z\n\023GetUserBaseResponse" +
+      "\022.\n\006status\030\001 \001(\0162\036.com.amur.home.user.rp" +
+      "c.Status\0223\n\tuser_base\030\002 \001(\0132 .com.amur.h" +
+      "ome.user.rpc.UserBase\"\200\001\n\025GetUserDetailR" +
+      "esponse\022.\n\006status\030\001 \001(\0162\036.com.amur.home." +
+      "user.rpc.Status\0227\n\013user_detail\030\002 \001(\0132\".c" +
+      "om.amur.home.user.rpc.UserDetail\"U\n\022Crea" +
+      "teUserResponse\022.\n\006status\030\001 \001(\0162\036.com.amu" +
+      "r.home.user.rpc.Status\022\017\n\007user_id\030\002 \001(\003\"" +
+      "D\n\022UpdateUserResponse\022.\n\006status\030\001 \001(\0162\036." +
+      "com.amur.home.user.rpc.Status\"D\n\022DeleteU" +
+      "serResponse\022.\n\006status\030\001 \001(\0162\036.com.amur.h" +
+      "ome.user.rpc.Status\"\210\001\n\010UserBase\022\n\n\002id\030\001" +
+      " \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005phone\030\004 \001(\t\022\022\n\nava" +
+      "tar_url\030\006 \001(\t\022?\n\rrelative_type\030\t \001(\0162(.c" +
+      "om.amur.home.user.rpc.UserRelativeType\"\323" +
+      "\001\n\nUserDetail\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022" +
+      "\r\n\005email\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013descrip" +
+      "tion\030\005 \001(\t\022\022\n\navatar_url\030\006 \001(\t\022\017\n\007home_i" +
+      "d\030\007 \001(\003\022\022\n\ncreated_at\030\010 \001(\t\022?\n\rrelative_" +
+      "type\030\t \001(\0162(.com.amur.home.user.rpc.User" +
+      "RelativeType*\234\001\n\020UserRelativeType\022\n\n\006FAT" +
+      "HER\020\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003" +
+      "\022\017\n\013GRANDFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BR" +
+      "OTHER\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t" +
+      "\022\t\n\005OTHER\020\n2\244\004\n\013UserService\022l\n\017GetUserBa" +
+      "seInfo\022*.com.amur.home.user.rpc.GetUserB" +
+      "aseRequest\032+.com.amur.home.user.rpc.GetU" +
+      "serBaseResponse\"\000\022r\n\021GetUserDetailInfo\022," +
+      ".com.amur.home.user.rpc.GetUserDetailReq" +
+      "uest\032-.com.amur.home.user.rpc.GetUserDet" +
+      "ailResponse\"\000\022e\n\nCreateUser\022).com.amur.h" +
+      "ome.user.rpc.CreateUserRequest\032*.com.amu" +
+      "r.home.user.rpc.CreateUserResponse\"\000\022e\n\n" +
+      "UpdateUser\022).com.amur.home.user.rpc.Upda" +
+      "teUserRequest\032*.com.amur.home.user.rpc.U" +
+      "pdateUserResponse\"\000\022e\n\nDeleteUser\022).com." +
+      "amur.home.user.rpc.DeleteUserRequest\032*.c" +
+      "om.amur.home.user.rpc.DeleteUserResponse" +
+      "\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.amur.home.user.rpc.StatusOuterClass.getDescriptor(),
         });
-    internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_GetUserBaseRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_GetUserBaseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_GetUserBaseRequest_descriptor,
+        internal_static_com_amur_home_user_rpc_GetUserBaseRequest_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_GetUserDetailRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_GetUserDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_GetUserDetailRequest_descriptor,
+        internal_static_com_amur_home_user_rpc_GetUserDetailRequest_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_com_amur_homeuser_rpc_CreateUserRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_com_amur_homeuser_rpc_CreateUserRequest_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_CreateUserRequest_descriptor,
+        internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor,
         new java.lang.String[] { "Name", "Email", "Phone", "Description", });
-    internal_static_com_amur_homeuser_rpc_UpdateUserRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_com_amur_homeuser_rpc_UpdateUserRequest_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_UpdateUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_UpdateUserRequest_descriptor,
+        internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor,
         new java.lang.String[] { "UserId", "Name", "Email", "Phone", "Description", "AvatarUrl", });
-    internal_static_com_amur_homeuser_rpc_DeleteUserRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_com_amur_homeuser_rpc_DeleteUserRequest_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_DeleteUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_DeleteUserRequest_descriptor,
+        internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_descriptor =
+    internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_GetUserBaseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_GetUserBaseResponse_descriptor,
+        internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor,
         new java.lang.String[] { "Status", "UserBase", });
-    internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_descriptor =
+    internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_GetUserDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_GetUserDetailResponse_descriptor,
+        internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor,
         new java.lang.String[] { "Status", "UserDetail", });
-    internal_static_com_amur_homeuser_rpc_CreateUserResponse_descriptor =
+    internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_com_amur_homeuser_rpc_CreateUserResponse_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_CreateUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_CreateUserResponse_descriptor,
+        internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor,
         new java.lang.String[] { "Status", "UserId", });
-    internal_static_com_amur_homeuser_rpc_UpdateUserResponse_descriptor =
+    internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_com_amur_homeuser_rpc_UpdateUserResponse_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_UpdateUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_UpdateUserResponse_descriptor,
+        internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor,
         new java.lang.String[] { "Status", });
-    internal_static_com_amur_homeuser_rpc_DeleteUserResponse_descriptor =
+    internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_com_amur_homeuser_rpc_DeleteUserResponse_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_DeleteUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_DeleteUserResponse_descriptor,
+        internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor,
         new java.lang.String[] { "Status", });
-    internal_static_com_amur_homeuser_rpc_UserBase_descriptor =
+    internal_static_com_amur_home_user_rpc_UserBase_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_com_amur_homeuser_rpc_UserBase_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_UserBase_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_UserBase_descriptor,
+        internal_static_com_amur_home_user_rpc_UserBase_descriptor,
         new java.lang.String[] { "Id", "Name", "Phone", "AvatarUrl", "RelativeType", });
-    internal_static_com_amur_homeuser_rpc_UserDetail_descriptor =
+    internal_static_com_amur_home_user_rpc_UserDetail_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_com_amur_homeuser_rpc_UserDetail_fieldAccessorTable = new
+    internal_static_com_amur_home_user_rpc_UserDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_homeuser_rpc_UserDetail_descriptor,
+        internal_static_com_amur_home_user_rpc_UserDetail_descriptor,
         new java.lang.String[] { "Id", "Name", "Email", "Phone", "Description", "AvatarUrl", "HomeId", "CreatedAt", "RelativeType", });
     com.amur.home.user.rpc.StatusOuterClass.getDescriptor();
   }

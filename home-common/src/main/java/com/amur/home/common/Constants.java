@@ -9,11 +9,20 @@ import java.io.Serializable;
 public class Constants {
     @AllArgsConstructor
     @Getter
+    public enum IdConstants {
+        LOADING_PERCENT(20, "预加载下个号段的百分比"),
+        RETRY(3, "重试次数");
+        final int value;
+        final String desc;
+    }
+
+    @AllArgsConstructor
+    @Getter
     public enum SystemConstants {
-        DEFAULT_NULL_MESSAGE(0,"承载数据空"),
-        DEFAULT_SUCCESS_MESSAGE(1,"操作成功"),
-        DEFAULT_FAILURE_MESSAGE(2,"操作失败"),
-        DEFAULT_UNAUTHORIZED_MESSAGE(3,"认证失败");
+        DEFAULT_NULL_MESSAGE(0, "承载数据空"),
+        DEFAULT_SUCCESS_MESSAGE(1, "操作成功"),
+        DEFAULT_FAILURE_MESSAGE(2, "操作失败"),
+        DEFAULT_UNAUTHORIZED_MESSAGE(3, "认证失败");
         final int code;
         final String message;
     }
@@ -41,17 +50,17 @@ public class Constants {
     @AllArgsConstructor
     @Getter
     public enum UserRelativeType {
-        FATHER("FATHER", "父亲",0),
-        MOTHER("MOTHER", "母亲",1),
-        SON("SON", "儿子",2),
-        DAUGHTER("DAUGHTER", "女儿",3),
-        GRANDFATHER("GRANDFATHER", "祖父",4),
-        GRANDMOTHER("GRANDMOTHER", "祖母",5),
-        BROTHER("BROTHER", "哥哥",6),
-        SISTER("SISTER", "姐姐",7),
-        UNCLE("UNCLE", "叔叔",8),
-        AUNT("AUNT", "阿姨",9),
-        OTHER("OTHER", "其他",10);
+        FATHER("FATHER", "父亲", 0),
+        MOTHER("MOTHER", "母亲", 1),
+        SON("SON", "儿子", 2),
+        DAUGHTER("DAUGHTER", "女儿", 3),
+        GRANDFATHER("GRANDFATHER", "祖父", 4),
+        GRANDMOTHER("GRANDMOTHER", "祖母", 5),
+        BROTHER("BROTHER", "哥哥", 6),
+        SISTER("SISTER", "姐姐", 7),
+        UNCLE("UNCLE", "叔叔", 8),
+        AUNT("AUNT", "阿姨", 9),
+        OTHER("OTHER", "其他", 10);
         private final String description;
         private final String name;
         private final int value;

@@ -158,10 +158,10 @@ public final class StatusOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014status.proto\022\025com.amur.home.user.rpc*P\n" +
-      "\006Status\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020\001\022\021\n\rINVA" +
-      "LID_PARAM\020\002\022\r\n\tNOT_FOUND\020\003\022\013\n\007NO_AUTH\020\004b" +
-      "\006proto3"
+      "\n\014status.proto\022\026com.amur.home.user.rpc*P" +
+      "\n\006Status\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020\001\022\021\n\rINV" +
+      "ALID_PARAM\020\002\022\r\n\tNOT_FOUND\020\003\022\013\n\007NO_AUTH\020\004" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
