@@ -12,7 +12,7 @@
     <artifactId>home-service-api</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>home-class-api</module>
+        <module>home-course-api</module>
         <module>home-msg-api</module>
         <module>home-user-api</module>
         <module>home-rtc-api</module>

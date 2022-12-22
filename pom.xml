@@ -12,7 +12,6 @@
         <module>home-auth</module>
         <module>home-common</module>
         <module>home-gateway</module>
-        <module>home-service-api/home-tinyid-api</module>
     </modules>
     <packaging>pom</packaging>
 
