@@ -11,8 +11,11 @@
 
     <artifactId>home-ops</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <modules>
+        <module>home-sba</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

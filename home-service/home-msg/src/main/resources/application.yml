@@ -1,18 +1,21 @@
 server:
-  port: 8001
+  port: 8702
 spring:
   application:
     name: home-msg
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.2.154:8848
+        server-addr: 127.0.0.1:8848
         username: nacos
         password: nacos
         namespace: public
       config:
         group: DEFAULT_GROUP
-        server-addr: 192.168.2.154:8848
+        server-addr: 127.0.0.1:8848
   config:
     import:
       - optional:nacos:home-msg.yml
+grpc:
+  server:
+    port: 9702

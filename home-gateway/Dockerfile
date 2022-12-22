@@ -5,7 +5,8 @@ FROM openjdk:8-jre
 MAINTAINER hljzhangzhibo@126.com
 ARG JAR_FILE
 ARG APP_NAME
-EXPOSE 8716
+EXPOSE 80
+EXPOSE 9080
 RUN mkdir -p /app/${APP_NAME}
 WORKDIR /app/${APP_NAME}
 COPY ${JAR_FILE} ./app.jar

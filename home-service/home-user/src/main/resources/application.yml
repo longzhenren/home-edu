@@ -4,11 +4,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.2.154:8848
+        server-addr: 127.0.0.1:8848
         username: nacos
         password: nacos
       config:
-        server-addr: 192.168.2.154:8848
+        server-addr: 127.0.0.1:8848
   config:
     import:
       - optional:nacos:home-user.yml
@@ -35,15 +35,6 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
       validation-timeout: 3000
-  zipkin:
-    enabled: true
-    base-url: http://192.168.2.154:9411
-  sleuth:
-    web:
-      client:
-        enabled: true
-    sampler:
-      probability: 1.0
   #  Springboot2.6+ 解决swagger启动报错
   mvc:
     pathmatch:
@@ -75,6 +66,9 @@ knife4j:
 server:
   port: 8701
 
+grpc:
+  server:
+    port: 9701
 #logging:
 #  level:
 #    root: DEBUG

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: home-sba
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 127.0.0.1:8848
+  config:
+    import:
+      - optional:nacos:home-sba.yml
+  banner:
+    location: banner.txt
+
+server:
+  port: 8801
+
+grpc:
+  server:
+    port: 9801
