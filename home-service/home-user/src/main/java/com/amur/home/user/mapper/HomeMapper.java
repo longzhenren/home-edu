@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Component(value ="homeMapper")
+//@Component(value ="homeMapper")
 @Repository
 public interface HomeMapper extends BaseMapper<HomeEntity> {
 }
