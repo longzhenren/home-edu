@@ -1,0 +1,18 @@
+syntax = "proto3";
+package com.amur.home.tinyid.rpc;
+service IdService{
+  rpc GenId(GenIdReq) returns (Resp) {}
+}
+message GenIdReq{
+  string bizType = 1;
+  int32 batchSize = 2;
+  string token = 3;
+}
+message GenIdResp{
+  repeated int64 id = 1;
+}
+message Resp{
+  int32 code = 1;
+  string message = 2;
+  GenIdResp data = 3;
+}

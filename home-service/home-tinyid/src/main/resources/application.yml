@@ -28,17 +28,6 @@ spring:
   config:
     import:
       - optional:nacos:home-tinyid.yml
-  zipkin:
-    enabled: true
-    base-url: http://127.0.0.1:9411
-    sender:
-      type: web
-  sleuth:
-    web:
-      client:
-        enabled: true
-    sampler:
-      probability: 1.0
   banner:
     location: banner.txt
 
@@ -49,3 +38,4 @@ mybatis-plus:
 grpc:
   server:
     port: 9700
+    in-process-name: home-tinyid

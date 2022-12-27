@@ -15,8 +15,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
  * Swagger API相关配置
  */
 @Configuration
-@EnableSwagger2WebMvc
-@EnableKnife4j
+//@EnableSwagger2WebMvc
+//@EnableKnife4j
 public class Swagger2Config {
     @Bean
     public Docket docket() {

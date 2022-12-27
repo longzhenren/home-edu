@@ -27,6 +27,7 @@
         <net.devh.grpc.starter.version>2.14.0.RELEASE</net.devh.grpc.starter.version>
         <com.baomidou.mp.version>3.5.2</com.baomidou.mp.version>
         <com.alibaba.fastjson.version>2.0.21</com.alibaba.fastjson.version>
+        <api.json.version>5.4.0</api.json.version>
 
         <alibaba.nacos.version>2.1.0</alibaba.nacos.version>
         <spring.boot.admin.version>2.6.11</spring.boot.admin.version>
@@ -127,4 +128,27 @@
             <!--            </plugin>-->
         </plugins>
     </build>
+
+    <repositories>
+        <!-- APIJSON 必须用到的托管平台 -->
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
 </project>

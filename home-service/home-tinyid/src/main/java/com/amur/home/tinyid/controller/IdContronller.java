@@ -1,11 +1,11 @@
 package com.amur.home.tinyid.controller;
 
+import com.amur.home.common.Constants.ResultCode;
 import com.amur.home.tinyid.entity.SegmentId;
 import com.amur.home.tinyid.factory.impl.IdGeneratorFactoryServer;
 import com.amur.home.tinyid.generator.IdGenerator;
 import com.amur.home.tinyid.service.SegmentIdService;
 import com.amur.home.tinyid.service.TinyIdTokenService;
-import com.amur.home.tinyid.vo.ErrorCode;
 import com.amur.home.tinyid.vo.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +36,8 @@ public class IdContronller {
         Response<List<Long>> response = new Response<>();
         Integer newBatchSize = checkBatchSize(batchSize);
         if (tinyIdTokenService.canVisit(bizType, token)) {
-            response.setCode(ErrorCode.TOKEN_ERR.getCode());
-            response.setMessage(ErrorCode.TOKEN_ERR.getMessage());
+            response.setCode(ResultCode.TOKEN_ERR.getCode());
+            response.setMessage(ResultCode.TOKEN_ERR.getMessage());
             return response;
         }
         try {
@@ -45,7 +45,7 @@ public class IdContronller {
             List<Long> ids = idGenerator.nextId(newBatchSize);
             response.setData(ids);
         } catch (Exception e) {
-            response.setCode(ErrorCode.SYS_ERR.getCode());
+            response.setCode(ResultCode.SYS_ERR.getCode());
             response.setMessage(e.getMessage());
             log.error("nextId error", e);
         }
@@ -92,15 +92,15 @@ public class IdContronller {
     public Response<SegmentId> nextSegmentId(String bizType, String token) {
         Response<SegmentId> response = new Response<>();
         if (tinyIdTokenService.canVisit(bizType, token)) {
-            response.setCode(ErrorCode.TOKEN_ERR.getCode());
-            response.setMessage(ErrorCode.TOKEN_ERR.getMessage());
+            response.setCode(ResultCode.TOKEN_ERR.getCode());
+            response.setMessage(ResultCode.TOKEN_ERR.getMessage());
             return response;
         }
         try {
             SegmentId segmentId = segmentIdService.getNextSegmentId(bizType);
             response.setData(segmentId);
         } catch (Exception e) {
-            response.setCode(ErrorCode.SYS_ERR.getCode());
+            response.setCode(ResultCode.SYS_ERR.getCode());
             response.setMessage(e.getMessage());
             log.error("nextSegmentId error", e);
         }

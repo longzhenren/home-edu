@@ -4,6 +4,7 @@ spring:
   cloud:
     nacos:
       discovery:
+        register-enabled: true # 启用注册,本地环境设置为false避免混乱
         server-addr: 127.0.0.1:8848
         username: nacos
         password: nacos
@@ -19,8 +20,6 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
     default-property-inclusion: non_null
-
-
   #  TODO:datasource临时测试用, 后续接入nacos-config
   datasource:
     url: jdbc:mysql://localhost:3306/homeedu?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
@@ -47,14 +46,11 @@ mybatis-plus:
   global-config:
     db-config:
       logic-delete-field: deleted
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-      id-type: auto
     banner: false
 
 knife4j:
   # 开启增强
-  enable: true
+  enable: false
   # 开启登录认证
   basic:
     enable: true
@@ -69,6 +65,16 @@ server:
 grpc:
   server:
     port: 9701
+  client:
+    home-tinyid:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-tinyid'
+      negotiation-type: plaintext
 #logging:
 #  level:
 #    root: DEBUG
+
+tinyid:
+  token: 0f673adf80504e2eaa552f5d791b644c
+  bizType: home

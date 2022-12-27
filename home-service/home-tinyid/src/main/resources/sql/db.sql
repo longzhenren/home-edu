@@ -1,4 +1,4 @@
-# use tinyid;
+use tinyid;
 CREATE TABLE `tiny_id_info`
 (
     `id`          bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '自增主键',
@@ -36,12 +36,47 @@ VALUES (1, 'test', 1, 1, 100000, 1, 0, '2018-07-21 23:52:58', '2018-07-22 23:19:
 
 INSERT INTO `tiny_id_info` (`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`,
                             `update_time`, `version`)
-VALUES (2, 'test_odd', 1, 1, 100000, 2, 1, '2018-07-21 23:52:58', '2018-07-23 00:39:24', 3);
+VALUES (2, 'home', 1, 1, 100000, 1, 0, '2018-07-21 23:52:58', '2018-07-22 23:19:27', 1);
+
+INSERT INTO `tiny_id_info` (`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`,
+                            `update_time`, `version`)
+VALUES (3, 'user', 1, 1, 100000, 1, 0, '2018-07-21 23:52:58', '2018-07-22 23:19:27', 1);
+
+INSERT INTO `tiny_id_info` (`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`,
+                            `update_time`, `version`)
+VALUES (4, 'course', 1, 1, 100000, 1, 0, '2018-07-21 23:52:58', '2018-07-22 23:19:27', 1);
+
+INSERT INTO `tiny_id_info` (`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`,
+                            `update_time`, `version`)
+VALUES (5, 'rtc', 1, 1, 100000, 1, 0, '2018-07-21 23:52:58', '2018-07-22 23:19:27', 1);
+
+INSERT INTO `tiny_id_info` (`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`,
+                            `update_time`, `version`)
+VALUES (6, 'msg', 1, 1, 100000, 1, 0, '2018-07-21 23:52:58', '2018-07-22 23:19:27', 1);
+
+INSERT INTO `tiny_id_info` (`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`,
+                            `update_time`, `version`)
+VALUES (7, 'test_odd', 1, 1, 100000, 2, 1, '2018-07-21 23:52:58', '2018-07-23 00:39:24', 3);
 
 
 INSERT INTO `tiny_id_token` (`id`, `token`, `biz_type`, `remark`, `create_time`, `update_time`)
 VALUES (1, '0f673adf80504e2eaa552f5d791b644c', 'test', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
 
 INSERT INTO `tiny_id_token` (`id`, `token`, `biz_type`, `remark`, `create_time`, `update_time`)
-VALUES (2, '0f673adf80504e2eaa552f5d791b644c', 'test_odd', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
+VALUES (2, '0f673adf80504e2eaa552f5d791b644c', 'home', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
+
+INSERT INTO `tiny_id_token` (`id`, `token`, `biz_type`, `remark`, `create_time`, `update_time`)
+VALUES (3, '0f673adf80504e2eaa552f5d791b644c', 'user', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
+
+INSERT INTO `tiny_id_token` (`id`, `token`, `biz_type`, `remark`, `create_time`, `update_time`)
+VALUES (4, '0f673adf80504e2eaa552f5d791b644c', 'course', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
+
+INSERT INTO `tiny_id_token` (`id`, `token`, `biz_type`, `remark`, `create_time`, `update_time`)
+VALUES (5, '0f673adf80504e2eaa552f5d791b644c', 'rtc', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
+
+INSERT INTO `tiny_id_token` (`id`, `token`, `biz_type`, `remark`, `create_time`, `update_time`)
+VALUES (6, '0f673adf80504e2eaa552f5d791b644c', 'msg', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
+
+INSERT INTO `tiny_id_token` (`id`, `token`, `biz_type`, `remark`, `create_time`, `update_time`)
+VALUES (7, '0f673adf80504e2eaa552f5d791b644c', 'test_odd', '1', '2017-12-14 16:36:46', '2017-12-14 16:36:48');
 

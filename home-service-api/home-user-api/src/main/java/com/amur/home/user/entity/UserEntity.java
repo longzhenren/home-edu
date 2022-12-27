@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @TableName("user")
 public class UserEntity {
-    @TableId(value = "id")
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     private String name;
     private String description;

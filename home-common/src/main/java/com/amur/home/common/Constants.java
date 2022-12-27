@@ -7,6 +7,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
 
 public class Constants {
+
+    @AllArgsConstructor
+    @Getter
+    public enum ResultCode {
+        TOKEN_ERR(5, "token is error"),
+        SYS_ERR(6, "sys error"),
+        SUCCESS(0, "success");
+
+        private Integer code;
+        private String message;
+    }
     @AllArgsConstructor
     @Getter
     public enum IdConstants {
