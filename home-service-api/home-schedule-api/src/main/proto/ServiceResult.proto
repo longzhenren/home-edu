@@ -1,0 +1,10 @@
+syntax = "proto3";
+package com.amur.home.schedule.rpc;
+
+option java_package = "com.amur.home.schedule.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "ServiceResultProto";
+message ServiceResult {
+  bool success = 1;
+  string message = 2;
+}

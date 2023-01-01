@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package com.amur.home.schedule.rpc;
+
+import "google/protobuf/timestamp.proto";
+import "ServiceResult.proto";
+
+option java_package = "com.amur.home.schedule.rpc";
+option java_outer_classname = "ScheduleServiceProto";
+option java_multiple_files = false;
+
+
+message Schedule {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 create_user_id = 3;
+  string title = 4;
+  string content = 5;
+  string location = 6;
+  string remark = 7;
+  string color = 8;
+  bool all_day = 9;
+  bool can_edit = 10;
+  google.protobuf.Timestamp start_time = 11;
+  google.protobuf.Timestamp end_time = 12;
+  google.protobuf.Timestamp create_time = 13;
+  google.protobuf.Timestamp update_time = 14;
+}
+
+message AddScheduleRequest {
+  int64 create_user_id = 1;
+  int64 user_id = 2;
+  string title = 3;
+  string content = 4;
+  google.protobuf.Timestamp start_time = 5;
+  google.protobuf.Timestamp end_time = 6;
+  string location = 7;
+  string remark = 8;
+  string color = 9;
+  bool all_day = 10;
+  bool can_edit = 11;
+}
+
+message DelScheduleRequest {
+  int64 id = 1;
+}
+
+message UpdateScheduleRequest {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
+  google.protobuf.Timestamp start_time = 4;
+  google.protobuf.Timestamp end_time = 5;
+  string location = 6;
+  string remark = 7;
+  string color = 8;
+  bool all_day = 9;
+}
+
+message GetScheduleInfoByIdRequest {
+  int64 id = 1;
+}
+
+message GetScheduleInfoByUserIdRequest {
+  int64 user_id = 1;
+}
+
+message GetScheduleInfoByUserIdAndTimeRequest {
+  int64 user_id = 1;
+  string keyword = 2;
+  google.protobuf.Timestamp start_time = 3;
+  google.protobuf.Timestamp end_time = 4;
+}
+
+message GetScheduleListResponse {
+  repeated Schedule schedules = 1;
+  ServiceResult result = 2;
+}
+
+message GetScheduleInfoResponse {
+  Schedule schedule = 1;
+  ServiceResult result = 2;
+}
+
+message AddScheduleResponse {
+  int64 id = 1;
+  ServiceResult result = 2;
+}
+
+message DelScheduleByCourseIdRequest{
+  int64 courseId = 1;
+}
+
+message UpdateScheduleByCourseIdRequest{
+  int64 courseId = 1;
+  string title = 2;
+  string content = 3;
+  google.protobuf.Timestamp start_time = 4;
+  google.protobuf.Timestamp end_time = 5;
+  string location = 6;
+}
+
+message DelScheduleByCourseIdAndUserIdRequest{
+  int64 courseId = 1;
+  int64 userId = 2;
+}
+
+service ScheduleService {
+  rpc AddSchedule (AddScheduleRequest) returns (AddScheduleResponse);
+  rpc DelSchedule (DelScheduleRequest) returns (ServiceResult);
+  rpc UpdateSchedule (UpdateScheduleRequest) returns (ServiceResult);
+  rpc GetScheduleInfoById (GetScheduleInfoByIdRequest) returns (GetScheduleInfoResponse);
+  rpc GetScheduleInfoByUserId (GetScheduleInfoByUserIdRequest) returns (GetScheduleListResponse);
+  rpc GetScheduleInfoByUserIdAndTime (GetScheduleInfoByUserIdAndTimeRequest) returns (GetScheduleListResponse);
+  rpc DelScheduleByCourseId(DelScheduleByCourseIdRequest) returns (ServiceResult);
+  rpc UpdateScheduleByCourseId(UpdateScheduleByCourseIdRequest) returns (ServiceResult);
+  rpc DelScheduleByCourseIdAndUserId(DelScheduleByCourseIdAndUserIdRequest) returns (ServiceResult);
+}
