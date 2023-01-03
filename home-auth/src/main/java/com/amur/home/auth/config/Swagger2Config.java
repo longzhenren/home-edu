@@ -1,4 +1,4 @@
-package com.amur.home.user.config;
+package com.amur.home.auth.config;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
@@ -16,19 +16,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
  */
 @Configuration
 //@EnableSwagger2WebMvc
-@EnableKnife4j
+//@EnableKnife4j
 public class Swagger2Config {
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()
-                        .title("家庭用户管理")
-                        .description("远程家教系统用户管理微服务")
+                        .title("实时音视频")
+                        .description("远程家教系统实时音视频微服务")
                         .version("1.0")
                         .contact(new Contact("longzhenren", "", "hljzhangzhibo@126.com")
                         ).build())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.amur.home.user.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.amur.home.rtc.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

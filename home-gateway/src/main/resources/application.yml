@@ -15,6 +15,15 @@ spring:
         group: DEFAULT_GROUP
         server-addr: 127.0.0.1:8848
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
       routes:
         - id: home-user
           uri: lb://home-user

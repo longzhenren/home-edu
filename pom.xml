@@ -30,6 +30,9 @@
         <api.json.version>5.4.0</api.json.version>
 
         <alibaba.nacos.version>2.1.0</alibaba.nacos.version>
+        <guava.version>31.1-jre</guava.version>
+        <captcha.version>1.6.2</captcha.version>
+        <blade.tool.version>3.5.0</blade.tool.version>
         <spring.boot.admin.version>2.6.11</spring.boot.admin.version>
         <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
 
@@ -131,13 +134,13 @@
 
     <repositories>
         <!-- APIJSON 必须用到的托管平台 -->
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+<!--        <repository>-->
+<!--            <id>jitpack.io</id>-->
+<!--            <url>https://jitpack.io</url>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
 
         <repository>
             <id>spring-snapshots</id>

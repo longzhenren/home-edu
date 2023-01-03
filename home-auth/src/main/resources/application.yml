@@ -16,6 +16,19 @@ spring:
   config:
     import:
       - optional:nacos:home-auth.yml
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+#    lettuce:
+#      pool:
+#        max-active: 500
+#        max-wait: -1ms
+#        max-idle: 100
+#        min-idle: 10
+#    timeout: 1000ms
 grpc:
   server:
     port: 9002
+
+
