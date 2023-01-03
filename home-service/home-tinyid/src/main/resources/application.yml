@@ -1,7 +1,7 @@
 server:
   port: 8700
-  servlet:
-    context-path: /tinyid
+#  servlet:
+#    context-path: /tinyid
 datasource:
   tinyid:
     names: primary
@@ -39,3 +39,29 @@ grpc:
   server:
     port: 9700
     in-process-name: home-tinyid
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.amur.home.tinyid.controller
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-host: true
+    enable-host-text: 127.0.0.1/home-tinyid #填写为网关地址,用于在网管聚合界面调试接口
+  basic:
+    enable: true
+    username: admin
+    password: 123456
+  # 开启生产环境屏蔽
+  production: false

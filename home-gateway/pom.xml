@@ -38,9 +38,14 @@
         </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
             <version>${knife4j.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.xiaoymin</groupId>-->
+<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--            <version>${knife4j.version}</version>-->
+<!--        </dependency>-->
 <!--        解决M1 Mac Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider异常-->
         <dependency>
             <groupId>io.netty</groupId>

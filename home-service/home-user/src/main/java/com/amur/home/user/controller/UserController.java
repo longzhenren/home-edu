@@ -1,11 +1,12 @@
 package com.amur.home.user.controller;
 
-import com.amur.home.util.ResponseWrapper;
 import com.amur.home.user.entity.UserEntity;
 import com.amur.home.user.service.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import com.amur.home.util.ResponseWrapper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@Api(value = "用户模块", tags = "user")
+@Tag(name = "用户模块")
 @Slf4j
 @RestController
 @RequestMapping("/user")
@@ -22,25 +23,29 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @ApiOperation("获取用户信息")
+    @Operation(summary = "获取用户信息")
+    @Parameters({@Parameter(name = "userId", description = "用户id", required = true)})
     @GetMapping("/getinfo")
-    public ResponseWrapper<UserEntity> getUserInfo(@ApiParam("userid") Long userId) {
+    public ResponseWrapper<UserEntity> getUserInfo(Long userId) {
         return ResponseWrapper.data(userService.getUserInfo(userId));
     }
 
-    @ApiOperation("更新用户信息")
+    @Operation(summary = "更新用户信息")
+    @Parameters({@Parameter(name = "userEntity", description = "用户实体", required = true)})
     @PostMapping("/update")
     public ResponseWrapper updateUser(UserEntity userEntity) {
         return ResponseWrapper.status(userService.updateUser(userEntity));
     }
 
-    @ApiOperation("删除用户")
+    @Operation(summary = "删除用户")
+    @Parameters({@Parameter(name = "userId", description = "用户id", required = true)})
     @GetMapping("/delete")
-    public ResponseWrapper deleteUser(@ApiParam("userid") Long userId) {
+    public ResponseWrapper deleteUser(Long userId) {
         return ResponseWrapper.status(userService.deleteUser(userId));
     }
 
-    @ApiOperation("创建用户")
+    @Operation(summary = "创建用户")
+    @Parameters({@Parameter(name = "userEntity", description = "用户实体", required = true)})
     @PostMapping("/create")
     public ResponseWrapper<Long> createUser(UserEntity userEntity) {
         return ResponseWrapper.data(userService.createUser(userEntity));

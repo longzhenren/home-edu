@@ -40,3 +40,16 @@ spring:
 grpc:
   server:
     port: 9080
+
+knife4j:
+  gateway:
+    enable: true
+    routes:
+      - name: 用户服务
+        url: /home-user/v3/api-docs?group=default
+        service-name: user-service
+        order: 2
+      - name: ID服务
+        url: /home-tinyid/v3/api-docs?group=default
+        service-name: id-service
+        order: 3

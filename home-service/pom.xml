@@ -91,7 +91,7 @@
         <!-- 微服务模式下,子模块不需引入前端ui,仅引入后端micro包即可-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
             <version>${knife4j.version}</version>
         </dependency>
         <dependency>
