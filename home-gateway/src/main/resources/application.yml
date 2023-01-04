@@ -24,6 +24,10 @@ spring:
           uri: lb://home-tinyid
           predicates:
             - Path=/home-tinyid/**
+        - id: home-sba
+          uri: lb://home-sba
+          predicates:
+            - Path=/home-sba/**
       #          filters:
       #            - StripPrefix=1
       discovery:

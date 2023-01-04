@@ -2,13 +2,27 @@
 
 ## 项目简介
 
+### 开发环境
+> 系统: Macos 13.1
+> 硬件: 16G内存 Apple Silicon M1 Pro
+> IDE: IDEA 2022.2.3
+> JDK: Corretto-1.8_352
+> Maven: 3.8.6
+> Docker: 20.10.21
+> Docker-compose: 2.13.0
+> MySQL: 8.0.26
+> Nacos: 2.1.0
+> SpringBoot: 2.6.11
+> SpringCloud: 2021.0.4
+> SpringCloudAlibaba: 2021.0.4.0
+> MybatisPlus: 3.5.2
 
 
 ## 二次开发说明
 
 ### 配置基础软件
 
-安装jdk1.8、maven3.6+、nacos2.0.3+、zipkin、docker、proto-compiler、minio、MySQL8.0+、SRS4.0+
+安装jdk1.8、maven3.6+、nacos2.0.3+、docker、proto-compiler、minio、MySQL8.0+、SRS4.0+
 
 ### 添加api模块
 
