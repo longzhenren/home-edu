@@ -41,7 +41,7 @@ public class HomeMapperTest {
 
     @Test
     public void createHome() {
-        for(int i=0;i<10000;i++){
+//        for(int i=0;i<10000;i++){
             HomeEntity homeEntity = new HomeEntity();
             homeEntity.setName("test");
             homeEntity.setAddress("test");
@@ -52,7 +52,7 @@ public class HomeMapperTest {
             homeEntity.setHomeUserIds("test");
             homeMapper.insert(homeEntity);
             System.out.println(homeEntity.getId());
-        }
+//        }
 //        homeMapper.insert(homeEntity);
     }
 

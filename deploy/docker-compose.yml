@@ -1,0 +1,196 @@
+version: "3"
+services:
+  nacos:
+    image: nacos/nacos-server:2.0.4
+    hostname: "nacos-standalone"
+    environment:
+      - MODE=standalone
+    volumes:
+      - /docker/nacos/standalone-logs/:/home/nacos/logs
+    ports:
+      - 8848:8848
+      - 9848:9848
+      - 9849:9849
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.10
+  redis:
+    image: redis:7.0.7-alpine
+    hostname: "home-redis"
+    ports:
+      - 6379:6379
+    volumes:
+      - /docker/redis/data:/data
+    command: "redis-server --appendonly yes"
+    privileged: true
+    restart: always
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.11
+
+  home-sba:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-sba:0.0.1-SNAPSHOT"
+    container_name: home-sba
+    restart: always
+    ports:
+      - "8801:8801"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-sba/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.20
+
+  home-gateway:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-gateway:0.0.1-SNAPSHOT"
+    container_name: home-gateway
+    restart: always
+    ports:
+      - "8080:8080"
+      - "9080:9080"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-gateway/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.30
+
+  home-tinyid:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-tinyid:0.0.1-SNAPSHOT"
+    container_name: home-tinyId
+    restart: always
+    ports:
+      - "8700:8700"
+      - "9700:9700"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-tinyId/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.31
+
+  home-auth:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-auth:0.0.1-SNAPSHOT"
+    container_name: home-auth
+    restart: always
+    ports:
+      - "8002:8002"
+      - "9002:9002"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-auth/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.32
+
+  home-user:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-user:0.0.1-SNAPSHOT"
+    container_name: home-user
+    restart: always
+    ports:
+      - "8701:8701"
+      - "9701:9701"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-user/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.33
+
+  home-course:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-course:0.0.1-SNAPSHOT"
+    container_name: home-course
+    restart: always
+    ports:
+      - "8704:8704"
+      - "9704:9704"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-course/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.34
+
+  home-msg:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-msg:0.0.1-SNAPSHOT"
+    container_name: home-msg
+    restart: always
+    ports:
+      - "8703:8703"
+      - "9703:9703"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-msg/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.35
+
+  home-rtc:
+    image: "registry.cn-beijing.aliyuncs.com/amur/home-rtc:0.0.1-SNAPSHOT"
+    container_name: home-rtc
+    restart: always
+    ports:
+      - "8702:8702"
+      - "9702:9702"
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /home/docker/home-rtc/logs:/home/logs
+    depends_on:
+      - nacos
+    networks:
+      home_net:
+        - ipv4_address: 172.30.0.36
+
+networks:
+  home_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.30.0.0/16

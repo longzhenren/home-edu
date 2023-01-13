@@ -1,6 +1,6 @@
 package com.amur.home.tinyid.service.rpc;
 
-import com.amur.home.common.Constants.ResultCode;
+import com.amur.home.common.constant.Constants.ResultCode;
 import com.amur.home.tinyid.factory.impl.IdGeneratorFactoryServer;
 import com.amur.home.tinyid.generator.IdGenerator;
 import com.amur.home.tinyid.rpc.IdServiceGrpc;

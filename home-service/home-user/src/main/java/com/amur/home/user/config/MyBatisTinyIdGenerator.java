@@ -35,6 +35,6 @@ public class MyBatisTinyIdGenerator implements IdentifierGenerator {
         } catch (Exception e) {
             log.error("从Tiny-ID获取id异常", e);
         }
-        return -1L;
+        return null;
     }
 }

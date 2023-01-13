@@ -1,21 +1,90 @@
-server:
-  port: 8002
 spring:
   application:
     name: home-auth
   cloud:
     nacos:
       discovery:
+        register-enabled: true # 启用注册,本地环境设置为false避免混乱
         server-addr: 127.0.0.1:8848
         username: nacos
         password: nacos
-        namespace: public
       config:
-        group: DEFAULT_GROUP
         server-addr: 127.0.0.1:8848
   config:
     import:
       - optional:nacos:home-auth.yml
+  main:
+    allow-bean-definition-overriding: true
+  aop:
+    auto: true
+    proxy-target-class: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  #  TODO:datasource临时测试用, 后续接入nacos-config
+  datasource:
+    url: jdbc:mysql://localhost:3306/homeedu?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      validation-timeout: 3000
+  banner:
+    location: banner.txt
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+    banner: false
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.amur.home.user.controller
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-host: true
+    enable-host-text: 127.0.0.1/home-auth #填写为网关地址,用于在网关聚合界面调试接口
+  basic:
+    enable: true
+    username: admin
+    password: 123456
+  # 开启生产环境屏蔽
+  production: false
+
+server:
+  port: 8707
+
 grpc:
   server:
-    port: 9002
+    port: 9707
+  client:
+    home-user:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-user'
+      negotiation-type: plaintext
+
+blade:
+  token:
+    sign-key: "463dfd2b26b046ea018c92ba5d897253"
