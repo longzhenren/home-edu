@@ -1,7 +1,7 @@
-package com.amur.home.util;
+package com.amur.home.common.util;
 
-import com.amur.home.common.Constants.StatusCode;
-import com.amur.home.common.Constants.SystemConstants;
+import com.amur.home.common.constant.Constants.StatusCode;
+import com.amur.home.common.constant.Constants.SystemConstants;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @NoArgsConstructor
 public class ServiceRetWrapper<T> implements Serializable {
     private static final long serialVersionUID = 1L;
-    private int code;
+    private String code;
     private boolean isSuccess;
     private T data;
     private String msg;
@@ -36,14 +36,21 @@ public class ServiceRetWrapper<T> implements Serializable {
     }
 
     private ServiceRetWrapper(StatusCode statusCode, T data, String msg) {
-        this(statusCode.getCode(), data, msg);
+
     }
 
     private ServiceRetWrapper(int code, T data, String msg) {
+        this.code = String.valueOf(code);
+        this.data = data;
+        this.msg = msg;
+        this.isSuccess = StatusCode.SUCCESS.getCode().equals(String.valueOf(code));
+    }
+
+    public ServiceRetWrapper(String code, T data, String msg) {
         this.code = code;
         this.data = data;
         this.msg = msg;
-        this.isSuccess = StatusCode.SUCCESS.getCode() == code;
+        this.isSuccess = StatusCode.SUCCESS.getCode().equals(code);
     }
 
     public static boolean isSuccess(@Nullable ServiceRetWrapper<?> result) {
@@ -65,6 +72,10 @@ public class ServiceRetWrapper<T> implements Serializable {
     }
 
     public static <T> ServiceRetWrapper<T> data(int code, T data, String msg) {
+        return new ServiceRetWrapper<>(code, data, data == null ? SystemConstants.DEFAULT_NULL_MESSAGE.getMessage() : msg);
+    }
+
+    public static <T> ServiceRetWrapper<T> data(String code, T data, String msg) {
         return new ServiceRetWrapper<>(code, data, data == null ? SystemConstants.DEFAULT_NULL_MESSAGE.getMessage() : msg);
     }
 

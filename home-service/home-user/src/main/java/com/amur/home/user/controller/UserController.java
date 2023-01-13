@@ -2,7 +2,7 @@ package com.amur.home.user.controller;
 
 import com.amur.home.user.entity.UserEntity;
 import com.amur.home.user.service.UserService;
-import com.amur.home.util.ResponseWrapper;
+import com.amur.home.common.util.ResponseWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

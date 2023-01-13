@@ -70,11 +70,6 @@
         <!--            </exclusions>-->
         <!--        </dependency>-->
         <dependency>
-            <groupId>com.alibaba.fastjson2</groupId>
-            <artifactId>fastjson2</artifactId>
-            <version>${com.alibaba.fastjson.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
@@ -82,12 +77,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 从阿里云私服引入 tinyid客户端-->
-        <dependency>
-            <groupId>com.xiaoju.uemc.tinyid</groupId>
-            <artifactId>tinyid-client</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
-        </dependency>
+<!--        &lt;!&ndash; 从阿里云私服引入 tinyid客户端&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.xiaoju.uemc.tinyid</groupId>-->
+<!--            <artifactId>tinyid-client</artifactId>-->
+<!--            <version>0.1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
         <!-- 微服务模式下,子模块不需引入前端ui,仅引入后端micro包即可-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -112,6 +107,12 @@
             <groupId>com.amur</groupId>
             <artifactId>home-common</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springblade</groupId>
+            <artifactId>blade-core-tool</artifactId>
+            <version>3.5.0</version>
+            <scope>compile</scope>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.amur</groupId>-->

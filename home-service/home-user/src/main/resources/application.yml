@@ -34,10 +34,10 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
       validation-timeout: 3000
-  #  Springboot2.6+ 解决swagger启动报错
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
+#  #  Springboot2.6+ 解决swagger启动报错
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
   banner:
     location: banner.txt
 
@@ -67,7 +67,7 @@ knife4j:
   setting:
     language: zh_cn
     enable-host: true
-    enable-host-text: 127.0.0.1/home-user #填写为网关地址,用于在网管聚合界面调试接口
+    enable-host-text: 127.0.0.1/home-user #填写为网关地址,用于在网关聚合界面调试接口
   basic:
     enable: true
     username: admin

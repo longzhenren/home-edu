@@ -1,6 +1,6 @@
 package com.amur.home.tinyid.service.impl;
 
-import com.amur.home.common.Constants.IdConstants;
+import com.amur.home.common.constant.Constants.IdConstants;
 import com.amur.home.tinyid.dao.TinyIdInfoDAO;
 import com.amur.home.tinyid.entity.SegmentId;
 import com.amur.home.tinyid.entity.TinyIdInfo;

@@ -89,6 +89,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${com.alibaba.fastjson.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
@@ -130,14 +136,14 @@
     </build>
 
     <repositories>
-        <!-- APIJSON 必须用到的托管平台 -->
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+<!--        &lt;!&ndash; APIJSON 必须用到的托管平台 &ndash;&gt;-->
+<!--        <repository>-->
+<!--            <id>jitpack.io</id>-->
+<!--            <url>https://jitpack.io</url>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
 
         <repository>
             <id>spring-snapshots</id>

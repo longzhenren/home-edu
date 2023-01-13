@@ -1,4 +1,4 @@
-package com.amur.home.common;
+package com.amur.home.common.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -54,8 +54,12 @@ public class Constants {
         PARAM_TYPE_ERROR(HttpServletResponse.SC_BAD_REQUEST, "请求参数类型错误"),
         PARAM_BIND_ERROR(HttpServletResponse.SC_BAD_REQUEST, "请求参数绑定错误"),
         PARAM_VALID_ERROR(HttpServletResponse.SC_BAD_REQUEST, "参数校验失败");
-        final int code;
+        final String code;
         final String message;
+        private StatusCode(int code, String message) {
+            this.code = String.valueOf(code);
+            this.message = message;
+        }
     }
 
     @AllArgsConstructor

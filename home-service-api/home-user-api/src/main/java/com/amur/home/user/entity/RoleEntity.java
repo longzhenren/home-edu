@@ -6,27 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("home")
-public class HomeEntity implements Serializable {
+@TableName("role")
+public class RoleEntity implements Serializable {
     private static final long serialVersionUID = 1L;
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     private String name;
-    private String address;
-    private String description;
-    private String avatarUrl;
-    private String imageUrls;
-    private Long adminId;
-    private String homeUserIds;
-    @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
-    @TableField(fill = FieldFill.INSERT)
-    private Date updateTime;
     @Version
     @TableField(fill = FieldFill.INSERT)
     private Integer version;

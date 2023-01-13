@@ -1,7 +1,7 @@
-package com.amur.home.util;
+package com.amur.home.common.util;
 
-import com.amur.home.common.Constants.StatusCode;
-import com.amur.home.common.Constants.SystemConstants;
+import com.amur.home.common.constant.Constants.StatusCode;
+import com.amur.home.common.constant.Constants.SystemConstants;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @NoArgsConstructor
 public class ResponseWrapper<T> implements Serializable {
     private static final long serialVersionUID = 1L;
-    private int code;
+    private String code;
     private boolean isSuccess;
     private T data;
     private String msg;
@@ -40,10 +40,17 @@ public class ResponseWrapper<T> implements Serializable {
     }
 
     private ResponseWrapper(int code, T data, String msg) {
+        this.code = String.valueOf(code);
+        this.data = data;
+        this.msg = msg;
+        this.isSuccess = StatusCode.SUCCESS.getCode().equals(this.code);
+    }
+
+    private ResponseWrapper(String code, T data, String msg) {
         this.code = code;
         this.data = data;
         this.msg = msg;
-        this.isSuccess = StatusCode.SUCCESS.getCode() == code;
+        this.isSuccess = StatusCode.SUCCESS.getCode().equals(this.code);
     }
 
     public static boolean isSuccess(@Nullable ResponseWrapper<?> result) {
@@ -65,6 +72,9 @@ public class ResponseWrapper<T> implements Serializable {
     public static <T> ResponseWrapper<T> data(int code, T data, String msg) {
         return new ResponseWrapper<>(code, data, data == null ? SystemConstants.DEFAULT_NULL_MESSAGE.getMessage() : msg);
     }
+    public static <T> ResponseWrapper<T> data(String code, T data, String msg) {
+        return new ResponseWrapper<>(code, data, data == null ? SystemConstants.DEFAULT_NULL_MESSAGE.getMessage() : msg);
+    }
 
     public static <T> ResponseWrapper<T> success(String msg) {
         return new ResponseWrapper<>(StatusCode.SUCCESS, msg);
@@ -83,6 +93,9 @@ public class ResponseWrapper<T> implements Serializable {
     }
 
     public static <T> ResponseWrapper<T> fail(int code, String msg) {
+        return new ResponseWrapper<>(code, null, msg);
+    }
+    public static <T> ResponseWrapper<T> fail(String code, String msg) {
         return new ResponseWrapper<>(code, null, msg);
     }
 
