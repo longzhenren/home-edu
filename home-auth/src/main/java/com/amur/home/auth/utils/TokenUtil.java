@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2018-2028, Chill Zhuang 庄骞 (smallchill@163.com).
+ * Copyright (c) 2023-2033, AmurBear (hljzhangzhibo@aliyun.com).
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +17,7 @@
 package com.amur.home.auth.utils;
 
 import com.amur.home.user.entity.UserEntity;
-import org.springblade.core.launch.constant.TokenConstant;
+import com.amur.home.common.constant.TokenConstant;
 import org.springblade.core.secure.AuthInfo;
 import org.springblade.core.secure.TokenInfo;
 import org.springblade.core.secure.utils.SecureUtil;
@@ -36,8 +37,6 @@ public class TokenUtil {
 	public final static String CAPTCHA_HEADER_KEY = "Captcha-Key";
 	public final static String CAPTCHA_HEADER_CODE = "Captcha-Code";
 	public final static String CAPTCHA_NOT_CORRECT = "验证码不正确";
-	public final static String TENANT_HEADER_KEY = "Tenant-Id";
-	public final static String DEFAULT_TENANT_ID = "000000";
 	public final static String USER_TYPE_HEADER_KEY = "User-Type";
 	public final static String DEFAULT_USER_TYPE = "web";
 	public final static String USER_NOT_FOUND = "用户名或密码错误";
@@ -61,14 +60,13 @@ public class TokenUtil {
 		param.put(TokenConstant.USER_ID, Func.toStr(user.getId()));
 		param.put(TokenConstant.ROLE_ID, user.getRelativeType().getName());
 		param.put(TokenConstant.DEPT_ID, user.getHomeId().toString());
-		param.put(TokenConstant.ACCOUNT, user.getName());
+//		param.put(TokenConstant.ACCOUNT, user.getName());
 		param.put(TokenConstant.USER_NAME, user.getName());
 		param.put(TokenConstant.ROLE_NAME, Func.join(AuthEntity.getRoles()));
 
-		TokenInfo accessToken = SecureUtil.createJWT(param, "audience", "issuser", TokenConstant.ACCESS_TOKEN);
+		TokenInfo accessToken = SecureUtil.createJWT(param, "audience", "issuer", TokenConstant.ACCESS_TOKEN);
 		AuthInfo authInfo = new AuthInfo();
 		authInfo.setUserId(user.getId());
-//		authInfo.setTenantId(user.getTenantId());
 		authInfo.setOauthId(AuthEntity.getOauthId());
 		authInfo.setAccount(user.getName());
 		authInfo.setUserName(user.getName());
@@ -93,7 +91,7 @@ public class TokenUtil {
 		Map<String, String> param = new HashMap<>(16);
 		param.put(TokenConstant.TOKEN_TYPE, TokenConstant.REFRESH_TOKEN);
 		param.put(TokenConstant.USER_ID, Func.toStr(user.getId()));
-		return SecureUtil.createJWT(param, "audience", "issuser", TokenConstant.REFRESH_TOKEN);
+		return SecureUtil.createJWT(param, "audience", "issuer", TokenConstant.REFRESH_TOKEN);
 	}
 
 }

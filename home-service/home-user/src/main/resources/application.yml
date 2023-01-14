@@ -68,10 +68,10 @@ knife4j:
     language: zh_cn
     enable-host: true
     enable-host-text: 127.0.0.1/home-user #填写为网关地址,用于在网关聚合界面调试接口
-  basic:
-    enable: true
-    username: admin
-    password: 123456
+#  basic:
+#    enable: true
+#    username: admin
+#    password: 123456
   # 开启生产环境屏蔽
   production: false
 

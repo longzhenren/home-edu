@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2018-2028, Chill Zhuang 庄骞 (smallchill@163.com).
+ * Copyright (c) 2023-2033, AmurBear (hljzhangzhibo@aliyun.com).
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +24,9 @@ import com.amur.home.common.cache.CacheNames;
 import com.amur.home.common.util.ResponseWrapper;
 import com.amur.home.user.entity.AuthEntity;
 import com.wf.captcha.SpecCaptcha;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springblade.core.secure.AuthInfo;
 import org.springblade.core.tool.support.Kv;
@@ -47,22 +48,22 @@ import java.util.concurrent.TimeUnit;
  */
 @RestController
 @AllArgsConstructor
-@Api(value = "用户授权认证", tags = "授权接口")
+@Tag(name = "用户授权认证", description = "授权接口")
 public class AuthController {
 
     private RedisUtil redisUtil;
 
     @PostMapping("/token")
-    @ApiOperation(value = "获取认证token", notes = "传入账号:account,密码:password")
-    public ResponseWrapper<AuthInfo> token(@ApiParam(value = "授权类型", required = true) @RequestParam(defaultValue = "password", required = false) String grantType,
-                                           @ApiParam(value = "刷新令牌") @RequestParam(required = false) String refreshToken,
-                                           @ApiParam(value = "账号") @RequestParam(required = false) String account,
-                                           @ApiParam(value = "密码") @RequestParam(required = false) String password) {
+    @Operation(summary = "获取认证token", description = "传入账号:username,密码:password")
+    public ResponseWrapper<AuthInfo> token(@Parameter(name = "授权类型", required = true) @RequestParam(defaultValue = "password", required = false) String grantType,
+                                           @Parameter(name = "刷新令牌", required = false) @RequestParam(required = false) String refreshToken,
+                                           @Parameter(name = "账号", required = false) @RequestParam(required = false) String username,
+                                           @Parameter(name = "密码", required = false) @RequestParam(required = false) String password) {
 
         String userType = Func.toStr(WebUtil.getRequest().getHeader(TokenUtil.USER_TYPE_HEADER_KEY), TokenUtil.DEFAULT_USER_TYPE);
 
         TokenParameter tokenParameter = new TokenParameter();
-        tokenParameter.getArgs().set("account", account)
+        tokenParameter.getArgs().set("username", username)
                 .set("password", password)
                 .set("grantType", grantType)
                 .set("refreshToken", refreshToken)
@@ -79,7 +80,7 @@ public class AuthController {
     }
 
     @GetMapping("/captcha")
-    @ApiOperation(value = "获取验证码")
+    @Operation(summary = "获取验证码")
     public ResponseWrapper<Kv> captcha() {
         SpecCaptcha specCaptcha = new SpecCaptcha(130, 48, 5);
         String verCode = specCaptcha.text().toLowerCase();
