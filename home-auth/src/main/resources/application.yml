@@ -13,6 +13,10 @@ spring:
   config:
     import:
       - optional:nacos:home-auth.yml
+  security:
+    user:
+      name: admin
+      password: "!@#$%12345"
   main:
     allow-bean-definition-overriding: true
   aop:
@@ -57,7 +61,7 @@ springdoc:
   group-configs:
     - group: 'default'
       paths-to-match: '/**'
-      packages-to-scan: com.amur.home.user.controller
+      packages-to-scan: com.amur.home.auth.controller
 # knife4j的增强配置，不需要增强可以不配
 knife4j:
   enable: true
@@ -65,10 +69,10 @@ knife4j:
     language: zh_cn
     enable-host: true
     enable-host-text: 127.0.0.1/home-auth #填写为网关地址,用于在网关聚合界面调试接口
-  basic:
-    enable: true
-    username: admin
-    password: 123456
+#  basic:
+#    enable: true
+#    username: admin
+#    password: 123456
   # 开启生产环境屏蔽
   production: false
 

@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2018-2028, Chill Zhuang 庄骞 (smallchill@163.com).
+ * Copyright (c) 2023-2033, AmurBear (hljzhangzhibo@aliyun.com).
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +17,6 @@
 package com.amur.home.auth;
 
 
-import org.springblade.core.launch.BladeApplication;
-import org.springblade.core.launch.constant.AppConstant;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -28,10 +27,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class HomeAuthApplication {
-
-//	public static void main(String[] args) {
-//		BladeApplication.run(AppConstant.APPLICATION_AUTH_NAME, HomeAuthApplication.class, args);
-//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(HomeAuthApplication.class, args);
