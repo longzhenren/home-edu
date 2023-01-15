@@ -19,6 +19,7 @@ import com.amur.home.secure.constant.SecureConstant;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 /**
  * 获取客户端详情
@@ -26,6 +27,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author Chill
  */
 @AllArgsConstructor
+@Component
 public class ClientDetailsServiceImpl implements IClientDetailsService {
 
     private final JdbcTemplate jdbcTemplate;
