@@ -2547,72 +2547,102 @@ public final class Auth {
     long getId();
 
     /**
-     * <code>string name = 2;</code>
+     * <code>optional string name = 2;</code>
+     * @return Whether the name field is set.
+     */
+    boolean hasName();
+    /**
+     * <code>optional string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 2;</code>
+     * <code>optional string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>string password = 3;</code>
+     * <code>optional string password = 3;</code>
+     * @return Whether the password field is set.
+     */
+    boolean hasPassword();
+    /**
+     * <code>optional string password = 3;</code>
      * @return The password.
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 3;</code>
+     * <code>optional string password = 3;</code>
      * @return The bytes for password.
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
 
     /**
-     * <code>string email = 4;</code>
+     * <code>optional string email = 4;</code>
+     * @return Whether the email field is set.
+     */
+    boolean hasEmail();
+    /**
+     * <code>optional string email = 4;</code>
      * @return The email.
      */
     java.lang.String getEmail();
     /**
-     * <code>string email = 4;</code>
+     * <code>optional string email = 4;</code>
      * @return The bytes for email.
      */
     com.google.protobuf.ByteString
         getEmailBytes();
 
     /**
-     * <code>string phone = 5;</code>
+     * <code>optional string phone = 5;</code>
+     * @return Whether the phone field is set.
+     */
+    boolean hasPhone();
+    /**
+     * <code>optional string phone = 5;</code>
      * @return The phone.
      */
     java.lang.String getPhone();
     /**
-     * <code>string phone = 5;</code>
+     * <code>optional string phone = 5;</code>
      * @return The bytes for phone.
      */
     com.google.protobuf.ByteString
         getPhoneBytes();
 
     /**
-     * <code>string description = 6;</code>
+     * <code>optional string description = 6;</code>
+     * @return Whether the description field is set.
+     */
+    boolean hasDescription();
+    /**
+     * <code>optional string description = 6;</code>
      * @return The description.
      */
     java.lang.String getDescription();
     /**
-     * <code>string description = 6;</code>
+     * <code>optional string description = 6;</code>
      * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
-     * <code>string avatar_url = 7;</code>
+     * <code>optional string avatar_url = 7;</code>
+     * @return Whether the avatarUrl field is set.
+     */
+    boolean hasAvatarUrl();
+    /**
+     * <code>optional string avatar_url = 7;</code>
      * @return The avatarUrl.
      */
     java.lang.String getAvatarUrl();
     /**
-     * <code>string avatar_url = 7;</code>
+     * <code>optional string avatar_url = 7;</code>
      * @return The bytes for avatarUrl.
      */
     com.google.protobuf.ByteString
@@ -2696,6 +2726,7 @@ public final class Auth {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2713,37 +2744,37 @@ public final class Auth {
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
-
+              bitField0_ |= 0x00000001;
               name_ = s;
               break;
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
-
+              bitField0_ |= 0x00000002;
               password_ = s;
               break;
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
-
+              bitField0_ |= 0x00000004;
               email_ = s;
               break;
             }
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
-
+              bitField0_ |= 0x00000008;
               phone_ = s;
               break;
             }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
-
+              bitField0_ |= 0x00000010;
               description_ = s;
               break;
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
-
+              bitField0_ |= 0x00000020;
               avatarUrl_ = s;
               break;
             }
@@ -2801,6 +2832,7 @@ public final class Auth {
               com.amur.home.user.rpc.Auth.UserAuth.class, com.amur.home.user.rpc.Auth.UserAuth.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
     /**
@@ -2815,7 +2847,15 @@ public final class Auth {
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 2;</code>
+     * <code>optional string name = 2;</code>
+     * @return Whether the name field is set.
+     */
+    @java.lang.Override
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string name = 2;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -2832,7 +2872,7 @@ public final class Auth {
       }
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>optional string name = 2;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -2853,7 +2893,15 @@ public final class Auth {
     public static final int PASSWORD_FIELD_NUMBER = 3;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 3;</code>
+     * <code>optional string password = 3;</code>
+     * @return Whether the password field is set.
+     */
+    @java.lang.Override
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string password = 3;</code>
      * @return The password.
      */
     @java.lang.Override
@@ -2870,7 +2918,7 @@ public final class Auth {
       }
     }
     /**
-     * <code>string password = 3;</code>
+     * <code>optional string password = 3;</code>
      * @return The bytes for password.
      */
     @java.lang.Override
@@ -2891,7 +2939,15 @@ public final class Auth {
     public static final int EMAIL_FIELD_NUMBER = 4;
     private volatile java.lang.Object email_;
     /**
-     * <code>string email = 4;</code>
+     * <code>optional string email = 4;</code>
+     * @return Whether the email field is set.
+     */
+    @java.lang.Override
+    public boolean hasEmail() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string email = 4;</code>
      * @return The email.
      */
     @java.lang.Override
@@ -2908,7 +2964,7 @@ public final class Auth {
       }
     }
     /**
-     * <code>string email = 4;</code>
+     * <code>optional string email = 4;</code>
      * @return The bytes for email.
      */
     @java.lang.Override
@@ -2929,7 +2985,15 @@ public final class Auth {
     public static final int PHONE_FIELD_NUMBER = 5;
     private volatile java.lang.Object phone_;
     /**
-     * <code>string phone = 5;</code>
+     * <code>optional string phone = 5;</code>
+     * @return Whether the phone field is set.
+     */
+    @java.lang.Override
+    public boolean hasPhone() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional string phone = 5;</code>
      * @return The phone.
      */
     @java.lang.Override
@@ -2946,7 +3010,7 @@ public final class Auth {
       }
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>optional string phone = 5;</code>
      * @return The bytes for phone.
      */
     @java.lang.Override
@@ -2967,7 +3031,15 @@ public final class Auth {
     public static final int DESCRIPTION_FIELD_NUMBER = 6;
     private volatile java.lang.Object description_;
     /**
-     * <code>string description = 6;</code>
+     * <code>optional string description = 6;</code>
+     * @return Whether the description field is set.
+     */
+    @java.lang.Override
+    public boolean hasDescription() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional string description = 6;</code>
      * @return The description.
      */
     @java.lang.Override
@@ -2984,7 +3056,7 @@ public final class Auth {
       }
     }
     /**
-     * <code>string description = 6;</code>
+     * <code>optional string description = 6;</code>
      * @return The bytes for description.
      */
     @java.lang.Override
@@ -3005,7 +3077,15 @@ public final class Auth {
     public static final int AVATAR_URL_FIELD_NUMBER = 7;
     private volatile java.lang.Object avatarUrl_;
     /**
-     * <code>string avatar_url = 7;</code>
+     * <code>optional string avatar_url = 7;</code>
+     * @return Whether the avatarUrl field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvatarUrl() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional string avatar_url = 7;</code>
      * @return The avatarUrl.
      */
     @java.lang.Override
@@ -3022,7 +3102,7 @@ public final class Auth {
       }
     }
     /**
-     * <code>string avatar_url = 7;</code>
+     * <code>optional string avatar_url = 7;</code>
      * @return The bytes for avatarUrl.
      */
     @java.lang.Override
@@ -3136,22 +3216,22 @@ public final class Auth {
       if (id_ != 0L) {
         output.writeInt64(1, id_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, phone_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, description_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, avatarUrl_);
       }
       if (homeId_ != 0L) {
@@ -3179,22 +3259,22 @@ public final class Auth {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, id_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, phone_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, description_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, avatarUrl_);
       }
       if (homeId_ != 0L) {
@@ -3229,18 +3309,36 @@ public final class Auth {
 
       if (getId()
           != other.getId()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getPassword()
-          .equals(other.getPassword())) return false;
-      if (!getEmail()
-          .equals(other.getEmail())) return false;
-      if (!getPhone()
-          .equals(other.getPhone())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (!getAvatarUrl()
-          .equals(other.getAvatarUrl())) return false;
+      if (hasName() != other.hasName()) return false;
+      if (hasName()) {
+        if (!getName()
+            .equals(other.getName())) return false;
+      }
+      if (hasPassword() != other.hasPassword()) return false;
+      if (hasPassword()) {
+        if (!getPassword()
+            .equals(other.getPassword())) return false;
+      }
+      if (hasEmail() != other.hasEmail()) return false;
+      if (hasEmail()) {
+        if (!getEmail()
+            .equals(other.getEmail())) return false;
+      }
+      if (hasPhone() != other.hasPhone()) return false;
+      if (hasPhone()) {
+        if (!getPhone()
+            .equals(other.getPhone())) return false;
+      }
+      if (hasDescription() != other.hasDescription()) return false;
+      if (hasDescription()) {
+        if (!getDescription()
+            .equals(other.getDescription())) return false;
+      }
+      if (hasAvatarUrl() != other.hasAvatarUrl()) return false;
+      if (hasAvatarUrl()) {
+        if (!getAvatarUrl()
+            .equals(other.getAvatarUrl())) return false;
+      }
       if (getHomeId()
           != other.getHomeId()) return false;
       if (!getCreatedAt()
@@ -3262,18 +3360,30 @@ public final class Auth {
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getId());
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-      hash = (53 * hash) + getPassword().hashCode();
-      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getEmail().hashCode();
-      hash = (37 * hash) + PHONE_FIELD_NUMBER;
-      hash = (53 * hash) + getPhone().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
-      hash = (53 * hash) + getAvatarUrl().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasPassword()) {
+        hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+        hash = (53 * hash) + getPassword().hashCode();
+      }
+      if (hasEmail()) {
+        hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+        hash = (53 * hash) + getEmail().hashCode();
+      }
+      if (hasPhone()) {
+        hash = (37 * hash) + PHONE_FIELD_NUMBER;
+        hash = (53 * hash) + getPhone().hashCode();
+      }
+      if (hasDescription()) {
+        hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+        hash = (53 * hash) + getDescription().hashCode();
+      }
+      if (hasAvatarUrl()) {
+        hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
+        hash = (53 * hash) + getAvatarUrl().hashCode();
+      }
       hash = (37 * hash) + HOME_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getHomeId());
@@ -3420,17 +3530,17 @@ public final class Auth {
         id_ = 0L;
 
         name_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         password_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         email_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         phone_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         description_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         avatarUrl_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000020);
         homeId_ = 0L;
 
         createdAt_ = "";
@@ -3465,17 +3575,38 @@ public final class Auth {
       @java.lang.Override
       public com.amur.home.user.rpc.Auth.UserAuth buildPartial() {
         com.amur.home.user.rpc.Auth.UserAuth result = new com.amur.home.user.rpc.Auth.UserAuth(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.id_ = id_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.password_ = password_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.email_ = email_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.phone_ = phone_;
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.description_ = description_;
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          to_bitField0_ |= 0x00000020;
+        }
         result.avatarUrl_ = avatarUrl_;
         result.homeId_ = homeId_;
         result.createdAt_ = createdAt_;
         result.roleId_ = roleId_;
         result.relativeType_ = relativeType_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3527,27 +3658,33 @@ public final class Auth {
         if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (!other.getName().isEmpty()) {
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getPassword().isEmpty()) {
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000002;
           password_ = other.password_;
           onChanged();
         }
-        if (!other.getEmail().isEmpty()) {
+        if (other.hasEmail()) {
+          bitField0_ |= 0x00000004;
           email_ = other.email_;
           onChanged();
         }
-        if (!other.getPhone().isEmpty()) {
+        if (other.hasPhone()) {
+          bitField0_ |= 0x00000008;
           phone_ = other.phone_;
           onChanged();
         }
-        if (!other.getDescription().isEmpty()) {
+        if (other.hasDescription()) {
+          bitField0_ |= 0x00000010;
           description_ = other.description_;
           onChanged();
         }
-        if (!other.getAvatarUrl().isEmpty()) {
+        if (other.hasAvatarUrl()) {
+          bitField0_ |= 0x00000020;
           avatarUrl_ = other.avatarUrl_;
           onChanged();
         }
@@ -3592,6 +3729,7 @@ public final class Auth {
         }
         return this;
       }
+      private int bitField0_;
 
       private long id_ ;
       /**
@@ -3626,7 +3764,14 @@ public final class Auth {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 2;</code>
+       * <code>optional string name = 2;</code>
+       * @return Whether the name field is set.
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -3642,7 +3787,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>optional string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -3659,7 +3804,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>optional string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -3668,23 +3813,23 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
         name_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>optional string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>optional string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -3694,7 +3839,7 @@ public final class Auth {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000001;
         name_ = value;
         onChanged();
         return this;
@@ -3702,7 +3847,14 @@ public final class Auth {
 
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 3;</code>
+       * <code>optional string password = 3;</code>
+       * @return Whether the password field is set.
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string password = 3;</code>
        * @return The password.
        */
       public java.lang.String getPassword() {
@@ -3718,7 +3870,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>optional string password = 3;</code>
        * @return The bytes for password.
        */
       public com.google.protobuf.ByteString
@@ -3735,7 +3887,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>optional string password = 3;</code>
        * @param value The password to set.
        * @return This builder for chaining.
        */
@@ -3744,23 +3896,23 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
         password_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>optional string password = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPassword() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         password_ = getDefaultInstance().getPassword();
         onChanged();
         return this;
       }
       /**
-       * <code>string password = 3;</code>
+       * <code>optional string password = 3;</code>
        * @param value The bytes for password to set.
        * @return This builder for chaining.
        */
@@ -3770,7 +3922,7 @@ public final class Auth {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000002;
         password_ = value;
         onChanged();
         return this;
@@ -3778,7 +3930,14 @@ public final class Auth {
 
       private java.lang.Object email_ = "";
       /**
-       * <code>string email = 4;</code>
+       * <code>optional string email = 4;</code>
+       * @return Whether the email field is set.
+       */
+      public boolean hasEmail() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string email = 4;</code>
        * @return The email.
        */
       public java.lang.String getEmail() {
@@ -3794,7 +3953,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string email = 4;</code>
+       * <code>optional string email = 4;</code>
        * @return The bytes for email.
        */
       public com.google.protobuf.ByteString
@@ -3811,7 +3970,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string email = 4;</code>
+       * <code>optional string email = 4;</code>
        * @param value The email to set.
        * @return This builder for chaining.
        */
@@ -3820,23 +3979,23 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
         email_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string email = 4;</code>
+       * <code>optional string email = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearEmail() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         email_ = getDefaultInstance().getEmail();
         onChanged();
         return this;
       }
       /**
-       * <code>string email = 4;</code>
+       * <code>optional string email = 4;</code>
        * @param value The bytes for email to set.
        * @return This builder for chaining.
        */
@@ -3846,7 +4005,7 @@ public final class Auth {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000004;
         email_ = value;
         onChanged();
         return this;
@@ -3854,7 +4013,14 @@ public final class Auth {
 
       private java.lang.Object phone_ = "";
       /**
-       * <code>string phone = 5;</code>
+       * <code>optional string phone = 5;</code>
+       * @return Whether the phone field is set.
+       */
+      public boolean hasPhone() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional string phone = 5;</code>
        * @return The phone.
        */
       public java.lang.String getPhone() {
@@ -3870,7 +4036,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string phone = 5;</code>
+       * <code>optional string phone = 5;</code>
        * @return The bytes for phone.
        */
       public com.google.protobuf.ByteString
@@ -3887,7 +4053,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string phone = 5;</code>
+       * <code>optional string phone = 5;</code>
        * @param value The phone to set.
        * @return This builder for chaining.
        */
@@ -3896,23 +4062,23 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000008;
         phone_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string phone = 5;</code>
+       * <code>optional string phone = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearPhone() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         phone_ = getDefaultInstance().getPhone();
         onChanged();
         return this;
       }
       /**
-       * <code>string phone = 5;</code>
+       * <code>optional string phone = 5;</code>
        * @param value The bytes for phone to set.
        * @return This builder for chaining.
        */
@@ -3922,7 +4088,7 @@ public final class Auth {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000008;
         phone_ = value;
         onChanged();
         return this;
@@ -3930,7 +4096,14 @@ public final class Auth {
 
       private java.lang.Object description_ = "";
       /**
-       * <code>string description = 6;</code>
+       * <code>optional string description = 6;</code>
+       * @return Whether the description field is set.
+       */
+      public boolean hasDescription() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional string description = 6;</code>
        * @return The description.
        */
       public java.lang.String getDescription() {
@@ -3946,7 +4119,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string description = 6;</code>
+       * <code>optional string description = 6;</code>
        * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
@@ -3963,7 +4136,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string description = 6;</code>
+       * <code>optional string description = 6;</code>
        * @param value The description to set.
        * @return This builder for chaining.
        */
@@ -3972,23 +4145,23 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000010;
         description_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string description = 6;</code>
+       * <code>optional string description = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         description_ = getDefaultInstance().getDescription();
         onChanged();
         return this;
       }
       /**
-       * <code>string description = 6;</code>
+       * <code>optional string description = 6;</code>
        * @param value The bytes for description to set.
        * @return This builder for chaining.
        */
@@ -3998,7 +4171,7 @@ public final class Auth {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000010;
         description_ = value;
         onChanged();
         return this;
@@ -4006,7 +4179,14 @@ public final class Auth {
 
       private java.lang.Object avatarUrl_ = "";
       /**
-       * <code>string avatar_url = 7;</code>
+       * <code>optional string avatar_url = 7;</code>
+       * @return Whether the avatarUrl field is set.
+       */
+      public boolean hasAvatarUrl() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional string avatar_url = 7;</code>
        * @return The avatarUrl.
        */
       public java.lang.String getAvatarUrl() {
@@ -4022,7 +4202,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string avatar_url = 7;</code>
+       * <code>optional string avatar_url = 7;</code>
        * @return The bytes for avatarUrl.
        */
       public com.google.protobuf.ByteString
@@ -4039,7 +4219,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>string avatar_url = 7;</code>
+       * <code>optional string avatar_url = 7;</code>
        * @param value The avatarUrl to set.
        * @return This builder for chaining.
        */
@@ -4048,23 +4228,23 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000020;
         avatarUrl_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string avatar_url = 7;</code>
+       * <code>optional string avatar_url = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearAvatarUrl() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         avatarUrl_ = getDefaultInstance().getAvatarUrl();
         onChanged();
         return this;
       }
       /**
-       * <code>string avatar_url = 7;</code>
+       * <code>optional string avatar_url = 7;</code>
        * @param value The bytes for avatarUrl to set.
        * @return This builder for chaining.
        */
@@ -4074,7 +4254,7 @@ public final class Auth {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000020;
         avatarUrl_ = value;
         onChanged();
         return this;
@@ -4362,19 +4542,21 @@ public final class Auth {
       "ons\030\002 \003(\t\022\017\n\007oauthId\030\003 \001(\t\022.\n\004user\030\004 \001(\013" +
       "2 .com.amur.home.user.rpc.UserAuth\022.\n\006st" +
       "atus\030\005 \001(\0162\036.com.amur.home.user.rpc.Stat" +
-      "us\"\364\001\n\010UserAuth\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(" +
-      "\t\022\020\n\010password\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\r\n\005ph" +
-      "one\030\005 \001(\t\022\023\n\013description\030\006 \001(\t\022\022\n\navatar" +
-      "_url\030\007 \001(\t\022\017\n\007home_id\030\010 \001(\003\022\022\n\ncreated_a" +
-      "t\030\t \001(\t\022\017\n\007role_id\030\n \001(\003\022?\n\rrelative_typ" +
-      "e\030\013 \001(\0162(.com.amur.home.user.rpc.UserRel" +
-      "ativeType2\351\001\n\013AuthService\022d\n\rGetAuthEnti" +
-      "ty\022(.com.amur.home.user.rpc.GetAuthEntit" +
-      "yReq\032).com.amur.home.user.rpc.GetAuthEnt" +
-      "ityResp\022t\n\025GetAuthEntityByUserId\0220.com.a" +
-      "mur.home.user.rpc.GetAuthEntityByUserIdR" +
-      "eq\032).com.amur.home.user.rpc.GetAuthEntit" +
-      "yRespb\006proto3"
+      "us\"\333\002\n\010UserAuth\022\n\n\002id\030\001 \001(\003\022\021\n\004name\030\002 \001(" +
+      "\tH\000\210\001\001\022\025\n\010password\030\003 \001(\tH\001\210\001\001\022\022\n\005email\030\004" +
+      " \001(\tH\002\210\001\001\022\022\n\005phone\030\005 \001(\tH\003\210\001\001\022\030\n\013descrip" +
+      "tion\030\006 \001(\tH\004\210\001\001\022\027\n\navatar_url\030\007 \001(\tH\005\210\001\001" +
+      "\022\017\n\007home_id\030\010 \001(\003\022\022\n\ncreated_at\030\t \001(\t\022\017\n" +
+      "\007role_id\030\n \001(\003\022?\n\rrelative_type\030\013 \001(\0162(." +
+      "com.amur.home.user.rpc.UserRelativeTypeB" +
+      "\007\n\005_nameB\013\n\t_passwordB\010\n\006_emailB\010\n\006_phon" +
+      "eB\016\n\014_descriptionB\r\n\013_avatar_url2\351\001\n\013Aut" +
+      "hService\022d\n\rGetAuthEntity\022(.com.amur.hom" +
+      "e.user.rpc.GetAuthEntityReq\032).com.amur.h" +
+      "ome.user.rpc.GetAuthEntityResp\022t\n\025GetAut" +
+      "hEntityByUserId\0220.com.amur.home.user.rpc" +
+      ".GetAuthEntityByUserIdReq\032).com.amur.hom" +
+      "e.user.rpc.GetAuthEntityRespb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4406,7 +4588,7 @@ public final class Auth {
     internal_static_com_amur_home_user_rpc_UserAuth_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserAuth_descriptor,
-        new java.lang.String[] { "Id", "Name", "Password", "Email", "Phone", "Description", "AvatarUrl", "HomeId", "CreatedAt", "RoleId", "RelativeType", });
+        new java.lang.String[] { "Id", "Name", "Password", "Email", "Phone", "Description", "AvatarUrl", "HomeId", "CreatedAt", "RoleId", "RelativeType", "Name", "Password", "Email", "Phone", "Description", "AvatarUrl", });
     com.google.protobuf.EmptyProto.getDescriptor();
     com.amur.home.user.rpc.StatusOuterClass.getDescriptor();
     com.amur.home.user.rpc.User.getDescriptor();

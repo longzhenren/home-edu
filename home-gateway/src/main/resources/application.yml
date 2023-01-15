@@ -28,6 +28,10 @@ spring:
           uri: lb://home-sba
           predicates:
             - Path=/home-sba/**
+        - id: home-auth
+          uri: lb://home-auth
+          predicates:
+            - Path=/home-auth/**
       #          filters:
       #            - StripPrefix=1
       discovery:
@@ -57,6 +61,14 @@ knife4j:
         url: /home-tinyid/v3/api-docs?group=default
         service-name: id-service
         order: 3
+      - name: 监控服务
+        url: /home-sba/v3/api-docs?group=default
+        service-name: sba-service
+        order: 4
+      - name: 认证服务
+        url: /home-auth/v3/api-docs?group=default
+        service-name: auth-service
+        order: 1
 
 
 #amur:

@@ -43,13 +43,6 @@ spring:
   banner:
     location: banner.txt
 
-mybatis-plus:
-  mapper-locations: classpath*:/mapper/*.xml
-  global-config:
-    db-config:
-      logic-delete-field: deleted
-    banner: false
-
 # springdoc-openapi项目配置
 springdoc:
   swagger-ui:
@@ -89,6 +82,17 @@ grpc:
       address: 'discovery:///home-user'
       negotiation-type: plaintext
 
-blade:
+amur:
   token:
     sign-key: "463dfd2b26b046ea018c92ba5d897253"
+  secure:
+    skip-url:
+      - /swagger-ui.html
+      - /swagger-resources/**
+      - /v3/api-docs
+      - /webjars/**
+      - /doc.html
+      - /actuator/**
+      - /error
+      - /favicon.ico
+      - /token

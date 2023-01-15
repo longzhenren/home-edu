@@ -10,6 +10,7 @@ import com.amur.home.user.service.impl.AuthServiceImpl;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.springblade.core.tool.utils.Func;
 
 import javax.annotation.Resource;
 
@@ -45,19 +46,19 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
             response.toBuilder().setStatus(StatusOuterClass.Status.FAILED).build();
         } else {
             UserEntity user = authEntity.getUser();
-            response.toBuilder().setUser(Auth.UserAuth.newBuilder()
-                    .setRelativeType(User.UserRelativeType.valueOf(user.getRelativeType().getName()))
-                    .setAvatarUrl(user.getAvatarUrl())
-                    .setName(user.getName())
-                    .setPassword(user.getPassword())
-                    .setPhone(user.getPhone())
-                    .setId(user.getId())
-                    .setDescription(user.getDescription())
-                    .setEmail(user.getEmail())
-                    .setCreatedAt(user.getCreateTime().toString())
-                    .setHomeId(user.getHomeId())
-                    .build()
-            ).addAllRoles(authEntity.getRoles()).setStatus(StatusOuterClass.Status.SUCCESS).build();
+            Auth.UserAuth auth = Auth.UserAuth.newBuilder()
+                    .setRelativeType(User.UserRelativeType.valueOf(user.getRelativeType().getRpcType()))
+                    .setAvatarUrl(Func.toStr(user.getAvatarUrl()))
+                    .setName(Func.toStr(user.getName()))
+                    .setPassword(Func.toStr(user.getPassword()))
+                    .setPhone(Func.toStr(user.getPhone()))
+                    .setId(Func.toLong(user.getId()))
+                    .setDescription(Func.toStr(user.getDescription()))
+                    .setEmail(Func.toStr(user.getEmail()))
+                    .setCreatedAt(Func.formatDateTime(user.getCreateTime()))
+                    .setHomeId(Func.toLong(user.getHomeId()))
+                    .build();
+            response = response.toBuilder().setUser(auth).addAllRoles(authEntity.getRoles()).setStatus(StatusOuterClass.Status.SUCCESS).build();
         }
         return response;
     }

@@ -1,5 +1,6 @@
 package com.amur.home.common.constant;
 
+import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -15,9 +16,10 @@ public class Constants {
         SYS_ERR(6, "sys error"),
         SUCCESS(0, "success");
 
-        private Integer code;
-        private String message;
+        private final Integer code;
+        private final String message;
     }
+
     @AllArgsConstructor
     @Getter
     public enum IdConstants {
@@ -54,12 +56,9 @@ public class Constants {
         PARAM_TYPE_ERROR(HttpServletResponse.SC_BAD_REQUEST, "请求参数类型错误"),
         PARAM_BIND_ERROR(HttpServletResponse.SC_BAD_REQUEST, "请求参数绑定错误"),
         PARAM_VALID_ERROR(HttpServletResponse.SC_BAD_REQUEST, "参数校验失败");
-        final String code;
+        @EnumValue
+        final int code;
         final String message;
-        private StatusCode(int code, String message) {
-            this.code = String.valueOf(code);
-            this.message = message;
-        }
     }
 
     @AllArgsConstructor
@@ -76,8 +75,9 @@ public class Constants {
         UNCLE("UNCLE", "叔叔", 8),
         AUNT("AUNT", "阿姨", 9),
         OTHER("OTHER", "其他", 10);
+        private final String rpcType;
         private final String description;
-        private final String name;
+        @EnumValue
         private final int value;
     }
 

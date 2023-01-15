@@ -17,7 +17,7 @@
 package com.amur.home.auth.granter;
 
 import lombok.AllArgsConstructor;
-import org.springblade.core.secure.exception.SecureException;
+import com.amur.home.secure.exception.SecureException;
 import org.springblade.core.tool.utils.Func;
 import org.springblade.core.tool.utils.SpringUtil;
 
@@ -41,7 +41,6 @@ public class TokenGranterBuilder {
 		GRANTER_POOL.put(PasswordTokenGranter.GRANT_TYPE, SpringUtil.getBean(PasswordTokenGranter.class));
 		GRANTER_POOL.put(CaptchaTokenGranter.GRANT_TYPE, SpringUtil.getBean(CaptchaTokenGranter.class));
 		GRANTER_POOL.put(RefreshTokenGranter.GRANT_TYPE, SpringUtil.getBean(RefreshTokenGranter.class));
-//		GRANTER_POOL.put(SocialTokenGranter.GRANT_TYPE, SpringUtil.getBean(SocialTokenGranter.class));
 	}
 
 	/**
