@@ -17,6 +17,7 @@ package com.amur.home.secure.provider;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * 客户端详情
@@ -24,6 +25,7 @@ import lombok.Data;
  * @author Chill
  */
 @Data
+@Component
 public class ClientDetails implements IClientDetails {
 
 	/**

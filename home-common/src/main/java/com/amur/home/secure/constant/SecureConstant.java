@@ -45,7 +45,7 @@ public interface SecureConstant {
 	/**
 	 * blade_client查询语句
 	 */
-	String BASE_STATEMENT = "select " + CLIENT_FIELDS + " from blade_client";
+	String BASE_STATEMENT = "select " + CLIENT_FIELDS + " from home_client";
 
 	/**
 	 * blade_client查询排序

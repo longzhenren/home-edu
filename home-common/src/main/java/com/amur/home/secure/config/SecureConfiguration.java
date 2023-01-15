@@ -29,7 +29,6 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -42,7 +41,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Order
 @AutoConfiguration
-@Configuration
 @AllArgsConstructor
 @EnableConfigurationProperties({AmurSecureProperties.class, AmurTokenProperties.class})
 public class SecureConfiguration implements WebMvcConfigurer {
