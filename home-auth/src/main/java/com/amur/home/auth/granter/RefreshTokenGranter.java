@@ -21,7 +21,7 @@ import com.amur.home.user.entity.AuthEntity;
 import io.jsonwebtoken.Claims;
 import lombok.AllArgsConstructor;
 import org.springblade.core.launch.constant.TokenConstant;
-import org.springblade.core.secure.utils.SecureUtil;
+import com.amur.home.secure.utils.SecureUtil;
 import org.springblade.core.tool.utils.Func;
 import org.springframework.stereotype.Component;
 

@@ -22,13 +22,13 @@ import com.amur.home.auth.granter.TokenParameter;
 import com.amur.home.auth.utils.TokenUtil;
 import com.amur.home.common.cache.CacheNames;
 import com.amur.home.common.util.ResponseWrapper;
+import com.amur.home.secure.AuthInfo;
 import com.amur.home.user.entity.AuthEntity;
 import com.wf.captcha.SpecCaptcha;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springblade.core.secure.AuthInfo;
 import org.springblade.core.tool.support.Kv;
 import org.springblade.core.tool.utils.Func;
 import org.springblade.core.tool.utils.RedisUtil;
@@ -54,11 +54,11 @@ public class AuthController {
     private RedisUtil redisUtil;
 
     @PostMapping("/token")
-    @Operation(summary = "获取认证token", description = "传入账号:username,密码:password")
+    @Operation(summary = "获取认证token", description = "传入账号:username 密码:password")
     public ResponseWrapper<AuthInfo> token(@Parameter(name = "授权类型", required = true) @RequestParam(defaultValue = "password", required = false) String grantType,
-                                           @Parameter(name = "刷新令牌", required = false) @RequestParam(required = false) String refreshToken,
-                                           @Parameter(name = "账号", required = false) @RequestParam(required = false) String username,
-                                           @Parameter(name = "密码", required = false) @RequestParam(required = false) String password) {
+                                           @Parameter(name = "刷新令牌") @RequestParam(required = false) String refreshToken,
+                                           @Parameter(name = "账号") @RequestParam(required = false) String username,
+                                           @Parameter(name = "密码") @RequestParam(required = false) String password) {
 
         String userType = Func.toStr(WebUtil.getRequest().getHeader(TokenUtil.USER_TYPE_HEADER_KEY), TokenUtil.DEFAULT_USER_TYPE);
 
