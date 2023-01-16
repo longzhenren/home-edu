@@ -10,7 +10,7 @@ import com.amur.home.user.service.impl.AuthServiceImpl;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.springblade.core.tool.utils.Func;
+import com.amur.home.core.tool.utils.Func;
 
 import javax.annotation.Resource;
 

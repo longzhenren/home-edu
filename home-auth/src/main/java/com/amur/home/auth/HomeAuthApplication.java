@@ -25,10 +25,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author Chill
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.amur.home"})
 public class HomeAuthApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HomeAuthApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HomeAuthApplication.class, args);
+    }
 }

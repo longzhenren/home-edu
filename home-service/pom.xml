@@ -109,10 +109,9 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.springblade</groupId>
-            <artifactId>blade-core-tool</artifactId>
-            <version>3.5.0</version>
-            <scope>compile</scope>
+            <groupId>com.amur</groupId>
+            <artifactId>home-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.amur</groupId>-->

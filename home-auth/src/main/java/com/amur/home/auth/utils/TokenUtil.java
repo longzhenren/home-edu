@@ -22,7 +22,7 @@ import com.amur.home.user.entity.UserEntity;
 import com.amur.home.secure.AuthInfo;
 import com.amur.home.secure.TokenInfo;
 import com.amur.home.secure.utils.SecureUtil;
-import org.springblade.core.tool.utils.Func;
+import com.amur.home.core.tool.utils.Func;
 
 import java.util.HashMap;
 import java.util.Map;

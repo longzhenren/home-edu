@@ -17,11 +17,11 @@ spring:
     user:
       name: admin
       password: "!@#$%12345"
-  main:
-    allow-bean-definition-overriding: true
-  aop:
-    auto: true
-    proxy-target-class: true
+  #    main:
+  #      allow-bean-definition-overriding: true
+#  aop:
+#    auto: true
+#    proxy-target-class: true
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
@@ -43,6 +43,7 @@ spring:
   banner:
     location: banner.txt
 
+
 # springdoc-openapi项目配置
 springdoc:
   swagger-ui:
@@ -62,10 +63,10 @@ knife4j:
     language: zh_cn
     enable-host: true
     enable-host-text: 127.0.0.1/home-auth #填写为网关地址,用于在网关聚合界面调试接口
-#  basic:
-#    enable: true
-#    username: admin
-#    password: 123456
+  #  basic:
+  #    enable: true
+  #    username: admin
+  #    password: 123456
   # 开启生产环境屏蔽
   production: false
 
@@ -96,3 +97,4 @@ amur:
       - /error
       - /favicon.ico
       - /token
+#debug: true

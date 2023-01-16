@@ -1,7 +1,7 @@
 package com.amur.home.auth.exception;
 
-import org.springblade.core.tool.api.IResultCode;
-import org.springblade.core.tool.api.ResultCode;
+import com.amur.home.core.tool.api.IResultCode;
+import com.amur.home.core.tool.api.ResultCode;
 
 public class ServiceException extends RuntimeException {
     private static final long serialVersionUID = 2359767895161832954L;

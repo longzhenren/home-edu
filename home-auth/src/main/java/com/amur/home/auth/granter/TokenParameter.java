@@ -17,7 +17,7 @@
 package com.amur.home.auth.granter;
 
 import lombok.Data;
-import org.springblade.core.tool.support.Kv;
+import com.amur.home.core.tool.support.Kv;
 
 /**
  * TokenParameter

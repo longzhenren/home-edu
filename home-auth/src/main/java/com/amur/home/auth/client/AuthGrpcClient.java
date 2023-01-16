@@ -1,14 +1,14 @@
 package com.amur.home.auth.client;
 
 import com.amur.home.common.constant.Constants;
+import com.amur.home.core.tool.utils.DigestUtil;
+import com.amur.home.core.tool.utils.Func;
 import com.amur.home.user.entity.AuthEntity;
 import com.amur.home.user.entity.UserEntity;
 import com.amur.home.user.rpc.Auth;
 import com.amur.home.user.rpc.AuthServiceGrpc;
 import com.amur.home.user.rpc.StatusOuterClass;
 import net.devh.boot.grpc.client.inject.GrpcClient;
-import org.springblade.core.tool.utils.DigestUtil;
-import org.springblade.core.tool.utils.Func;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -38,6 +38,7 @@ public class AuthGrpcClient {
             user.setAvatarUrl(userAuth.getAvatarUrl());
             user.setPhone(userAuth.getPhone());
             user.setId(userAuth.getId());
+            user.setHomeId(userAuth.getHomeId());
             user.setRoleId(userAuth.getRoleId());
             user.setDescription(userAuth.getDescription());
             user.setCreateTime(Func.parseDate(userAuth.getCreatedAt(), "yyyy-MM-dd HH:mm:ss"));

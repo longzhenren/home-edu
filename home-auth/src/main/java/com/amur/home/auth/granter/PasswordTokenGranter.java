@@ -18,7 +18,7 @@ package com.amur.home.auth.granter;
 
 import com.amur.home.auth.client.AuthGrpcClient;
 import lombok.AllArgsConstructor;
-import org.springblade.core.tool.utils.Func;
+import com.amur.home.core.tool.utils.Func;
 import com.amur.home.user.entity.AuthEntity;
 import org.springframework.stereotype.Component;
 

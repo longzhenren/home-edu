@@ -7,7 +7,7 @@ import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.AuthService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springblade.core.tool.utils.Func;
+import com.amur.home.core.tool.utils.Func;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
