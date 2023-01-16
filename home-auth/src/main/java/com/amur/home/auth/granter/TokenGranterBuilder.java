@@ -18,8 +18,8 @@ package com.amur.home.auth.granter;
 
 import lombok.AllArgsConstructor;
 import com.amur.home.secure.exception.SecureException;
-import org.springblade.core.tool.utils.Func;
-import org.springblade.core.tool.utils.SpringUtil;
+import com.amur.home.core.tool.utils.Func;
+import com.amur.home.core.tool.utils.SpringUtil;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

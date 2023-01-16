@@ -15,7 +15,6 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <blade.tool.version>3.5.0</blade.tool.version>
         <easycaptcha.version>1.6.2</easycaptcha.version>
     </properties>
 
@@ -47,32 +46,15 @@
             <artifactId>grpc-spring-boot-starter</artifactId>
             <version>${net.devh.grpc.starter.version}</version>
         </dependency>
-        <!-- redis -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springblade</groupId>
-            <artifactId>blade-core-tool</artifactId>
-            <version>${blade.tool.version}</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>okhttp</artifactId>
-                    <groupId>com.squareup.okhttp3</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springblade</groupId>-->
-<!--            <artifactId>blade-core-secure</artifactId>-->
-<!--            <version>${blade.tool.version}</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.github.whvcse</groupId>
             <artifactId>easy-captcha</artifactId>
             <version>${easycaptcha.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amur</groupId>
+            <artifactId>home-secure</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.amur</groupId>
@@ -85,6 +67,11 @@
                 </exclusion>
             </exclusions>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.amur</groupId>
+            <artifactId>home-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
