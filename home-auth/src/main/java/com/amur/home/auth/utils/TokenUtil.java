@@ -17,12 +17,13 @@
 package com.amur.home.auth.utils;
 
 import com.amur.home.common.constant.TokenConstant;
-import com.amur.home.user.entity.AuthEntity;
-import com.amur.home.user.entity.UserEntity;
+import com.amur.home.core.tool.utils.Func;
 import com.amur.home.secure.AuthInfo;
 import com.amur.home.secure.TokenInfo;
 import com.amur.home.secure.utils.SecureUtil;
-import com.amur.home.core.tool.utils.Func;
+import com.amur.home.user.entity.AuthEntity;
+import com.amur.home.user.entity.UserEntity;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,19 +65,8 @@ public class TokenUtil {
         param.put(TokenConstant.ROLE_NAME, Func.join(AuthEntity.getRoles()));
 
         TokenInfo accessToken = SecureUtil.createJWT(param, "audience", "issuer", TokenConstant.ACCESS_TOKEN);
-        AuthInfo authInfo = new AuthInfo();
-        authInfo.setUserId(user.getId());
-        authInfo.setOauthId(AuthEntity.getOauthId());
-        authInfo.setAccount(user.getName());
-        authInfo.setUserName(user.getName());
-        authInfo.setAuthority(Func.join(AuthEntity.getRoles()));
-        authInfo.setAccessToken(accessToken.getToken());
-        authInfo.setExpiresIn(accessToken.getExpire());
-        authInfo.setRefreshToken(createRefreshToken(AuthEntity).getToken());
-        authInfo.setTokenType(TokenConstant.BEARER);
-        authInfo.setLicense(TokenConstant.LICENSE_NAME);
 
-        return authInfo;
+        return getAuthInfo(AuthEntity, user, accessToken);
     }
 
     /**
@@ -93,4 +83,19 @@ public class TokenUtil {
         return SecureUtil.createJWT(param, "audience", "issuer", TokenConstant.REFRESH_TOKEN);
     }
 
+    @NotNull
+    private static AuthInfo getAuthInfo(AuthEntity AuthEntity, UserEntity user, TokenInfo accessToken) {
+        AuthInfo authInfo = new AuthInfo();
+        authInfo.setUserId(user.getId());
+        authInfo.setOauthId(AuthEntity.getOauthId());
+        authInfo.setAccount(user.getName());
+        authInfo.setUserName(user.getName());
+        authInfo.setAuthority(Func.join(AuthEntity.getRoles()));
+        authInfo.setAccessToken(accessToken.getToken());
+        authInfo.setExpiresIn(accessToken.getExpire());
+        authInfo.setRefreshToken(createRefreshToken(AuthEntity).getToken());
+        authInfo.setTokenType(TokenConstant.BEARER);
+        authInfo.setLicense(TokenConstant.LICENSE_NAME);
+        return authInfo;
+    }
 }
