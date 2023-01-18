@@ -28,6 +28,10 @@ spring:
           uri: lb://home-sba
           predicates:
             - Path=/home-sba/**
+        - id: home-auth
+          uri: lb://home-auth
+          predicates:
+            - Path=/home-auth/**
       #          filters:
       #            - StripPrefix=1
       discovery:

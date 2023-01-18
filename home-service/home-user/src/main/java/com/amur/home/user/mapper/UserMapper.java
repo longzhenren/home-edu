@@ -2,9 +2,10 @@ package com.amur.home.user.mapper;
 
 import com.amur.home.user.entity.UserEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.springframework.stereotype.Component;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserMapper extends BaseMapper<UserEntity>{
+@Mapper
+public interface UserMapper extends BaseMapper<UserEntity> {
 }

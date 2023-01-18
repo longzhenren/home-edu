@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -18,11 +19,13 @@ public class UserEntity {
     private String name;
     private String description;
     private String phone;
+    private String password;
     private String email;
     private String avatarUrl;
     private Long homeId;
     private String sex;
     private Integer age;
+    private Set<String> permissions;
     private UserRelativeType relativeType;
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;

@@ -1,13 +1,13 @@
-package com.amur.home.user;
+package com.amur.home.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HomeUserApplication {
+public class HomeAuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HomeUserApplication.class, args);
+        SpringApplication.run(HomeAuthApplication.class, args);
     }
 
 }

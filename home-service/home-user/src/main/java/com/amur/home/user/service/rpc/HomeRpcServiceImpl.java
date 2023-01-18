@@ -32,12 +32,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         GetHomeBaseResponse response;
         HomeEntity homeEntity = homeService.getHomeInfo(request.getHomeId());
         if (homeEntity != null) {
-            response = GetHomeBaseResponse.newBuilder().setHomeBase(HomeBase.newBuilder()
-                    .setHomeId(homeEntity.getId())
-                    .setHomeName(homeEntity.getName())
-                    .setHomeAvatar(homeEntity.getAvatarUrl())
-                    .setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size())
-                    .build()).setStatus(Status.SUCCESS).build();
+            response = GetHomeBaseResponse.newBuilder().setHomeBase(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build()).setStatus(Status.SUCCESS).build();
         } else {
             response = GetHomeBaseResponse.newBuilder().setStatus(Status.FAILED).build();
         }
@@ -54,15 +49,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         GetHomeDetailResponse response;
         HomeEntity homeEntity = homeService.getHomeInfo(request.getHomeId());
         if (homeEntity != null) {
-            response = GetHomeDetailResponse.newBuilder().setHomeDetail(HomeDetail.newBuilder()
-                    .setHomeId(homeEntity.getId())
-                    .setHomeName(homeEntity.getName())
-                    .setHomeAddress(homeEntity.getAddress())
-                    .setHomeRegTime(homeEntity.getCreateTime().toString())
-                    .setHomeAvatar(homeEntity.getAvatarUrl())
-                    .setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size())
-                    .addAllHomeImage(JSON.parseArray(homeEntity.getImageUrls(), String.class))
-                    .build()).setStatus(Status.SUCCESS).build();
+            response = GetHomeDetailResponse.newBuilder().setHomeDetail(HomeDetail.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAddress(homeEntity.getAddress()).setHomeRegTime(homeEntity.getCreateTime().toString()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).addAllHomeImage(JSON.parseArray(homeEntity.getImageUrls(), String.class)).build()).setStatus(Status.SUCCESS).build();
         } else {
             response = GetHomeDetailResponse.newBuilder().setStatus(Status.FAILED).build();
         }
@@ -79,12 +66,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         GetHomeListResponse response = GetHomeListResponse.newBuilder().build();
         List<HomeEntity> homeList = homeService.getHomeList();
         for (HomeEntity homeEntity : homeList) {
-            response.toBuilder().addHomeList(HomeBase.newBuilder()
-                    .setHomeId(homeEntity.getId())
-                    .setHomeName(homeEntity.getName())
-                    .setHomeAvatar(homeEntity.getAvatarUrl())
-                    .setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size())
-                    .build());
+            response.toBuilder().addHomeList(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build());
         }
         response.toBuilder().setStatus(Status.SUCCESS).build();
         responseObserver.onNext(response);
@@ -147,11 +129,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         GetHomeUserListResponse response = GetHomeUserListResponse.newBuilder().build();
         List<UserEntity> userList = homeService.getHomeUserList(request.getHomeId());
         for (UserEntity userEntity : userList) {
-            response.toBuilder().addHomeUserList(HomeUser.newBuilder()
-                    .setUserId(userEntity.getId())
-                    .setUserName(userEntity.getName())
-                    .setUserAvatar(userEntity.getAvatarUrl())
-                    .build());
+            response.toBuilder().addHomeUserList(HomeUser.newBuilder().setUserId(userEntity.getId()).setUserName(userEntity.getName()).setUserAvatar(userEntity.getAvatarUrl()).build());
         }
         response.toBuilder().setStatus(Status.SUCCESS).build();
         responseObserver.onNext(response);

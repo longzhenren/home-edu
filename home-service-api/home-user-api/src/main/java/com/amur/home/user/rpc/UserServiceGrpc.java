@@ -77,6 +77,68 @@ public final class UserServiceGrpc {
     return getGetUserDetailInfoMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.User.GetUserAuthByNameRequest,
+      com.amur.home.user.rpc.User.GetUserAuthByNameResponse> getGetUserAuthByNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetUserAuthByName",
+      requestType = com.amur.home.user.rpc.User.GetUserAuthByNameRequest.class,
+      responseType = com.amur.home.user.rpc.User.GetUserAuthByNameResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.User.GetUserAuthByNameRequest,
+      com.amur.home.user.rpc.User.GetUserAuthByNameResponse> getGetUserAuthByNameMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.User.GetUserAuthByNameRequest, com.amur.home.user.rpc.User.GetUserAuthByNameResponse> getGetUserAuthByNameMethod;
+    if ((getGetUserAuthByNameMethod = UserServiceGrpc.getGetUserAuthByNameMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetUserAuthByNameMethod = UserServiceGrpc.getGetUserAuthByNameMethod) == null) {
+          UserServiceGrpc.getGetUserAuthByNameMethod = getGetUserAuthByNameMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.User.GetUserAuthByNameRequest, com.amur.home.user.rpc.User.GetUserAuthByNameResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetUserAuthByName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.User.GetUserAuthByNameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.User.GetUserAuthByNameResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("GetUserAuthByName"))
+              .build();
+        }
+      }
+    }
+    return getGetUserAuthByNameMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest,
+      com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse> getGetUserPermissionsByNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getUserPermissionsByName",
+      requestType = com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest.class,
+      responseType = com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest,
+      com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse> getGetUserPermissionsByNameMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest, com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse> getGetUserPermissionsByNameMethod;
+    if ((getGetUserPermissionsByNameMethod = UserServiceGrpc.getGetUserPermissionsByNameMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetUserPermissionsByNameMethod = UserServiceGrpc.getGetUserPermissionsByNameMethod) == null) {
+          UserServiceGrpc.getGetUserPermissionsByNameMethod = getGetUserPermissionsByNameMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest, com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getUserPermissionsByName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getUserPermissionsByName"))
+              .build();
+        }
+      }
+    }
+    return getGetUserPermissionsByNameMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.User.CreateUserRequest,
       com.amur.home.user.rpc.User.CreateUserResponse> getCreateUserMethod;
 
@@ -234,6 +296,20 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void getUserAuthByName(com.amur.home.user.rpc.User.GetUserAuthByNameRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.GetUserAuthByNameResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserAuthByNameMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getUserPermissionsByName(com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserPermissionsByNameMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void createUser(com.amur.home.user.rpc.User.CreateUserRequest request,
         io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.CreateUserResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
@@ -269,6 +345,20 @@ public final class UserServiceGrpc {
                 com.amur.home.user.rpc.User.GetUserDetailRequest,
                 com.amur.home.user.rpc.User.GetUserDetailResponse>(
                   this, METHODID_GET_USER_DETAIL_INFO)))
+          .addMethod(
+            getGetUserAuthByNameMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.User.GetUserAuthByNameRequest,
+                com.amur.home.user.rpc.User.GetUserAuthByNameResponse>(
+                  this, METHODID_GET_USER_AUTH_BY_NAME)))
+          .addMethod(
+            getGetUserPermissionsByNameMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest,
+                com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse>(
+                  this, METHODID_GET_USER_PERMISSIONS_BY_NAME)))
           .addMethod(
             getCreateUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -326,6 +416,22 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void getUserAuthByName(com.amur.home.user.rpc.User.GetUserAuthByNameRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.GetUserAuthByNameResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetUserAuthByNameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getUserPermissionsByName(com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetUserPermissionsByNameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void createUser(com.amur.home.user.rpc.User.CreateUserRequest request,
         io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.CreateUserResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -375,6 +481,20 @@ public final class UserServiceGrpc {
     public com.amur.home.user.rpc.User.GetUserDetailResponse getUserDetailInfo(com.amur.home.user.rpc.User.GetUserDetailRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetUserDetailInfoMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.User.GetUserAuthByNameResponse getUserAuthByName(com.amur.home.user.rpc.User.GetUserAuthByNameRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetUserAuthByNameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse getUserPermissionsByName(com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetUserPermissionsByNameMethod(), getCallOptions(), request);
     }
 
     /**
@@ -431,6 +551,22 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.User.GetUserAuthByNameResponse> getUserAuthByName(
+        com.amur.home.user.rpc.User.GetUserAuthByNameRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetUserAuthByNameMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse> getUserPermissionsByName(
+        com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetUserPermissionsByNameMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.User.CreateUserResponse> createUser(
         com.amur.home.user.rpc.User.CreateUserRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -456,9 +592,11 @@ public final class UserServiceGrpc {
 
   private static final int METHODID_GET_USER_BASE_INFO = 0;
   private static final int METHODID_GET_USER_DETAIL_INFO = 1;
-  private static final int METHODID_CREATE_USER = 2;
-  private static final int METHODID_UPDATE_USER = 3;
-  private static final int METHODID_DELETE_USER = 4;
+  private static final int METHODID_GET_USER_AUTH_BY_NAME = 2;
+  private static final int METHODID_GET_USER_PERMISSIONS_BY_NAME = 3;
+  private static final int METHODID_CREATE_USER = 4;
+  private static final int METHODID_UPDATE_USER = 5;
+  private static final int METHODID_DELETE_USER = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -484,6 +622,14 @@ public final class UserServiceGrpc {
         case METHODID_GET_USER_DETAIL_INFO:
           serviceImpl.getUserDetailInfo((com.amur.home.user.rpc.User.GetUserDetailRequest) request,
               (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.GetUserDetailResponse>) responseObserver);
+          break;
+        case METHODID_GET_USER_AUTH_BY_NAME:
+          serviceImpl.getUserAuthByName((com.amur.home.user.rpc.User.GetUserAuthByNameRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.GetUserAuthByNameResponse>) responseObserver);
+          break;
+        case METHODID_GET_USER_PERMISSIONS_BY_NAME:
+          serviceImpl.getUserPermissionsByName((com.amur.home.user.rpc.User.GetUserPermissionsByNameRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse>) responseObserver);
           break;
         case METHODID_CREATE_USER:
           serviceImpl.createUser((com.amur.home.user.rpc.User.CreateUserRequest) request,
@@ -560,6 +706,8 @@ public final class UserServiceGrpc {
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
               .addMethod(getGetUserBaseInfoMethod())
               .addMethod(getGetUserDetailInfoMethod())
+              .addMethod(getGetUserAuthByNameMethod())
+              .addMethod(getGetUserPermissionsByNameMethod())
               .addMethod(getCreateUserMethod())
               .addMethod(getUpdateUserMethod())
               .addMethod(getDeleteUserMethod())

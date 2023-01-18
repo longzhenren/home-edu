@@ -86,13 +86,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         if (userEntity == null) {
             response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response.toBuilder().setStatus(Status.SUCCESS).setUserBase(UserBase.newBuilder()
-                            .setName(userEntity.getName())
-                            .setAvatarUrl(userEntity.getAvatarUrl())
-                            .setRelativeTypeValue(userEntity.getRelativeType().getValue())
-                            .setPhone(userEntity.getPhone())
-                            .build())
-                    .build();
+            response.toBuilder().setStatus(Status.SUCCESS).setUserBase(UserBase.newBuilder().setName(userEntity.getName()).setAvatarUrl(userEntity.getAvatarUrl()).setRelativeTypeValue(userEntity.getRelativeType().getValue()).setPhone(userEntity.getPhone()).build()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -109,18 +103,33 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         if (userEntity == null) {
             response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response.toBuilder().setStatus(Status.SUCCESS).setUserDetail(UserDetail.newBuilder()
-                            .setId(userEntity.getId())
-                            .setName(userEntity.getName())
-                            .setAvatarUrl(userEntity.getAvatarUrl())
-                            .setRelativeTypeValue(userEntity.getRelativeType().getValue())
-                            .setHomeId(userEntity.getHomeId())
-                            .setEmail(userEntity.getEmail())
-                            .setCreatedAt(userEntity.getCreateTime().toString())
-                            .setPhone(userEntity.getPhone())
-                            .setDescription(userEntity.getDescription())
-                            .build())
-                    .build();
+            response.toBuilder().setStatus(Status.SUCCESS).setUserDetail(UserDetail.newBuilder().setId(userEntity.getId()).setName(userEntity.getName()).setAvatarUrl(userEntity.getAvatarUrl()).setRelativeTypeValue(userEntity.getRelativeType().getValue()).setHomeId(userEntity.getHomeId()).setEmail(userEntity.getEmail()).setCreatedAt(userEntity.getCreateTime().toString()).setPhone(userEntity.getPhone()).setDescription(userEntity.getDescription()).build()).build();
+        }
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getUserAuthByName(GetUserAuthByNameRequest request, StreamObserver<GetUserAuthByNameResponse> responseObserver) {
+        GetUserAuthByNameResponse response = GetUserAuthByNameResponse.newBuilder().build();
+        UserEntity userEntity = userService.getUserByName(request.getUserName());
+        if (userEntity == null) {
+            response.toBuilder().setStatus(Status.FAILED).build();
+        } else {
+            response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).build();
+        }
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getUserPermissionsByName(GetUserPermissionsByNameRequest request, StreamObserver<GetUserPermissionsByNameResponse> responseObserver) {
+        GetUserPermissionsByNameResponse response = GetUserPermissionsByNameResponse.newBuilder().build();
+        UserEntity userEntity = userService.getUserByName(request.getUserName());
+        if (userEntity == null) {
+            response.toBuilder().setStatus(Status.FAILED).build();
+        } else {
+            response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).addAllPermissions(userEntity.getPermissions()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();

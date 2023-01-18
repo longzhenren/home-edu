@@ -3,6 +3,7 @@ package com.amur.home.user.service.impl;
 import com.amur.home.user.entity.UserEntity;
 import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.UserService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -49,5 +50,12 @@ public class UserServiceImpl implements UserService {
     public Long createUser(UserEntity userEntity) {
         userMapper.insert(userEntity);
         return userEntity.getId();
+    }
+
+    @Override
+    public UserEntity getUserByName(String username) {
+        QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", username);
+        return userMapper.selectOne(queryWrapper);
     }
 }

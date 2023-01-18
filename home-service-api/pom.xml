@@ -17,6 +17,7 @@
         <module>home-user-api</module>
         <module>home-rtc-api</module>
         <module>home-tinyid-api</module>
+        <module>home-auth-api</module>
     </modules>
 
     <properties>

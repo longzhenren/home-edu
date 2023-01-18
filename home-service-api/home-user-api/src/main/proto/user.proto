@@ -6,6 +6,8 @@ import "status.proto";
 service UserService {
   rpc GetUserBaseInfo (GetUserBaseRequest) returns (GetUserBaseResponse) {}
   rpc GetUserDetailInfo (GetUserDetailRequest) returns (GetUserDetailResponse) {}
+  rpc GetUserAuthByName (GetUserAuthByNameRequest) returns (GetUserAuthByNameResponse) {}
+  rpc getUserPermissionsByName (GetUserPermissionsByNameRequest) returns (GetUserPermissionsByNameResponse) {}
   rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
   rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
   rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
@@ -17,6 +19,28 @@ message GetUserBaseRequest {
 
 message GetUserDetailRequest {
   int64 user_id = 1;
+}
+
+message GetUserAuthByNameRequest {
+  string user_name = 1;
+}
+
+message GetUserAuthByNameResponse{
+  int64 user_id = 1;
+  string user_name = 2;
+  string password = 3;
+  Status status = 4;
+}
+
+message GetUserPermissionsByNameRequest{
+  string user_name = 1;
+}
+
+message GetUserPermissionsByNameResponse{
+  int64 user_id = 1;
+  string user_name = 2;
+  repeated string permissions = 3;
+  Status status = 4;
 }
 
 message CreateUserRequest{
