@@ -18,7 +18,7 @@ public class PasswordUtils {
      * @return
      */
     public static boolean matches(String rawPass, String encPass) {
-        return new BCryptPasswordEncoder().matches(encPass, rawPass);
+        return new BCryptPasswordEncoder().matches(rawPass, encPass);
     }
 
     /**

@@ -2,6 +2,9 @@ package com.amur.home.auth.config;
 
 import com.amur.home.auth.security.JwtAuthenticationFilter;
 import com.amur.home.auth.security.JwtAuthenticationProvider;
+import net.devh.boot.grpc.server.security.authentication.BasicGrpcAuthenticationReader;
+import net.devh.boot.grpc.server.security.authentication.CompositeGrpcAuthenticationReader;
+import net.devh.boot.grpc.server.security.authentication.GrpcAuthenticationReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -17,6 +20,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity //开启Spring Security
@@ -26,7 +31,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) {
         //使用自定义身份认证组件
         auth.authenticationProvider(new JwtAuthenticationProvider(userDetailsService));
     }
@@ -34,7 +39,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //禁用csrf,由于使用的是jwt,我们这里不需要csrf
-        http.cors().and().csrf().disable().authorizeRequests()
+        http.csrf().disable();
+        http.cors().disable();
+        http.authorizeRequests()
                 //跨域预检请求
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 //web jars
@@ -44,9 +51,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 //登录页面
                 .antMatchers("/login").permitAll()
                 //swagger
-                .antMatchers("/swagger-ui.html").permitAll().antMatchers("/swagger-resources/**").permitAll().antMatchers("/v3/api-docs").permitAll().antMatchers("/doc.html").permitAll().antMatchers("/webjars/springfox-swagger-ui/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll().antMatchers("/swagger-resources/**").permitAll().antMatchers("/v3/api-docs/**").permitAll().antMatchers("/doc.html").permitAll().antMatchers("/webjars/springfox-swagger-ui/**").permitAll()
                 //验证码
-                .antMatchers("/captcha").permitAll()
+                .antMatchers("/captcha.jpg").permitAll()
                 //服务监控
                 .antMatchers("/actuator/**").permitAll()
                 //其他所有请求需要身份验证
@@ -63,6 +70,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
+    }
+
+    @Bean
+    GrpcAuthenticationReader authenticationReader() {
+        final List<GrpcAuthenticationReader> readers = new ArrayList<>();
+        readers.add(new BasicGrpcAuthenticationReader());
+        // readers.add(new AnonymousAuthenticationReader(ANONYMOUS_KEY));
+        return new CompositeGrpcAuthenticationReader(readers);
     }
 
     @Bean

@@ -23,7 +23,7 @@ public class KaptchaConfig {
         //字体颜色（RGB）
         properties.setProperty("kaptcha.textproducer.font.color", "0,0,0");
         //验证码字符的集合
-        properties.setProperty("kaptcha.textproducer.char.string", "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        properties.setProperty("kaptcha.textproducer.char.string", "1234567890");
         //验证码长度（即在上面集合中随机选取几位作为验证码）
         properties.setProperty("kaptcha.textproducer.char.length", "4");
         //图片的干扰样式

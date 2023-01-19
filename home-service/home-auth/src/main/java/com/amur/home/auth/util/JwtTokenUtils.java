@@ -12,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.crypto.SecretKey;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class JwtTokenUtils implements Serializable {
@@ -33,7 +34,7 @@ public class JwtTokenUtils implements Serializable {
     /**
      * 密钥
      */
-    private static final String SECRET = "SONYALPHA7MARKIV";
+    private static final String SECRET = "SONYALPHA7MARKIIIKWITHSIGMA35MMF14DGDNARTANDSIGMA85MMF14DGHSMART";
     /**
      * 有效期12小时
      */
@@ -59,7 +60,7 @@ public class JwtTokenUtils implements Serializable {
      */
     private static String generateToken(Map<String, Object> claims) {
         Date expirationDate = new Date(System.currentTimeMillis() + EXPIRE_TIME);
-        SecretKey secretKey = Keys.hmacShaKeyFor(SECRET.getBytes());
+        SecretKey secretKey = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
         return Jwts.builder().setClaims(claims).setExpiration(expirationDate).signWith(secretKey, SignatureAlgorithm.HS512).compact();
     }
 
@@ -130,7 +131,7 @@ public class JwtTokenUtils implements Serializable {
     private static Claims getClaimsFromToken(String token) {
         Claims claims;
         try {
-            SecretKey secretKey = Keys.hmacShaKeyFor(SECRET.getBytes());
+            SecretKey secretKey = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
             claims = Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token).getBody();
         } catch (Exception e) {
             claims = null;

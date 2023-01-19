@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 
 @GrpcService
 @Slf4j
@@ -31,9 +33,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         userEntity.setDescription(request.getDescription());
         Long userId = userService.createUser(userEntity);
         if (userId == null) {
-            response.toBuilder().setStatus(Status.FAILED).build();
+            response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response.toBuilder().setStatus(Status.SUCCESS).setUserId(userId).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userId).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -51,9 +53,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         userEntity.setPhone(request.getPhone());
         userEntity.setDescription(request.getDescription());
         if (userService.updateUser(userEntity)) {
-            response.toBuilder().setStatus(Status.SUCCESS).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).build();
         } else {
-            response.toBuilder().setStatus(Status.FAILED).build();
+            response = response.toBuilder().setStatus(Status.FAILED).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -67,9 +69,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
     public void deleteUser(DeleteUserRequest request, StreamObserver<DeleteUserResponse> responseObserver) {
         DeleteUserResponse response = DeleteUserResponse.newBuilder().build();
         if (userService.deleteUser(request.getUserId())) {
-            response.toBuilder().setStatus(Status.SUCCESS).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).build();
         } else {
-            response.toBuilder().setStatus(Status.FAILED).build();
+            response = response.toBuilder().setStatus(Status.FAILED).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -84,9 +86,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         GetUserBaseResponse response = GetUserBaseResponse.newBuilder().build();
         UserEntity userEntity = userService.getUserInfo(request.getUserId());
         if (userEntity == null) {
-            response.toBuilder().setStatus(Status.FAILED).build();
+            response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response.toBuilder().setStatus(Status.SUCCESS).setUserBase(UserBase.newBuilder().setName(userEntity.getName()).setAvatarUrl(userEntity.getAvatarUrl()).setRelativeTypeValue(userEntity.getRelativeType().getValue()).setPhone(userEntity.getPhone()).build()).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserBase(UserBase.newBuilder().setName(userEntity.getName()).setAvatarUrl(userEntity.getAvatarUrl()).setRelativeTypeValue(userEntity.getRelativeType().getValue()).setPhone(userEntity.getPhone()).build()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -101,9 +103,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         GetUserDetailResponse response = GetUserDetailResponse.newBuilder().build();
         UserEntity userEntity = userService.getUserInfo(request.getUserId());
         if (userEntity == null) {
-            response.toBuilder().setStatus(Status.FAILED).build();
+            response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response.toBuilder().setStatus(Status.SUCCESS).setUserDetail(UserDetail.newBuilder().setId(userEntity.getId()).setName(userEntity.getName()).setAvatarUrl(userEntity.getAvatarUrl()).setRelativeTypeValue(userEntity.getRelativeType().getValue()).setHomeId(userEntity.getHomeId()).setEmail(userEntity.getEmail()).setCreatedAt(userEntity.getCreateTime().toString()).setPhone(userEntity.getPhone()).setDescription(userEntity.getDescription()).build()).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserDetail(UserDetail.newBuilder().setId(userEntity.getId()).setName(userEntity.getName()).setAvatarUrl(userEntity.getAvatarUrl()).setRelativeTypeValue(userEntity.getRelativeType().getValue()).setHomeId(userEntity.getHomeId()).setEmail(userEntity.getEmail()).setCreatedAt(userEntity.getCreateTime().toString()).setPhone(userEntity.getPhone()).setDescription(userEntity.getDescription()).build()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -114,9 +116,9 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         GetUserAuthByNameResponse response = GetUserAuthByNameResponse.newBuilder().build();
         UserEntity userEntity = userService.getUserByName(request.getUserName());
         if (userEntity == null) {
-            response.toBuilder().setStatus(Status.FAILED).build();
+            response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -127,9 +129,11 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         GetUserPermissionsByNameResponse response = GetUserPermissionsByNameResponse.newBuilder().build();
         UserEntity userEntity = userService.getUserByName(request.getUserName());
         if (userEntity == null) {
-            response.toBuilder().setStatus(Status.FAILED).build();
+            response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).addAllPermissions(userEntity.getPermissions()).build();
+            // 将权限字符串转换为列表
+            List<String> permissions = Arrays.asList(userEntity.getPermissions().split(":"));
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).addAllPermissions(permissions).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();

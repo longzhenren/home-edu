@@ -1,5 +1,6 @@
 package com.amur.home.common;
 
+import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -72,8 +73,9 @@ public class Constants {
         UNCLE("UNCLE", "叔叔", 8),
         AUNT("AUNT", "阿姨", 9),
         OTHER("OTHER", "其他", 10);
+        private final String rpcType;
         private final String description;
-        private final String name;
+        @EnumValue
         private final int value;
     }
 

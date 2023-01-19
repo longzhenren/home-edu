@@ -32,7 +32,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         GetHomeBaseResponse response;
         HomeEntity homeEntity = homeService.getHomeInfo(request.getHomeId());
         if (homeEntity != null) {
-            response = GetHomeBaseResponse.newBuilder().setHomeBase(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build()).setStatus(Status.SUCCESS).build();
+            response = response = GetHomeBaseResponse.newBuilder().setHomeBase(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build()).setStatus(Status.SUCCESS).build();
         } else {
             response = GetHomeBaseResponse.newBuilder().setStatus(Status.FAILED).build();
         }
@@ -66,7 +66,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         GetHomeListResponse response = GetHomeListResponse.newBuilder().build();
         List<HomeEntity> homeList = homeService.getHomeList();
         for (HomeEntity homeEntity : homeList) {
-            response.toBuilder().addHomeList(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build());
+            response = response.toBuilder().addHomeList(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build()).build();
         }
         response.toBuilder().setStatus(Status.SUCCESS).build();
         responseObserver.onNext(response);
@@ -86,7 +86,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         homeEntity.setCreateTime(new Date());
         homeEntity.setAdminId(request.getUserId());
         Long homeId = homeService.createHome(homeEntity);
-        response.toBuilder().setHomeId(homeId).setStatus(Status.SUCCESS).build();
+        response = response.toBuilder().setHomeId(homeId).setStatus(Status.SUCCESS).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -103,7 +103,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         homeEntity.setAddress(request.getHomeAddress());
         homeEntity.setAvatarUrl(request.getHomeAvatarUrl());
         homeEntity.setId(request.getHomeId());
-        response.toBuilder().setStatus(homeService.updateHome(homeEntity) ? Status.SUCCESS : Status.FAILED).build();
+        response = response.toBuilder().setStatus(homeService.updateHome(homeEntity) ? Status.SUCCESS : Status.FAILED).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -115,7 +115,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void deleteHome(DeleteHomeRequest request, StreamObserver<DeleteHomeResponse> responseObserver) {
         DeleteHomeResponse response = DeleteHomeResponse.newBuilder().build();
-        response.toBuilder().setStatus(homeService.deleteHome(request.getHomeId()) ? Status.SUCCESS : Status.FAILED).build();
+        response = response.toBuilder().setStatus(homeService.deleteHome(request.getHomeId()) ? Status.SUCCESS : Status.FAILED).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -129,9 +129,9 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         GetHomeUserListResponse response = GetHomeUserListResponse.newBuilder().build();
         List<UserEntity> userList = homeService.getHomeUserList(request.getHomeId());
         for (UserEntity userEntity : userList) {
-            response.toBuilder().addHomeUserList(HomeUser.newBuilder().setUserId(userEntity.getId()).setUserName(userEntity.getName()).setUserAvatar(userEntity.getAvatarUrl()).build());
+            response = response.toBuilder().addHomeUserList(HomeUser.newBuilder().setUserId(userEntity.getId()).setUserName(userEntity.getName()).setUserAvatar(userEntity.getAvatarUrl()).build()).build();
         }
-        response.toBuilder().setStatus(Status.SUCCESS).build();
+        response = response.toBuilder().setStatus(Status.SUCCESS).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -143,7 +143,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void updateHomeUser(UpdateHomeUserRequest request, StreamObserver<UpdateHomeUserResponse> responseObserver) {
         UpdateHomeUserResponse response = UpdateHomeUserResponse.newBuilder().build();
-        response.toBuilder().setStatus(homeService.updateHomeUser(request.getHomeId(), request.getUserId()) ? Status.SUCCESS : Status.FAILED).build();
+        response = response.toBuilder().setStatus(homeService.updateHomeUser(request.getHomeId(), request.getUserId()) ? Status.SUCCESS : Status.FAILED).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -155,7 +155,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void deleteHomeUser(DeleteHomeUserRequest request, StreamObserver<DeleteHomeUserResponse> responseObserver) {
         DeleteHomeUserResponse response = DeleteHomeUserResponse.newBuilder().build();
-        response.toBuilder().setStatus(homeService.deleteHomeUser(request.getHomeId(), request.getUserId()) ? Status.SUCCESS : Status.FAILED).build();
+        response = response.toBuilder().setStatus(homeService.deleteHomeUser(request.getHomeId(), request.getUserId()) ? Status.SUCCESS : Status.FAILED).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -167,7 +167,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
     @Override
     public void setHomeAdmin(SetHomeAdminRequest request, StreamObserver<SetHomeAdminResponse> responseObserver) {
         SetHomeAdminResponse response = SetHomeAdminResponse.newBuilder().build();
-        response.toBuilder().setStatus(homeService.setHomeAdmin(request.getHomeId(), request.getUserId()) ? Status.SUCCESS : Status.FAILED).build();
+        response = response.toBuilder().setStatus(homeService.setHomeAdmin(request.getHomeId(), request.getUserId()) ? Status.SUCCESS : Status.FAILED).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -182,7 +182,7 @@ public class HomeRpcServiceImpl extends HomeServiceGrpc.HomeServiceImplBase {
         AddHomeImageDto addHomeImageDto = new AddHomeImageDto();
         addHomeImageDto.setHomeId(request.getHomeId());
         addHomeImageDto.setImageUrl(request.getImageUrlList());
-        response.toBuilder().setStatus(homeService.addHomeImage(addHomeImageDto) ? Status.SUCCESS : Status.FAILED).build();
+        response = response.toBuilder().setStatus(homeService.addHomeImage(addHomeImageDto) ? Status.SUCCESS : Status.FAILED).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }

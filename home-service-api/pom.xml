@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>home-edu</artifactId>
@@ -58,17 +58,6 @@
             <artifactId>home-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- 需要的 APIJSON 相关依赖 -->
-        <dependency>
-            <groupId>com.github.Tencent</groupId>
-            <artifactId>APIJSON</artifactId>
-            <version>5.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.APIJSON</groupId>
-            <artifactId>apijson-framework</artifactId>
-            <version>5.4.0</version>
-        </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-core</artifactId>
@@ -91,14 +80,16 @@
                 <version>${protobuf-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
+                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
+                    </protocArtifact>
                     <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc-java.version}:exe:${os.detected.classifier}</pluginArtifact>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc-java.version}:exe:${os.detected.classifier}
+                    </pluginArtifact>
                     <!--默认值-->
                     <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
                     <!--默认值-->
                     <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-<!--                    <outputDirectory>${project.basedir}/target/generated-sources/protobuf/java</outputDirectory>-->
+                    <!--                    <outputDirectory>${project.basedir}/target/generated-sources/protobuf/java</outputDirectory>-->
                     <!--设置是否在生成java文件之前清空outputDirectory的文件，默认值为true，设置为false时也会覆盖同名文件-->
                     <clearOutputDirectory>false</clearOutputDirectory>
                     <!--更多配置信息可以查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html-->
