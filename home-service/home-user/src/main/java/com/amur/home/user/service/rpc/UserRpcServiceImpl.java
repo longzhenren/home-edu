@@ -10,8 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
-import java.util.List;
 
 @GrpcService
 @Slf4j
@@ -118,13 +116,14 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         if (userEntity == null) {
             response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).build();
+//            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).addAllPermissions(permissions).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
 
     @Override
+    @Deprecated
     public void getUserPermissionsByName(GetUserPermissionsByNameRequest request, StreamObserver<GetUserPermissionsByNameResponse> responseObserver) {
         GetUserPermissionsByNameResponse response = GetUserPermissionsByNameResponse.newBuilder().build();
         UserEntity userEntity = userService.getUserByName(request.getUserName());
@@ -132,8 +131,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
             response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
             // 将权限字符串转换为列表
-            List<String> permissions = Arrays.asList(userEntity.getPermissions().split(":"));
-            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).addAllPermissions(permissions).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPermissions(userEntity.getPermissions()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();

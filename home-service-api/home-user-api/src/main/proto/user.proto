@@ -30,6 +30,7 @@ message GetUserAuthByNameResponse{
   string user_name = 2;
   string password = 3;
   Status status = 4;
+  string permissions = 5;
 }
 
 message GetUserPermissionsByNameRequest{
@@ -39,7 +40,7 @@ message GetUserPermissionsByNameRequest{
 message GetUserPermissionsByNameResponse{
   int64 user_id = 1;
   string user_name = 2;
-  repeated string permissions = 3;
+  string permissions = 3;
   Status status = 4;
 }
 

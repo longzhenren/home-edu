@@ -24,6 +24,7 @@ public class UserEntity {
     private Long homeId;
     private String sex;
     private Integer age;
+    // e.g: "user:admin"冒号分割并解析成set
     private String permissions;
     private UserRelativeType relativeType;
     @TableField(fill = FieldFill.INSERT)

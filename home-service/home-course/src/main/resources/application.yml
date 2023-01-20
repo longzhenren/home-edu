@@ -1,8 +1,8 @@
 server:
-  port: 8001
+  port: 8704
 spring:
   application:
-    name: home-class
+    name: home-course
   cloud:
     nacos:
       discovery:
@@ -15,8 +15,8 @@ spring:
         server-addr: 127.0.0.1:8848
   config:
     import:
-      - optional:nacos:home-class.yml
+      - optional:nacos:home-course.yml
 
   grpc:
     server:
-      port: 9001
+      port: 9704

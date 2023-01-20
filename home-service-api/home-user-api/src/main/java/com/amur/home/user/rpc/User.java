@@ -1793,6 +1793,18 @@ public final class User {
      * @return The status.
      */
     com.amur.home.user.rpc.StatusOuterClass.Status getStatus();
+
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The permissions.
+     */
+    java.lang.String getPermissions();
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The bytes for permissions.
+     */
+    com.google.protobuf.ByteString
+        getPermissionsBytes();
   }
   /**
    * Protobuf type {@code com.amur.home.user.rpc.GetUserAuthByNameResponse}
@@ -1810,6 +1822,7 @@ public final class User {
       userName_ = "";
       password_ = "";
       status_ = 0;
+      permissions_ = "";
     }
 
     @java.lang.Override
@@ -1863,6 +1876,12 @@ public final class User {
               int rawValue = input.readEnum();
 
               status_ = rawValue;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              permissions_ = s;
               break;
             }
             default: {
@@ -2003,6 +2022,44 @@ public final class User {
       return result == null ? com.amur.home.user.rpc.StatusOuterClass.Status.UNRECOGNIZED : result;
     }
 
+    public static final int PERMISSIONS_FIELD_NUMBER = 5;
+    private volatile java.lang.Object permissions_;
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The permissions.
+     */
+    @java.lang.Override
+    public java.lang.String getPermissions() {
+      java.lang.Object ref = permissions_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        permissions_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The bytes for permissions.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPermissionsBytes() {
+      java.lang.Object ref = permissions_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        permissions_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2029,6 +2086,9 @@ public final class User {
       if (status_ != com.amur.home.user.rpc.StatusOuterClass.Status.SUCCESS.getNumber()) {
         output.writeEnum(4, status_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, permissions_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2052,6 +2112,9 @@ public final class User {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, status_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, permissions_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2074,6 +2137,8 @@ public final class User {
       if (!getPassword()
           .equals(other.getPassword())) return false;
       if (status_ != other.status_) return false;
+      if (!getPermissions()
+          .equals(other.getPermissions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2094,6 +2159,8 @@ public final class User {
       hash = (53 * hash) + getPassword().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
+      hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getPermissions().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2235,6 +2302,8 @@ public final class User {
 
         status_ = 0;
 
+        permissions_ = "";
+
         return this;
       }
 
@@ -2265,6 +2334,7 @@ public final class User {
         result.userName_ = userName_;
         result.password_ = password_;
         result.status_ = status_;
+        result.permissions_ = permissions_;
         onBuilt();
         return result;
       }
@@ -2326,6 +2396,10 @@ public final class User {
         }
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
+        }
+        if (!other.getPermissions().isEmpty()) {
+          permissions_ = other.permissions_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2589,6 +2663,82 @@ public final class User {
       public Builder clearStatus() {
         
         status_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object permissions_ = "";
+      /**
+       * <code>string permissions = 5;</code>
+       * @return The permissions.
+       */
+      public java.lang.String getPermissions() {
+        java.lang.Object ref = permissions_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          permissions_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @return The bytes for permissions.
+       */
+      public com.google.protobuf.ByteString
+          getPermissionsBytes() {
+        java.lang.Object ref = permissions_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          permissions_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @param value The permissions to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPermissions(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        permissions_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPermissions() {
+        
+        permissions_ = getDefaultInstance().getPermissions();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @param value The bytes for permissions to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPermissionsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        permissions_ = value;
         onChanged();
         return this;
       }
@@ -3236,29 +3386,16 @@ public final class User {
         getUserNameBytes();
 
     /**
-     * <code>repeated string permissions = 3;</code>
-     * @return A list containing the permissions.
+     * <code>string permissions = 3;</code>
+     * @return The permissions.
      */
-    java.util.List<java.lang.String>
-        getPermissionsList();
+    java.lang.String getPermissions();
     /**
-     * <code>repeated string permissions = 3;</code>
-     * @return The count of permissions.
-     */
-    int getPermissionsCount();
-    /**
-     * <code>repeated string permissions = 3;</code>
-     * @param index The index of the element to return.
-     * @return The permissions at the given index.
-     */
-    java.lang.String getPermissions(int index);
-    /**
-     * <code>repeated string permissions = 3;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the permissions at the given index.
+     * <code>string permissions = 3;</code>
+     * @return The bytes for permissions.
      */
     com.google.protobuf.ByteString
-        getPermissionsBytes(int index);
+        getPermissionsBytes();
 
     /**
      * <code>.com.amur.home.user.rpc.Status status = 4;</code>
@@ -3285,7 +3422,7 @@ public final class User {
     }
     private GetUserPermissionsByNameResponse() {
       userName_ = "";
-      permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      permissions_ = "";
       status_ = 0;
     }
 
@@ -3309,7 +3446,6 @@ public final class User {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3333,11 +3469,8 @@ public final class User {
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                permissions_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              permissions_.add(s);
+
+              permissions_ = s;
               break;
             }
             case 32: {
@@ -3361,9 +3494,6 @@ public final class User {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          permissions_ = permissions_.getUnmodifiableView();
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -3431,38 +3561,41 @@ public final class User {
     }
 
     public static final int PERMISSIONS_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList permissions_;
+    private volatile java.lang.Object permissions_;
     /**
-     * <code>repeated string permissions = 3;</code>
-     * @return A list containing the permissions.
+     * <code>string permissions = 3;</code>
+     * @return The permissions.
      */
-    public com.google.protobuf.ProtocolStringList
-        getPermissionsList() {
-      return permissions_;
+    @java.lang.Override
+    public java.lang.String getPermissions() {
+      java.lang.Object ref = permissions_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        permissions_ = s;
+        return s;
+      }
     }
     /**
-     * <code>repeated string permissions = 3;</code>
-     * @return The count of permissions.
+     * <code>string permissions = 3;</code>
+     * @return The bytes for permissions.
      */
-    public int getPermissionsCount() {
-      return permissions_.size();
-    }
-    /**
-     * <code>repeated string permissions = 3;</code>
-     * @param index The index of the element to return.
-     * @return The permissions at the given index.
-     */
-    public java.lang.String getPermissions(int index) {
-      return permissions_.get(index);
-    }
-    /**
-     * <code>repeated string permissions = 3;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the permissions at the given index.
-     */
+    @java.lang.Override
     public com.google.protobuf.ByteString
-        getPermissionsBytes(int index) {
-      return permissions_.getByteString(index);
+        getPermissionsBytes() {
+      java.lang.Object ref = permissions_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        permissions_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int STATUS_FIELD_NUMBER = 4;
@@ -3504,8 +3637,8 @@ public final class User {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userName_);
       }
-      for (int i = 0; i < permissions_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, permissions_.getRaw(i));
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, permissions_);
       }
       if (status_ != com.amur.home.user.rpc.StatusOuterClass.Status.SUCCESS.getNumber()) {
         output.writeEnum(4, status_);
@@ -3526,13 +3659,8 @@ public final class User {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userName_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < permissions_.size(); i++) {
-          dataSize += computeStringSizeNoTag(permissions_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getPermissionsList().size();
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, permissions_);
       }
       if (status_ != com.amur.home.user.rpc.StatusOuterClass.Status.SUCCESS.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -3557,8 +3685,8 @@ public final class User {
           != other.getUserId()) return false;
       if (!getUserName()
           .equals(other.getUserName())) return false;
-      if (!getPermissionsList()
-          .equals(other.getPermissionsList())) return false;
+      if (!getPermissions()
+          .equals(other.getPermissions())) return false;
       if (status_ != other.status_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -3576,10 +3704,8 @@ public final class User {
           getUserId());
       hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getUserName().hashCode();
-      if (getPermissionsCount() > 0) {
-        hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getPermissionsList().hashCode();
-      }
+      hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getPermissions().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
       hash = (29 * hash) + unknownFields.hashCode();
@@ -3719,8 +3845,8 @@ public final class User {
 
         userName_ = "";
 
-        permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        permissions_ = "";
+
         status_ = 0;
 
         return this;
@@ -3749,13 +3875,8 @@ public final class User {
       @java.lang.Override
       public com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse buildPartial() {
         com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse result = new com.amur.home.user.rpc.User.GetUserPermissionsByNameResponse(this);
-        int from_bitField0_ = bitField0_;
         result.userId_ = userId_;
         result.userName_ = userName_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          permissions_ = permissions_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
         result.permissions_ = permissions_;
         result.status_ = status_;
         onBuilt();
@@ -3813,14 +3934,8 @@ public final class User {
           userName_ = other.userName_;
           onChanged();
         }
-        if (!other.permissions_.isEmpty()) {
-          if (permissions_.isEmpty()) {
-            permissions_ = other.permissions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensurePermissionsIsMutable();
-            permissions_.addAll(other.permissions_);
-          }
+        if (!other.getPermissions().isEmpty()) {
+          permissions_ = other.permissions_;
           onChanged();
         }
         if (other.status_ != 0) {
@@ -3854,7 +3969,6 @@ public final class User {
         }
         return this;
       }
-      private int bitField0_;
 
       private long userId_ ;
       /**
@@ -3963,112 +4077,78 @@ public final class User {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensurePermissionsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          permissions_ = new com.google.protobuf.LazyStringArrayList(permissions_);
-          bitField0_ |= 0x00000001;
-         }
-      }
+      private java.lang.Object permissions_ = "";
       /**
-       * <code>repeated string permissions = 3;</code>
-       * @return A list containing the permissions.
+       * <code>string permissions = 3;</code>
+       * @return The permissions.
        */
-      public com.google.protobuf.ProtocolStringList
-          getPermissionsList() {
-        return permissions_.getUnmodifiableView();
+      public java.lang.String getPermissions() {
+        java.lang.Object ref = permissions_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          permissions_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>repeated string permissions = 3;</code>
-       * @return The count of permissions.
-       */
-      public int getPermissionsCount() {
-        return permissions_.size();
-      }
-      /**
-       * <code>repeated string permissions = 3;</code>
-       * @param index The index of the element to return.
-       * @return The permissions at the given index.
-       */
-      public java.lang.String getPermissions(int index) {
-        return permissions_.get(index);
-      }
-      /**
-       * <code>repeated string permissions = 3;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the permissions at the given index.
+       * <code>string permissions = 3;</code>
+       * @return The bytes for permissions.
        */
       public com.google.protobuf.ByteString
-          getPermissionsBytes(int index) {
-        return permissions_.getByteString(index);
+          getPermissionsBytes() {
+        java.lang.Object ref = permissions_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          permissions_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
       /**
-       * <code>repeated string permissions = 3;</code>
-       * @param index The index to set the value at.
+       * <code>string permissions = 3;</code>
        * @param value The permissions to set.
        * @return This builder for chaining.
        */
       public Builder setPermissions(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePermissionsIsMutable();
-        permissions_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string permissions = 3;</code>
-       * @param value The permissions to add.
-       * @return This builder for chaining.
-       */
-      public Builder addPermissions(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensurePermissionsIsMutable();
-        permissions_.add(value);
+  
+        permissions_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string permissions = 3;</code>
-       * @param values The permissions to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllPermissions(
-          java.lang.Iterable<java.lang.String> values) {
-        ensurePermissionsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, permissions_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string permissions = 3;</code>
+       * <code>string permissions = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPermissions() {
-        permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
+        permissions_ = getDefaultInstance().getPermissions();
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string permissions = 3;</code>
-       * @param value The bytes of the permissions to add.
+       * <code>string permissions = 3;</code>
+       * @param value The bytes for permissions to set.
        * @return This builder for chaining.
        */
-      public Builder addPermissionsBytes(
+      public Builder setPermissionsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensurePermissionsIsMutable();
-        permissions_.add(value);
+        
+        permissions_ = value;
         onChanged();
         return this;
       }
@@ -12733,67 +12813,67 @@ public final class User {
       "atus.proto\"%\n\022GetUserBaseRequest\022\017\n\007user" +
       "_id\030\001 \001(\003\"\'\n\024GetUserDetailRequest\022\017\n\007use" +
       "r_id\030\001 \001(\003\"-\n\030GetUserAuthByNameRequest\022\021" +
-      "\n\tuser_name\030\001 \001(\t\"\201\001\n\031GetUserAuthByNameR" +
+      "\n\tuser_name\030\001 \001(\t\"\226\001\n\031GetUserAuthByNameR" +
       "esponse\022\017\n\007user_id\030\001 \001(\003\022\021\n\tuser_name\030\002 " +
       "\001(\t\022\020\n\010password\030\003 \001(\t\022.\n\006status\030\004 \001(\0162\036." +
-      "com.amur.home.user.rpc.Status\"4\n\037GetUser" +
-      "PermissionsByNameRequest\022\021\n\tuser_name\030\001 " +
-      "\001(\t\"\213\001\n GetUserPermissionsByNameResponse" +
-      "\022\017\n\007user_id\030\001 \001(\003\022\021\n\tuser_name\030\002 \001(\t\022\023\n\013" +
-      "permissions\030\003 \003(\t\022.\n\006status\030\004 \001(\0162\036.com." +
-      "amur.home.user.rpc.Status\"T\n\021CreateUserR" +
-      "equest\022\014\n\004name\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\r\n\005p" +
-      "hone\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\"y\n\021Updat" +
-      "eUserRequest\022\017\n\007user_id\030\001 \001(\003\022\014\n\004name\030\002 " +
-      "\001(\t\022\r\n\005email\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013des" +
-      "cription\030\005 \001(\t\022\022\n\navatar_url\030\006 \001(\t\"$\n\021De" +
-      "leteUserRequest\022\017\n\007user_id\030\001 \001(\003\"z\n\023GetU" +
-      "serBaseResponse\022.\n\006status\030\001 \001(\0162\036.com.am" +
-      "ur.home.user.rpc.Status\0223\n\tuser_base\030\002 \001" +
-      "(\0132 .com.amur.home.user.rpc.UserBase\"\200\001\n" +
-      "\025GetUserDetailResponse\022.\n\006status\030\001 \001(\0162\036" +
-      ".com.amur.home.user.rpc.Status\0227\n\013user_d" +
-      "etail\030\002 \001(\0132\".com.amur.home.user.rpc.Use" +
-      "rDetail\"U\n\022CreateUserResponse\022.\n\006status\030" +
-      "\001 \001(\0162\036.com.amur.home.user.rpc.Status\022\017\n" +
-      "\007user_id\030\002 \001(\003\"D\n\022UpdateUserResponse\022.\n\006" +
+      "com.amur.home.user.rpc.Status\022\023\n\013permiss" +
+      "ions\030\005 \001(\t\"4\n\037GetUserPermissionsByNameRe" +
+      "quest\022\021\n\tuser_name\030\001 \001(\t\"\213\001\n GetUserPerm" +
+      "issionsByNameResponse\022\017\n\007user_id\030\001 \001(\003\022\021" +
+      "\n\tuser_name\030\002 \001(\t\022\023\n\013permissions\030\003 \001(\t\022." +
+      "\n\006status\030\004 \001(\0162\036.com.amur.home.user.rpc." +
+      "Status\"T\n\021CreateUserRequest\022\014\n\004name\030\001 \001(" +
+      "\t\022\r\n\005email\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\023\n\013descr" +
+      "iption\030\004 \001(\t\"y\n\021UpdateUserRequest\022\017\n\007use" +
+      "r_id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022" +
+      "\r\n\005phone\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\022\n\na" +
+      "vatar_url\030\006 \001(\t\"$\n\021DeleteUserRequest\022\017\n\007" +
+      "user_id\030\001 \001(\003\"z\n\023GetUserBaseResponse\022.\n\006" +
       "status\030\001 \001(\0162\036.com.amur.home.user.rpc.St" +
-      "atus\"D\n\022DeleteUserResponse\022.\n\006status\030\001 \001" +
-      "(\0162\036.com.amur.home.user.rpc.Status\"\210\001\n\010U" +
-      "serBase\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005pho" +
-      "ne\030\004 \001(\t\022\022\n\navatar_url\030\006 \001(\t\022?\n\rrelative" +
-      "_type\030\t \001(\0162(.com.amur.home.user.rpc.Use" +
-      "rRelativeType\"\323\001\n\nUserDetail\022\n\n\002id\030\001 \001(\003" +
-      "\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022\r\n\005phone\030\004" +
-      " \001(\t\022\023\n\013description\030\005 \001(\t\022\022\n\navatar_url\030" +
-      "\006 \001(\t\022\017\n\007home_id\030\007 \001(\003\022\022\n\ncreated_at\030\010 \001" +
-      "(\t\022?\n\rrelative_type\030\t \001(\0162(.com.amur.hom" +
-      "e.user.rpc.UserRelativeType*\234\001\n\020UserRela" +
-      "tiveType\022\n\n\006FATHER\020\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020" +
-      "\002\022\014\n\010DAUGHTER\020\003\022\017\n\013GRANDFATHER\020\004\022\017\n\013GRAN" +
-      "DMOTHER\020\005\022\013\n\007BROTHER\020\006\022\n\n\006SISTER\020\007\022\t\n\005UN" +
-      "CLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005OTHER\020\n2\262\006\n\013UserServi" +
-      "ce\022l\n\017GetUserBaseInfo\022*.com.amur.home.us" +
-      "er.rpc.GetUserBaseRequest\032+.com.amur.hom" +
-      "e.user.rpc.GetUserBaseResponse\"\000\022r\n\021GetU" +
-      "serDetailInfo\022,.com.amur.home.user.rpc.G" +
-      "etUserDetailRequest\032-.com.amur.home.user" +
-      ".rpc.GetUserDetailResponse\"\000\022z\n\021GetUserA" +
-      "uthByName\0220.com.amur.home.user.rpc.GetUs" +
-      "erAuthByNameRequest\0321.com.amur.home.user" +
-      ".rpc.GetUserAuthByNameResponse\"\000\022\217\001\n\030get" +
-      "UserPermissionsByName\0227.com.amur.home.us" +
-      "er.rpc.GetUserPermissionsByNameRequest\0328" +
-      ".com.amur.home.user.rpc.GetUserPermissio" +
-      "nsByNameResponse\"\000\022e\n\nCreateUser\022).com.a" +
-      "mur.home.user.rpc.CreateUserRequest\032*.co" +
-      "m.amur.home.user.rpc.CreateUserResponse\"" +
-      "\000\022e\n\nUpdateUser\022).com.amur.home.user.rpc" +
-      ".UpdateUserRequest\032*.com.amur.home.user." +
-      "rpc.UpdateUserResponse\"\000\022e\n\nDeleteUser\022)" +
-      ".com.amur.home.user.rpc.DeleteUserReques" +
-      "t\032*.com.amur.home.user.rpc.DeleteUserRes" +
-      "ponse\"\000b\006proto3"
+      "atus\0223\n\tuser_base\030\002 \001(\0132 .com.amur.home." +
+      "user.rpc.UserBase\"\200\001\n\025GetUserDetailRespo" +
+      "nse\022.\n\006status\030\001 \001(\0162\036.com.amur.home.user" +
+      ".rpc.Status\0227\n\013user_detail\030\002 \001(\0132\".com.a" +
+      "mur.home.user.rpc.UserDetail\"U\n\022CreateUs" +
+      "erResponse\022.\n\006status\030\001 \001(\0162\036.com.amur.ho" +
+      "me.user.rpc.Status\022\017\n\007user_id\030\002 \001(\003\"D\n\022U" +
+      "pdateUserResponse\022.\n\006status\030\001 \001(\0162\036.com." +
+      "amur.home.user.rpc.Status\"D\n\022DeleteUserR" +
+      "esponse\022.\n\006status\030\001 \001(\0162\036.com.amur.home." +
+      "user.rpc.Status\"\210\001\n\010UserBase\022\n\n\002id\030\001 \001(\003" +
+      "\022\014\n\004name\030\002 \001(\t\022\r\n\005phone\030\004 \001(\t\022\022\n\navatar_" +
+      "url\030\006 \001(\t\022?\n\rrelative_type\030\t \001(\0162(.com.a" +
+      "mur.home.user.rpc.UserRelativeType\"\323\001\n\nU" +
+      "serDetail\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005e" +
+      "mail\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013description" +
+      "\030\005 \001(\t\022\022\n\navatar_url\030\006 \001(\t\022\017\n\007home_id\030\007 " +
+      "\001(\003\022\022\n\ncreated_at\030\010 \001(\t\022?\n\rrelative_type" +
+      "\030\t \001(\0162(.com.amur.home.user.rpc.UserRela" +
+      "tiveType*\234\001\n\020UserRelativeType\022\n\n\006FATHER\020" +
+      "\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013" +
+      "GRANDFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BROTHE" +
+      "R\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005" +
+      "OTHER\020\n2\262\006\n\013UserService\022l\n\017GetUserBaseIn" +
+      "fo\022*.com.amur.home.user.rpc.GetUserBaseR" +
+      "equest\032+.com.amur.home.user.rpc.GetUserB" +
+      "aseResponse\"\000\022r\n\021GetUserDetailInfo\022,.com" +
+      ".amur.home.user.rpc.GetUserDetailRequest" +
+      "\032-.com.amur.home.user.rpc.GetUserDetailR" +
+      "esponse\"\000\022z\n\021GetUserAuthByName\0220.com.amu" +
+      "r.home.user.rpc.GetUserAuthByNameRequest" +
+      "\0321.com.amur.home.user.rpc.GetUserAuthByN" +
+      "ameResponse\"\000\022\217\001\n\030getUserPermissionsByNa" +
+      "me\0227.com.amur.home.user.rpc.GetUserPermi" +
+      "ssionsByNameRequest\0328.com.amur.home.user" +
+      ".rpc.GetUserPermissionsByNameResponse\"\000\022" +
+      "e\n\nCreateUser\022).com.amur.home.user.rpc.C" +
+      "reateUserRequest\032*.com.amur.home.user.rp" +
+      "c.CreateUserResponse\"\000\022e\n\nUpdateUser\022).c" +
+      "om.amur.home.user.rpc.UpdateUserRequest\032" +
+      "*.com.amur.home.user.rpc.UpdateUserRespo" +
+      "nse\"\000\022e\n\nDeleteUser\022).com.amur.home.user" +
+      ".rpc.DeleteUserRequest\032*.com.amur.home.u" +
+      "ser.rpc.DeleteUserResponse\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12823,7 +12903,7 @@ public final class User {
     internal_static_com_amur_home_user_rpc_GetUserAuthByNameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetUserAuthByNameResponse_descriptor,
-        new java.lang.String[] { "UserId", "UserName", "Password", "Status", });
+        new java.lang.String[] { "UserId", "UserName", "Password", "Status", "Permissions", });
     internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameRequest_fieldAccessorTable = new

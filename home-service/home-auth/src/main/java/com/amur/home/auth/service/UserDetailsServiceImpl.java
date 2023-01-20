@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         //用户权限列表，根据权限标志如@PreAuthorize("hasAuthority('sys:menu:view'))
         //标注的接口对比，决定是否可以调用该接口
-        Set<String> permissions = userGrpcClient.getUserPermissionsByUserName(user.getName());
+        Set<String> permissions = new HashSet<>(Arrays.asList(user.getPermissions().split(":")));
 //        if (permissions == null) {
 //            throw new UsernameNotFoundException("该用户权限不存在");
 //        }

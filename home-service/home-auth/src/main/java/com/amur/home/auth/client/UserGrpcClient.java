@@ -23,17 +23,8 @@ public class UserGrpcClient {
             userEntity.setId(resp.getUserId());
             userEntity.setName(resp.getUserName());
             userEntity.setPassword(resp.getPassword());
+            userEntity.setPermissions(resp.getPermissions());
             return userEntity;
-        } else {
-            return null;
-        }
-    }
-
-    public Set<String> getUserPermissionsByUserName(String username) {
-        User.GetUserPermissionsByNameRequest getUserPermissionsByNameRequest = User.GetUserPermissionsByNameRequest.newBuilder().setUserName(username).build();
-        User.GetUserPermissionsByNameResponse resp = userServiceBlockingStub.getUserPermissionsByName(getUserPermissionsByNameRequest);
-        if (resp.getStatus().equals(StatusOuterClass.Status.SUCCESS)) {
-            return new HashSet<>(resp.getPermissionsList());
         } else {
             return null;
         }
