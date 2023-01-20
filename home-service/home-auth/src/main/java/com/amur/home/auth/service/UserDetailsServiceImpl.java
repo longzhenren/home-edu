@@ -27,12 +27,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("该用户不存在");
         }
-        //用户权限列表，根据权限标志如@PreAuthorize("hasAuthority('sys:menu:view'))
-        //标注的接口对比，决定是否可以调用该接口
+        //用户权限列表，根据权限标志如@PreAuthorize("hasAuthority('sys:menu:view'))标注的接口对比，决定是否可以调用该接口
         Set<String> permissions = new HashSet<>(Arrays.asList(user.getPermissions().split(":")));
-//        if (permissions == null) {
-//            throw new UsernameNotFoundException("该用户权限不存在");
-//        }
+        if (permissions.size() == 0) {
+            permissions.add("guest");
+//            throw new UsernameNotFoundException("该用户没有权限");
+        }
         List<GrantedAuthority> grantedAuthorities = permissions.stream().map(GrantedAuthorityImpl::new).collect(Collectors.toList());
         return new JwtUserDetails(user.getName(), user.getPassword(), grantedAuthorities);
     }
