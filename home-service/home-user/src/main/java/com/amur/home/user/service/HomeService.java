@@ -25,5 +25,5 @@ public interface HomeService {
 
     public boolean setHomeAdmin(Long homeId, Long userId);
 
-    public boolean addHomeImage(AddHomeImageDto request);
+//    public boolean addHomeImage(AddHomeImageDto request);
 }

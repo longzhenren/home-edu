@@ -95,13 +95,13 @@ public class HomeController {
         return ResponseWrapper.status(homeService.setHomeAdmin(homeId, userId));
     }
 
-    @Operation(summary = "添加家庭图片")
-    @Parameters({
-            @Parameter(name = "addHomeImageDto", description = "添加家庭图片实体", required = true)
-    })
-    @PostMapping("/addimage")
-    public ResponseWrapper addHomeImage(@RequestBody AddHomeImageDto request) {
-        return ResponseWrapper.status(homeService.addHomeImage(request));
-    }
+//    @Operation(summary = "添加家庭图片")
+//    @Parameters({
+//            @Parameter(name = "addHomeImageDto", description = "添加家庭图片实体", required = true)
+//    })
+//    @PostMapping("/addimage")
+//    public ResponseWrapper addHomeImage(@RequestBody AddHomeImageDto request) {
+//        return ResponseWrapper.status(homeService.addHomeImage(request));
+//    }
 
 }

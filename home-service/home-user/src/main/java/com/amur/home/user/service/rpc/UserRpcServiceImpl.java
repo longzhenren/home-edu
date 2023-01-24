@@ -116,7 +116,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         if (userEntity == null) {
             response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-//            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).addAllPermissions(permissions).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).setPermissions(userEntity.getPermissions()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();

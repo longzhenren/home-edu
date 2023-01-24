@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.lang.Nullable;
+import org.springframework.util.ObjectUtils;
 
 import java.io.Serializable;
 import java.util.Optional;
@@ -48,7 +49,7 @@ public class ServiceRetWrapper<T> implements Serializable {
 
     public static boolean isSuccess(@Nullable ServiceRetWrapper<?> result) {
         return Optional.ofNullable(result)
-                .map(x -> ObjectUtil.nullSafeEquals(StatusCode.SUCCESS.getCode(), x.code))
+                .map(x -> ObjectUtils.nullSafeEquals(StatusCode.SUCCESS.getCode(), x.code))
                 .orElse(Boolean.FALSE);
     }
 

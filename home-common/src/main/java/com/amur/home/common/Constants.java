@@ -19,6 +19,7 @@ public class Constants {
         private Integer code;
         private String message;
     }
+
     @AllArgsConstructor
     @Getter
     public enum IdConstants {
@@ -81,5 +82,13 @@ public class Constants {
 
     public enum Home {
 
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public enum CacheNames {
+        CAPTCHA_KEY("auth:captcha:");
+        @EnumValue
+        private final String value;
     }
 }

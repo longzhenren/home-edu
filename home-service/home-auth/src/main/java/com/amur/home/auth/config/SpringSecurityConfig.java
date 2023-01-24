@@ -49,7 +49,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 //查看SQL监控（druid）
                 .antMatchers("/druid/**").permitAll()
                 //登录页面
-                .antMatchers("/login").permitAll()
+                .antMatchers("/login").permitAll().antMatchers("/logintest").permitAll()
                 //swagger
                 .antMatchers("/swagger-ui.html").permitAll().antMatchers("/swagger-resources/**").permitAll().antMatchers("/v3/api-docs/**").permitAll().antMatchers("/doc.html").permitAll().antMatchers("/webjars/springfox-swagger-ui/**").permitAll()
                 //验证码

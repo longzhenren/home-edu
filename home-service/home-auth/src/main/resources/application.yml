@@ -34,6 +34,9 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
       validation-timeout: 3000
+  redis:
+    host: 127.0.0.1
+    port: 6379
   banner:
     location: banner.txt
 
