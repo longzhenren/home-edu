@@ -40,22 +40,6 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-netty-shaded</artifactId>
-            <version>1.52.1</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-protobuf</artifactId>
-            <version>1.52.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-stub</artifactId>
-            <version>1.52.1</version>
-        </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.springframework.boot</groupId>-->
         <!--            <artifactId>spring-boot-starter-security</artifactId>-->
@@ -69,12 +53,8 @@
             <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
             <version>${knife4j.version}</version>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>com.github.xiaoymin</groupId>-->
-        <!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
-        <!--            <version>${knife4j.version}</version>-->
-        <!--        </dependency>-->
-        <!--        解决M1 Mac Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider异常-->
+
+        <!--                解决M1 Mac Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider异常-->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-resolver-dns-native-macos</artifactId>
@@ -82,11 +62,15 @@
             <classifier>osx-aarch_64</classifier>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-test</artifactId>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--                <dependency>-->
+        <!--                    <groupId>org.springframework.boot</groupId>-->
+        <!--                    <artifactId>spring-boot-starter-data-redis</artifactId>-->
+        <!--                </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>com.alibaba.fastjson2</groupId>-->
         <!--            <artifactId>fastjson2</artifactId>-->
@@ -102,6 +86,32 @@
             <artifactId>home-auth-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>grpc-protobuf</artifactId>
+                    <groupId>io.grpc</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>grpc-stub</artifactId>
+                    <groupId>io.grpc</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>mybatis-plus-boot-starter</artifactId>
+                    <groupId>com.baomidou</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-boot-starter-data-redis</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>home-common</artifactId>
+                    <groupId>com.amur</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>knife4j-core</artifactId>
+                    <groupId>com.github.xiaoymin</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

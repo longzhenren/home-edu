@@ -3,8 +3,8 @@ package com.amur.home.gateway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@SpringBootApplication(scanBasePackages = {"com.amur.home"})
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.amur.home"})
+//@SpringBootApplication
 public class HomeGatewayApplication {
 
     public static void main(String[] args) {

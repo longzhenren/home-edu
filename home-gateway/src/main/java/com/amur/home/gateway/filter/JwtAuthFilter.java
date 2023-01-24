@@ -1,11 +1,11 @@
 package com.amur.home.gateway.filter;
 
 import com.amur.home.auth.entity.AuthEntity;
-import com.amur.home.gateway.utils.RedisUtils;
 import com.amur.home.util.JsonUtils;
+import com.amur.home.util.RedisUtils;
 import com.amur.home.util.ResponseWrapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.jetbrains.annotations.NotNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.filter.factory.rewrite.CachedBodyOutputMessage;
@@ -34,9 +34,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.alibaba.nacos.client.utils.EnvUtil.LOGGER;
-
 @Component
+@Slf4j
 public class JwtAuthFilter implements GlobalFilter, Ordered {
     @Resource
     private RedisUtils redisUtils;
@@ -146,7 +145,7 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
             ServerHttpRequest request = exchange.getRequest().mutate().uri(newUri).build();
             return chain.filter(exchange.mutate().request(request).build());
         } catch (Exception e) {
-            LOGGER.error("Invalid URI query: " + query, e);
+            log.error("Invalid URI query: " + query, e);
             // 当前过滤器filter执行结束
             return chain.filter(exchange.mutate().request(builder.build()).build());
         }
@@ -176,7 +175,7 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
 //                map.put("userName", authEntity.getUserName());
 
                 String json = objectMapper.writeValueAsString(map);
-                LOGGER.info("addParameterForPostMethod -> json = {}", json);
+                log.info("addParameterForPostMethod -> json = {}", json);
                 return Mono.just(json);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -188,7 +187,6 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
         CachedBodyOutputMessage outputMessage = new CachedBodyOutputMessage(exchange, exchange.getRequest().getHeaders());
         return bodyInserter.insert(outputMessage, new BodyInserterContext()).then(Mono.defer(() -> {
             ServerHttpRequestDecorator decorator = new ServerHttpRequestDecorator(exchange.getRequest()) {
-                @NotNull
                 public HttpHeaders getHeaders() {
                     HttpHeaders httpHeaders = new HttpHeaders();
                     httpHeaders.putAll(super.getHeaders());
@@ -196,7 +194,6 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
                     return httpHeaders;
                 }
 
-                @NotNull
                 public Flux<DataBuffer> getBody() {
                     return outputMessage.getBody();
                 }
