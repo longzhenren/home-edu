@@ -21,7 +21,11 @@ public class SaTokenConfigure {
                 // 拦截地址
                 .addInclude("/**")    /* 拦截全部path */
                 // 开放地址
-                .addExclude("/favicon.ico").addExclude("/home-sba/**").addExclude("/home-user/v3/**", "/home-user/swagger-resources/**", "/home-user/webjars/**", "/home-user/swagger-ui.html/**", "/home-user/doc.html", "/home-user/actuator/**").addExclude("/home-course/v3/**", "/home-course/swagger-resources/**", "/home-course/webjars/**", "/home-course/swagger-ui.html/**", "/home-course/doc.html", "/home-course/actuator/**").addExclude("/home-tinyid/v3/**", "/home-tinyid/swagger-resources/**", "/home-tinyid/webjars/**", "/home-tinyid/swagger-ui.html/**", "/home-tinyid/doc.html", "/home-tinyid/actuator/**")
+                .addExclude("/doc.html", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/v3/**", "/actuator/**", "/favicon.ico")
+                .addExclude("/home-sba/**")
+                .addExclude("/home-user/v3/**", "/home-user/swagger-resources/**", "/home-user/webjars/**", "/home-user/swagger-ui.html/**", "/home-user/doc.html", "/home-user/actuator/**")
+                .addExclude("/home-course/v3/**", "/home-course/swagger-resources/**", "/home-course/webjars/**", "/home-course/swagger-ui.html/**", "/home-course/doc.html", "/home-course/actuator/**")
+                .addExclude("/home-tinyid/v3/**", "/home-tinyid/swagger-resources/**", "/home-tinyid/webjars/**", "/home-tinyid/swagger-ui.html/**", "/home-tinyid/doc.html", "/home-tinyid/actuator/**")
                 // 鉴权方法：每次访问进入
                 .setAuth(obj -> {
                     // 登录校验 -- 拦截所有路由，并放行登录
