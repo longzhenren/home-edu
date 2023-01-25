@@ -51,6 +51,12 @@ spring:
 grpc:
   server:
     port: 9080
+  client:
+    home-user:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-user'
+      negotiation-type: plaintext
 #debug: true
 knife4j:
   gateway:

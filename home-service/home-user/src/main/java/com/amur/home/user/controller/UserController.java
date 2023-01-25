@@ -1,5 +1,6 @@
 package com.amur.home.user.controller;
 
+import com.amur.home.auth.entity.AuthEntity;
 import com.amur.home.user.entity.UserEntity;
 import com.amur.home.user.service.UserService;
 import com.amur.home.util.ResponseWrapper;
@@ -26,21 +27,22 @@ public class UserController {
     @Operation(summary = "获取用户信息")
     @Parameters({@Parameter(name = "userId", description = "用户id", required = true)})
     @GetMapping("/getinfo")
-    public ResponseWrapper<UserEntity> getUserInfo(Long userId) {
+    public ResponseWrapper<UserEntity> getUserInfo(Long userId, AuthEntity authEntity) {
+        authEntity.getUserName();
         return ResponseWrapper.data(userService.getUserInfo(userId));
-    }
+}
 
     @Operation(summary = "更新用户信息")
     @Parameters({@Parameter(name = "userEntity", description = "用户实体", required = true)})
     @PostMapping("/update")
-    public ResponseWrapper updateUser(UserEntity userEntity) {
+    public ResponseWrapper<?> updateUser(UserEntity userEntity) {
         return ResponseWrapper.status(userService.updateUser(userEntity));
     }
 
     @Operation(summary = "删除用户")
     @Parameters({@Parameter(name = "userId", description = "用户id", required = true)})
     @GetMapping("/delete")
-    public ResponseWrapper deleteUser(Long userId) {
+    public ResponseWrapper<?> deleteUser(Long userId) {
         return ResponseWrapper.status(userService.deleteUser(userId));
     }
 
