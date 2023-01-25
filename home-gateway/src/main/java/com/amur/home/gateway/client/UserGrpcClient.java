@@ -12,9 +12,9 @@ public class UserGrpcClient {
     @GrpcClient("home-user")
     private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
 
-    public UserEntity getUserEntityByUserName(String username) {
-        User.GetUserAuthByNameRequest getUserAuthByNameRequest = User.GetUserAuthByNameRequest.newBuilder().setUserName(username).build();
-        User.GetUserAuthByNameResponse resp = userServiceBlockingStub.getUserAuthByName(getUserAuthByNameRequest);
+    public UserEntity getUserEntityByUserName(Long userId) {
+        User.GetUserAuthByIdRequest getUserAuthByNameRequest = User.GetUserAuthByIdRequest.newBuilder().setUserId(userId).build();
+        User.GetUserAuthByIdResponse resp = userServiceBlockingStub.getUserAuthById(getUserAuthByNameRequest);
         if (resp.getStatus().equals(StatusOuterClass.Status.SUCCESS)) {
             UserEntity userEntity = new UserEntity();
             userEntity.setId(resp.getUserId());

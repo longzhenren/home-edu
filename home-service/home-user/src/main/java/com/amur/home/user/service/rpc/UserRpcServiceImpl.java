@@ -123,6 +123,19 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
     }
 
     @Override
+    public void getUserAuthById(GetUserAuthByIdRequest request, StreamObserver<GetUserAuthByIdResponse> responseObserver) {
+        GetUserAuthByIdResponse response = GetUserAuthByIdResponse.newBuilder().build();
+        UserEntity userEntity = userService.getUserInfo(request.getUserId());
+        if (userEntity == null) {
+            response = response.toBuilder().setStatus(Status.FAILED).build();
+        } else {
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).setPermissions(userEntity.getPermissions()).build();
+        }
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
     @Deprecated
     public void getUserPermissionsByName(GetUserPermissionsByNameRequest request, StreamObserver<GetUserPermissionsByNameResponse> responseObserver) {
         GetUserPermissionsByNameResponse response = GetUserPermissionsByNameResponse.newBuilder().build();

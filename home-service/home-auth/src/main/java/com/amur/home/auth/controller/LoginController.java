@@ -2,8 +2,8 @@ package com.amur.home.auth.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.amur.home.auth.client.UserGrpcClient;
+import com.amur.home.auth.util.RedisUtils;
 import com.amur.home.user.entity.UserEntity;
-import com.amur.home.util.RedisUtils;
 import com.amur.home.util.ResponseWrapper;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;

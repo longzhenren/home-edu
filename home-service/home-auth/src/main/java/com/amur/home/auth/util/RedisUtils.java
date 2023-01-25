@@ -1,4 +1,4 @@
-package com.amur.home.util;
+package com.amur.home.auth.util;
 
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;

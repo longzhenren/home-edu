@@ -71,7 +71,7 @@ sa-token:
   # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
   is-share: false
   token-style: uuid # token风格
-  is-log: false # 是否输出操作日志
+  is-log: true # 是否输出操作日志
   is-read-cookie: false # 是否从cookie中读取token
   is-read-header: true # 是否从head中读取token
   is-write-header: true

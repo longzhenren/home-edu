@@ -2795,6 +2795,1541 @@ public final class User {
 
   }
 
+  public interface GetUserAuthByIdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetUserAuthByIdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 user_id = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.GetUserAuthByIdRequest}
+   */
+  public static final class GetUserAuthByIdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.GetUserAuthByIdRequest)
+      GetUserAuthByIdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetUserAuthByIdRequest.newBuilder() to construct.
+    private GetUserAuthByIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserAuthByIdRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetUserAuthByIdRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetUserAuthByIdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.User.GetUserAuthByIdRequest.class, com.amur.home.user.rpc.User.GetUserAuthByIdRequest.Builder.class);
+    }
+
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 user_id = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.User.GetUserAuthByIdRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.User.GetUserAuthByIdRequest other = (com.amur.home.user.rpc.User.GetUserAuthByIdRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.User.GetUserAuthByIdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.GetUserAuthByIdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.GetUserAuthByIdRequest)
+        com.amur.home.user.rpc.User.GetUserAuthByIdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.User.GetUserAuthByIdRequest.class, com.amur.home.user.rpc.User.GetUserAuthByIdRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.User.GetUserAuthByIdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.User.GetUserAuthByIdRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.User.GetUserAuthByIdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.User.GetUserAuthByIdRequest build() {
+        com.amur.home.user.rpc.User.GetUserAuthByIdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.User.GetUserAuthByIdRequest buildPartial() {
+        com.amur.home.user.rpc.User.GetUserAuthByIdRequest result = new com.amur.home.user.rpc.User.GetUserAuthByIdRequest(this);
+        result.userId_ = userId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.User.GetUserAuthByIdRequest) {
+          return mergeFrom((com.amur.home.user.rpc.User.GetUserAuthByIdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.User.GetUserAuthByIdRequest other) {
+        if (other == com.amur.home.user.rpc.User.GetUserAuthByIdRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.User.GetUserAuthByIdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.User.GetUserAuthByIdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 user_id = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 user_id = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 user_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.GetUserAuthByIdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.GetUserAuthByIdRequest)
+    private static final com.amur.home.user.rpc.User.GetUserAuthByIdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.User.GetUserAuthByIdRequest();
+    }
+
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserAuthByIdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserAuthByIdRequest>() {
+      @java.lang.Override
+      public GetUserAuthByIdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetUserAuthByIdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserAuthByIdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserAuthByIdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.User.GetUserAuthByIdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetUserAuthByIdResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetUserAuthByIdResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 user_id = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+
+    /**
+     * <code>string user_name = 2;</code>
+     * @return The userName.
+     */
+    java.lang.String getUserName();
+    /**
+     * <code>string user_name = 2;</code>
+     * @return The bytes for userName.
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
+
+    /**
+     * <code>string password = 3;</code>
+     * @return The password.
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    /**
+     * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    int getStatusValue();
+    /**
+     * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+     * @return The status.
+     */
+    com.amur.home.user.rpc.StatusOuterClass.Status getStatus();
+
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The permissions.
+     */
+    java.lang.String getPermissions();
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The bytes for permissions.
+     */
+    com.google.protobuf.ByteString
+        getPermissionsBytes();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.GetUserAuthByIdResponse}
+   */
+  public static final class GetUserAuthByIdResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.GetUserAuthByIdResponse)
+      GetUserAuthByIdResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetUserAuthByIdResponse.newBuilder() to construct.
+    private GetUserAuthByIdResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserAuthByIdResponse() {
+      userName_ = "";
+      password_ = "";
+      status_ = 0;
+      permissions_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetUserAuthByIdResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetUserAuthByIdResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              status_ = rawValue;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              permissions_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.User.GetUserAuthByIdResponse.class, com.amur.home.user.rpc.User.GetUserAuthByIdResponse.Builder.class);
+    }
+
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 user_id = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    public static final int USER_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userName_;
+    /**
+     * <code>string user_name = 2;</code>
+     * @return The userName.
+     */
+    @java.lang.Override
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string user_name = 2;</code>
+     * @return The bytes for userName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 3;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>string password = 3;</code>
+     * @return The password.
+     */
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string password = 3;</code>
+     * @return The bytes for password.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 4;
+    private int status_;
+    /**
+     * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    @java.lang.Override public int getStatusValue() {
+      return status_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+     * @return The status.
+     */
+    @java.lang.Override public com.amur.home.user.rpc.StatusOuterClass.Status getStatus() {
+      @SuppressWarnings("deprecation")
+      com.amur.home.user.rpc.StatusOuterClass.Status result = com.amur.home.user.rpc.StatusOuterClass.Status.valueOf(status_);
+      return result == null ? com.amur.home.user.rpc.StatusOuterClass.Status.UNRECOGNIZED : result;
+    }
+
+    public static final int PERMISSIONS_FIELD_NUMBER = 5;
+    private volatile java.lang.Object permissions_;
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The permissions.
+     */
+    @java.lang.Override
+    public java.lang.String getPermissions() {
+      java.lang.Object ref = permissions_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        permissions_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string permissions = 5;</code>
+     * @return The bytes for permissions.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPermissionsBytes() {
+      java.lang.Object ref = permissions_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        permissions_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
+      }
+      if (status_ != com.amur.home.user.rpc.StatusOuterClass.Status.SUCCESS.getNumber()) {
+        output.writeEnum(4, status_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, permissions_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
+      }
+      if (status_ != com.amur.home.user.rpc.StatusOuterClass.Status.SUCCESS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, status_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, permissions_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.User.GetUserAuthByIdResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.User.GetUserAuthByIdResponse other = (com.amur.home.user.rpc.User.GetUserAuthByIdResponse) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (!getUserName()
+          .equals(other.getUserName())) return false;
+      if (!getPassword()
+          .equals(other.getPassword())) return false;
+      if (status_ != other.status_) return false;
+      if (!getPermissions()
+          .equals(other.getPermissions())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUserName().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + status_;
+      hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getPermissions().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.User.GetUserAuthByIdResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.GetUserAuthByIdResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.GetUserAuthByIdResponse)
+        com.amur.home.user.rpc.User.GetUserAuthByIdResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.User.GetUserAuthByIdResponse.class, com.amur.home.user.rpc.User.GetUserAuthByIdResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.User.GetUserAuthByIdResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        userName_ = "";
+
+        password_ = "";
+
+        status_ = 0;
+
+        permissions_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.User.internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.User.GetUserAuthByIdResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.User.GetUserAuthByIdResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.User.GetUserAuthByIdResponse build() {
+        com.amur.home.user.rpc.User.GetUserAuthByIdResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.User.GetUserAuthByIdResponse buildPartial() {
+        com.amur.home.user.rpc.User.GetUserAuthByIdResponse result = new com.amur.home.user.rpc.User.GetUserAuthByIdResponse(this);
+        result.userId_ = userId_;
+        result.userName_ = userName_;
+        result.password_ = password_;
+        result.status_ = status_;
+        result.permissions_ = permissions_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.User.GetUserAuthByIdResponse) {
+          return mergeFrom((com.amur.home.user.rpc.User.GetUserAuthByIdResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.User.GetUserAuthByIdResponse other) {
+        if (other == com.amur.home.user.rpc.User.GetUserAuthByIdResponse.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        if (!other.getUserName().isEmpty()) {
+          userName_ = other.userName_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
+        }
+        if (other.status_ != 0) {
+          setStatusValue(other.getStatusValue());
+        }
+        if (!other.getPermissions().isEmpty()) {
+          permissions_ = other.permissions_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.User.GetUserAuthByIdResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.User.GetUserAuthByIdResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 user_id = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 user_id = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 user_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userName_ = "";
+      /**
+       * <code>string user_name = 2;</code>
+       * @return The userName.
+       */
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string user_name = 2;</code>
+       * @return The bytes for userName.
+       */
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string user_name = 2;</code>
+       * @param value The userName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserName() {
+        
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_name = 2;</code>
+       * @param value The bytes for userName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>string password = 3;</code>
+       * @return The password.
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @return The bytes for password.
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @param value The password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 3;</code>
+       * @param value The bytes for password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int status_ = 0;
+      /**
+       * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+       * @return The enum numeric value on the wire for status.
+       */
+      @java.lang.Override public int getStatusValue() {
+        return status_;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+       * @param value The enum numeric value on the wire for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusValue(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public com.amur.home.user.rpc.StatusOuterClass.Status getStatus() {
+        @SuppressWarnings("deprecation")
+        com.amur.home.user.rpc.StatusOuterClass.Status result = com.amur.home.user.rpc.StatusOuterClass.Status.valueOf(status_);
+        return result == null ? com.amur.home.user.rpc.StatusOuterClass.Status.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(com.amur.home.user.rpc.StatusOuterClass.Status value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        status_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.Status status = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object permissions_ = "";
+      /**
+       * <code>string permissions = 5;</code>
+       * @return The permissions.
+       */
+      public java.lang.String getPermissions() {
+        java.lang.Object ref = permissions_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          permissions_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @return The bytes for permissions.
+       */
+      public com.google.protobuf.ByteString
+          getPermissionsBytes() {
+        java.lang.Object ref = permissions_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          permissions_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @param value The permissions to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPermissions(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        permissions_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPermissions() {
+        
+        permissions_ = getDefaultInstance().getPermissions();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string permissions = 5;</code>
+       * @param value The bytes for permissions to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPermissionsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        permissions_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.GetUserAuthByIdResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.GetUserAuthByIdResponse)
+    private static final com.amur.home.user.rpc.User.GetUserAuthByIdResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.User.GetUserAuthByIdResponse();
+    }
+
+    public static com.amur.home.user.rpc.User.GetUserAuthByIdResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserAuthByIdResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserAuthByIdResponse>() {
+      @java.lang.Override
+      public GetUserAuthByIdResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetUserAuthByIdResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserAuthByIdResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserAuthByIdResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.User.GetUserAuthByIdResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetUserPermissionsByNameRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetUserPermissionsByNameRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -12741,6 +14276,16 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_amur_home_user_rpc_GetUserAuthByNameResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12817,63 +14362,71 @@ public final class User {
       "esponse\022\017\n\007user_id\030\001 \001(\003\022\021\n\tuser_name\030\002 " +
       "\001(\t\022\020\n\010password\030\003 \001(\t\022.\n\006status\030\004 \001(\0162\036." +
       "com.amur.home.user.rpc.Status\022\023\n\013permiss" +
-      "ions\030\005 \001(\t\"4\n\037GetUserPermissionsByNameRe" +
-      "quest\022\021\n\tuser_name\030\001 \001(\t\"\213\001\n GetUserPerm" +
-      "issionsByNameResponse\022\017\n\007user_id\030\001 \001(\003\022\021" +
-      "\n\tuser_name\030\002 \001(\t\022\023\n\013permissions\030\003 \001(\t\022." +
-      "\n\006status\030\004 \001(\0162\036.com.amur.home.user.rpc." +
-      "Status\"T\n\021CreateUserRequest\022\014\n\004name\030\001 \001(" +
-      "\t\022\r\n\005email\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\023\n\013descr" +
-      "iption\030\004 \001(\t\"y\n\021UpdateUserRequest\022\017\n\007use" +
-      "r_id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022" +
-      "\r\n\005phone\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\022\n\na" +
-      "vatar_url\030\006 \001(\t\"$\n\021DeleteUserRequest\022\017\n\007" +
-      "user_id\030\001 \001(\003\"z\n\023GetUserBaseResponse\022.\n\006" +
-      "status\030\001 \001(\0162\036.com.amur.home.user.rpc.St" +
-      "atus\0223\n\tuser_base\030\002 \001(\0132 .com.amur.home." +
-      "user.rpc.UserBase\"\200\001\n\025GetUserDetailRespo" +
-      "nse\022.\n\006status\030\001 \001(\0162\036.com.amur.home.user" +
-      ".rpc.Status\0227\n\013user_detail\030\002 \001(\0132\".com.a" +
-      "mur.home.user.rpc.UserDetail\"U\n\022CreateUs" +
-      "erResponse\022.\n\006status\030\001 \001(\0162\036.com.amur.ho" +
-      "me.user.rpc.Status\022\017\n\007user_id\030\002 \001(\003\"D\n\022U" +
-      "pdateUserResponse\022.\n\006status\030\001 \001(\0162\036.com." +
-      "amur.home.user.rpc.Status\"D\n\022DeleteUserR" +
-      "esponse\022.\n\006status\030\001 \001(\0162\036.com.amur.home." +
-      "user.rpc.Status\"\210\001\n\010UserBase\022\n\n\002id\030\001 \001(\003" +
-      "\022\014\n\004name\030\002 \001(\t\022\r\n\005phone\030\004 \001(\t\022\022\n\navatar_" +
-      "url\030\006 \001(\t\022?\n\rrelative_type\030\t \001(\0162(.com.a" +
-      "mur.home.user.rpc.UserRelativeType\"\323\001\n\nU" +
-      "serDetail\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005e" +
-      "mail\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013description" +
-      "\030\005 \001(\t\022\022\n\navatar_url\030\006 \001(\t\022\017\n\007home_id\030\007 " +
-      "\001(\003\022\022\n\ncreated_at\030\010 \001(\t\022?\n\rrelative_type" +
-      "\030\t \001(\0162(.com.amur.home.user.rpc.UserRela" +
-      "tiveType*\234\001\n\020UserRelativeType\022\n\n\006FATHER\020" +
-      "\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013" +
-      "GRANDFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BROTHE" +
-      "R\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005" +
-      "OTHER\020\n2\262\006\n\013UserService\022l\n\017GetUserBaseIn" +
-      "fo\022*.com.amur.home.user.rpc.GetUserBaseR" +
-      "equest\032+.com.amur.home.user.rpc.GetUserB" +
-      "aseResponse\"\000\022r\n\021GetUserDetailInfo\022,.com" +
-      ".amur.home.user.rpc.GetUserDetailRequest" +
-      "\032-.com.amur.home.user.rpc.GetUserDetailR" +
-      "esponse\"\000\022z\n\021GetUserAuthByName\0220.com.amu" +
-      "r.home.user.rpc.GetUserAuthByNameRequest" +
-      "\0321.com.amur.home.user.rpc.GetUserAuthByN" +
-      "ameResponse\"\000\022\217\001\n\030getUserPermissionsByNa" +
-      "me\0227.com.amur.home.user.rpc.GetUserPermi" +
-      "ssionsByNameRequest\0328.com.amur.home.user" +
-      ".rpc.GetUserPermissionsByNameResponse\"\000\022" +
-      "e\n\nCreateUser\022).com.amur.home.user.rpc.C" +
-      "reateUserRequest\032*.com.amur.home.user.rp" +
-      "c.CreateUserResponse\"\000\022e\n\nUpdateUser\022).c" +
-      "om.amur.home.user.rpc.UpdateUserRequest\032" +
-      "*.com.amur.home.user.rpc.UpdateUserRespo" +
-      "nse\"\000\022e\n\nDeleteUser\022).com.amur.home.user" +
-      ".rpc.DeleteUserRequest\032*.com.amur.home.u" +
-      "ser.rpc.DeleteUserResponse\"\000b\006proto3"
+      "ions\030\005 \001(\t\")\n\026GetUserAuthByIdRequest\022\017\n\007" +
+      "user_id\030\001 \001(\003\"\224\001\n\027GetUserAuthByIdRespons" +
+      "e\022\017\n\007user_id\030\001 \001(\003\022\021\n\tuser_name\030\002 \001(\t\022\020\n" +
+      "\010password\030\003 \001(\t\022.\n\006status\030\004 \001(\0162\036.com.am" +
+      "ur.home.user.rpc.Status\022\023\n\013permissions\030\005" +
+      " \001(\t\"4\n\037GetUserPermissionsByNameRequest\022" +
+      "\021\n\tuser_name\030\001 \001(\t\"\213\001\n GetUserPermission" +
+      "sByNameResponse\022\017\n\007user_id\030\001 \001(\003\022\021\n\tuser" +
+      "_name\030\002 \001(\t\022\023\n\013permissions\030\003 \001(\t\022.\n\006stat" +
+      "us\030\004 \001(\0162\036.com.amur.home.user.rpc.Status" +
+      "\"T\n\021CreateUserRequest\022\014\n\004name\030\001 \001(\t\022\r\n\005e" +
+      "mail\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\023\n\013description" +
+      "\030\004 \001(\t\"y\n\021UpdateUserRequest\022\017\n\007user_id\030\001" +
+      " \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022\r\n\005pho" +
+      "ne\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\022\n\navatar_" +
+      "url\030\006 \001(\t\"$\n\021DeleteUserRequest\022\017\n\007user_i" +
+      "d\030\001 \001(\003\"z\n\023GetUserBaseResponse\022.\n\006status" +
+      "\030\001 \001(\0162\036.com.amur.home.user.rpc.Status\0223" +
+      "\n\tuser_base\030\002 \001(\0132 .com.amur.home.user.r" +
+      "pc.UserBase\"\200\001\n\025GetUserDetailResponse\022.\n" +
+      "\006status\030\001 \001(\0162\036.com.amur.home.user.rpc.S" +
+      "tatus\0227\n\013user_detail\030\002 \001(\0132\".com.amur.ho" +
+      "me.user.rpc.UserDetail\"U\n\022CreateUserResp" +
+      "onse\022.\n\006status\030\001 \001(\0162\036.com.amur.home.use" +
+      "r.rpc.Status\022\017\n\007user_id\030\002 \001(\003\"D\n\022UpdateU" +
+      "serResponse\022.\n\006status\030\001 \001(\0162\036.com.amur.h" +
+      "ome.user.rpc.Status\"D\n\022DeleteUserRespons" +
+      "e\022.\n\006status\030\001 \001(\0162\036.com.amur.home.user.r" +
+      "pc.Status\"\210\001\n\010UserBase\022\n\n\002id\030\001 \001(\003\022\014\n\004na" +
+      "me\030\002 \001(\t\022\r\n\005phone\030\004 \001(\t\022\022\n\navatar_url\030\006 " +
+      "\001(\t\022?\n\rrelative_type\030\t \001(\0162(.com.amur.ho" +
+      "me.user.rpc.UserRelativeType\"\323\001\n\nUserDet" +
+      "ail\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003" +
+      " \001(\t\022\r\n\005phone\030\004 \001(\t\022\023\n\013description\030\005 \001(\t" +
+      "\022\022\n\navatar_url\030\006 \001(\t\022\017\n\007home_id\030\007 \001(\003\022\022\n" +
+      "\ncreated_at\030\010 \001(\t\022?\n\rrelative_type\030\t \001(\016" +
+      "2(.com.amur.home.user.rpc.UserRelativeTy" +
+      "pe*\234\001\n\020UserRelativeType\022\n\n\006FATHER\020\000\022\n\n\006M" +
+      "OTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013GRANDF" +
+      "ATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BROTHER\020\006\022\n\n" +
+      "\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005OTHER\020" +
+      "\n2\250\007\n\013UserService\022l\n\017GetUserBaseInfo\022*.c" +
+      "om.amur.home.user.rpc.GetUserBaseRequest" +
+      "\032+.com.amur.home.user.rpc.GetUserBaseRes" +
+      "ponse\"\000\022r\n\021GetUserDetailInfo\022,.com.amur." +
+      "home.user.rpc.GetUserDetailRequest\032-.com" +
+      ".amur.home.user.rpc.GetUserDetailRespons" +
+      "e\"\000\022z\n\021GetUserAuthByName\0220.com.amur.home" +
+      ".user.rpc.GetUserAuthByNameRequest\0321.com" +
+      ".amur.home.user.rpc.GetUserAuthByNameRes" +
+      "ponse\"\000\022t\n\017GetUserAuthById\022..com.amur.ho" +
+      "me.user.rpc.GetUserAuthByIdRequest\032/.com" +
+      ".amur.home.user.rpc.GetUserAuthByIdRespo" +
+      "nse\"\000\022\217\001\n\030getUserPermissionsByName\0227.com" +
+      ".amur.home.user.rpc.GetUserPermissionsBy" +
+      "NameRequest\0328.com.amur.home.user.rpc.Get" +
+      "UserPermissionsByNameResponse\"\000\022e\n\nCreat" +
+      "eUser\022).com.amur.home.user.rpc.CreateUse" +
+      "rRequest\032*.com.amur.home.user.rpc.Create" +
+      "UserResponse\"\000\022e\n\nUpdateUser\022).com.amur." +
+      "home.user.rpc.UpdateUserRequest\032*.com.am" +
+      "ur.home.user.rpc.UpdateUserResponse\"\000\022e\n" +
+      "\nDeleteUser\022).com.amur.home.user.rpc.Del" +
+      "eteUserRequest\032*.com.amur.home.user.rpc." +
+      "DeleteUserResponse\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12904,74 +14457,86 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetUserAuthByNameResponse_descriptor,
         new java.lang.String[] { "UserId", "UserName", "Password", "Status", "Permissions", });
-    internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_GetUserAuthByIdRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_GetUserAuthByIdResponse_descriptor,
+        new java.lang.String[] { "UserId", "UserName", "Password", "Status", "Permissions", });
+    internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameRequest_descriptor,
         new java.lang.String[] { "UserName", });
     internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetUserPermissionsByNameResponse_descriptor,
         new java.lang.String[] { "UserId", "UserName", "Permissions", "Status", });
     internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor,
         new java.lang.String[] { "Name", "Email", "Phone", "Description", });
     internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_amur_home_user_rpc_UpdateUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UpdateUserRequest_descriptor,
         new java.lang.String[] { "UserId", "Name", "Email", "Phone", "Description", "AvatarUrl", });
     internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_amur_home_user_rpc_DeleteUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DeleteUserRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_amur_home_user_rpc_GetUserBaseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetUserBaseResponse_descriptor,
         new java.lang.String[] { "Status", "UserBase", });
     internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_amur_home_user_rpc_GetUserDetailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetUserDetailResponse_descriptor,
         new java.lang.String[] { "Status", "UserDetail", });
     internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_amur_home_user_rpc_CreateUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_CreateUserResponse_descriptor,
         new java.lang.String[] { "Status", "UserId", });
     internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_amur_home_user_rpc_UpdateUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UpdateUserResponse_descriptor,
         new java.lang.String[] { "Status", });
     internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_amur_home_user_rpc_DeleteUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DeleteUserResponse_descriptor,
         new java.lang.String[] { "Status", });
     internal_static_com_amur_home_user_rpc_UserBase_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_amur_home_user_rpc_UserBase_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserBase_descriptor,
         new java.lang.String[] { "Id", "Name", "Phone", "AvatarUrl", "RelativeType", });
     internal_static_com_amur_home_user_rpc_UserDetail_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_amur_home_user_rpc_UserDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserDetail_descriptor,

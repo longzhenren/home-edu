@@ -7,6 +7,7 @@ service UserService {
   rpc GetUserBaseInfo (GetUserBaseRequest) returns (GetUserBaseResponse) {}
   rpc GetUserDetailInfo (GetUserDetailRequest) returns (GetUserDetailResponse) {}
   rpc GetUserAuthByName (GetUserAuthByNameRequest) returns (GetUserAuthByNameResponse) {}
+  rpc GetUserAuthById (GetUserAuthByIdRequest) returns (GetUserAuthByIdResponse) {}
   rpc getUserPermissionsByName (GetUserPermissionsByNameRequest) returns (GetUserPermissionsByNameResponse) {}
   rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
   rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
@@ -26,6 +27,18 @@ message GetUserAuthByNameRequest {
 }
 
 message GetUserAuthByNameResponse{
+  int64 user_id = 1;
+  string user_name = 2;
+  string password = 3;
+  Status status = 4;
+  string permissions = 5;
+}
+
+message GetUserAuthByIdRequest {
+  int64 user_id = 1;
+}
+
+message GetUserAuthByIdResponse{
   int64 user_id = 1;
   string user_name = 2;
   string password = 3;

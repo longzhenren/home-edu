@@ -2,8 +2,8 @@ package com.amur.home.gateway.service;
 
 import cn.dev33.satoken.stp.StpInterface;
 import com.amur.home.gateway.client.UserGrpcClient;
-import com.amur.home.user.entity.UserEntity;
 import com.amur.home.gateway.utils.RedisUtils;
+import com.amur.home.user.entity.UserEntity;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -29,7 +29,7 @@ public class StpInterfaceImpl implements StpInterface {
         if (redisUtils.exists("user:" + loginId)) {
             userEntity = (UserEntity) redisUtils.get("user:" + loginId);
         } else {
-            userEntity = userGrpcClient.getUserEntityByUserName(loginId.toString());
+            userEntity = userGrpcClient.getUserEntityByUserName(Long.parseLong((String) loginId));
             redisUtils.set("user:" + loginId, userEntity);
         }
         return new ArrayList<>(new HashSet<>(Arrays.asList(userEntity.getPermissions().split(":"))));

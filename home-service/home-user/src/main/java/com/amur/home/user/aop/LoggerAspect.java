@@ -22,10 +22,10 @@ public class LoggerAspect {
 
     // 切入点
     @Pointcut("execution(* com.amur.home.user.controller.*.*(..))")
-    public void pointcut() {}
+    public void controllerPointCut() {}
 
     // 前置通知
-    @Before("pointcut()")
+    @Before("controllerPointCut()")
     public void doBefore(JoinPoint joinPoint) {
         // 记录请求开始时间
         startTime.set(System.currentTimeMillis());
@@ -38,7 +38,7 @@ public class LoggerAspect {
     }
 
     // 返回通知
-    @AfterReturning(returning = "result", pointcut = "pointcut()")
+    @AfterReturning(returning = "result", pointcut = "controllerPointCut()")
     public void doAfterReturning(Object result) {
         // 请求返回内容
         log.info("[{}][HTTP返回][resp]{{}} [耗时]{}ms",appName,result,System.currentTimeMillis() - startTime.get());
@@ -47,11 +47,12 @@ public class LoggerAspect {
     }
 
     // 异常通知
-    @AfterThrowing(value = "pointcut()", throwing = "e")
+    @AfterThrowing(value = "controllerPointCut()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
         // 获取类名加方法名
         String name = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
         // 记录异常信息
         log.info("[HTTP调用异常] {}, [异常消息] {}", name, e.getMessage());
     }
+
 }
