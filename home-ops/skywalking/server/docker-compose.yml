@@ -46,13 +46,13 @@ services:
       - "es7"
 
   ui:
-    image: apache/skywalking-ui:9.3.0
+    image: registry.cn-beijing.aliyuncs.com/amur/home-sw-ui:latest
     ports:
-      - "8888:8080"
+      - "8888:8888"
     networks:
       - skywalking
     environment:
-      - SW_OAP_ADDRESS=http://oap:12800
+      - SW_PROXY_TARGET=http://oap:12800
       - TZ=Asia/Shanghai
     depends_on:
       - oap

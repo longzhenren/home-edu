@@ -30,6 +30,7 @@
 
         <alibaba.nacos.version>2.1.0</alibaba.nacos.version>
         <spring.boot.admin.version>2.6.11</spring.boot.admin.version>
+        <skywalking.version>8.14.0</skywalking.version>
         <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
 
         <spring.boot.version>2.6.11</spring.boot.version>
@@ -99,6 +100,13 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>true</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -112,6 +120,10 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.plugin.version}</version>
+                <configuration>
+                    <!--fork:如果没有该项配置,整个devtools不会起作用-->
+                    <fork>true</fork>
+                </configuration>
             </plugin>
             <!--            <plugin>-->
             <!--                <artifactId>maven-compiler-plugin</artifactId>-->
@@ -128,26 +140,26 @@
         </plugins>
     </build>
 
-<!--    <repositories>-->
-<!--        &lt;!&ndash; APIJSON 必须用到的托管平台 &ndash;&gt;-->
-<!--        <repository>-->
-<!--            <id>jitpack.io</id>-->
-<!--            <url>https://jitpack.io</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
+    <!--    <repositories>-->
+    <!--        &lt;!&ndash; APIJSON 必须用到的托管平台 &ndash;&gt;-->
+    <!--        <repository>-->
+    <!--            <id>jitpack.io</id>-->
+    <!--            <url>https://jitpack.io</url>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
 
-<!--        <repository>-->
-<!--            <id>spring-snapshots</id>-->
-<!--            <url>https://repo.spring.io/snapshot</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--        <repository>-->
-<!--            <id>spring-milestones</id>-->
-<!--            <url>https://repo.spring.io/milestone</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
+    <!--        <repository>-->
+    <!--            <id>spring-snapshots</id>-->
+    <!--            <url>https://repo.spring.io/snapshot</url>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
+    <!--        <repository>-->
+    <!--            <id>spring-milestones</id>-->
+    <!--            <url>https://repo.spring.io/milestone</url>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
 </project>

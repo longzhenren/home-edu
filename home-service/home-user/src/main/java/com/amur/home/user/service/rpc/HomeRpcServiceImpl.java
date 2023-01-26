@@ -16,6 +16,7 @@
 //import javax.annotation.Resource;
 //import java.util.Date;
 //import java.util.List;
+//import java.util.Objects;
 //
 //@Slf4j
 //@GrpcService
@@ -32,7 +33,7 @@
 //        GetHomeBaseResponse response;
 //        HomeEntity homeEntity = homeService.getHomeInfo(request.getHomeId());
 //        if (homeEntity != null) {
-//            /
+//            response = GetHomeBaseResponse.newBuilder().setHomeBase(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build()).setStatus(Status.SUCCESS).build();
 //        } else {
 //            response = GetHomeBaseResponse.newBuilder().setStatus(Status.FAILED).build();
 //        }
@@ -66,7 +67,7 @@
 //        GetHomeListResponse response = GetHomeListResponse.newBuilder().build();
 //        List<HomeEntity> homeList = homeService.getHomeList();
 //        for (HomeEntity homeEntity : homeList) {
-//            response = response.toBuilder().addHomeList(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build()).build();
+//            response = response.toBuilder().addHomeList(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(((List<Long>) Objects.requireNonNull(JsonUtils.toObject(List.class, homeEntity.getHomeUserIds()))).size()).build()).build();
 //        }
 //        response.toBuilder().setStatus(Status.SUCCESS).build();
 //        responseObserver.onNext(response);
