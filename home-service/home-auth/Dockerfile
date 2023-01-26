@@ -1,7 +1,8 @@
 #上amd64用 体积小 arm64需要转译速度慢
 #FROM anapsix/alpine-java:8_server-jre_unlimited
 #arm64原生支持 速度更快 体积大
-FROM openjdk:8-jre-alpine
+#FROM openjdk:8-jre-alpine
+FROM apache/skywalking-java-agent:8.14.0-java8
 MAINTAINER hljzhangzhibo@126.com
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN set -xe \
