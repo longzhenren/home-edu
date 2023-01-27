@@ -54,7 +54,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.amur.home.course.HomeAuthApplication</mainClass>
+                    <mainClass>com.amur.home.auth.HomeAuthApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

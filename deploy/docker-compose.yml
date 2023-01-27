@@ -1,0 +1,207 @@
+version: "3.4"
+services:
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    ports:
+      - "8890:9000"
+    volumes:
+      - /home/app/portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+  db:
+    image: mysql:8.0.32
+    container_name: db
+    hostname: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: homeedu
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    networks:
+      - amur
+  redis:
+    image: redis:7.0.8
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - amur
+  nacos:
+    image: nacos/nacos-server:v2.2.0
+    container_name: nacos
+    hostname: nacos
+    restart: always
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=db
+      - MYSQL_SERVICE_DB_NAME=nacos_config
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=root
+    ports:
+      - "8848:8848"
+    networks:
+      - amur
+    depends_on:
+      - db
+  home-auth:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-auth:0.0.1-SNAPSHOT
+    container_name: home-auth
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - NACOS_SERVER_ADDR=nacos:8848
+      - NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - NACOS_CONFIG_NAMESPACE=public
+      - NACOS_CONFIG_FILE_EXTENSION=yml
+      - NACOS_CONFIG_DATA_ID=home-auth
+      - NACOS_CONFIG_REFRESH_ENABLED=true
+      - NACOS_CONFIG_REFRESH_INTERVAL=30000
+      - NACOS_CONFIG_SHARED_CONFIGS=home-auth.yml
+    ports:
+      - "8705:8705"
+      - "9705:9705"
+    networks:
+      - amur
+    depends_on:
+      - db
+      - redis
+      - nacos
+  home-gateway:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-gateway:0.0.1-SNAPSHOT
+    container_name: home-gateway
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - NACOS_SERVER_ADDR=nacos:8848
+      - NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - NACOS_CONFIG_NAMESPACE=public
+      - NACOS_CONFIG_FILE_EXTENSION=yml
+      - NACOS_CONFIG_DATA_ID=home-gateway
+      - NACOS_CONFIG_REFRESH_ENABLED=true
+      - NACOS_CONFIG_REFRESH_INTERVAL=30000
+      - NACOS_CONFIG_SHARED_CONFIGS=home-gateway.yml
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+    networks:
+      - amur
+  home-tinyid:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-tinyid:0.0.1-SNAPSHOT
+    container_name: home-tinyid
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - NACOS_SERVER_ADDR=nacos:8848
+      - NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - NACOS_CONFIG_NAMESPACE=public
+      - NACOS_CONFIG_FILE_EXTENSION=yml
+      - NACOS_CONFIG_DATA_ID=home-tinyid
+      - NACOS_CONFIG_REFRESH_ENABLED=true
+      - NACOS_CONFIG_REFRESH_INTERVAL=30000
+      - NACOS_CONFIG_SHARED_CONFIGS=home-tinyid.yml
+    ports:
+      - "8700:8700"
+      - "9700:9700"
+    networks:
+      - amur
+    depends_on:
+      - db
+      - redis
+      - nacos
+  home-user:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-user:0.0.1-SNAPSHOT
+    container_name: home-user
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - NACOS_SERVER_ADDR=nacos:8848
+      - NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - NACOS_CONFIG_NAMESPACE=public
+      - NACOS_CONFIG_FILE_EXTENSION=yml
+      - NACOS_CONFIG_DATA_ID=home-user
+      - NACOS_CONFIG_REFRESH_ENABLED=true
+      - NACOS_CONFIG_REFRESH_INTERVAL=30000
+      - NACOS_CONFIG_SHARED_CONFIGS=home-user.yml
+    ports:
+      - "8701:8701"
+      - "9701:9701"
+    networks:
+      - amur
+    depends_on:
+      - db
+      - redis
+      - nacos
+  es7:
+    container_name: es7
+    hostname: es7
+    image: elasticsearch:7.16.2
+    expose:
+      - 9200
+      - 9300
+    ports:
+      - 9200:9200
+    networks:
+      - skywalking
+    environment:
+      #      - TAKE_FILE_OWNERSHIP=true #volumes 挂载权限 如果不想要挂载es文件改配置可以删除
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    #    volumes:
+    #      - /Users/zhangzhibo/Documents/Development/data/elasticsearch/data:/usr/share/elasticsearch/data
+    #      - /Users/zhangzhibo/Documents/Development/data/elasticsearch/logs:/usr/share/elasticsearch/logs
+  oap:
+    container_name: oap
+    hostname: oap
+    image: apache/skywalking-oap-server:9.3.0
+    expose:
+      - 11800
+      - 12800
+      - 5005
+    ports:
+      - "11800:11800"
+      - "12800:12800"
+    networks:
+      - skywalking
+    restart: on-failure
+    environment:
+      - SW_STORAGE=elasticsearch
+      - SW_STORAGE_ES_CLUSTER_NODES="es7:9200"
+      - TZ=Asia/Shanghai
+    healthcheck:
+      test: [ "CMD", "sh", "-c", "nc -zn 127.0.0.1 11800" ]
+      interval: 5s
+      timeout: 60s
+      retries: 120
+    depends_on:
+      - "es7"
+
+  ui:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-sw-ui:latest
+    container_name: home-swui
+    ports:
+      - "8888:8888"
+    networks:
+      - skywalking
+    environment:
+      - SW_PROXY_TARGET=http://oap:12800
+      - TZ=Asia/Shanghai
+    depends_on:
+      - oap
+    restart: on-failure
+    links:
+      - oap
+
+networks:
+  skywalking:
+    driver: bridge
+  amur:
+    driver: bridge

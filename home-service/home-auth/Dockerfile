@@ -4,9 +4,9 @@
 #FROM openjdk:8-jre-alpine
 FROM apache/skywalking-java-agent:8.14.0-java8
 MAINTAINER hljzhangzhibo@126.com
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
-RUN set -xe \
-&& apk --no-cache add ttf-dejavu fontconfig
+#RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+#RUN sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+#RUN apt update
 ARG JAR_FILE
 ARG APP_NAME
 EXPOSE 8705

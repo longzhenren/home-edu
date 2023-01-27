@@ -139,6 +139,22 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                    <mainClass>com.amur.home.gateway.HomeGatewayApplication</mainClass>
+                </configuration>
+            </plugin>
             <!-- 构建和推动Docker镜像 -->
             <plugin>
                 <groupId>com.spotify</groupId>
