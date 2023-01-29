@@ -1,0 +1,67 @@
+version: "3.4"
+services:
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    ports:
+      - "8890:9000"
+    volumes:
+      - /home/app/portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+  db:
+    image: mysql:8.0.32
+    container_name: db
+    hostname: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: homeedu
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    networks:
+      - amur
+  redis:
+    image: redis:7.0.8
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command:
+      #      - sysctl -w vm.overcommit_memory=1
+      - echo 1 > /proc/sys/vm/overcommit_memory
+    networks:
+      - amur
+  nacos:
+    image: nacos/nacos-server:v2.2.0
+    container_name: nacos
+    hostname: nacos
+    restart: always
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_DB_PARAM="characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC"
+      - MYSQL_SERVICE_HOST=db
+      - NACOS_SERVER_PORT=8848
+      - MYSQL_SERVICE_DB_NAME=nacos
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=root
+    ports:
+      - "8848:8848"
+    networks:
+      - amur
+    depends_on:
+      - db
+    links:
+      - db
+
+networks:
+  amur:
+    driver: bridge
