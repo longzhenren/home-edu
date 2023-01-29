@@ -7,13 +7,11 @@ MAINTAINER hljzhangzhibo@126.com
 #RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 #RUN sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 #RUN apt update
-ARG JAR_FILE
-ARG APP_NAME
 EXPOSE 8705
 EXPOSE 9705
-RUN mkdir -p /app/${APP_NAME}
-WORKDIR /app/${APP_NAME}
-COPY ${JAR_FILE} ./app.jar
+RUN mkdir -p /app/home-auth
+WORKDIR /app/home-auth
+COPY /target/home-auth-0.0.1-SNAPSHOT.jar ./app.jar
 #ENTRYPOINT ["java", "-jar","-Dspring.profiles.active=dev", "app.jar"]
 #-Djava.security.egd=file:/dev/./urandom参数用于加速
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]

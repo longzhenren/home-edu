@@ -4,13 +4,11 @@
 #FROM openjdk:8-jre
 FROM apache/skywalking-java-agent:8.14.0-java8
 MAINTAINER hljzhangzhibo@126.com
-ARG JAR_FILE
-ARG APP_NAME
 EXPOSE 8703
 EXPOSE 9703
-RUN mkdir -p /app/${APP_NAME}
-WORKDIR /app/${APP_NAME}
-COPY ${JAR_FILE} ./app.jar
+RUN mkdir -p /app/home-msg
+WORKDIR /app/home-msg
+COPY /target/home-msg-0.0.1-SNAPSHOT.jar ./app.jar
 #ENTRYPOINT ["java", "-jar","-Dspring.profiles.active=dev", "app.jar"]
 #-Djava.security.egd=file:/dev/./urandom参数用于加速
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
