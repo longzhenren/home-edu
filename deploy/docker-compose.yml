@@ -30,6 +30,9 @@ services:
     restart: always
     ports:
       - "6379:6379"
+    command:
+      #      - sysctl -w vm.overcommit_memory=1
+      - echo 1 > /proc/sys/vm/overcommit_memory
     networks:
       - amur
   nacos:
@@ -61,12 +64,12 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-#      - SPRING_CLOUD_NACOS_CONFIG_NAMESPACE=public
-#      - NACOS_CONFIG_FILE_EXTENSION=yml
-#      - NACOS_CONFIG_DATA_ID=home-auth
-#      - NACOS_CONFIG_REFRESH_ENABLED=true
-#      - NACOS_CONFIG_REFRESH_INTERVAL=30000
-#      - SPRING_CLOUD_NACOS_CONFIG_SHARED_CONFIGS=home-auth.yml
+    #      - SPRING_CLOUD_NACOS_CONFIG_NAMESPACE=public
+    #      - NACOS_CONFIG_FILE_EXTENSION=yml
+    #      - NACOS_CONFIG_DATA_ID=home-auth
+    #      - NACOS_CONFIG_REFRESH_ENABLED=true
+    #      - NACOS_CONFIG_REFRESH_INTERVAL=30000
+    #      - SPRING_CLOUD_NACOS_CONFIG_SHARED_CONFIGS=home-auth.yml
     ports:
       - "8705:8705"
       - "9705:9705"
