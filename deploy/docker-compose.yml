@@ -32,7 +32,7 @@ services:
       - "6379:6379"
     command:
       #      - sysctl -w vm.overcommit_memory=1
-      - echo 1 > /proc/sys/vm/overcommit_memory
+      - sh -c "echo 1 > /proc/sys/vm/overcommit_memory"
     networks:
       - amur
   nacos:
