@@ -1,6 +1,6 @@
-# create databases
 CREATE DATABASE IF NOT EXISTS `homeedu`;
-create table if not exists homeedu
+use homeedu;
+create table if not exists `user`
 (
     id            bigint       not null
         primary key,
