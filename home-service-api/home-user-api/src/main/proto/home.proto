@@ -1,6 +1,7 @@
 syntax = "proto3";
 package com.amur.home.user.rpc;
 import "google/protobuf/empty.proto";
+//import "google/api/annotations.proto";
 import "status.proto";
 
 service HomeService {
