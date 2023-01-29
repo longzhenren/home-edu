@@ -16,8 +16,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=nacos
-      - MYSQL_USER=nacos
-      - MYSQL_PASSWORD=nacos
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
     ports:
       - "3306:3306"
     volumes:
