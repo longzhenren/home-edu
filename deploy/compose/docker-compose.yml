@@ -9,7 +9,7 @@ services:
       - /home/app/portainer/data:/data
       - /var/run/docker.sock:/var/run/docker.sock
   db:
-    image: mysql:8.0.32
+    image: registry.cn-beijing.aliyuncs.com/amur/db:latest
     container_name: db
     hostname: db
     restart: always
