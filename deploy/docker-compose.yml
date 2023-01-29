@@ -53,7 +53,7 @@ services:
     depends_on:
       - db
   home-auth:
-    image: registry.cn-beijing.aliyuncs.com/amur/home-auth:0.0.1-SNAPSHOT
+    image: registry.cn-beijing.aliyuncs.com/amur/home-auth:latest
     container_name: home-auth
     restart: always
     environment:
@@ -77,7 +77,7 @@ services:
       - redis
       - nacos
   home-gateway:
-    image: registry.cn-beijing.aliyuncs.com/amur/home-gateway:0.0.1-SNAPSHOT
+    image: registry.cn-beijing.aliyuncs.com/amur/home-gateway:latest
     container_name: home-gateway
     restart: always
     environment:
@@ -91,7 +91,7 @@ services:
     networks:
       - amur
   home-tinyid:
-    image: registry.cn-beijing.aliyuncs.com/amur/home-tinyid:0.0.1-SNAPSHOT
+    image: registry.cn-beijing.aliyuncs.com/amur/home-tinyid:latest
     container_name: home-tinyid
     restart: always
     environment:
@@ -109,7 +109,7 @@ services:
       - redis
       - nacos
   home-user:
-    image: registry.cn-beijing.aliyuncs.com/amur/home-user:0.0.1-SNAPSHOT
+    image: registry.cn-beijing.aliyuncs.com/amur/home-user:latest
     container_name: home-user
     restart: always
     environment:
