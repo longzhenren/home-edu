@@ -41,7 +41,7 @@ services:
     networks:
       - amur
   nacos:
-    image: nacos/nacos-server:v2.2.0
+    image: nacos/nacos-server:v2.2.0-slim
     container_name: nacos
     hostname: nacos
     restart: always

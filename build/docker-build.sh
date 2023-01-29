@@ -1,6 +1,7 @@
 #!/bin/zsh
 cd ../
 export DOCKER_HOST=192.168.2.205
+docker buildx create --use --name mybuilder
 cd home-gateway
 docker buildx build -t registry.cn-beijing.aliyuncs.com/amur/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
 cd ../home-service
