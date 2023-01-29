@@ -14,25 +14,30 @@ services:
     hostname: db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: homeedu
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nacos
+      - MYSQL_USER=nacos
+      - MYSQL_PASSWORD=nacos
     ports:
       - "3306:3306"
     volumes:
       - /data/mysql:/var/lib/mysql
     networks:
       - amur
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
   redis:
     image: redis:7.0.8
     container_name: redis
     restart: always
     ports:
       - "6379:6379"
-    command:
+      #    command:
       #      - sysctl -w vm.overcommit_memory=1
-      - sh -c "echo 1 > /proc/sys/vm/overcommit_memory"
+    #      - sh -c "echo 1 > /proc/sys/vm/overcommit_memory"
     networks:
       - amur
   nacos:
@@ -53,10 +58,13 @@ services:
       - MYSQL_SERVICE_PASSWORD=root
     ports:
       - "8848:8848"
+      - "9848:9848"
+      - "9555:9555"
     networks:
       - amur
     depends_on:
-      - db
+      mysql:
+        condition: service_healthy
   home-auth:
     image: registry.cn-beijing.aliyuncs.com/amur/home-auth:latest
     container_name: home-auth
