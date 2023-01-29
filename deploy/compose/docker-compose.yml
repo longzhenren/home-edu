@@ -63,7 +63,7 @@ services:
     networks:
       - amur
     depends_on:
-      mysql:
+      db:
         condition: service_healthy
   home-auth:
     image: registry.cn-beijing.aliyuncs.com/amur/home-auth:latest
