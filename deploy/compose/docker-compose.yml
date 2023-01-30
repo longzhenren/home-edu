@@ -37,8 +37,13 @@ services:
       - "6379:6379"
     networks:
       - amur
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 30s
+      timeout: 10s
+      retries: 10
   nacos:
-    image: nacos/nacos-server:v2.2.0-slim
+    image: registry.cn-beijing.aliyuncs.com/amur/nacos:latest
     container_name: nacos
     hostname: nacos
     restart: always
@@ -49,8 +54,8 @@ services:
       - MYSQL_SERVICE_HOST=db
       - MYSQL_SERVICE_DB_NAME=nacos
       - MYSQL_SERVICE_PORT=3306
-      - MYSQL_SERVICE_USER=root
-      - MYSQL_SERVICE_PASSWORD=root
+      - MYSQL_SERVICE_USER=user
+      - MYSQL_SERVICE_PASSWORD=password
       - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
     ports:
       - "8848:8848"
@@ -61,6 +66,11 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "http://127.0.0.1:8848/nacos/actuator/health" ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
   home-auth:
     image: registry.cn-beijing.aliyuncs.com/amur/home-auth:latest
     container_name: home-auth
@@ -70,6 +80,9 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     #      - SPRING_CLOUD_NACOS_CONFIG_NAMESPACE=public
     #      - NACOS_CONFIG_FILE_EXTENSION=yml
     #      - NACOS_CONFIG_DATA_ID=home-auth
@@ -82,9 +95,13 @@ services:
     networks:
       - amur
     depends_on:
-      - db
-      - redis
-      - nacos
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
   home-gateway:
     image: registry.cn-beijing.aliyuncs.com/amur/home-gateway:latest
     container_name: home-gateway
@@ -94,6 +111,9 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     ports:
       - "8080:8080"
       - "9090:9090"
@@ -108,15 +128,21 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - DATASOURCE_TINYID_PRIMARY_URL=jdbc:mysql://db:3306/tinyid?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - DATASOURCE_TINYID_PRIMARY_USERNAME=root
+      - DATASOURCE_TINYID_PRIMARY_PASSWORD=root
     ports:
       - "8700:8700"
       - "9700:9700"
     networks:
       - amur
     depends_on:
-      - db
-      - redis
-      - nacos
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
   home-user:
     image: registry.cn-beijing.aliyuncs.com/amur/home-user:latest
     container_name: home-user
@@ -126,15 +152,21 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     ports:
       - "8701:8701"
       - "9701:9701"
     networks:
       - amur
     depends_on:
-      - db
-      - redis
-      - nacos
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
   es7:
     container_name: es7
     hostname: es7
@@ -153,6 +185,11 @@ services:
     #    volumes:
     #      - /Users/zhangzhibo/Documents/Development/data/elasticsearch/data:/usr/share/elasticsearch/data
     #      - /Users/zhangzhibo/Documents/Development/data/elasticsearch/logs:/usr/share/elasticsearch/logs
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9200" ]
+      interval: 20s
+      timeout: 10s
+      retries: 10
   oap:
     container_name: oap
     hostname: oap
@@ -172,7 +209,8 @@ services:
       - SW_STORAGE_ES_CLUSTER_NODES="es7:9200"
       - TZ=Asia/Shanghai
     depends_on:
-      - "es7"
+      es7:
+        condition: service_healthy
 
   ui:
     image: registry.cn-beijing.aliyuncs.com/amur/skywalking-ui:latest
