@@ -1,95 +1,27 @@
 #!/bin/zsh
 cd ../
-# 如果环境变量中未设定DOCKER_HOST,则默认为
-if [[ -z "$DOCKER_HOST" ]]; then
-  export DOCKER_HOST=192.168.2.166
-fi
-# 如果环境变量中未设定DOCKER_REGISTRY,则默认为$DOCKER_REGISTRY
-if [[ -z "$DOCKER_REGISTRY" ]]; then
-  export DOCKER_REGISTRY=$DOCKER_REGISTRY
-fi
+export DOCKER_HOST=${DOCKER_HOST:-192.168.2.166}
+export DOCKER_REGISTRY=${DOCKER_REGISTRY:-registry.cn-beijing.aliyuncs.com/amur}
 docker buildx create --use
-for dir in $(find . -name Dockerfile); do
+dirs=($(find . -name Dockerfile))
+
+for dir in $dirs; do
   pwd=$(pwd)
-  if [[ $dir != *"tmp"* ]] && [[ $dir != *"target"* ]]; then
+  if [[ $dir == "tmp" ]] || [[ $dir == "target" ]]; then
     continue
   fi
-  # 如果参数中有"all"
-  if [[ $@ == *"all"* ]]; then
-    cd $(dirname $dir)
-    echo Building: ${PWD##*/}
-    docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
+  cd $(dirname $dir)
+  dir_name=${PWD##*/}
+  if [[ $@ == "all" ]]; then
+    echo "Building: $dir_name"
+    docker buildx build -t $DOCKER_REGISTRY/$dir_name:latest --push --platform linux/amd64,linux/arm64 .
+    cd $pwd
+    continue
+  fi
+  if [[ $@ == *"$dir_name"* ]] || [[ $dir_name == *"home-"* ]] && [[ $@ == *${dir_name#*home-}* ]]; then
+    echo "Building: $dir_name"
+    docker buildx build -t $DOCKER_REGISTRY/$dir_name:latest --push --platform linux/amd64,linux/arm64 .
     cd $pwd
   fi
-  # 如果参数中有gateway,auth,course,msg,rtc,tinyid,user,sba,skywalking-ui,db,nacos中的一个或多个,则只构建对应目录下的Dockerfile
-  if [[ $@ == *"gateway"* ]] || [[ $@ == *"auth"* ]] || [[ $@ == *"course"* ]] || [[ $@ == *"msg"* ]] || [[ $@ == *"rtc"* ]] || [[ $@ == *"tinyid"* ]] || [[ $@ == *"user"* ]] || [[ $@ == *"sba"* ]] || [[ $@ == *"swui"* ]] || [[ $@ == *"db"* ]] || [[ $@ == *"nacos"* ]]; then
-    if [[ $dir != *"tmp"* ]] && [[ $dir != *"target"* ]]; then
-      if [[ $@ == *"gateway"* ]] && [[ $dir == *"home-gateway"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"auth"* ]] && [[ $dir == *"home-auth"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"course"* ]] && [[ $dir == *"home-course"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"msg"* ]] && [[ $dir == *"home-msg"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"rtc"* ]] && [[ $dir == *"home-rtc"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"tinyid"* ]] && [[ $dir == *"home-tinyid"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"user"* ]] && [[ $dir == *"home-user"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"sba"* ]] && [[ $dir == *"home-sba"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"skywalking-ui"* ]] && [[ $dir == *"skywalking-ui"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"db"* ]] && [[ $dir == *"db"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-      if [[ $@ == *"nacos"* ]] && [[ $dir == *"nacos"* ]]; then
-        cd $(dirname $dir)
-        echo Building: ${PWD##*/}
-        docker buildx build -t $DOCKER_REGISTRY/${PWD##*/}:latest --push --platform linux/amd64,linux/arm64 .
-        cd $pwd
-      fi
-    fi
-  fi
+  cd $pwd
 done
