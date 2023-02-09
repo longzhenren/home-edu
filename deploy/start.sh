@@ -22,7 +22,7 @@ if [ ! -x "$(command -v docker-compose)" ]; then
 fi
 
 # 通过/compose目录下docker-compose.yml启动docker-compose
-cd /compose
+cd compose
 echo "Pulling docker-images..."
 docker-compose pull
 echo "Starting docker-compose..."
