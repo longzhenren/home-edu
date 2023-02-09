@@ -7,6 +7,10 @@ import com.amur.home.user.entity.UserEntity;
 import com.amur.home.util.ResponseWrapper;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +26,9 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
+@Tag(name = "登录模块")
 @RestController
+@Slf4j
 public class LoginController {
     @Autowired
     private Producer producer;
@@ -39,6 +45,7 @@ public class LoginController {
      * @param request
      * @throws Exception
      */
+    @Operation(summary = "获取验证码")
     @GetMapping(value = "/captcha.jpg", produces = "image/jpeg")
     public void captcha(HttpServletResponse response, HttpServletRequest request) throws Exception {
         response.setHeader("Cache-Control", "no-store,no-cache");
@@ -60,6 +67,12 @@ public class LoginController {
      * @param request
      * @return
      */
+    @Operation(summary = "登录")
+    @Parameters(value = {
+            @io.swagger.v3.oas.annotations.Parameter(name = "username", description = "用户名"),
+            @io.swagger.v3.oas.annotations.Parameter(name = "password", description = "密码"),
+            @io.swagger.v3.oas.annotations.Parameter(name = "captcha", description = "验证码")
+    })
     @PostMapping(value = "/login")
     public ResponseWrapper<Map<String, Object>> login(String username, String password, String captcha, HttpServletRequest request) {
         //从session中获取之前保存的验证码，跟前台传过来的验证码进行匹配

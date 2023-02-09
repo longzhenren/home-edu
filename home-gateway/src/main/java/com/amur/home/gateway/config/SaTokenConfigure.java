@@ -3,6 +3,7 @@ package com.amur.home.gateway.config;
 import cn.dev33.satoken.reactor.filter.SaReactorFilter;
 import cn.dev33.satoken.router.SaRouter;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.util.SaResult;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,8 +20,16 @@ public class SaTokenConfigure {
         return new SaReactorFilter()
                 // 拦截地址
                 .addInclude("/**")    /* 拦截全部path */
+                .addExclude("/home-sba/**")    /* 放行sba监控 */
+                .addExclude("/home-auth/captcha.jpg")    /* 放行oss */
                 // 开放地址
-                .addExclude("/doc.html", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/v3/**", "/actuator/**", "/favicon.ico").addExclude("/home-sba/**").addExclude("/home-user/v3/**", "/home-user/swagger-resources/**", "/home-user/webjars/**", "/home-user/swagger-ui.html/**", "/home-user/doc.html", "/home-user/actuator/**").addExclude("/home-course/v3/**", "/home-course/swagger-resources/**", "/home-course/webjars/**", "/home-course/swagger-ui.html/**", "/home-course/doc.html", "/home-course/actuator/**").addExclude("/home-tinyid/v3/**", "/home-tinyid/swagger-resources/**", "/home-tinyid/webjars/**", "/home-tinyid/swagger-ui.html/**", "/home-tinyid/doc.html", "/home-tinyid/actuator/**")
+                .addExclude("/doc.html", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/v3/**", "/actuator/**", "/favicon.ico")
+                .addExclude("/home-user/v3/**", "/home-user/swagger-resources/**", "/home-user/webjars/**", "/home-user/swagger-ui.html/**", "/home-user/doc.html", "/home-user/actuator/**")
+                .addExclude("/home-course/v3/**", "/home-course/swagger-resources/**", "/home-course/webjars/**", "/home-course/swagger-ui.html/**", "/home-course/doc.html", "/home-course/actuator/**")
+                .addExclude("/home-tinyid/v3/**", "/home-tinyid/swagger-resources/**", "/home-tinyid/webjars/**", "/home-tinyid/swagger-ui.html/**", "/home-tinyid/doc.html", "/home-tinyid/actuator/**")
+                .addExclude("/home-auth/v3/**", "/home-auth/swagger-resources/**", "/home-auth/webjars/**", "/home-auth/swagger-ui.html/**", "/home-auth/doc.html", "/home-auth/actuator/**")
+                .addExclude("/home-rtc/v3/**", "/home-rtc/swagger-resources/**", "/home-rtc/webjars/**", "/home-rtc/swagger-ui.html/**", "/home-rtc/doc.html", "/home-rtc/actuator/**")
+                .addExclude("/home-msg/v3/**", "/home-msg/swagger-resources/**", "/home-msg/webjars/**", "/home-msg/swagger-ui.html/**", "/home-msg/doc.html", "/home-msg/actuator/**")
                 // 鉴权方法：每次访问进入
                 .setAuth(obj -> {
                     // 登录校验 -- 拦截所有路由，并放行登录
@@ -29,8 +38,8 @@ public class SaTokenConfigure {
                     SaRouter.match("/home-user/**", r -> StpUtil.checkPermission("user"));
                     SaRouter.match("/home-sba/**", r -> StpUtil.checkPermissionOr("su", "sre"));
                     SaRouter.match("/home-sw/**", r -> StpUtil.checkPermissionOr("su", "sre"));
-                });
-        // 异常处理方法：每次setAuth函数出现异常时进入
-//                .setError(e -> SaResult.error(e.getMessage()));
+                })
+//         异常处理方法：每次setAuth函数出现异常时进入
+                .setError(e -> SaResult.error(e.getMessage()));
     }
 }
