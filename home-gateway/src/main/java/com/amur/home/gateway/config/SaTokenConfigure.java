@@ -3,7 +3,7 @@ package com.amur.home.gateway.config;
 import cn.dev33.satoken.reactor.filter.SaReactorFilter;
 import cn.dev33.satoken.router.SaRouter;
 import cn.dev33.satoken.stp.StpUtil;
-import cn.dev33.satoken.util.SaResult;
+import com.amur.home.util.ResponseWrapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -40,6 +40,6 @@ public class SaTokenConfigure {
                     SaRouter.match("/home-sw/**", r -> StpUtil.checkPermissionOr("su", "sre"));
                 })
 //         异常处理方法：每次setAuth函数出现异常时进入
-                .setError(e -> SaResult.error(e.getMessage()));
+                .setError(e -> ResponseWrapper.fail(e.getMessage()));
     }
 }
