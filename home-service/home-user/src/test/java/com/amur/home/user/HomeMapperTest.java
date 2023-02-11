@@ -44,7 +44,6 @@ public class HomeMapperTest {
         for(int i=0;i<10000;i++){
             HomeEntity homeEntity = new HomeEntity();
             homeEntity.setName("test");
-            homeEntity.setAddress("test");
             homeEntity.setDescription("test");
             homeEntity.setAvatarUrl("test");
             homeEntity.setImageUrls("test");
@@ -71,7 +70,6 @@ public class HomeMapperTest {
     public void updateHome() {
         HomeEntity homeEntity = homeMapper.selectById(1);
         homeEntity.setName("test");
-        homeEntity.setAddress("test");
         homeEntity.setDescription("test");
         homeEntity.setAvatarUrl("test1");
         homeEntity.setImageUrls("test");

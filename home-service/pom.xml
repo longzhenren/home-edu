@@ -41,6 +41,11 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>net.devh</groupId>
             <artifactId>grpc-spring-boot-starter</artifactId>
             <version>${net.devh.grpc.starter.version}</version>
@@ -73,21 +78,27 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.apache.skywalking</groupId>-->
-<!--            <artifactId>apm-toolkit-trace</artifactId>-->
-<!--            <version>${skywalking.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.1</version>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.skywalking</groupId>-->
+        <!--            <artifactId>apm-toolkit-trace</artifactId>-->
+        <!--            <version>${skywalking.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.apache.skywalking</groupId>
             <artifactId>apm-toolkit-logback-1.x</artifactId>
             <version>${skywalking.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.baomidou</groupId>-->
-<!--            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>-->
-<!--            <version>3.6.1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.baomidou</groupId>-->
+        <!--            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>-->
+        <!--            <version>3.6.1</version>-->
+        <!--        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>com.alibaba.fastjson2</groupId>-->
         <!--            <artifactId>fastjson2</artifactId>-->
@@ -156,32 +167,32 @@
     <build>
         <plugins>
             <!-- 构建和推动Docker镜像 -->
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
-<!--                <version>${docker.maven.plugin.version}</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>default</id>-->
-<!--                        <goals>-->
-<!--                            &lt;!&ndash;如果package时不想用docker打包,就注释掉这个goal&ndash;&gt;-->
-<!--                            &lt;!&ndash;                            <goal>build</goal>&ndash;&gt;-->
-<!--                            <goal>push</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash;                    <cacheFrom>${docker.repository.url}/${docker.registry.name}/${project.artifactId}:${project.version}</cacheFrom>&ndash;&gt;-->
-<!--                    <contextDirectory>${project.basedir}</contextDirectory>-->
-<!--                    <repository>${docker.repository.url}/${docker.registry.name}/${project.artifactId}</repository>-->
-<!--                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>-->
-<!--                    <tag>${project.version}</tag>-->
-<!--                    <buildArgs>-->
-<!--                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
-<!--                        <APP_NAME>${project.artifactId}</APP_NAME>-->
-<!--                    </buildArgs>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>com.spotify</groupId>-->
+            <!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
+            <!--                <version>${docker.maven.plugin.version}</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>default</id>-->
+            <!--                        <goals>-->
+            <!--                            &lt;!&ndash;如果package时不想用docker打包,就注释掉这个goal&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            <goal>build</goal>&ndash;&gt;-->
+            <!--                            <goal>push</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--                <configuration>-->
+            <!--                    &lt;!&ndash;                    <cacheFrom>${docker.repository.url}/${docker.registry.name}/${project.artifactId}:${project.version}</cacheFrom>&ndash;&gt;-->
+            <!--                    <contextDirectory>${project.basedir}</contextDirectory>-->
+            <!--                    <repository>${docker.repository.url}/${docker.registry.name}/${project.artifactId}</repository>-->
+            <!--                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>-->
+            <!--                    <tag>${project.version}</tag>-->
+            <!--                    <buildArgs>-->
+            <!--                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
+            <!--                        <APP_NAME>${project.artifactId}</APP_NAME>-->
+            <!--                    </buildArgs>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 </project>

@@ -13,4 +13,5 @@ public interface UserService {
 
     public UserEntity getUserByName(String username);
 
+    public boolean updatePassword(Long userId, String oldPassword, String newPassword);
 }

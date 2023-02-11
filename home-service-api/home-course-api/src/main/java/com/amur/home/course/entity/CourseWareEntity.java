@@ -1,29 +1,20 @@
-package com.amur.home.user.entity;
+package com.amur.home.course.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@TableName("home")
-public class HomeEntity {
+@TableName("course_ware")
+public class CourseWareEntity {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
-    private String name;
-    //    private String address;
+    private Long courseId;
+    private String title;
     private String description;
-    private String avatarUrl;
-    private String imageUrls;
-    private Long adminId;
-    private Long createUserId;
-    private String homeUserIds;
-    private Long likeCount;                 //点赞数
-    private Long favCount;                  //收藏数
+    private String icon;
+    private String url;
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     @TableField(fill = FieldFill.INSERT)

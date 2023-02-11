@@ -40,6 +40,10 @@ spring:
       matching-strategy: ant_path_matcher
   banner:
     location: banner.txt
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml

@@ -5,6 +5,7 @@ import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.UserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -57,5 +58,19 @@ public class UserServiceImpl implements UserService {
         QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name", username);
         return userMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public boolean updatePassword(Long userId, String oldPassword, String newPassword) {
+        UserEntity userEntity = userMapper.selectById(userId);
+        if(userEntity == null) {
+            return false;
+        }
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if (encoder.matches(oldPassword, userEntity.getPassword())) {
+            userEntity.setPassword(encoder.encode(newPassword));
+            return userMapper.updateById(userEntity) > 0;
+        }
+        return false;
     }
 }

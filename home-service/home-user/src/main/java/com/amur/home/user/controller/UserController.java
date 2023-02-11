@@ -53,4 +53,13 @@ public class UserController {
         return ResponseWrapper.data(userService.createUser(userEntity));
     }
 
+    @Operation(summary = "修改密码")
+    @Parameters({@Parameter(name = "userId", description = "用户id", required = true),
+            @Parameter(name = "oldPassword", description = "旧密码", required = true),
+            @Parameter(name = "newPassword", description = "新密码", required = true)})
+    @PostMapping("/updatePassword")
+    public ResponseWrapper<?> updatePassword(Long userId, String oldPassword, String newPassword) {
+        return ResponseWrapper.status(userService.updatePassword(userId, oldPassword, newPassword));
+    }
+
 }
