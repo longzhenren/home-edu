@@ -14,7 +14,7 @@ spring:
         server-addr: 127.0.0.1:8848
   config:
     import:
-      - optional:nacos:home-user.yml
+      - optional:nacos:home-course.yml
   aop:
     auto: true
     proxy-target-class: true
@@ -70,16 +70,16 @@ springdoc:
   group-configs:
     - group: 'default'
       paths-to-match: '/**'
-      packages-to-scan: com.amur.home.user.controller
+      packages-to-scan: com.amur.home.course.controller
 # knife4j的增强配置，不需要增强可以不配
 knife4j:
   enable: true
   setting:
     language: zh_cn
     enable-host: true
-    enable-host-text: 127.0.0.1/home-user #填写为网关地址,用于在网管聚合界面调试接口
+    enable-host-text: 127.0.0.1/home-course #填写为网关地址,用于在网管聚合界面调试接口
   basic:
-    enable: true
+    enable: false
     username: admin
     password: 123456
   # 开启生产环境屏蔽
@@ -112,7 +112,7 @@ tinyid:
   bizType: home
 
 minio:
-  endpoint: http://192.168.5.137:9090
+  endpoint: http://127.0.0.1:65531
   accessKey: minioadmin
   secretKey: minioadmin
   bucketName: course

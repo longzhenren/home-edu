@@ -15,7 +15,62 @@ spring:
         server-addr: 127.0.0.1:8848
   config:
     import:
-      - optional:nacos:home-class.yml
+      - optional:nacos:home-rtc.yml
+  aop:
+    auto: true
+    proxy-target-class: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  #  TODO:datasource临时测试用, 后续接入nacos-config
+  datasource:
+    url: jdbc:mysql://localhost:3306/homeedu?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      validation-timeout: 3000
 grpc:
   server:
     port: 9703
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+    banner: false
+
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.amur.home.rtc.controller
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-host: true
+    enable-host-text: 127.0.0.1/home-rtc #填写为网关地址,用于在网管聚合界面调试接口
+  basic:
+    enable: false
+    username: admin
+    password: 123456
+  # 开启生产环境屏蔽
+  production: false

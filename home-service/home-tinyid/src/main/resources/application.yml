@@ -60,7 +60,7 @@ knife4j:
     enable-host: true
     enable-host-text: 127.0.0.1/home-tinyid #填写为网关地址,用于在网管聚合界面调试接口
   basic:
-    enable: true
+    enable: false
     username: admin
     password: 123456
   # 开启生产环境屏蔽
