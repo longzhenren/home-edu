@@ -26,13 +26,13 @@ public class HomeController {
     @Parameters({
             @Parameter(name = "homeId", description = "家庭id", required = true)
     })
-    @GetMapping("/getinfo")
+    @GetMapping("/get_info")
     public ResponseWrapper<HomeEntity> getInfo(Long homeId) {
         return ResponseWrapper.data(homeService.getHomeInfo(homeId));
     }
 
     @Operation(summary = "获取家庭列表")
-    @GetMapping("/getlist")
+    @GetMapping("/get_list")
     public ResponseWrapper<List<HomeEntity>> getList() {
         return ResponseWrapper.data(homeService.getHomeList());
     }
@@ -70,7 +70,7 @@ public class HomeController {
             @Parameter(name = "homeId", description = "家庭id", required = true),
             @Parameter(name = "userId", description = "用户id", required = true)
     })
-    @PostMapping("/updateuser")
+    @PostMapping("/update_user")
     public ResponseWrapper updateHomeUser(Long homeId, Long userId) {
         return ResponseWrapper.status(homeService.updateHomeUser(homeId, userId));
     }
@@ -80,7 +80,7 @@ public class HomeController {
             @Parameter(name = "homeId", description = "家庭id", required = true),
             @Parameter(name = "userId", description = "用户id", required = true)
     })
-    @PostMapping("/deleteuser")
+    @PostMapping("/delete_user")
     public ResponseWrapper deleteHomeUser(Long homeId, Long userId) {
         return ResponseWrapper.status(homeService.deleteHomeUser(homeId, userId));
     }
@@ -90,7 +90,7 @@ public class HomeController {
             @Parameter(name = "homeId", description = "家庭id", required = true),
             @Parameter(name = "userId", description = "用户id", required = true)
     })
-    @PostMapping("/setadmin")
+    @PostMapping("/set_admin")
     public ResponseWrapper setHomeAdmin(Long homeId, Long userId) {
         return ResponseWrapper.status(homeService.setHomeAdmin(homeId, userId));
     }

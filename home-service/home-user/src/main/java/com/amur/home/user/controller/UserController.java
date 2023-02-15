@@ -25,7 +25,7 @@ public class UserController {
 
     @Operation(summary = "获取用户信息")
     @Parameters({@Parameter(name = "userId", description = "用户id", required = true)})
-    @GetMapping("/getinfo")
+    @GetMapping("/get_info")
     public ResponseWrapper<UserEntity> getUserInfo(Long userId) {
         UserEntity user = userService.getUserInfo(userId);
         user.setPassword(null);
@@ -57,7 +57,7 @@ public class UserController {
     @Parameters({@Parameter(name = "userId", description = "用户id", required = true),
             @Parameter(name = "oldPassword", description = "旧密码", required = true),
             @Parameter(name = "newPassword", description = "新密码", required = true)})
-    @PostMapping("/updatePassword")
+    @PostMapping("/update_pwd")
     public ResponseWrapper<?> updatePassword(Long userId, String oldPassword, String newPassword) {
         return ResponseWrapper.status(userService.updatePassword(userId, oldPassword, newPassword));
     }

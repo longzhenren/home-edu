@@ -17,7 +17,7 @@ public class CourseWareEntity {
     private String url;
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
-    @TableField(fill = FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
     @Version
     @TableField(fill = FieldFill.INSERT)

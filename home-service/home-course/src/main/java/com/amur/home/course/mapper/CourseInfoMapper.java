@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface CourseMapper extends BaseMapper<CourseInfoEntity> {
+public interface CourseInfoMapper extends BaseMapper<CourseInfoEntity> {
 }

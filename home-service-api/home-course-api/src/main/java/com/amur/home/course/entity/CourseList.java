@@ -12,10 +12,13 @@ public class CourseList {
     private Long id;
     private Long homeId;
     private String courseIds;
+    private String title;
+    private String description;
+    private String coverUrl;
     private boolean open;
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
-    @TableField(fill = FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
     @Version
     @TableField(fill = FieldFill.INSERT)
