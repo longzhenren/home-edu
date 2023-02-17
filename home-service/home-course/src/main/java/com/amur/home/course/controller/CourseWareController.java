@@ -24,7 +24,6 @@ public class CourseWareController {
     public ResponseWrapper<?> download() {
         return null;
     }
-
     @PostMapping("/del")
     @Operation(summary = "删除课件")
     public ResponseWrapper<?> del() {
