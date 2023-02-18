@@ -91,4 +91,15 @@ public class Constants {
         @EnumValue
         private final String value;
     }
+
+    @AllArgsConstructor
+    @Getter
+    public enum InviteAs {
+        AS_TEACHER(1, "作为老师加入课程"),
+        AS_STUDENT(2, "作为老师加入课程");
+        @EnumValue
+        private final long value;
+        private final String desc;
+    }
+
 }
