@@ -1,9 +1,7 @@
 package com.amur.home.course.entity;
 
 import com.amur.home.common.Constants;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -17,4 +15,14 @@ public class CourseShare {
     private Long inviterId;
     private Constants.InviteAs inviteAs;
     private Date expireTime;
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+    @Version
+    @TableField(fill = FieldFill.INSERT)
+    private Integer version;
+    @TableLogic
+    @TableField(fill = FieldFill.INSERT)
+    private Integer deleted;
 }

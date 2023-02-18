@@ -10,11 +10,13 @@ import com.amur.home.course.mapper.CourseListMapper;
 import com.amur.home.course.mapper.CourseShareMapper;
 import com.amur.home.course.service.CourseService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class CourseServiceImpl implements CourseService {
     @Resource
     private CourseInfoMapper courseInfoMapper;
@@ -141,7 +143,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseInfo == null) {
             return false;
         }
-
+        return false;
     }
 
     /**

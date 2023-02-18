@@ -12,7 +12,6 @@ import java.util.Set;
 public class CourseInfo {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
-    private Long listId;
     private String title;
     private String description;
     private Long homeId;
@@ -21,8 +20,6 @@ public class CourseInfo {
     private Set<Long> teacherIds;
     @TableField(typeHandler = JacksonTypeHandler.class)
     private Set<Long> studentIds;  //  听课人员
-    //    @TableField(typeHandler = JacksonTypeHandler.class)
-//    private Set<Long> courseWareIds;   //  课件
     @TableField(typeHandler = JacksonTypeHandler.class)
     private Set<Long> issueIds;
     private String status;      //  课程状态
