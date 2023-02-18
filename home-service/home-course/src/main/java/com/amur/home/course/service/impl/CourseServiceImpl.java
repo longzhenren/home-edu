@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 public class CourseServiceImpl implements CourseService {
     @Resource
@@ -262,5 +263,27 @@ public class CourseServiceImpl implements CourseService {
             return false;
         }
         return courseInfoMapper.selectCount(new QueryWrapper<CourseInfo>().eq("course_id", courseId).eq("user_id", userId)) > 0;
+    }
+
+    /**
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<CourseShare> listShareInfoByUserId(Long userId) {
+        return courseShareMapper.selectList(new QueryWrapper<CourseShare>().eq("inviter_id", userId));
+    }
+
+    /**
+     * @param token
+     * @param userId
+     * @return
+     */
+    @Override
+    public boolean cancelShareToken(String token, Long userId) {
+        if (courseShareMapper.selectCount(new QueryWrapper<CourseShare>().eq("token", token).eq("inviter_id", userId)) > 0) {
+            return false;
+        }
+        return courseShareMapper.deleteById(token) > 0;
     }
 }
