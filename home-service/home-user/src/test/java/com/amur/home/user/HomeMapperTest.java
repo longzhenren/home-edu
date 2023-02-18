@@ -22,11 +22,12 @@ public class HomeMapperTest {
     @Autowired
     @InjectMocks
     private MyBatisTinyIdGenerator myBatisTinyIdGenerator;
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        ReflectionTestUtils.setField(myBatisTinyIdGenerator,"bizType","home");
-        ReflectionTestUtils.setField(myBatisTinyIdGenerator,"token","0f673adf80504e2eaa552f5d791b644c");
+        ReflectionTestUtils.setField(myBatisTinyIdGenerator, "bizType", "home");
+        ReflectionTestUtils.setField(myBatisTinyIdGenerator, "token", "0f673adf80504e2eaa552f5d791b644c");
     }
 
     @Test
@@ -41,14 +42,12 @@ public class HomeMapperTest {
 
     @Test
     public void createHome() {
-        for(int i=0;i<10000;i++){
+        for (int i = 0; i < 10000; i++) {
             HomeEntity homeEntity = new HomeEntity();
             homeEntity.setName("test");
             homeEntity.setDescription("test");
             homeEntity.setAvatarUrl("test");
-            homeEntity.setImageUrls("test");
             homeEntity.setAdminId(1L);
-            homeEntity.setHomeUserIds("test");
             homeMapper.insert(homeEntity);
             System.out.println(homeEntity.getId());
         }
@@ -72,9 +71,7 @@ public class HomeMapperTest {
         homeEntity.setName("test");
         homeEntity.setDescription("test");
         homeEntity.setAvatarUrl("test1");
-        homeEntity.setImageUrls("test");
         homeEntity.setAdminId(1L);
-        homeEntity.setHomeUserIds("test");
         homeMapper.updateById(homeEntity);
     }
 }

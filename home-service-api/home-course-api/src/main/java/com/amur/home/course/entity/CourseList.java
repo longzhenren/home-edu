@@ -1,17 +1,20 @@
 package com.amur.home.course.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
-@TableName("course_list")
+@TableName(value = "course_list", autoResultMap = true)
 public class CourseList {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
     private Long homeId;
-    private String courseIds;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> courseIds;
     private String title;
     private String description;
     private String coverUrl;

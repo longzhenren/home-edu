@@ -1,20 +1,26 @@
 package com.amur.home.user.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
-@TableName("user_fav")
+@TableName(value = "user_fav", autoResultMap = true)
 public class UserFavorite {
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     private Long userId;
-    private String homeIds;
-    private String courseIds;
-    private String courseWareIds;
-    private String courseListIds;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> homeIds;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> courseIds;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> courseWareIds;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> courseListIds;
     private String userMap; // id到别名
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;

@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -32,8 +30,7 @@ public class StpInterfaceImpl implements StpInterface {
             userEntity = userGrpcClient.getUserEntityByUserName(Long.parseLong((String) loginId));
             redisUtils.set("user:" + loginId, userEntity);
         }
-        return new ArrayList<>(new HashSet<>(Arrays.asList(userEntity.getPermissions().split(":"))));
-
+        return new ArrayList<>(userEntity.getPermissions());
     }
 
     @Override

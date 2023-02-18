@@ -12,7 +12,6 @@ service UserService {
   rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
   rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
   rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
-
 }
 message GetUserBaseRequest {
   int64 user_id = 1;
@@ -31,7 +30,7 @@ message GetUserAuthByNameResponse{
   string user_name = 2;
   string password = 3;
   Status status = 4;
-  string permissions = 5;
+  repeated string permissions = 5;
 }
 
 message GetUserAuthByIdRequest {
@@ -43,7 +42,7 @@ message GetUserAuthByIdResponse{
   string user_name = 2;
   string password = 3;
   Status status = 4;
-  string permissions = 5;
+  repeated string permissions = 5;
 }
 
 message GetUserPermissionsByNameRequest{
@@ -53,7 +52,7 @@ message GetUserPermissionsByNameRequest{
 message GetUserPermissionsByNameResponse{
   int64 user_id = 1;
   string user_name = 2;
-  string permissions = 3;
+  repeated string permissions = 3;
   Status status = 4;
 }
 
@@ -61,7 +60,8 @@ message CreateUserRequest{
   string name = 1;
   string email = 2;
   string phone = 3;
-  string description = 4;
+  string password = 4;
+  string description = 5;
 }
 message UpdateUserRequest{
   int64 user_id = 1;

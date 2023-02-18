@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "课程信息模块")
+@Tag(name = "课程信息接口")
 @Slf4j
 @RestController
 @RequestMapping("/course")

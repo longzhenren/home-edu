@@ -5,10 +5,10 @@ import com.amur.home.user.rpc.StatusOuterClass;
 import com.amur.home.user.rpc.User;
 import com.amur.home.user.rpc.UserServiceGrpc;
 import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
-import java.util.Set;
 
 @Component
 public class UserGrpcClient {
@@ -23,10 +23,15 @@ public class UserGrpcClient {
             userEntity.setId(resp.getUserId());
             userEntity.setName(resp.getUserName());
             userEntity.setPassword(resp.getPassword());
-            userEntity.setPermissions(resp.getPermissions());
+            userEntity.setPermissions(new HashSet<>(resp.getPermissionsList()));
             return userEntity;
         } else {
             return null;
         }
+    }
+
+    public void createUser(String username, String password) {
+        User.CreateUserRequest createUserRequest = User.CreateUserRequest.newBuilder().setName(username).setPassword(new BCryptPasswordEncoder().encode(password)).build();
+        User.CreateUserResponse resp = userServiceBlockingStub.createUser(createUserRequest);
     }
 }

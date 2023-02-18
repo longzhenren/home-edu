@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "课程资料模块")
+@Tag(name = "课程资料接口")
 @Slf4j
 @RestController
 @RequestMapping("/courseware")
@@ -24,6 +24,7 @@ public class CourseWareController {
     public ResponseWrapper<?> download() {
         return null;
     }
+
     @PostMapping("/del")
     @Operation(summary = "删除课件")
     public ResponseWrapper<?> del() {

@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
+import java.util.Set;
 
 @GrpcService
 @Slf4j
@@ -28,7 +30,11 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         UserEntity userEntity = new UserEntity();
         userEntity.setName(request.getName());
         userEntity.setPhone(request.getPhone());
-        userEntity.setDescription(request.getDescription());
+        userEntity.setEmail(request.getEmail());
+        userEntity.setPassword(request.getPassword());
+        Set<String> permissions = new HashSet<>();
+        permissions.add("user");
+        userEntity.setPermissions(permissions);
         Long userId = userService.createUser(userEntity);
         if (userId == null) {
             response = response.toBuilder().setStatus(Status.FAILED).build();
@@ -116,7 +122,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         if (userEntity == null) {
             response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).setPermissions(userEntity.getPermissions()).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).addAllPermissions(userEntity.getPermissions()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -129,7 +135,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         if (userEntity == null) {
             response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).setPermissions(userEntity.getPermissions()).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPassword(userEntity.getPassword()).addAllPermissions(userEntity.getPermissions()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -143,8 +149,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         if (userEntity == null) {
             response = response.toBuilder().setStatus(Status.FAILED).build();
         } else {
-            // 将权限字符串转换为列表
-            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).setPermissions(userEntity.getPermissions()).build();
+            response = response.toBuilder().setStatus(Status.SUCCESS).setUserId(userEntity.getId()).setUserName(userEntity.getName()).addAllPermissions(userEntity.getPermissions()).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();

@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @TableName("course_ware")
-public class CourseWareEntity {
+public class CourseWare {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
     private Long courseId;

@@ -1,11 +1,11 @@
 package com.amur.home.course.mapper;
 
-import com.amur.home.course.entity.CourseInfo;
+import com.amur.home.course.entity.CourseComment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface CourseInfoMapper extends BaseMapper<CourseInfo> {
+public interface CourseCommentMapper extends BaseMapper<CourseComment> {
 }

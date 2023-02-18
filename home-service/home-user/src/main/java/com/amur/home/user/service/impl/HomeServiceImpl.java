@@ -1,12 +1,10 @@
 package com.amur.home.user.service.impl;
 
-import com.amur.home.user.dto.AddHomeImageDto;
 import com.amur.home.user.entity.HomeEntity;
 import com.amur.home.user.entity.UserEntity;
 import com.amur.home.user.mapper.HomeMapper;
 import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.HomeService;
-import com.amur.home.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -79,11 +77,7 @@ public class HomeServiceImpl implements HomeService {
         if (homeEntity == null) {
             return null;
         }
-        String homeUserIds = homeEntity.getHomeUserIds();
-        List<Long> userIdList = JsonUtils.toObject(List.class, homeUserIds);
-        if (userIdList == null) {
-            return new ArrayList<>();
-        }
+        List<Long> userIdList = new ArrayList<>(homeEntity.getHomeUserIds());
         return userIdList.stream().map(userId -> userMapper.selectById(userId)).collect(Collectors.toList());
     }
 
@@ -98,13 +92,7 @@ public class HomeServiceImpl implements HomeService {
         if (homeEntity == null) {
             return false;
         }
-        String homeUserIds = homeEntity.getHomeUserIds();
-        List<Long> userIdList = JsonUtils.toObject(List.class, homeUserIds);
-        if (userIdList == null) {
-            userIdList = new ArrayList<>();
-        }
-        userIdList.add(userId);
-        homeEntity.setHomeUserIds(JsonUtils.toJsonString(userIdList));
+        homeEntity.getHomeUserIds().add(userId);
         return homeMapper.updateById(homeEntity) > 0;
     }
 
@@ -119,13 +107,7 @@ public class HomeServiceImpl implements HomeService {
         if (homeEntity == null) {
             return false;
         }
-        String homeUserIds = homeEntity.getHomeUserIds();
-        List<Long> userIdList = JsonUtils.toObject(List.class, homeUserIds);
-        if (userIdList == null) {
-            return false;
-        }
-        userIdList.remove(userId);
-        homeEntity.setHomeUserIds(JsonUtils.toJsonString(userIdList));
+        homeEntity.getHomeUserIds().remove(userId);
         return homeMapper.updateById(homeEntity) > 0;
     }
 
@@ -140,24 +122,4 @@ public class HomeServiceImpl implements HomeService {
         homeEntity.setAdminId(userId);
         return homeMapper.updateById(homeEntity) > 0;
     }
-
-    /**
-     * @param request
-     * @return
-     */
-//    @Override
-//    public boolean addHomeImage(AddHomeImageDto request) {
-//        HomeEntity homeEntity = homeMapper.selectById(request.getHomeId());
-//        if (homeEntity == null) {
-//            return false;
-//        }
-//        String homeImageIds = homeEntity.getHomeImageIds();
-//        List<Long> imageIdList = JsonUtils.toObject(List.class, homeImageIds);
-//        if (imageIdList == null) {
-//            imageIdList = new ArrayList<>();
-//        }
-//        imageIdList.add(request.getImageId());
-//        homeEntity.setHomeImageIds(JsonUtils.toJsonString(imageIdList));
-//        return homeMapper.updateById(homeEntity) > 0;
-//    }
 }

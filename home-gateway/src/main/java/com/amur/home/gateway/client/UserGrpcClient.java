@@ -7,6 +7,8 @@ import com.amur.home.user.rpc.UserServiceGrpc;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
+
 @Component
 public class UserGrpcClient {
     @GrpcClient("home-user")
@@ -20,7 +22,7 @@ public class UserGrpcClient {
             userEntity.setId(resp.getUserId());
             userEntity.setName(resp.getUserName());
             userEntity.setPassword(resp.getPassword());
-            userEntity.setPermissions(resp.getPermissions());
+            userEntity.setPermissions(new HashSet<>(resp.getPermissionsList()));
             return userEntity;
         } else {
             return null;

@@ -1,7 +1,9 @@
 package com.amur.home.user.service;
 
 import com.amur.home.user.entity.UserEntity;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService {
     public UserEntity getUserInfo(Long userId);
 

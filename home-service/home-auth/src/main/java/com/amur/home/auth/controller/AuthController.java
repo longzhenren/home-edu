@@ -127,10 +127,7 @@ public class AuthController {
         if (user != null) {
             return ResponseWrapper.fail("帐号已存在");
         }
-        user = new UserEntity();
-        user.setName(username);
-        user.setPassword(new BCryptPasswordEncoder().encode(password));
-//        userGrpcClient.saveUser(user);
+        userGrpcClient.createUser(username, password);
         return ResponseWrapper.status(true);
     }
 }

@@ -1,16 +1,19 @@
 package com.amur.home.user.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("home")
+@TableName(value = "home", autoResultMap = true)
 public class HomeEntity {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
@@ -18,10 +21,12 @@ public class HomeEntity {
     //    private String address;
     private String description;
     private String avatarUrl;
-    private String imageUrls;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private List<String> imageUrls;
     private Long adminId;
     private Long createUserId;
-    private String homeUserIds;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> homeUserIds;
     private Long likeCount;                 //点赞数
     private Long favCount;                  //收藏数
     @TableField(fill = FieldFill.INSERT)

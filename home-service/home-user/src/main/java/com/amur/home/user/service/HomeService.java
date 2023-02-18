@@ -1,11 +1,12 @@
 package com.amur.home.user.service;
 
-import com.amur.home.user.dto.AddHomeImageDto;
 import com.amur.home.user.entity.HomeEntity;
 import com.amur.home.user.entity.UserEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface HomeService {
     public HomeEntity getHomeInfo(Long homeId);
 
