@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-@TableName("course_list")
+@TableName("course_share")
 public class CourseShare {
     @TableId(value = "id", type = IdType.ASSIGN_UUID)
     private String token;

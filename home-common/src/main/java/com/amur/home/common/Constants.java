@@ -98,8 +98,17 @@ public class Constants {
         AS_TEACHER(1, "作为老师加入课程"),
         AS_STUDENT(2, "作为老师加入课程");
         @EnumValue
-        private final long value;
+        private final int value;
         private final String desc;
+
+        public static InviteAs valueOf(int value) {
+            for (InviteAs inviteAs : InviteAs.values()) {
+                if (inviteAs.value == value) {
+                    return inviteAs;
+                }
+            }
+            return null;
+        }
     }
 
 }

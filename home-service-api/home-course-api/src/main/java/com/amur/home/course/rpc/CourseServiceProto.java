@@ -3,8 +3,8 @@
 
 package com.amur.home.course.rpc;
 
-public final class Course {
-  private Course() {}
+public final class CourseServiceProto {
+  private CourseServiceProto() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -14,6 +14,5710 @@ public final class Course {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface ListCourseByUserIdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.ListCourseByUserIdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+
+    /**
+     * <code>int64 offset = 2;</code>
+     * @return The offset.
+     */
+    long getOffset();
+
+    /**
+     * <code>int64 limit = 3;</code>
+     * @return The limit.
+     */
+    long getLimit();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.ListCourseByUserIdRequest}
+   */
+  public static final class ListCourseByUserIdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.ListCourseByUserIdRequest)
+      ListCourseByUserIdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListCourseByUserIdRequest.newBuilder() to construct.
+    private ListCourseByUserIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListCourseByUserIdRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListCourseByUserIdRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListCourseByUserIdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              offset_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              limit_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    public static final int OFFSET_FIELD_NUMBER = 2;
+    private long offset_;
+    /**
+     * <code>int64 offset = 2;</code>
+     * @return The offset.
+     */
+    @java.lang.Override
+    public long getOffset() {
+      return offset_;
+    }
+
+    public static final int LIMIT_FIELD_NUMBER = 3;
+    private long limit_;
+    /**
+     * <code>int64 limit = 3;</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public long getLimit() {
+      return limit_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      if (offset_ != 0L) {
+        output.writeInt64(2, offset_);
+      }
+      if (limit_ != 0L) {
+        output.writeInt64(3, limit_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      if (offset_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, offset_);
+      }
+      if (limit_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, limit_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest other = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (getOffset()
+          != other.getOffset()) return false;
+      if (getLimit()
+          != other.getLimit()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOffset());
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLimit());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.ListCourseByUserIdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListCourseByUserIdRequest)
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        offset_ = 0L;
+
+        limit_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest result = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest(this);
+        result.userId_ = userId_;
+        result.offset_ = offset_;
+        result.limit_ = limit_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        if (other.getOffset() != 0L) {
+          setOffset(other.getOffset());
+        }
+        if (other.getLimit() != 0L) {
+          setLimit(other.getLimit());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long offset_ ;
+      /**
+       * <code>int64 offset = 2;</code>
+       * @return The offset.
+       */
+      @java.lang.Override
+      public long getOffset() {
+        return offset_;
+      }
+      /**
+       * <code>int64 offset = 2;</code>
+       * @param value The offset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOffset(long value) {
+        
+        offset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 offset = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOffset() {
+        
+        offset_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long limit_ ;
+      /**
+       * <code>int64 limit = 3;</code>
+       * @return The limit.
+       */
+      @java.lang.Override
+      public long getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>int64 limit = 3;</code>
+       * @param value The limit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLimit(long value) {
+        
+        limit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 limit = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLimit() {
+        
+        limit_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.ListCourseByUserIdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListCourseByUserIdRequest)
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListCourseByUserIdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ListCourseByUserIdRequest>() {
+      @java.lang.Override
+      public ListCourseByUserIdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListCourseByUserIdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListCourseByUserIdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListCourseByUserIdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListCourseByUserIdResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.ListCourseByUserIdResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> 
+        getCourseInfoList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index);
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    int getCourseInfoCount();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.ListCourseByUserIdResponse}
+   */
+  public static final class ListCourseByUserIdResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.ListCourseByUserIdResponse)
+      ListCourseByUserIdResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListCourseByUserIdResponse.newBuilder() to construct.
+    private ListCourseByUserIdResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListCourseByUserIdResponse() {
+      courseInfo_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListCourseByUserIdResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListCourseByUserIdResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              courseInfo_.add(
+                  input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.Builder.class);
+    }
+
+    public static final int COURSEINFO_FIELD_NUMBER = 1;
+    private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_;
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public int getCourseInfoCount() {
+      return courseInfo_.size();
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+      return courseInfo_.get(index);
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index) {
+      return courseInfo_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        output.writeMessage(1, courseInfo_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, courseInfo_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse other = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse) obj;
+
+      if (!getCourseInfoList()
+          .equals(other.getCourseInfoList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getCourseInfoCount() > 0) {
+        hash = (37 * hash) + COURSEINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseInfoList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.ListCourseByUserIdResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListCourseByUserIdResponse)
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCourseInfoFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse result = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (courseInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.courseInfo_ = courseInfo_;
+        } else {
+          result.courseInfo_ = courseInfoBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.getDefaultInstance()) return this;
+        if (courseInfoBuilder_ == null) {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfo_.isEmpty()) {
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureCourseInfoIsMutable();
+              courseInfo_.addAll(other.courseInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfoBuilder_.isEmpty()) {
+              courseInfoBuilder_.dispose();
+              courseInfoBuilder_ = null;
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              courseInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getCourseInfoFieldBuilder() : null;
+            } else {
+              courseInfoBuilder_.addAllMessages(other.courseInfo_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureCourseInfoIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>(courseInfo_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> courseInfoBuilder_;
+
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+        if (courseInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        } else {
+          return courseInfoBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public int getCourseInfoCount() {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.size();
+        } else {
+          return courseInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);
+        } else {
+          return courseInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addAllCourseInfo(
+          java.lang.Iterable<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfo> values) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, courseInfo_);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder clearCourseInfo() {
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder removeCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.remove(index);
+          onChanged();
+        } else {
+          courseInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder getCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+          int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);  } else {
+          return courseInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+           getCourseInfoOrBuilderList() {
+        if (courseInfoBuilder_ != null) {
+          return courseInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder() {
+        return getCourseInfoFieldBuilder().addBuilder(
+            com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().addBuilder(
+            index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder> 
+           getCourseInfoBuilderList() {
+        return getCourseInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+          getCourseInfoFieldBuilder() {
+        if (courseInfoBuilder_ == null) {
+          courseInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder>(
+                  courseInfo_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          courseInfo_ = null;
+        }
+        return courseInfoBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.ListCourseByUserIdResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListCourseByUserIdResponse)
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListCourseByUserIdResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ListCourseByUserIdResponse>() {
+      @java.lang.Override
+      public ListCourseByUserIdResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListCourseByUserIdResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListCourseByUserIdResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListCourseByUserIdResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListCourseByListIdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.ListCourseByListIdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 listId = 1;</code>
+     * @return The listId.
+     */
+    long getListId();
+
+    /**
+     * <code>int64 offset = 2;</code>
+     * @return The offset.
+     */
+    long getOffset();
+
+    /**
+     * <code>int64 limit = 3;</code>
+     * @return The limit.
+     */
+    long getLimit();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.ListCourseByListIdRequest}
+   */
+  public static final class ListCourseByListIdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.ListCourseByListIdRequest)
+      ListCourseByListIdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListCourseByListIdRequest.newBuilder() to construct.
+    private ListCourseByListIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListCourseByListIdRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListCourseByListIdRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListCourseByListIdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              listId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              offset_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              limit_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.Builder.class);
+    }
+
+    public static final int LISTID_FIELD_NUMBER = 1;
+    private long listId_;
+    /**
+     * <code>int64 listId = 1;</code>
+     * @return The listId.
+     */
+    @java.lang.Override
+    public long getListId() {
+      return listId_;
+    }
+
+    public static final int OFFSET_FIELD_NUMBER = 2;
+    private long offset_;
+    /**
+     * <code>int64 offset = 2;</code>
+     * @return The offset.
+     */
+    @java.lang.Override
+    public long getOffset() {
+      return offset_;
+    }
+
+    public static final int LIMIT_FIELD_NUMBER = 3;
+    private long limit_;
+    /**
+     * <code>int64 limit = 3;</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public long getLimit() {
+      return limit_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (listId_ != 0L) {
+        output.writeInt64(1, listId_);
+      }
+      if (offset_ != 0L) {
+        output.writeInt64(2, offset_);
+      }
+      if (limit_ != 0L) {
+        output.writeInt64(3, limit_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (listId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, listId_);
+      }
+      if (offset_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, offset_);
+      }
+      if (limit_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, limit_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest other = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest) obj;
+
+      if (getListId()
+          != other.getListId()) return false;
+      if (getOffset()
+          != other.getOffset()) return false;
+      if (getLimit()
+          != other.getLimit()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + LISTID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getListId());
+      hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOffset());
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLimit());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.ListCourseByListIdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListCourseByListIdRequest)
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        listId_ = 0L;
+
+        offset_ = 0L;
+
+        limit_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest result = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest(this);
+        result.listId_ = listId_;
+        result.offset_ = offset_;
+        result.limit_ = limit_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.getDefaultInstance()) return this;
+        if (other.getListId() != 0L) {
+          setListId(other.getListId());
+        }
+        if (other.getOffset() != 0L) {
+          setOffset(other.getOffset());
+        }
+        if (other.getLimit() != 0L) {
+          setLimit(other.getLimit());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long listId_ ;
+      /**
+       * <code>int64 listId = 1;</code>
+       * @return The listId.
+       */
+      @java.lang.Override
+      public long getListId() {
+        return listId_;
+      }
+      /**
+       * <code>int64 listId = 1;</code>
+       * @param value The listId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setListId(long value) {
+        
+        listId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 listId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearListId() {
+        
+        listId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long offset_ ;
+      /**
+       * <code>int64 offset = 2;</code>
+       * @return The offset.
+       */
+      @java.lang.Override
+      public long getOffset() {
+        return offset_;
+      }
+      /**
+       * <code>int64 offset = 2;</code>
+       * @param value The offset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOffset(long value) {
+        
+        offset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 offset = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOffset() {
+        
+        offset_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long limit_ ;
+      /**
+       * <code>int64 limit = 3;</code>
+       * @return The limit.
+       */
+      @java.lang.Override
+      public long getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>int64 limit = 3;</code>
+       * @param value The limit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLimit(long value) {
+        
+        limit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 limit = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLimit() {
+        
+        limit_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.ListCourseByListIdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListCourseByListIdRequest)
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListCourseByListIdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ListCourseByListIdRequest>() {
+      @java.lang.Override
+      public ListCourseByListIdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListCourseByListIdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListCourseByListIdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListCourseByListIdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListCourseByListIdResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.ListCourseByListIdResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> 
+        getCourseInfoList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index);
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    int getCourseInfoCount();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.ListCourseByListIdResponse}
+   */
+  public static final class ListCourseByListIdResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.ListCourseByListIdResponse)
+      ListCourseByListIdResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListCourseByListIdResponse.newBuilder() to construct.
+    private ListCourseByListIdResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListCourseByListIdResponse() {
+      courseInfo_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListCourseByListIdResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListCourseByListIdResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              courseInfo_.add(
+                  input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.Builder.class);
+    }
+
+    public static final int COURSEINFO_FIELD_NUMBER = 1;
+    private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_;
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public int getCourseInfoCount() {
+      return courseInfo_.size();
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+      return courseInfo_.get(index);
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index) {
+      return courseInfo_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        output.writeMessage(1, courseInfo_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, courseInfo_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse other = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse) obj;
+
+      if (!getCourseInfoList()
+          .equals(other.getCourseInfoList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getCourseInfoCount() > 0) {
+        hash = (37 * hash) + COURSEINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseInfoList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.ListCourseByListIdResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListCourseByListIdResponse)
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCourseInfoFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse result = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (courseInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.courseInfo_ = courseInfo_;
+        } else {
+          result.courseInfo_ = courseInfoBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.getDefaultInstance()) return this;
+        if (courseInfoBuilder_ == null) {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfo_.isEmpty()) {
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureCourseInfoIsMutable();
+              courseInfo_.addAll(other.courseInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfoBuilder_.isEmpty()) {
+              courseInfoBuilder_.dispose();
+              courseInfoBuilder_ = null;
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              courseInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getCourseInfoFieldBuilder() : null;
+            } else {
+              courseInfoBuilder_.addAllMessages(other.courseInfo_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureCourseInfoIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>(courseInfo_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> courseInfoBuilder_;
+
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+        if (courseInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        } else {
+          return courseInfoBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public int getCourseInfoCount() {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.size();
+        } else {
+          return courseInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);
+        } else {
+          return courseInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addAllCourseInfo(
+          java.lang.Iterable<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfo> values) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, courseInfo_);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder clearCourseInfo() {
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder removeCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.remove(index);
+          onChanged();
+        } else {
+          courseInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder getCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+          int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);  } else {
+          return courseInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+           getCourseInfoOrBuilderList() {
+        if (courseInfoBuilder_ != null) {
+          return courseInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder() {
+        return getCourseInfoFieldBuilder().addBuilder(
+            com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().addBuilder(
+            index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder> 
+           getCourseInfoBuilderList() {
+        return getCourseInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+          getCourseInfoFieldBuilder() {
+        if (courseInfoBuilder_ == null) {
+          courseInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder>(
+                  courseInfo_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          courseInfo_ = null;
+        }
+        return courseInfoBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.ListCourseByListIdResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListCourseByListIdResponse)
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListCourseByListIdResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ListCourseByListIdResponse>() {
+      @java.lang.Override
+      public ListCourseByListIdResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListCourseByListIdResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListCourseByListIdResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListCourseByListIdResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListAllCoursesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.ListAllCoursesRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 offset = 1;</code>
+     * @return The offset.
+     */
+    long getOffset();
+
+    /**
+     * <code>int64 limit = 2;</code>
+     * @return The limit.
+     */
+    long getLimit();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.ListAllCoursesRequest}
+   */
+  public static final class ListAllCoursesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.ListAllCoursesRequest)
+      ListAllCoursesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListAllCoursesRequest.newBuilder() to construct.
+    private ListAllCoursesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListAllCoursesRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListAllCoursesRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListAllCoursesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              offset_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              limit_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.Builder.class);
+    }
+
+    public static final int OFFSET_FIELD_NUMBER = 1;
+    private long offset_;
+    /**
+     * <code>int64 offset = 1;</code>
+     * @return The offset.
+     */
+    @java.lang.Override
+    public long getOffset() {
+      return offset_;
+    }
+
+    public static final int LIMIT_FIELD_NUMBER = 2;
+    private long limit_;
+    /**
+     * <code>int64 limit = 2;</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public long getLimit() {
+      return limit_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (offset_ != 0L) {
+        output.writeInt64(1, offset_);
+      }
+      if (limit_ != 0L) {
+        output.writeInt64(2, limit_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (offset_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, offset_);
+      }
+      if (limit_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, limit_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest other = (com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest) obj;
+
+      if (getOffset()
+          != other.getOffset()) return false;
+      if (getLimit()
+          != other.getLimit()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOffset());
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLimit());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.ListAllCoursesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListAllCoursesRequest)
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        offset_ = 0L;
+
+        limit_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest result = new com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest(this);
+        result.offset_ = offset_;
+        result.limit_ = limit_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.getDefaultInstance()) return this;
+        if (other.getOffset() != 0L) {
+          setOffset(other.getOffset());
+        }
+        if (other.getLimit() != 0L) {
+          setLimit(other.getLimit());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long offset_ ;
+      /**
+       * <code>int64 offset = 1;</code>
+       * @return The offset.
+       */
+      @java.lang.Override
+      public long getOffset() {
+        return offset_;
+      }
+      /**
+       * <code>int64 offset = 1;</code>
+       * @param value The offset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOffset(long value) {
+        
+        offset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 offset = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOffset() {
+        
+        offset_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long limit_ ;
+      /**
+       * <code>int64 limit = 2;</code>
+       * @return The limit.
+       */
+      @java.lang.Override
+      public long getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>int64 limit = 2;</code>
+       * @param value The limit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLimit(long value) {
+        
+        limit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 limit = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLimit() {
+        
+        limit_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.ListAllCoursesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListAllCoursesRequest)
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListAllCoursesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ListAllCoursesRequest>() {
+      @java.lang.Override
+      public ListAllCoursesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListAllCoursesRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListAllCoursesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListAllCoursesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListAllCoursesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.ListAllCoursesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> 
+        getCourseInfoList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index);
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    int getCourseInfoCount();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.ListAllCoursesResponse}
+   */
+  public static final class ListAllCoursesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.ListAllCoursesResponse)
+      ListAllCoursesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListAllCoursesResponse.newBuilder() to construct.
+    private ListAllCoursesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListAllCoursesResponse() {
+      courseInfo_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListAllCoursesResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListAllCoursesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              courseInfo_.add(
+                  input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.Builder.class);
+    }
+
+    public static final int COURSEINFO_FIELD_NUMBER = 1;
+    private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_;
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public int getCourseInfoCount() {
+      return courseInfo_.size();
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+      return courseInfo_.get(index);
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index) {
+      return courseInfo_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        output.writeMessage(1, courseInfo_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, courseInfo_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse other = (com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse) obj;
+
+      if (!getCourseInfoList()
+          .equals(other.getCourseInfoList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getCourseInfoCount() > 0) {
+        hash = (37 * hash) + COURSEINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseInfoList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.ListAllCoursesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListAllCoursesResponse)
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCourseInfoFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse result = new com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (courseInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.courseInfo_ = courseInfo_;
+        } else {
+          result.courseInfo_ = courseInfoBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.getDefaultInstance()) return this;
+        if (courseInfoBuilder_ == null) {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfo_.isEmpty()) {
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureCourseInfoIsMutable();
+              courseInfo_.addAll(other.courseInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfoBuilder_.isEmpty()) {
+              courseInfoBuilder_.dispose();
+              courseInfoBuilder_ = null;
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              courseInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getCourseInfoFieldBuilder() : null;
+            } else {
+              courseInfoBuilder_.addAllMessages(other.courseInfo_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureCourseInfoIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>(courseInfo_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> courseInfoBuilder_;
+
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+        if (courseInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        } else {
+          return courseInfoBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public int getCourseInfoCount() {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.size();
+        } else {
+          return courseInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);
+        } else {
+          return courseInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addAllCourseInfo(
+          java.lang.Iterable<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfo> values) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, courseInfo_);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder clearCourseInfo() {
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder removeCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.remove(index);
+          onChanged();
+        } else {
+          courseInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder getCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+          int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);  } else {
+          return courseInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+           getCourseInfoOrBuilderList() {
+        if (courseInfoBuilder_ != null) {
+          return courseInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder() {
+        return getCourseInfoFieldBuilder().addBuilder(
+            com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().addBuilder(
+            index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder> 
+           getCourseInfoBuilderList() {
+        return getCourseInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+          getCourseInfoFieldBuilder() {
+        if (courseInfoBuilder_ == null) {
+          courseInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder>(
+                  courseInfo_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          courseInfo_ = null;
+        }
+        return courseInfoBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.ListAllCoursesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListAllCoursesResponse)
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListAllCoursesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ListAllCoursesResponse>() {
+      @java.lang.Override
+      public ListAllCoursesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListAllCoursesResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListAllCoursesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListAllCoursesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SearchCoursesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.SearchCoursesRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string keyword = 1;</code>
+     * @return The keyword.
+     */
+    java.lang.String getKeyword();
+    /**
+     * <code>string keyword = 1;</code>
+     * @return The bytes for keyword.
+     */
+    com.google.protobuf.ByteString
+        getKeywordBytes();
+
+    /**
+     * <code>int64 offset = 2;</code>
+     * @return The offset.
+     */
+    long getOffset();
+
+    /**
+     * <code>int64 limit = 3;</code>
+     * @return The limit.
+     */
+    long getLimit();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.SearchCoursesRequest}
+   */
+  public static final class SearchCoursesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.SearchCoursesRequest)
+      SearchCoursesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SearchCoursesRequest.newBuilder() to construct.
+    private SearchCoursesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SearchCoursesRequest() {
+      keyword_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SearchCoursesRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SearchCoursesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keyword_ = s;
+              break;
+            }
+            case 16: {
+
+              offset_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              limit_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.class, com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.Builder.class);
+    }
+
+    public static final int KEYWORD_FIELD_NUMBER = 1;
+    private volatile java.lang.Object keyword_;
+    /**
+     * <code>string keyword = 1;</code>
+     * @return The keyword.
+     */
+    @java.lang.Override
+    public java.lang.String getKeyword() {
+      java.lang.Object ref = keyword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string keyword = 1;</code>
+     * @return The bytes for keyword.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKeywordBytes() {
+      java.lang.Object ref = keyword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OFFSET_FIELD_NUMBER = 2;
+    private long offset_;
+    /**
+     * <code>int64 offset = 2;</code>
+     * @return The offset.
+     */
+    @java.lang.Override
+    public long getOffset() {
+      return offset_;
+    }
+
+    public static final int LIMIT_FIELD_NUMBER = 3;
+    private long limit_;
+    /**
+     * <code>int64 limit = 3;</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public long getLimit() {
+      return limit_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyword_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyword_);
+      }
+      if (offset_ != 0L) {
+        output.writeInt64(2, offset_);
+      }
+      if (limit_ != 0L) {
+        output.writeInt64(3, limit_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyword_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyword_);
+      }
+      if (offset_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, offset_);
+      }
+      if (limit_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, limit_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest other = (com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest) obj;
+
+      if (!getKeyword()
+          .equals(other.getKeyword())) return false;
+      if (getOffset()
+          != other.getOffset()) return false;
+      if (getLimit()
+          != other.getLimit()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEYWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyword().hashCode();
+      hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOffset());
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLimit());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.SearchCoursesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.SearchCoursesRequest)
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.class, com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        keyword_ = "";
+
+        offset_ = 0L;
+
+        limit_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest result = new com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest(this);
+        result.keyword_ = keyword_;
+        result.offset_ = offset_;
+        result.limit_ = limit_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.getDefaultInstance()) return this;
+        if (!other.getKeyword().isEmpty()) {
+          keyword_ = other.keyword_;
+          onChanged();
+        }
+        if (other.getOffset() != 0L) {
+          setOffset(other.getOffset());
+        }
+        if (other.getLimit() != 0L) {
+          setLimit(other.getLimit());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object keyword_ = "";
+      /**
+       * <code>string keyword = 1;</code>
+       * @return The keyword.
+       */
+      public java.lang.String getKeyword() {
+        java.lang.Object ref = keyword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string keyword = 1;</code>
+       * @return The bytes for keyword.
+       */
+      public com.google.protobuf.ByteString
+          getKeywordBytes() {
+        java.lang.Object ref = keyword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string keyword = 1;</code>
+       * @param value The keyword to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keyword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string keyword = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKeyword() {
+        
+        keyword_ = getDefaultInstance().getKeyword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string keyword = 1;</code>
+       * @param value The bytes for keyword to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeywordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyword_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long offset_ ;
+      /**
+       * <code>int64 offset = 2;</code>
+       * @return The offset.
+       */
+      @java.lang.Override
+      public long getOffset() {
+        return offset_;
+      }
+      /**
+       * <code>int64 offset = 2;</code>
+       * @param value The offset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOffset(long value) {
+        
+        offset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 offset = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOffset() {
+        
+        offset_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long limit_ ;
+      /**
+       * <code>int64 limit = 3;</code>
+       * @return The limit.
+       */
+      @java.lang.Override
+      public long getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>int64 limit = 3;</code>
+       * @param value The limit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLimit(long value) {
+        
+        limit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 limit = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLimit() {
+        
+        limit_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.SearchCoursesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.SearchCoursesRequest)
+    private static final com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SearchCoursesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SearchCoursesRequest>() {
+      @java.lang.Override
+      public SearchCoursesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SearchCoursesRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SearchCoursesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SearchCoursesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SearchCoursesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.SearchCoursesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> 
+        getCourseInfoList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index);
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    int getCourseInfoCount();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList();
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.amur.home.course.rpc.SearchCoursesResponse}
+   */
+  public static final class SearchCoursesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.course.rpc.SearchCoursesResponse)
+      SearchCoursesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SearchCoursesResponse.newBuilder() to construct.
+    private SearchCoursesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SearchCoursesResponse() {
+      courseInfo_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SearchCoursesResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SearchCoursesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              courseInfo_.add(
+                  input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.class, com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.Builder.class);
+    }
+
+    public static final int COURSEINFO_FIELD_NUMBER = 1;
+    private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_;
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+        getCourseInfoOrBuilderList() {
+      return courseInfo_;
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public int getCourseInfoCount() {
+      return courseInfo_.size();
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+      return courseInfo_.get(index);
+    }
+    /**
+     * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+        int index) {
+      return courseInfo_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        output.writeMessage(1, courseInfo_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < courseInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, courseInfo_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse other = (com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse) obj;
+
+      if (!getCourseInfoList()
+          .equals(other.getCourseInfoList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getCourseInfoCount() > 0) {
+        hash = (37 * hash) + COURSEINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseInfoList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.course.rpc.SearchCoursesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.SearchCoursesResponse)
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.class, com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCourseInfoFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_SearchCoursesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse result = new com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (courseInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            courseInfo_ = java.util.Collections.unmodifiableList(courseInfo_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.courseInfo_ = courseInfo_;
+        } else {
+          result.courseInfo_ = courseInfoBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.getDefaultInstance()) return this;
+        if (courseInfoBuilder_ == null) {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfo_.isEmpty()) {
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureCourseInfoIsMutable();
+              courseInfo_.addAll(other.courseInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.courseInfo_.isEmpty()) {
+            if (courseInfoBuilder_.isEmpty()) {
+              courseInfoBuilder_.dispose();
+              courseInfoBuilder_ = null;
+              courseInfo_ = other.courseInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              courseInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getCourseInfoFieldBuilder() : null;
+            } else {
+              courseInfoBuilder_.addAllMessages(other.courseInfo_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> courseInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureCourseInfoIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          courseInfo_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseInfo>(courseInfo_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> courseInfoBuilder_;
+
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo> getCourseInfoList() {
+        if (courseInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        } else {
+          return courseInfoBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public int getCourseInfoCount() {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.size();
+        } else {
+          return courseInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);
+        } else {
+          return courseInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder setCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
+        if (courseInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, value);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addCourseInfo(
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          courseInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder addAllCourseInfo(
+          java.lang.Iterable<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfo> values) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, courseInfo_);
+          onChanged();
+        } else {
+          courseInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder clearCourseInfo() {
+        if (courseInfoBuilder_ == null) {
+          courseInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          courseInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public Builder removeCourseInfo(int index) {
+        if (courseInfoBuilder_ == null) {
+          ensureCourseInfoIsMutable();
+          courseInfo_.remove(index);
+          onChanged();
+        } else {
+          courseInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder getCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder(
+          int index) {
+        if (courseInfoBuilder_ == null) {
+          return courseInfo_.get(index);  } else {
+          return courseInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+           getCourseInfoOrBuilderList() {
+        if (courseInfoBuilder_ != null) {
+          return courseInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(courseInfo_);
+        }
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder() {
+        return getCourseInfoFieldBuilder().addBuilder(
+            com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder addCourseInfoBuilder(
+          int index) {
+        return getCourseInfoFieldBuilder().addBuilder(
+            index, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
+       */
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder> 
+           getCourseInfoBuilderList() {
+        return getCourseInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
+          getCourseInfoFieldBuilder() {
+        if (courseInfoBuilder_ == null) {
+          courseInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder>(
+                  courseInfo_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          courseInfo_ = null;
+        }
+        return courseInfoBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.course.rpc.SearchCoursesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.SearchCoursesResponse)
+    private static final com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse();
+    }
+
+    public static com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SearchCoursesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SearchCoursesResponse>() {
+      @java.lang.Override
+      public SearchCoursesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SearchCoursesResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SearchCoursesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SearchCoursesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CreateCourseResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.amur.home.course.rpc.CreateCourseResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -95,15 +5799,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CreateCourseResponse.class, com.amur.home.course.rpc.Course.CreateCourseResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -157,10 +5861,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CreateCourseResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CreateCourseResponse other = (com.amur.home.course.rpc.Course.CreateCourseResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse other = (com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -183,69 +5887,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -258,7 +5962,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CreateCourseResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -279,21 +5983,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CreateCourseResponse)
-        com.amur.home.course.rpc.Course.CreateCourseResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CreateCourseResponse.class, com.amur.home.course.rpc.Course.CreateCourseResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CreateCourseResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -319,17 +6023,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCourseResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CreateCourseResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCourseResponse build() {
-        com.amur.home.course.rpc.Course.CreateCourseResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -337,8 +6041,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCourseResponse buildPartial() {
-        com.amur.home.course.rpc.Course.CreateCourseResponse result = new com.amur.home.course.rpc.Course.CreateCourseResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse result = new com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse(this);
         result.courseId_ = courseId_;
         onBuilt();
         return result;
@@ -378,16 +6082,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CreateCourseResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CreateCourseResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CreateCourseResponse other) {
-        if (other == com.amur.home.course.rpc.Course.CreateCourseResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -406,11 +6110,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CreateCourseResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CreateCourseResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -467,12 +6171,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CreateCourseResponse)
-    private static final com.amur.home.course.rpc.Course.CreateCourseResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CreateCourseResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCourseResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -497,7 +6201,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CreateCourseResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -584,15 +6288,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.DeleteCourseRequest.class, com.amur.home.course.rpc.Course.DeleteCourseRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -646,10 +6350,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.DeleteCourseRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.DeleteCourseRequest other = (com.amur.home.course.rpc.Course.DeleteCourseRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest other = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -672,69 +6376,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -747,7 +6451,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.DeleteCourseRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -768,21 +6472,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.DeleteCourseRequest)
-        com.amur.home.course.rpc.Course.DeleteCourseRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.DeleteCourseRequest.class, com.amur.home.course.rpc.Course.DeleteCourseRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.DeleteCourseRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -808,17 +6512,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.DeleteCourseRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseRequest build() {
-        com.amur.home.course.rpc.Course.DeleteCourseRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -826,8 +6530,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseRequest buildPartial() {
-        com.amur.home.course.rpc.Course.DeleteCourseRequest result = new com.amur.home.course.rpc.Course.DeleteCourseRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest result = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest(this);
         result.courseId_ = courseId_;
         onBuilt();
         return result;
@@ -867,16 +6571,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.DeleteCourseRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.DeleteCourseRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.DeleteCourseRequest other) {
-        if (other == com.amur.home.course.rpc.Course.DeleteCourseRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -895,11 +6599,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.DeleteCourseRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.DeleteCourseRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -956,12 +6660,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.DeleteCourseRequest)
-    private static final com.amur.home.course.rpc.Course.DeleteCourseRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.DeleteCourseRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -986,7 +6690,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.DeleteCourseRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1073,15 +6777,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.DeleteCourseResponse.class, com.amur.home.course.rpc.Course.DeleteCourseResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -1135,10 +6839,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.DeleteCourseResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.DeleteCourseResponse other = (com.amur.home.course.rpc.Course.DeleteCourseResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse other = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -1161,69 +6865,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1236,7 +6940,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.DeleteCourseResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -1257,21 +6961,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.DeleteCourseResponse)
-        com.amur.home.course.rpc.Course.DeleteCourseResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.DeleteCourseResponse.class, com.amur.home.course.rpc.Course.DeleteCourseResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.DeleteCourseResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1297,17 +7001,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.DeleteCourseResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseResponse build() {
-        com.amur.home.course.rpc.Course.DeleteCourseResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1315,8 +7019,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseResponse buildPartial() {
-        com.amur.home.course.rpc.Course.DeleteCourseResponse result = new com.amur.home.course.rpc.Course.DeleteCourseResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse result = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -1356,16 +7060,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.DeleteCourseResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.DeleteCourseResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.DeleteCourseResponse other) {
-        if (other == com.amur.home.course.rpc.Course.DeleteCourseResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -1384,11 +7088,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.DeleteCourseResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.DeleteCourseResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1445,12 +7149,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.DeleteCourseResponse)
-    private static final com.amur.home.course.rpc.Course.DeleteCourseResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.DeleteCourseResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1475,7 +7179,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.DeleteCourseResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1494,11 +7198,11 @@ public final class Course {
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      * @return The courseInfo.
      */
-    com.amur.home.course.rpc.Course.CourseInfo getCourseInfo();
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo();
     /**
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      */
-    com.amur.home.course.rpc.Course.CourseInfoOrBuilder getCourseInfoOrBuilder();
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder();
   }
   /**
    * Protobuf type {@code com.amur.home.course.rpc.UpdateCourseRequest}
@@ -1546,11 +7250,11 @@ public final class Course {
               done = true;
               break;
             case 10: {
-              com.amur.home.course.rpc.Course.CourseInfo.Builder subBuilder = null;
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder subBuilder = null;
               if (courseInfo_ != null) {
                 subBuilder = courseInfo_.toBuilder();
               }
-              courseInfo_ = input.readMessage(com.amur.home.course.rpc.Course.CourseInfo.parser(), extensionRegistry);
+              courseInfo_ = input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(courseInfo_);
                 courseInfo_ = subBuilder.buildPartial();
@@ -1579,19 +7283,19 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCourseRequest.class, com.amur.home.course.rpc.Course.UpdateCourseRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.Builder.class);
     }
 
     public static final int COURSEINFO_FIELD_NUMBER = 1;
-    private com.amur.home.course.rpc.Course.CourseInfo courseInfo_;
+    private com.amur.home.course.rpc.CourseServiceProto.CourseInfo courseInfo_;
     /**
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      * @return Whether the courseInfo field is set.
@@ -1605,14 +7309,14 @@ public final class Course {
      * @return The courseInfo.
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseInfo getCourseInfo() {
-      return courseInfo_ == null ? com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance() : courseInfo_;
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo() {
+      return courseInfo_ == null ? com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance() : courseInfo_;
     }
     /**
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseInfoOrBuilder getCourseInfoOrBuilder() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder() {
       return getCourseInfo();
     }
 
@@ -1656,10 +7360,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCourseRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCourseRequest other = (com.amur.home.course.rpc.Course.UpdateCourseRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest) obj;
 
       if (hasCourseInfo() != other.hasCourseInfo()) return false;
       if (hasCourseInfo()) {
@@ -1686,69 +7390,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1761,7 +7465,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCourseRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -1782,21 +7486,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCourseRequest)
-        com.amur.home.course.rpc.Course.UpdateCourseRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCourseRequest.class, com.amur.home.course.rpc.Course.UpdateCourseRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCourseRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1826,17 +7530,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCourseRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseRequest build() {
-        com.amur.home.course.rpc.Course.UpdateCourseRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1844,8 +7548,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseRequest buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCourseRequest result = new com.amur.home.course.rpc.Course.UpdateCourseRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest(this);
         if (courseInfoBuilder_ == null) {
           result.courseInfo_ = courseInfo_;
         } else {
@@ -1889,16 +7593,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCourseRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCourseRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCourseRequest other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCourseRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.getDefaultInstance()) return this;
         if (other.hasCourseInfo()) {
           mergeCourseInfo(other.getCourseInfo());
         }
@@ -1917,11 +7621,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCourseRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCourseRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1931,9 +7635,9 @@ public final class Course {
         return this;
       }
 
-      private com.amur.home.course.rpc.Course.CourseInfo courseInfo_;
+      private com.amur.home.course.rpc.CourseServiceProto.CourseInfo courseInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CourseInfo.Builder, com.amur.home.course.rpc.Course.CourseInfoOrBuilder> courseInfoBuilder_;
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> courseInfoBuilder_;
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        * @return Whether the courseInfo field is set.
@@ -1945,9 +7649,9 @@ public final class Course {
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        * @return The courseInfo.
        */
-      public com.amur.home.course.rpc.Course.CourseInfo getCourseInfo() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo() {
         if (courseInfoBuilder_ == null) {
-          return courseInfo_ == null ? com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance() : courseInfo_;
+          return courseInfo_ == null ? com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance() : courseInfo_;
         } else {
           return courseInfoBuilder_.getMessage();
         }
@@ -1955,7 +7659,7 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public Builder setCourseInfo(com.amur.home.course.rpc.Course.CourseInfo value) {
+      public Builder setCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
         if (courseInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1972,7 +7676,7 @@ public final class Course {
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
       public Builder setCourseInfo(
-          com.amur.home.course.rpc.Course.CourseInfo.Builder builderForValue) {
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
         if (courseInfoBuilder_ == null) {
           courseInfo_ = builderForValue.build();
           onChanged();
@@ -1985,11 +7689,11 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public Builder mergeCourseInfo(com.amur.home.course.rpc.Course.CourseInfo value) {
+      public Builder mergeCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
         if (courseInfoBuilder_ == null) {
           if (courseInfo_ != null) {
             courseInfo_ =
-              com.amur.home.course.rpc.Course.CourseInfo.newBuilder(courseInfo_).mergeFrom(value).buildPartial();
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo.newBuilder(courseInfo_).mergeFrom(value).buildPartial();
           } else {
             courseInfo_ = value;
           }
@@ -2017,7 +7721,7 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseInfo.Builder getCourseInfoBuilder() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder getCourseInfoBuilder() {
         
         onChanged();
         return getCourseInfoFieldBuilder().getBuilder();
@@ -2025,23 +7729,23 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseInfoOrBuilder getCourseInfoOrBuilder() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder() {
         if (courseInfoBuilder_ != null) {
           return courseInfoBuilder_.getMessageOrBuilder();
         } else {
           return courseInfo_ == null ?
-              com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance() : courseInfo_;
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance() : courseInfo_;
         }
       }
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CourseInfo.Builder, com.amur.home.course.rpc.Course.CourseInfoOrBuilder> 
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
           getCourseInfoFieldBuilder() {
         if (courseInfoBuilder_ == null) {
           courseInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CourseInfo.Builder, com.amur.home.course.rpc.Course.CourseInfoOrBuilder>(
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder>(
                   getCourseInfo(),
                   getParentForChildren(),
                   isClean());
@@ -2066,12 +7770,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCourseRequest)
-    private static final com.amur.home.course.rpc.Course.UpdateCourseRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCourseRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2096,7 +7800,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCourseRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2183,15 +7887,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCourseResponse.class, com.amur.home.course.rpc.Course.UpdateCourseResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -2245,10 +7949,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCourseResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCourseResponse other = (com.amur.home.course.rpc.Course.UpdateCourseResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -2271,69 +7975,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2346,7 +8050,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCourseResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2367,21 +8071,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCourseResponse)
-        com.amur.home.course.rpc.Course.UpdateCourseResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCourseResponse.class, com.amur.home.course.rpc.Course.UpdateCourseResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCourseResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2407,17 +8111,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCourseResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseResponse build() {
-        com.amur.home.course.rpc.Course.UpdateCourseResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2425,8 +8129,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseResponse buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCourseResponse result = new com.amur.home.course.rpc.Course.UpdateCourseResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -2466,16 +8170,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCourseResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCourseResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCourseResponse other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCourseResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -2494,11 +8198,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCourseResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCourseResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2555,12 +8259,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCourseResponse)
-    private static final com.amur.home.course.rpc.Course.UpdateCourseResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCourseResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2585,7 +8289,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCourseResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2672,15 +8376,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CreateCourseListResponse.class, com.amur.home.course.rpc.Course.CreateCourseListResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.class, com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.Builder.class);
     }
 
     public static final int LISTID_FIELD_NUMBER = 1;
@@ -2734,10 +8438,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CreateCourseListResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CreateCourseListResponse other = (com.amur.home.course.rpc.Course.CreateCourseListResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse other = (com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse) obj;
 
       if (getListId()
           != other.getListId()) return false;
@@ -2760,69 +8464,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2835,7 +8539,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CreateCourseListResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2856,21 +8560,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CreateCourseListResponse)
-        com.amur.home.course.rpc.Course.CreateCourseListResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CreateCourseListResponse.class, com.amur.home.course.rpc.Course.CreateCourseListResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.class, com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CreateCourseListResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2896,17 +8600,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCourseListResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CreateCourseListResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCourseListResponse build() {
-        com.amur.home.course.rpc.Course.CreateCourseListResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2914,8 +8618,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCourseListResponse buildPartial() {
-        com.amur.home.course.rpc.Course.CreateCourseListResponse result = new com.amur.home.course.rpc.Course.CreateCourseListResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse result = new com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse(this);
         result.listId_ = listId_;
         onBuilt();
         return result;
@@ -2955,16 +8659,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CreateCourseListResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CreateCourseListResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CreateCourseListResponse other) {
-        if (other == com.amur.home.course.rpc.Course.CreateCourseListResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.getDefaultInstance()) return this;
         if (other.getListId() != 0L) {
           setListId(other.getListId());
         }
@@ -2983,11 +8687,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CreateCourseListResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CreateCourseListResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3044,12 +8748,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CreateCourseListResponse)
-    private static final com.amur.home.course.rpc.Course.CreateCourseListResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CreateCourseListResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCourseListResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3074,7 +8778,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CreateCourseListResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3161,15 +8865,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.DeleteCourseListRequest.class, com.amur.home.course.rpc.Course.DeleteCourseListRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.Builder.class);
     }
 
     public static final int LISTID_FIELD_NUMBER = 1;
@@ -3223,10 +8927,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.DeleteCourseListRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.DeleteCourseListRequest other = (com.amur.home.course.rpc.Course.DeleteCourseListRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest other = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest) obj;
 
       if (getListId()
           != other.getListId()) return false;
@@ -3249,69 +8953,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3324,7 +9028,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.DeleteCourseListRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3345,21 +9049,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.DeleteCourseListRequest)
-        com.amur.home.course.rpc.Course.DeleteCourseListRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.DeleteCourseListRequest.class, com.amur.home.course.rpc.Course.DeleteCourseListRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.DeleteCourseListRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3385,17 +9089,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseListRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.DeleteCourseListRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseListRequest build() {
-        com.amur.home.course.rpc.Course.DeleteCourseListRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3403,8 +9107,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseListRequest buildPartial() {
-        com.amur.home.course.rpc.Course.DeleteCourseListRequest result = new com.amur.home.course.rpc.Course.DeleteCourseListRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest result = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest(this);
         result.listId_ = listId_;
         onBuilt();
         return result;
@@ -3444,16 +9148,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.DeleteCourseListRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.DeleteCourseListRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.DeleteCourseListRequest other) {
-        if (other == com.amur.home.course.rpc.Course.DeleteCourseListRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.getDefaultInstance()) return this;
         if (other.getListId() != 0L) {
           setListId(other.getListId());
         }
@@ -3472,11 +9176,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.DeleteCourseListRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.DeleteCourseListRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3533,12 +9237,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.DeleteCourseListRequest)
-    private static final com.amur.home.course.rpc.Course.DeleteCourseListRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.DeleteCourseListRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseListRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3563,7 +9267,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.DeleteCourseListRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3650,15 +9354,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.DeleteCourseListResponse.class, com.amur.home.course.rpc.Course.DeleteCourseListResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -3712,10 +9416,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.DeleteCourseListResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.DeleteCourseListResponse other = (com.amur.home.course.rpc.Course.DeleteCourseListResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse other = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -3738,69 +9442,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3813,7 +9517,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.DeleteCourseListResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3834,21 +9538,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.DeleteCourseListResponse)
-        com.amur.home.course.rpc.Course.DeleteCourseListResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.DeleteCourseListResponse.class, com.amur.home.course.rpc.Course.DeleteCourseListResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.class, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.DeleteCourseListResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3874,17 +9578,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseListResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.DeleteCourseListResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseListResponse build() {
-        com.amur.home.course.rpc.Course.DeleteCourseListResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3892,8 +9596,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteCourseListResponse buildPartial() {
-        com.amur.home.course.rpc.Course.DeleteCourseListResponse result = new com.amur.home.course.rpc.Course.DeleteCourseListResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse result = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -3933,16 +9637,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.DeleteCourseListResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.DeleteCourseListResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.DeleteCourseListResponse other) {
-        if (other == com.amur.home.course.rpc.Course.DeleteCourseListResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -3961,11 +9665,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.DeleteCourseListResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.DeleteCourseListResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4022,12 +9726,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.DeleteCourseListResponse)
-    private static final com.amur.home.course.rpc.Course.DeleteCourseListResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.DeleteCourseListResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteCourseListResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4052,7 +9756,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.DeleteCourseListResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4071,11 +9775,11 @@ public final class Course {
      * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
      * @return The courseList.
      */
-    com.amur.home.course.rpc.Course.CourseList getCourseList();
+    com.amur.home.course.rpc.CourseServiceProto.CourseList getCourseList();
     /**
      * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
      */
-    com.amur.home.course.rpc.Course.CourseListOrBuilder getCourseListOrBuilder();
+    com.amur.home.course.rpc.CourseServiceProto.CourseListOrBuilder getCourseListOrBuilder();
   }
   /**
    * Protobuf type {@code com.amur.home.course.rpc.UpdateCourseListRequest}
@@ -4123,11 +9827,11 @@ public final class Course {
               done = true;
               break;
             case 10: {
-              com.amur.home.course.rpc.Course.CourseList.Builder subBuilder = null;
+              com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder subBuilder = null;
               if (courseList_ != null) {
                 subBuilder = courseList_.toBuilder();
               }
-              courseList_ = input.readMessage(com.amur.home.course.rpc.Course.CourseList.parser(), extensionRegistry);
+              courseList_ = input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseList.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(courseList_);
                 courseList_ = subBuilder.buildPartial();
@@ -4156,19 +9860,19 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCourseListRequest.class, com.amur.home.course.rpc.Course.UpdateCourseListRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.Builder.class);
     }
 
     public static final int COURSELIST_FIELD_NUMBER = 1;
-    private com.amur.home.course.rpc.Course.CourseList courseList_;
+    private com.amur.home.course.rpc.CourseServiceProto.CourseList courseList_;
     /**
      * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
      * @return Whether the courseList field is set.
@@ -4182,14 +9886,14 @@ public final class Course {
      * @return The courseList.
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseList getCourseList() {
-      return courseList_ == null ? com.amur.home.course.rpc.Course.CourseList.getDefaultInstance() : courseList_;
+    public com.amur.home.course.rpc.CourseServiceProto.CourseList getCourseList() {
+      return courseList_ == null ? com.amur.home.course.rpc.CourseServiceProto.CourseList.getDefaultInstance() : courseList_;
     }
     /**
      * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseListOrBuilder getCourseListOrBuilder() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseListOrBuilder getCourseListOrBuilder() {
       return getCourseList();
     }
 
@@ -4233,10 +9937,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCourseListRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCourseListRequest other = (com.amur.home.course.rpc.Course.UpdateCourseListRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest) obj;
 
       if (hasCourseList() != other.hasCourseList()) return false;
       if (hasCourseList()) {
@@ -4263,69 +9967,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4338,7 +10042,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCourseListRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4359,21 +10063,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCourseListRequest)
-        com.amur.home.course.rpc.Course.UpdateCourseListRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCourseListRequest.class, com.amur.home.course.rpc.Course.UpdateCourseListRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCourseListRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4403,17 +10107,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseListRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCourseListRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseListRequest build() {
-        com.amur.home.course.rpc.Course.UpdateCourseListRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4421,8 +10125,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseListRequest buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCourseListRequest result = new com.amur.home.course.rpc.Course.UpdateCourseListRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest(this);
         if (courseListBuilder_ == null) {
           result.courseList_ = courseList_;
         } else {
@@ -4466,16 +10170,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCourseListRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCourseListRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCourseListRequest other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCourseListRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.getDefaultInstance()) return this;
         if (other.hasCourseList()) {
           mergeCourseList(other.getCourseList());
         }
@@ -4494,11 +10198,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCourseListRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCourseListRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4508,9 +10212,9 @@ public final class Course {
         return this;
       }
 
-      private com.amur.home.course.rpc.Course.CourseList courseList_;
+      private com.amur.home.course.rpc.CourseServiceProto.CourseList courseList_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseList, com.amur.home.course.rpc.Course.CourseList.Builder, com.amur.home.course.rpc.Course.CourseListOrBuilder> courseListBuilder_;
+          com.amur.home.course.rpc.CourseServiceProto.CourseList, com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseListOrBuilder> courseListBuilder_;
       /**
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        * @return Whether the courseList field is set.
@@ -4522,9 +10226,9 @@ public final class Course {
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        * @return The courseList.
        */
-      public com.amur.home.course.rpc.Course.CourseList getCourseList() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseList getCourseList() {
         if (courseListBuilder_ == null) {
-          return courseList_ == null ? com.amur.home.course.rpc.Course.CourseList.getDefaultInstance() : courseList_;
+          return courseList_ == null ? com.amur.home.course.rpc.CourseServiceProto.CourseList.getDefaultInstance() : courseList_;
         } else {
           return courseListBuilder_.getMessage();
         }
@@ -4532,7 +10236,7 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        */
-      public Builder setCourseList(com.amur.home.course.rpc.Course.CourseList value) {
+      public Builder setCourseList(com.amur.home.course.rpc.CourseServiceProto.CourseList value) {
         if (courseListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4549,7 +10253,7 @@ public final class Course {
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        */
       public Builder setCourseList(
-          com.amur.home.course.rpc.Course.CourseList.Builder builderForValue) {
+          com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder builderForValue) {
         if (courseListBuilder_ == null) {
           courseList_ = builderForValue.build();
           onChanged();
@@ -4562,11 +10266,11 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        */
-      public Builder mergeCourseList(com.amur.home.course.rpc.Course.CourseList value) {
+      public Builder mergeCourseList(com.amur.home.course.rpc.CourseServiceProto.CourseList value) {
         if (courseListBuilder_ == null) {
           if (courseList_ != null) {
             courseList_ =
-              com.amur.home.course.rpc.Course.CourseList.newBuilder(courseList_).mergeFrom(value).buildPartial();
+              com.amur.home.course.rpc.CourseServiceProto.CourseList.newBuilder(courseList_).mergeFrom(value).buildPartial();
           } else {
             courseList_ = value;
           }
@@ -4594,7 +10298,7 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseList.Builder getCourseListBuilder() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder getCourseListBuilder() {
         
         onChanged();
         return getCourseListFieldBuilder().getBuilder();
@@ -4602,23 +10306,23 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseListOrBuilder getCourseListOrBuilder() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseListOrBuilder getCourseListOrBuilder() {
         if (courseListBuilder_ != null) {
           return courseListBuilder_.getMessageOrBuilder();
         } else {
           return courseList_ == null ?
-              com.amur.home.course.rpc.Course.CourseList.getDefaultInstance() : courseList_;
+              com.amur.home.course.rpc.CourseServiceProto.CourseList.getDefaultInstance() : courseList_;
         }
       }
       /**
        * <code>.com.amur.home.course.rpc.CourseList courseList = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseList, com.amur.home.course.rpc.Course.CourseList.Builder, com.amur.home.course.rpc.Course.CourseListOrBuilder> 
+          com.amur.home.course.rpc.CourseServiceProto.CourseList, com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseListOrBuilder> 
           getCourseListFieldBuilder() {
         if (courseListBuilder_ == null) {
           courseListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.amur.home.course.rpc.Course.CourseList, com.amur.home.course.rpc.Course.CourseList.Builder, com.amur.home.course.rpc.Course.CourseListOrBuilder>(
+              com.amur.home.course.rpc.CourseServiceProto.CourseList, com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseListOrBuilder>(
                   getCourseList(),
                   getParentForChildren(),
                   isClean());
@@ -4643,12 +10347,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCourseListRequest)
-    private static final com.amur.home.course.rpc.Course.UpdateCourseListRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCourseListRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseListRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4673,7 +10377,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCourseListRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4760,15 +10464,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCourseListResponse.class, com.amur.home.course.rpc.Course.UpdateCourseListResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -4822,10 +10526,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCourseListResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCourseListResponse other = (com.amur.home.course.rpc.Course.UpdateCourseListResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -4848,69 +10552,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4923,7 +10627,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCourseListResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4944,21 +10648,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCourseListResponse)
-        com.amur.home.course.rpc.Course.UpdateCourseListResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCourseListResponse.class, com.amur.home.course.rpc.Course.UpdateCourseListResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCourseListResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4984,17 +10688,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseListResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCourseListResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseListResponse build() {
-        com.amur.home.course.rpc.Course.UpdateCourseListResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5002,8 +10706,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseListResponse buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCourseListResponse result = new com.amur.home.course.rpc.Course.UpdateCourseListResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -5043,16 +10747,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCourseListResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCourseListResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCourseListResponse other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCourseListResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -5071,11 +10775,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCourseListResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCourseListResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5132,12 +10836,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCourseListResponse)
-    private static final com.amur.home.course.rpc.Course.UpdateCourseListResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCourseListResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseListResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5162,7 +10866,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCourseListResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5279,15 +10983,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.class, com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -5403,10 +11107,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCourseAccessRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCourseAccessRequest other = (com.amur.home.course.rpc.Course.UpdateCourseAccessRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -5438,69 +11142,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5513,7 +11217,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCourseAccessRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -5534,21 +11238,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCourseAccessRequest)
-        com.amur.home.course.rpc.Course.UpdateCourseAccessRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.class, com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5578,17 +11282,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseAccessRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseAccessRequest build() {
-        com.amur.home.course.rpc.Course.UpdateCourseAccessRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5596,8 +11300,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseAccessRequest buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCourseAccessRequest result = new com.amur.home.course.rpc.Course.UpdateCourseAccessRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         result.access_ = access_;
@@ -5639,16 +11343,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCourseAccessRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCourseAccessRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCourseAccessRequest other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -5674,11 +11378,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCourseAccessRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCourseAccessRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5842,12 +11546,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCourseAccessRequest)
-    private static final com.amur.home.course.rpc.Course.UpdateCourseAccessRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCourseAccessRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5872,7 +11576,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCourseAccessRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5959,15 +11663,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.class, com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -6021,10 +11725,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCourseAccessResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCourseAccessResponse other = (com.amur.home.course.rpc.Course.UpdateCourseAccessResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -6047,69 +11751,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6122,7 +11826,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCourseAccessResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -6143,21 +11847,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCourseAccessResponse)
-        com.amur.home.course.rpc.Course.UpdateCourseAccessResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.class, com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6183,17 +11887,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseAccessResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseAccessResponse build() {
-        com.amur.home.course.rpc.Course.UpdateCourseAccessResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -6201,8 +11905,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCourseAccessResponse buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCourseAccessResponse result = new com.amur.home.course.rpc.Course.UpdateCourseAccessResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -6242,16 +11946,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCourseAccessResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCourseAccessResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCourseAccessResponse other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -6270,11 +11974,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCourseAccessResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCourseAccessResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6331,12 +12035,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCourseAccessResponse)
-    private static final com.amur.home.course.rpc.Course.UpdateCourseAccessResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCourseAccessResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCourseAccessResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6361,7 +12065,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCourseAccessResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6448,15 +12152,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.GetCourseInfoRequest.class, com.amur.home.course.rpc.Course.GetCourseInfoRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.class, com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -6510,10 +12214,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.GetCourseInfoRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.GetCourseInfoRequest other = (com.amur.home.course.rpc.Course.GetCourseInfoRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest other = (com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -6536,69 +12240,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6611,7 +12315,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.GetCourseInfoRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -6632,21 +12336,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.GetCourseInfoRequest)
-        com.amur.home.course.rpc.Course.GetCourseInfoRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.GetCourseInfoRequest.class, com.amur.home.course.rpc.Course.GetCourseInfoRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.class, com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.GetCourseInfoRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6672,17 +12376,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetCourseInfoRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.GetCourseInfoRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetCourseInfoRequest build() {
-        com.amur.home.course.rpc.Course.GetCourseInfoRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -6690,8 +12394,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetCourseInfoRequest buildPartial() {
-        com.amur.home.course.rpc.Course.GetCourseInfoRequest result = new com.amur.home.course.rpc.Course.GetCourseInfoRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest result = new com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest(this);
         result.courseId_ = courseId_;
         onBuilt();
         return result;
@@ -6731,16 +12435,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.GetCourseInfoRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.GetCourseInfoRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.GetCourseInfoRequest other) {
-        if (other == com.amur.home.course.rpc.Course.GetCourseInfoRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -6759,11 +12463,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.GetCourseInfoRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.GetCourseInfoRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6820,12 +12524,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.GetCourseInfoRequest)
-    private static final com.amur.home.course.rpc.Course.GetCourseInfoRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.GetCourseInfoRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.GetCourseInfoRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6850,7 +12554,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.GetCourseInfoRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6869,11 +12573,11 @@ public final class Course {
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      * @return The courseInfo.
      */
-    com.amur.home.course.rpc.Course.CourseInfo getCourseInfo();
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo();
     /**
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      */
-    com.amur.home.course.rpc.Course.CourseInfoOrBuilder getCourseInfoOrBuilder();
+    com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder();
   }
   /**
    * Protobuf type {@code com.amur.home.course.rpc.GetCourseInfoResponse}
@@ -6921,11 +12625,11 @@ public final class Course {
               done = true;
               break;
             case 10: {
-              com.amur.home.course.rpc.Course.CourseInfo.Builder subBuilder = null;
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder subBuilder = null;
               if (courseInfo_ != null) {
                 subBuilder = courseInfo_.toBuilder();
               }
-              courseInfo_ = input.readMessage(com.amur.home.course.rpc.Course.CourseInfo.parser(), extensionRegistry);
+              courseInfo_ = input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(courseInfo_);
                 courseInfo_ = subBuilder.buildPartial();
@@ -6954,19 +12658,19 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.GetCourseInfoResponse.class, com.amur.home.course.rpc.Course.GetCourseInfoResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.class, com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.Builder.class);
     }
 
     public static final int COURSEINFO_FIELD_NUMBER = 1;
-    private com.amur.home.course.rpc.Course.CourseInfo courseInfo_;
+    private com.amur.home.course.rpc.CourseServiceProto.CourseInfo courseInfo_;
     /**
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      * @return Whether the courseInfo field is set.
@@ -6980,14 +12684,14 @@ public final class Course {
      * @return The courseInfo.
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseInfo getCourseInfo() {
-      return courseInfo_ == null ? com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance() : courseInfo_;
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo() {
+      return courseInfo_ == null ? com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance() : courseInfo_;
     }
     /**
      * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseInfoOrBuilder getCourseInfoOrBuilder() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder() {
       return getCourseInfo();
     }
 
@@ -7031,10 +12735,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.GetCourseInfoResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.GetCourseInfoResponse other = (com.amur.home.course.rpc.Course.GetCourseInfoResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse other = (com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse) obj;
 
       if (hasCourseInfo() != other.hasCourseInfo()) return false;
       if (hasCourseInfo()) {
@@ -7061,69 +12765,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7136,7 +12840,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.GetCourseInfoResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -7157,21 +12861,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.GetCourseInfoResponse)
-        com.amur.home.course.rpc.Course.GetCourseInfoResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.GetCourseInfoResponse.class, com.amur.home.course.rpc.Course.GetCourseInfoResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.class, com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.GetCourseInfoResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7201,17 +12905,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetCourseInfoResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.GetCourseInfoResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetCourseInfoResponse build() {
-        com.amur.home.course.rpc.Course.GetCourseInfoResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -7219,8 +12923,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetCourseInfoResponse buildPartial() {
-        com.amur.home.course.rpc.Course.GetCourseInfoResponse result = new com.amur.home.course.rpc.Course.GetCourseInfoResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse result = new com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse(this);
         if (courseInfoBuilder_ == null) {
           result.courseInfo_ = courseInfo_;
         } else {
@@ -7264,16 +12968,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.GetCourseInfoResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.GetCourseInfoResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.GetCourseInfoResponse other) {
-        if (other == com.amur.home.course.rpc.Course.GetCourseInfoResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.getDefaultInstance()) return this;
         if (other.hasCourseInfo()) {
           mergeCourseInfo(other.getCourseInfo());
         }
@@ -7292,11 +12996,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.GetCourseInfoResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.GetCourseInfoResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7306,9 +13010,9 @@ public final class Course {
         return this;
       }
 
-      private com.amur.home.course.rpc.Course.CourseInfo courseInfo_;
+      private com.amur.home.course.rpc.CourseServiceProto.CourseInfo courseInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CourseInfo.Builder, com.amur.home.course.rpc.Course.CourseInfoOrBuilder> courseInfoBuilder_;
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> courseInfoBuilder_;
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        * @return Whether the courseInfo field is set.
@@ -7320,9 +13024,9 @@ public final class Course {
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        * @return The courseInfo.
        */
-      public com.amur.home.course.rpc.Course.CourseInfo getCourseInfo() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getCourseInfo() {
         if (courseInfoBuilder_ == null) {
-          return courseInfo_ == null ? com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance() : courseInfo_;
+          return courseInfo_ == null ? com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance() : courseInfo_;
         } else {
           return courseInfoBuilder_.getMessage();
         }
@@ -7330,7 +13034,7 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public Builder setCourseInfo(com.amur.home.course.rpc.Course.CourseInfo value) {
+      public Builder setCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
         if (courseInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -7347,7 +13051,7 @@ public final class Course {
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
       public Builder setCourseInfo(
-          com.amur.home.course.rpc.Course.CourseInfo.Builder builderForValue) {
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder builderForValue) {
         if (courseInfoBuilder_ == null) {
           courseInfo_ = builderForValue.build();
           onChanged();
@@ -7360,11 +13064,11 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public Builder mergeCourseInfo(com.amur.home.course.rpc.Course.CourseInfo value) {
+      public Builder mergeCourseInfo(com.amur.home.course.rpc.CourseServiceProto.CourseInfo value) {
         if (courseInfoBuilder_ == null) {
           if (courseInfo_ != null) {
             courseInfo_ =
-              com.amur.home.course.rpc.Course.CourseInfo.newBuilder(courseInfo_).mergeFrom(value).buildPartial();
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo.newBuilder(courseInfo_).mergeFrom(value).buildPartial();
           } else {
             courseInfo_ = value;
           }
@@ -7392,7 +13096,7 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseInfo.Builder getCourseInfoBuilder() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder getCourseInfoBuilder() {
         
         onChanged();
         return getCourseInfoFieldBuilder().getBuilder();
@@ -7400,23 +13104,23 @@ public final class Course {
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseInfoOrBuilder getCourseInfoOrBuilder() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder getCourseInfoOrBuilder() {
         if (courseInfoBuilder_ != null) {
           return courseInfoBuilder_.getMessageOrBuilder();
         } else {
           return courseInfo_ == null ?
-              com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance() : courseInfo_;
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance() : courseInfo_;
         }
       }
       /**
        * <code>.com.amur.home.course.rpc.CourseInfo courseInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CourseInfo.Builder, com.amur.home.course.rpc.Course.CourseInfoOrBuilder> 
+          com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder> 
           getCourseInfoFieldBuilder() {
         if (courseInfoBuilder_ == null) {
           courseInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CourseInfo.Builder, com.amur.home.course.rpc.Course.CourseInfoOrBuilder>(
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder>(
                   getCourseInfo(),
                   getParentForChildren(),
                   isClean());
@@ -7441,12 +13145,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.GetCourseInfoResponse)
-    private static final com.amur.home.course.rpc.Course.GetCourseInfoResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.GetCourseInfoResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.GetCourseInfoResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7471,7 +13175,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.GetCourseInfoResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7580,15 +13284,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.RankCourseRequest.class, com.amur.home.course.rpc.Course.RankCourseRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -7678,10 +13382,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.RankCourseRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.RankCourseRequest other = (com.amur.home.course.rpc.Course.RankCourseRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest other = (com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -7715,69 +13419,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7790,7 +13494,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.RankCourseRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -7811,21 +13515,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.RankCourseRequest)
-        com.amur.home.course.rpc.Course.RankCourseRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.RankCourseRequest.class, com.amur.home.course.rpc.Course.RankCourseRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.RankCourseRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7855,17 +13559,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.RankCourseRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.RankCourseRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.RankCourseRequest build() {
-        com.amur.home.course.rpc.Course.RankCourseRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -7873,8 +13577,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.RankCourseRequest buildPartial() {
-        com.amur.home.course.rpc.Course.RankCourseRequest result = new com.amur.home.course.rpc.Course.RankCourseRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest result = new com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         result.score_ = score_;
@@ -7916,16 +13620,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.RankCourseRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.RankCourseRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.RankCourseRequest other) {
-        if (other == com.amur.home.course.rpc.Course.RankCourseRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -7950,11 +13654,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.RankCourseRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.RankCourseRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8073,12 +13777,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.RankCourseRequest)
-    private static final com.amur.home.course.rpc.Course.RankCourseRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.RankCourseRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.RankCourseRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8103,7 +13807,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.RankCourseRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8190,15 +13894,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.RankCourseResponse.class, com.amur.home.course.rpc.Course.RankCourseResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -8252,10 +13956,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.RankCourseResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.RankCourseResponse other = (com.amur.home.course.rpc.Course.RankCourseResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse other = (com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -8278,69 +13982,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.RankCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8353,7 +14057,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.RankCourseResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8374,21 +14078,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.RankCourseResponse)
-        com.amur.home.course.rpc.Course.RankCourseResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.RankCourseResponse.class, com.amur.home.course.rpc.Course.RankCourseResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.RankCourseResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8414,17 +14118,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.RankCourseResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.RankCourseResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.RankCourseResponse build() {
-        com.amur.home.course.rpc.Course.RankCourseResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8432,8 +14136,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.RankCourseResponse buildPartial() {
-        com.amur.home.course.rpc.Course.RankCourseResponse result = new com.amur.home.course.rpc.Course.RankCourseResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse result = new com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -8473,16 +14177,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.RankCourseResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.RankCourseResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.RankCourseResponse other) {
-        if (other == com.amur.home.course.rpc.Course.RankCourseResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -8501,11 +14205,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.RankCourseResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.RankCourseResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8562,12 +14266,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.RankCourseResponse)
-    private static final com.amur.home.course.rpc.Course.RankCourseResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.RankCourseResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.RankCourseResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8592,7 +14296,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.RankCourseResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8615,12 +14319,18 @@ public final class Course {
     long getUserId();
 
     /**
-     * <code>string comment = 3;</code>
+     * <code>int64 commentId = 3;</code>
+     * @return The commentId.
+     */
+    long getCommentId();
+
+    /**
+     * <code>string comment = 4;</code>
      * @return The comment.
      */
     java.lang.String getComment();
     /**
-     * <code>string comment = 3;</code>
+     * <code>string comment = 4;</code>
      * @return The bytes for comment.
      */
     com.google.protobuf.ByteString
@@ -8682,7 +14392,12 @@ public final class Course {
               userId_ = input.readInt64();
               break;
             }
-            case 26: {
+            case 24: {
+
+              commentId_ = input.readInt64();
+              break;
+            }
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               comment_ = s;
@@ -8709,15 +14424,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCommentRequest.class, com.amur.home.course.rpc.Course.UpdateCommentRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -8742,10 +14457,21 @@ public final class Course {
       return userId_;
     }
 
-    public static final int COMMENT_FIELD_NUMBER = 3;
+    public static final int COMMENTID_FIELD_NUMBER = 3;
+    private long commentId_;
+    /**
+     * <code>int64 commentId = 3;</code>
+     * @return The commentId.
+     */
+    @java.lang.Override
+    public long getCommentId() {
+      return commentId_;
+    }
+
+    public static final int COMMENT_FIELD_NUMBER = 4;
     private volatile java.lang.Object comment_;
     /**
-     * <code>string comment = 3;</code>
+     * <code>string comment = 4;</code>
      * @return The comment.
      */
     @java.lang.Override
@@ -8762,7 +14488,7 @@ public final class Course {
       }
     }
     /**
-     * <code>string comment = 3;</code>
+     * <code>string comment = 4;</code>
      * @return The bytes for comment.
      */
     @java.lang.Override
@@ -8800,8 +14526,11 @@ public final class Course {
       if (userId_ != 0L) {
         output.writeInt64(2, userId_);
       }
+      if (commentId_ != 0L) {
+        output.writeInt64(3, commentId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, comment_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, comment_);
       }
       unknownFields.writeTo(output);
     }
@@ -8820,8 +14549,12 @@ public final class Course {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, userId_);
       }
+      if (commentId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, commentId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, comment_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, comment_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8833,15 +14566,17 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCommentRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCommentRequest other = (com.amur.home.course.rpc.Course.UpdateCommentRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
       if (getUserId()
           != other.getUserId()) return false;
+      if (getCommentId()
+          != other.getCommentId()) return false;
       if (!getComment()
           .equals(other.getComment())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -8861,6 +14596,9 @@ public final class Course {
       hash = (37 * hash) + USERID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getUserId());
+      hash = (37 * hash) + COMMENTID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCommentId());
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -8868,69 +14606,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8943,7 +14681,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCommentRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8964,21 +14702,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCommentRequest)
-        com.amur.home.course.rpc.Course.UpdateCommentRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCommentRequest.class, com.amur.home.course.rpc.Course.UpdateCommentRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCommentRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9000,6 +14738,8 @@ public final class Course {
 
         userId_ = 0L;
 
+        commentId_ = 0L;
+
         comment_ = "";
 
         return this;
@@ -9008,17 +14748,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCommentRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCommentRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCommentRequest build() {
-        com.amur.home.course.rpc.Course.UpdateCommentRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -9026,10 +14766,11 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCommentRequest buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCommentRequest result = new com.amur.home.course.rpc.Course.UpdateCommentRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
+        result.commentId_ = commentId_;
         result.comment_ = comment_;
         onBuilt();
         return result;
@@ -9069,21 +14810,24 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCommentRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCommentRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCommentRequest other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCommentRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
         if (other.getUserId() != 0L) {
           setUserId(other.getUserId());
+        }
+        if (other.getCommentId() != 0L) {
+          setCommentId(other.getCommentId());
         }
         if (!other.getComment().isEmpty()) {
           comment_ = other.comment_;
@@ -9104,11 +14848,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCommentRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCommentRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -9180,9 +14924,40 @@ public final class Course {
         return this;
       }
 
+      private long commentId_ ;
+      /**
+       * <code>int64 commentId = 3;</code>
+       * @return The commentId.
+       */
+      @java.lang.Override
+      public long getCommentId() {
+        return commentId_;
+      }
+      /**
+       * <code>int64 commentId = 3;</code>
+       * @param value The commentId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommentId(long value) {
+        
+        commentId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 commentId = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCommentId() {
+        
+        commentId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object comment_ = "";
       /**
-       * <code>string comment = 3;</code>
+       * <code>string comment = 4;</code>
        * @return The comment.
        */
       public java.lang.String getComment() {
@@ -9198,7 +14973,7 @@ public final class Course {
         }
       }
       /**
-       * <code>string comment = 3;</code>
+       * <code>string comment = 4;</code>
        * @return The bytes for comment.
        */
       public com.google.protobuf.ByteString
@@ -9215,7 +14990,7 @@ public final class Course {
         }
       }
       /**
-       * <code>string comment = 3;</code>
+       * <code>string comment = 4;</code>
        * @param value The comment to set.
        * @return This builder for chaining.
        */
@@ -9230,7 +15005,7 @@ public final class Course {
         return this;
       }
       /**
-       * <code>string comment = 3;</code>
+       * <code>string comment = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearComment() {
@@ -9240,7 +15015,7 @@ public final class Course {
         return this;
       }
       /**
-       * <code>string comment = 3;</code>
+       * <code>string comment = 4;</code>
        * @param value The bytes for comment to set.
        * @return This builder for chaining.
        */
@@ -9272,12 +15047,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCommentRequest)
-    private static final com.amur.home.course.rpc.Course.UpdateCommentRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCommentRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCommentRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9302,7 +15077,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCommentRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9389,15 +15164,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.UpdateCommentResponse.class, com.amur.home.course.rpc.Course.UpdateCommentResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -9451,10 +15226,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.UpdateCommentResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.UpdateCommentResponse other = (com.amur.home.course.rpc.Course.UpdateCommentResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse other = (com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -9477,69 +15252,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9552,7 +15327,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.UpdateCommentResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -9573,21 +15348,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.UpdateCommentResponse)
-        com.amur.home.course.rpc.Course.UpdateCommentResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.UpdateCommentResponse.class, com.amur.home.course.rpc.Course.UpdateCommentResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.class, com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.UpdateCommentResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9613,17 +15388,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCommentResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.UpdateCommentResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCommentResponse build() {
-        com.amur.home.course.rpc.Course.UpdateCommentResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -9631,8 +15406,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.UpdateCommentResponse buildPartial() {
-        com.amur.home.course.rpc.Course.UpdateCommentResponse result = new com.amur.home.course.rpc.Course.UpdateCommentResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse result = new com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -9672,16 +15447,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.UpdateCommentResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.UpdateCommentResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.UpdateCommentResponse other) {
-        if (other == com.amur.home.course.rpc.Course.UpdateCommentResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -9700,11 +15475,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.UpdateCommentResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.UpdateCommentResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -9761,12 +15536,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.UpdateCommentResponse)
-    private static final com.amur.home.course.rpc.Course.UpdateCommentResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.UpdateCommentResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.UpdateCommentResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9791,7 +15566,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.UpdateCommentResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9919,15 +15694,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CreateCommentRequest.class, com.amur.home.course.rpc.Course.CreateCommentRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.class, com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -10061,10 +15836,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CreateCommentRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CreateCommentRequest other = (com.amur.home.course.rpc.Course.CreateCommentRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest other = (com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -10102,69 +15877,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10177,7 +15952,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CreateCommentRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -10198,21 +15973,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CreateCommentRequest)
-        com.amur.home.course.rpc.Course.CreateCommentRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CreateCommentRequest.class, com.amur.home.course.rpc.Course.CreateCommentRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.class, com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CreateCommentRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10244,17 +16019,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCommentRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CreateCommentRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCommentRequest build() {
-        com.amur.home.course.rpc.Course.CreateCommentRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -10262,8 +16037,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCommentRequest buildPartial() {
-        com.amur.home.course.rpc.Course.CreateCommentRequest result = new com.amur.home.course.rpc.Course.CreateCommentRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest result = new com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         result.score_ = score_;
@@ -10306,16 +16081,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CreateCommentRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CreateCommentRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CreateCommentRequest other) {
-        if (other == com.amur.home.course.rpc.Course.CreateCommentRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -10344,11 +16119,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CreateCommentRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CreateCommentRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -10543,12 +16318,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CreateCommentRequest)
-    private static final com.amur.home.course.rpc.Course.CreateCommentRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CreateCommentRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCommentRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10573,7 +16348,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CreateCommentRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10660,15 +16435,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CreateCommentResponse.class, com.amur.home.course.rpc.Course.CreateCommentResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.class, com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -10722,10 +16497,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CreateCommentResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CreateCommentResponse other = (com.amur.home.course.rpc.Course.CreateCommentResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse other = (com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -10748,69 +16523,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10823,7 +16598,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CreateCommentResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -10844,21 +16619,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CreateCommentResponse)
-        com.amur.home.course.rpc.Course.CreateCommentResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CreateCommentResponse.class, com.amur.home.course.rpc.Course.CreateCommentResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.class, com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CreateCommentResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10884,17 +16659,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCommentResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CreateCommentResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCommentResponse build() {
-        com.amur.home.course.rpc.Course.CreateCommentResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -10902,8 +16677,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CreateCommentResponse buildPartial() {
-        com.amur.home.course.rpc.Course.CreateCommentResponse result = new com.amur.home.course.rpc.Course.CreateCommentResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse result = new com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -10943,16 +16718,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CreateCommentResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CreateCommentResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CreateCommentResponse other) {
-        if (other == com.amur.home.course.rpc.Course.CreateCommentResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -10971,11 +16746,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CreateCommentResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CreateCommentResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11032,12 +16807,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CreateCommentResponse)
-    private static final com.amur.home.course.rpc.Course.CreateCommentResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CreateCommentResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.CreateCommentResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11062,7 +16837,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CreateCommentResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11160,15 +16935,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.LikeCourseRequest.class, com.amur.home.course.rpc.Course.LikeCourseRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -11240,10 +17015,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.LikeCourseRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.LikeCourseRequest other = (com.amur.home.course.rpc.Course.LikeCourseRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest other = (com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -11271,69 +17046,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11346,7 +17121,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.LikeCourseRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -11367,21 +17142,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.LikeCourseRequest)
-        com.amur.home.course.rpc.Course.LikeCourseRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.LikeCourseRequest.class, com.amur.home.course.rpc.Course.LikeCourseRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.LikeCourseRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11409,17 +17184,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.LikeCourseRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.LikeCourseRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.LikeCourseRequest build() {
-        com.amur.home.course.rpc.Course.LikeCourseRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -11427,8 +17202,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.LikeCourseRequest buildPartial() {
-        com.amur.home.course.rpc.Course.LikeCourseRequest result = new com.amur.home.course.rpc.Course.LikeCourseRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest result = new com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         onBuilt();
@@ -11469,16 +17244,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.LikeCourseRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.LikeCourseRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.LikeCourseRequest other) {
-        if (other == com.amur.home.course.rpc.Course.LikeCourseRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -11500,11 +17275,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.LikeCourseRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.LikeCourseRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11592,12 +17367,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.LikeCourseRequest)
-    private static final com.amur.home.course.rpc.Course.LikeCourseRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.LikeCourseRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.LikeCourseRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11622,7 +17397,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.LikeCourseRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11709,15 +17484,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.LikeCourseResponse.class, com.amur.home.course.rpc.Course.LikeCourseResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -11771,10 +17546,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.LikeCourseResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.LikeCourseResponse other = (com.amur.home.course.rpc.Course.LikeCourseResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse other = (com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -11797,69 +17572,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11872,7 +17647,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.LikeCourseResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -11893,21 +17668,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.LikeCourseResponse)
-        com.amur.home.course.rpc.Course.LikeCourseResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.LikeCourseResponse.class, com.amur.home.course.rpc.Course.LikeCourseResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.LikeCourseResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11933,17 +17708,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.LikeCourseResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.LikeCourseResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.LikeCourseResponse build() {
-        com.amur.home.course.rpc.Course.LikeCourseResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -11951,8 +17726,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.LikeCourseResponse buildPartial() {
-        com.amur.home.course.rpc.Course.LikeCourseResponse result = new com.amur.home.course.rpc.Course.LikeCourseResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse result = new com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -11992,16 +17767,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.LikeCourseResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.LikeCourseResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.LikeCourseResponse other) {
-        if (other == com.amur.home.course.rpc.Course.LikeCourseResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -12020,11 +17795,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.LikeCourseResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.LikeCourseResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12081,12 +17856,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.LikeCourseResponse)
-    private static final com.amur.home.course.rpc.Course.LikeCourseResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.LikeCourseResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.LikeCourseResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12111,7 +17886,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.LikeCourseResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12209,15 +17984,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.FavCourseRequest.class, com.amur.home.course.rpc.Course.FavCourseRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -12289,10 +18064,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.FavCourseRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.FavCourseRequest other = (com.amur.home.course.rpc.Course.FavCourseRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest other = (com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -12320,69 +18095,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12395,7 +18170,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.FavCourseRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12416,21 +18191,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.FavCourseRequest)
-        com.amur.home.course.rpc.Course.FavCourseRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.FavCourseRequest.class, com.amur.home.course.rpc.Course.FavCourseRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.class, com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.FavCourseRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12458,17 +18233,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.FavCourseRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.FavCourseRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.FavCourseRequest build() {
-        com.amur.home.course.rpc.Course.FavCourseRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -12476,8 +18251,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.FavCourseRequest buildPartial() {
-        com.amur.home.course.rpc.Course.FavCourseRequest result = new com.amur.home.course.rpc.Course.FavCourseRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest result = new com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         onBuilt();
@@ -12518,16 +18293,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.FavCourseRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.FavCourseRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.FavCourseRequest other) {
-        if (other == com.amur.home.course.rpc.Course.FavCourseRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -12549,11 +18324,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.FavCourseRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.FavCourseRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12641,12 +18416,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.FavCourseRequest)
-    private static final com.amur.home.course.rpc.Course.FavCourseRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.FavCourseRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.FavCourseRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12671,7 +18446,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.FavCourseRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12758,15 +18533,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.FavCourseResponse.class, com.amur.home.course.rpc.Course.FavCourseResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -12820,10 +18595,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.FavCourseResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.FavCourseResponse other = (com.amur.home.course.rpc.Course.FavCourseResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse other = (com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -12846,69 +18621,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.FavCourseResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12921,7 +18696,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.FavCourseResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12942,21 +18717,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.FavCourseResponse)
-        com.amur.home.course.rpc.Course.FavCourseResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.FavCourseResponse.class, com.amur.home.course.rpc.Course.FavCourseResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.class, com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.FavCourseResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12982,17 +18757,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.FavCourseResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.FavCourseResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.FavCourseResponse build() {
-        com.amur.home.course.rpc.Course.FavCourseResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -13000,8 +18775,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.FavCourseResponse buildPartial() {
-        com.amur.home.course.rpc.Course.FavCourseResponse result = new com.amur.home.course.rpc.Course.FavCourseResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse result = new com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -13041,16 +18816,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.FavCourseResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.FavCourseResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.FavCourseResponse other) {
-        if (other == com.amur.home.course.rpc.Course.FavCourseResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -13069,11 +18844,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.FavCourseResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.FavCourseResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13130,12 +18905,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.FavCourseResponse)
-    private static final com.amur.home.course.rpc.Course.FavCourseResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.FavCourseResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.FavCourseResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13160,7 +18935,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.FavCourseResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13266,15 +19041,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.class, com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.Builder.class);
     }
 
     public static final int SHARETOKEN_FIELD_NUMBER = 1;
@@ -13372,10 +19147,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest other = (com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest other = (com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest) obj;
 
       if (!getShareToken()
           .equals(other.getShareToken())) return false;
@@ -13402,69 +19177,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13477,7 +19252,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -13498,21 +19273,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.JoinCourseByShareTokenRequest)
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.class, com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13540,17 +19315,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest build() {
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -13558,8 +19333,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest buildPartial() {
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest result = new com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest result = new com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest(this);
         result.shareToken_ = shareToken_;
         result.userId_ = userId_;
         onBuilt();
@@ -13600,16 +19375,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest other) {
-        if (other == com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.getDefaultInstance()) return this;
         if (!other.getShareToken().isEmpty()) {
           shareToken_ = other.shareToken_;
           onChanged();
@@ -13632,11 +19407,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13769,12 +19544,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.JoinCourseByShareTokenRequest)
-    private static final com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13799,7 +19574,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13886,15 +19661,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.class, com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -13948,10 +19723,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse other = (com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse other = (com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -13974,69 +19749,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14049,7 +19824,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -14070,21 +19845,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.JoinCourseByShareTokenResponse)
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.class, com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14110,17 +19885,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse build() {
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -14128,8 +19903,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse buildPartial() {
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse result = new com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse result = new com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse(this);
         result.courseId_ = courseId_;
         onBuilt();
         return result;
@@ -14169,16 +19944,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse other) {
-        if (other == com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -14197,11 +19972,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14258,12 +20033,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.JoinCourseByShareTokenResponse)
-    private static final com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14288,7 +20063,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14386,15 +20161,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.GenerateShareTokenRequest.class, com.amur.home.course.rpc.Course.GenerateShareTokenRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -14466,10 +20241,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.GenerateShareTokenRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.GenerateShareTokenRequest other = (com.amur.home.course.rpc.Course.GenerateShareTokenRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest other = (com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -14497,69 +20272,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14572,7 +20347,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.GenerateShareTokenRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -14593,21 +20368,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.GenerateShareTokenRequest)
-        com.amur.home.course.rpc.Course.GenerateShareTokenRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.GenerateShareTokenRequest.class, com.amur.home.course.rpc.Course.GenerateShareTokenRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.GenerateShareTokenRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14635,17 +20410,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GenerateShareTokenRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.GenerateShareTokenRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GenerateShareTokenRequest build() {
-        com.amur.home.course.rpc.Course.GenerateShareTokenRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -14653,8 +20428,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GenerateShareTokenRequest buildPartial() {
-        com.amur.home.course.rpc.Course.GenerateShareTokenRequest result = new com.amur.home.course.rpc.Course.GenerateShareTokenRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest result = new com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         onBuilt();
@@ -14695,16 +20470,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.GenerateShareTokenRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.GenerateShareTokenRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.GenerateShareTokenRequest other) {
-        if (other == com.amur.home.course.rpc.Course.GenerateShareTokenRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -14726,11 +20501,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.GenerateShareTokenRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.GenerateShareTokenRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14818,12 +20593,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.GenerateShareTokenRequest)
-    private static final com.amur.home.course.rpc.Course.GenerateShareTokenRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.GenerateShareTokenRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14848,7 +20623,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.GenerateShareTokenRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14943,15 +20718,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.GenerateShareTokenResponse.class, com.amur.home.course.rpc.Course.GenerateShareTokenResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.Builder.class);
     }
 
     public static final int SHARETOKEN_FIELD_NUMBER = 1;
@@ -15031,10 +20806,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.GenerateShareTokenResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.GenerateShareTokenResponse other = (com.amur.home.course.rpc.Course.GenerateShareTokenResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse other = (com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse) obj;
 
       if (!getShareToken()
           .equals(other.getShareToken())) return false;
@@ -15056,69 +20831,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -15131,7 +20906,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.GenerateShareTokenResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -15152,21 +20927,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.GenerateShareTokenResponse)
-        com.amur.home.course.rpc.Course.GenerateShareTokenResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.GenerateShareTokenResponse.class, com.amur.home.course.rpc.Course.GenerateShareTokenResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.GenerateShareTokenResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -15192,17 +20967,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GenerateShareTokenResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.GenerateShareTokenResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GenerateShareTokenResponse build() {
-        com.amur.home.course.rpc.Course.GenerateShareTokenResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -15210,8 +20985,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GenerateShareTokenResponse buildPartial() {
-        com.amur.home.course.rpc.Course.GenerateShareTokenResponse result = new com.amur.home.course.rpc.Course.GenerateShareTokenResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse result = new com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse(this);
         result.shareToken_ = shareToken_;
         onBuilt();
         return result;
@@ -15251,16 +21026,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.GenerateShareTokenResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.GenerateShareTokenResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.GenerateShareTokenResponse other) {
-        if (other == com.amur.home.course.rpc.Course.GenerateShareTokenResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.getDefaultInstance()) return this;
         if (!other.getShareToken().isEmpty()) {
           shareToken_ = other.shareToken_;
           onChanged();
@@ -15280,11 +21055,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.GenerateShareTokenResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.GenerateShareTokenResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -15386,12 +21161,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.GenerateShareTokenResponse)
-    private static final com.amur.home.course.rpc.Course.GenerateShareTokenResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.GenerateShareTokenResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.GenerateShareTokenResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15416,7 +21191,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.GenerateShareTokenResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15511,15 +21286,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.GetShareInfoRequest.class, com.amur.home.course.rpc.Course.GetShareInfoRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.class, com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.Builder.class);
     }
 
     public static final int SHARETOKEN_FIELD_NUMBER = 1;
@@ -15599,10 +21374,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.GetShareInfoRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.GetShareInfoRequest other = (com.amur.home.course.rpc.Course.GetShareInfoRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest other = (com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest) obj;
 
       if (!getShareToken()
           .equals(other.getShareToken())) return false;
@@ -15624,69 +21399,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -15699,7 +21474,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.GetShareInfoRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -15720,21 +21495,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.GetShareInfoRequest)
-        com.amur.home.course.rpc.Course.GetShareInfoRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.GetShareInfoRequest.class, com.amur.home.course.rpc.Course.GetShareInfoRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.class, com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.GetShareInfoRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -15760,17 +21535,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetShareInfoRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.GetShareInfoRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetShareInfoRequest build() {
-        com.amur.home.course.rpc.Course.GetShareInfoRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -15778,8 +21553,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetShareInfoRequest buildPartial() {
-        com.amur.home.course.rpc.Course.GetShareInfoRequest result = new com.amur.home.course.rpc.Course.GetShareInfoRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest result = new com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest(this);
         result.shareToken_ = shareToken_;
         onBuilt();
         return result;
@@ -15819,16 +21594,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.GetShareInfoRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.GetShareInfoRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.GetShareInfoRequest other) {
-        if (other == com.amur.home.course.rpc.Course.GetShareInfoRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.getDefaultInstance()) return this;
         if (!other.getShareToken().isEmpty()) {
           shareToken_ = other.shareToken_;
           onChanged();
@@ -15848,11 +21623,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.GetShareInfoRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.GetShareInfoRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -15954,12 +21729,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.GetShareInfoRequest)
-    private static final com.amur.home.course.rpc.Course.GetShareInfoRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.GetShareInfoRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.GetShareInfoRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15984,7 +21759,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.GetShareInfoRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -16071,15 +21846,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.GetShareInfoResponse.class, com.amur.home.course.rpc.Course.GetShareInfoResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.class, com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -16133,10 +21908,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.GetShareInfoResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.GetShareInfoResponse other = (com.amur.home.course.rpc.Course.GetShareInfoResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse other = (com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -16159,69 +21934,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -16234,7 +22009,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.GetShareInfoResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -16255,21 +22030,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.GetShareInfoResponse)
-        com.amur.home.course.rpc.Course.GetShareInfoResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.GetShareInfoResponse.class, com.amur.home.course.rpc.Course.GetShareInfoResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.class, com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.GetShareInfoResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -16295,17 +22070,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetShareInfoResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.GetShareInfoResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetShareInfoResponse build() {
-        com.amur.home.course.rpc.Course.GetShareInfoResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -16313,8 +22088,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.GetShareInfoResponse buildPartial() {
-        com.amur.home.course.rpc.Course.GetShareInfoResponse result = new com.amur.home.course.rpc.Course.GetShareInfoResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse result = new com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse(this);
         result.courseId_ = courseId_;
         onBuilt();
         return result;
@@ -16354,16 +22129,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.GetShareInfoResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.GetShareInfoResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.GetShareInfoResponse other) {
-        if (other == com.amur.home.course.rpc.Course.GetShareInfoResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -16382,11 +22157,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.GetShareInfoResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.GetShareInfoResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -16443,12 +22218,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.GetShareInfoResponse)
-    private static final com.amur.home.course.rpc.Course.GetShareInfoResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.GetShareInfoResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.GetShareInfoResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -16473,7 +22248,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.GetShareInfoResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -16568,15 +22343,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.DeleteShareTokenRequest.class, com.amur.home.course.rpc.Course.DeleteShareTokenRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.Builder.class);
     }
 
     public static final int SHARETOKEN_FIELD_NUMBER = 1;
@@ -16656,10 +22431,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.DeleteShareTokenRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.DeleteShareTokenRequest other = (com.amur.home.course.rpc.Course.DeleteShareTokenRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest other = (com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest) obj;
 
       if (!getShareToken()
           .equals(other.getShareToken())) return false;
@@ -16681,69 +22456,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -16756,7 +22531,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.DeleteShareTokenRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -16777,21 +22552,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.DeleteShareTokenRequest)
-        com.amur.home.course.rpc.Course.DeleteShareTokenRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.DeleteShareTokenRequest.class, com.amur.home.course.rpc.Course.DeleteShareTokenRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.DeleteShareTokenRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -16817,17 +22592,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteShareTokenRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.DeleteShareTokenRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteShareTokenRequest build() {
-        com.amur.home.course.rpc.Course.DeleteShareTokenRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -16835,8 +22610,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteShareTokenRequest buildPartial() {
-        com.amur.home.course.rpc.Course.DeleteShareTokenRequest result = new com.amur.home.course.rpc.Course.DeleteShareTokenRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest result = new com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest(this);
         result.shareToken_ = shareToken_;
         onBuilt();
         return result;
@@ -16876,16 +22651,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.DeleteShareTokenRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.DeleteShareTokenRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.DeleteShareTokenRequest other) {
-        if (other == com.amur.home.course.rpc.Course.DeleteShareTokenRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.getDefaultInstance()) return this;
         if (!other.getShareToken().isEmpty()) {
           shareToken_ = other.shareToken_;
           onChanged();
@@ -16905,11 +22680,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.DeleteShareTokenRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.DeleteShareTokenRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -17011,12 +22786,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.DeleteShareTokenRequest)
-    private static final com.amur.home.course.rpc.Course.DeleteShareTokenRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.DeleteShareTokenRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17041,7 +22816,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.DeleteShareTokenRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17128,15 +22903,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.DeleteShareTokenResponse.class, com.amur.home.course.rpc.Course.DeleteShareTokenResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -17190,10 +22965,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.DeleteShareTokenResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.DeleteShareTokenResponse other = (com.amur.home.course.rpc.Course.DeleteShareTokenResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse other = (com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -17216,69 +22991,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17291,7 +23066,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.DeleteShareTokenResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -17312,21 +23087,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.DeleteShareTokenResponse)
-        com.amur.home.course.rpc.Course.DeleteShareTokenResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.DeleteShareTokenResponse.class, com.amur.home.course.rpc.Course.DeleteShareTokenResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.DeleteShareTokenResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -17352,17 +23127,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteShareTokenResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.DeleteShareTokenResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteShareTokenResponse build() {
-        com.amur.home.course.rpc.Course.DeleteShareTokenResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -17370,8 +23145,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.DeleteShareTokenResponse buildPartial() {
-        com.amur.home.course.rpc.Course.DeleteShareTokenResponse result = new com.amur.home.course.rpc.Course.DeleteShareTokenResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse result = new com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -17411,16 +23186,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.DeleteShareTokenResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.DeleteShareTokenResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.DeleteShareTokenResponse other) {
-        if (other == com.amur.home.course.rpc.Course.DeleteShareTokenResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -17439,11 +23214,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.DeleteShareTokenResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.DeleteShareTokenResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -17500,12 +23275,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.DeleteShareTokenResponse)
-    private static final com.amur.home.course.rpc.Course.DeleteShareTokenResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.DeleteShareTokenResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.DeleteShareTokenResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17530,7 +23305,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.DeleteShareTokenResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17628,15 +23403,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.HasJoinedRequest.class, com.amur.home.course.rpc.Course.HasJoinedRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.class, com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -17708,10 +23483,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.HasJoinedRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.HasJoinedRequest other = (com.amur.home.course.rpc.Course.HasJoinedRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest other = (com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -17739,69 +23514,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17814,7 +23589,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.HasJoinedRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -17835,21 +23610,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.HasJoinedRequest)
-        com.amur.home.course.rpc.Course.HasJoinedRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.HasJoinedRequest.class, com.amur.home.course.rpc.Course.HasJoinedRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.class, com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.HasJoinedRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -17877,17 +23652,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.HasJoinedRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.HasJoinedRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.HasJoinedRequest build() {
-        com.amur.home.course.rpc.Course.HasJoinedRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -17895,8 +23670,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.HasJoinedRequest buildPartial() {
-        com.amur.home.course.rpc.Course.HasJoinedRequest result = new com.amur.home.course.rpc.Course.HasJoinedRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest result = new com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         onBuilt();
@@ -17937,16 +23712,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.HasJoinedRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.HasJoinedRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.HasJoinedRequest other) {
-        if (other == com.amur.home.course.rpc.Course.HasJoinedRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -17968,11 +23743,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.HasJoinedRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.HasJoinedRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18060,12 +23835,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.HasJoinedRequest)
-    private static final com.amur.home.course.rpc.Course.HasJoinedRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.HasJoinedRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.HasJoinedRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18090,7 +23865,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.HasJoinedRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18177,15 +23952,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.HasJoinedResponse.class, com.amur.home.course.rpc.Course.HasJoinedResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.class, com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.Builder.class);
     }
 
     public static final int HASJOINED_FIELD_NUMBER = 1;
@@ -18239,10 +24014,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.HasJoinedResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.HasJoinedResponse other = (com.amur.home.course.rpc.Course.HasJoinedResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse other = (com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse) obj;
 
       if (getHasJoined()
           != other.getHasJoined()) return false;
@@ -18265,69 +24040,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -18340,7 +24115,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.HasJoinedResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -18361,21 +24136,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.HasJoinedResponse)
-        com.amur.home.course.rpc.Course.HasJoinedResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.HasJoinedResponse.class, com.amur.home.course.rpc.Course.HasJoinedResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.class, com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.HasJoinedResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18401,17 +24176,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.HasJoinedResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.HasJoinedResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.HasJoinedResponse build() {
-        com.amur.home.course.rpc.Course.HasJoinedResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -18419,8 +24194,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.HasJoinedResponse buildPartial() {
-        com.amur.home.course.rpc.Course.HasJoinedResponse result = new com.amur.home.course.rpc.Course.HasJoinedResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse result = new com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse(this);
         result.hasJoined_ = hasJoined_;
         onBuilt();
         return result;
@@ -18460,16 +24235,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.HasJoinedResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.HasJoinedResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.HasJoinedResponse other) {
-        if (other == com.amur.home.course.rpc.Course.HasJoinedResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.getDefaultInstance()) return this;
         if (other.getHasJoined() != false) {
           setHasJoined(other.getHasJoined());
         }
@@ -18488,11 +24263,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.HasJoinedResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.HasJoinedResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18549,12 +24324,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.HasJoinedResponse)
-    private static final com.amur.home.course.rpc.Course.HasJoinedResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.HasJoinedResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.HasJoinedResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18579,7 +24354,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.HasJoinedResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18666,15 +24441,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.class, com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.Builder.class);
     }
 
     public static final int USERID_FIELD_NUMBER = 1;
@@ -18728,10 +24503,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest other = (com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest other = (com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest) obj;
 
       if (getUserId()
           != other.getUserId()) return false;
@@ -18754,69 +24529,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -18829,7 +24604,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -18850,21 +24625,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListShareInfoByUserIdRequest)
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.class, com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.class, com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18890,17 +24665,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest build() {
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -18908,8 +24683,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest buildPartial() {
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest result = new com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest result = new com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest(this);
         result.userId_ = userId_;
         onBuilt();
         return result;
@@ -18949,16 +24724,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest other) {
-        if (other == com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.getDefaultInstance()) return this;
         if (other.getUserId() != 0L) {
           setUserId(other.getUserId());
         }
@@ -18977,11 +24752,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -19038,12 +24813,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListShareInfoByUserIdRequest)
-    private static final com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -19068,7 +24843,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -19081,12 +24856,12 @@ public final class Course {
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
-    java.util.List<com.amur.home.course.rpc.Course.CourseShare> 
+    java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseShare> 
         getCourseShareList();
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
-    com.amur.home.course.rpc.Course.CourseShare getCourseShare(int index);
+    com.amur.home.course.rpc.CourseServiceProto.CourseShare getCourseShare(int index);
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
@@ -19094,12 +24869,12 @@ public final class Course {
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
-    java.util.List<? extends com.amur.home.course.rpc.Course.CourseShareOrBuilder> 
+    java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder> 
         getCourseShareOrBuilderList();
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
-    com.amur.home.course.rpc.Course.CourseShareOrBuilder getCourseShareOrBuilder(
+    com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder getCourseShareOrBuilder(
         int index);
   }
   /**
@@ -19151,11 +24926,11 @@ public final class Course {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                courseShare_ = new java.util.ArrayList<com.amur.home.course.rpc.Course.CourseShare>();
+                courseShare_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseShare>();
                 mutable_bitField0_ |= 0x00000001;
               }
               courseShare_.add(
-                  input.readMessage(com.amur.home.course.rpc.Course.CourseShare.parser(), extensionRegistry));
+                  input.readMessage(com.amur.home.course.rpc.CourseServiceProto.CourseShare.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -19182,31 +24957,31 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.class, com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.Builder.class);
     }
 
     public static final int COURSESHARE_FIELD_NUMBER = 1;
-    private java.util.List<com.amur.home.course.rpc.Course.CourseShare> courseShare_;
+    private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseShare> courseShare_;
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<com.amur.home.course.rpc.Course.CourseShare> getCourseShareList() {
+    public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseShare> getCourseShareList() {
       return courseShare_;
     }
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.amur.home.course.rpc.Course.CourseShareOrBuilder> 
+    public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder> 
         getCourseShareOrBuilderList() {
       return courseShare_;
     }
@@ -19221,14 +24996,14 @@ public final class Course {
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseShare getCourseShare(int index) {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseShare getCourseShare(int index) {
       return courseShare_.get(index);
     }
     /**
      * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
      */
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseShareOrBuilder getCourseShareOrBuilder(
+    public com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder getCourseShareOrBuilder(
         int index) {
       return courseShare_.get(index);
     }
@@ -19273,10 +25048,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse other = (com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse other = (com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse) obj;
 
       if (!getCourseShareList()
           .equals(other.getCourseShareList())) return false;
@@ -19300,69 +25075,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -19375,7 +25150,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -19396,21 +25171,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.ListShareInfoByUserIdResponse)
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.class, com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.class, com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -19441,17 +25216,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse build() {
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -19459,8 +25234,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse buildPartial() {
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse result = new com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse result = new com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse(this);
         int from_bitField0_ = bitField0_;
         if (courseShareBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -19509,16 +25284,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse other) {
-        if (other == com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.getDefaultInstance()) return this;
         if (courseShareBuilder_ == null) {
           if (!other.courseShare_.isEmpty()) {
             if (courseShare_.isEmpty()) {
@@ -19560,11 +25335,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -19575,22 +25350,22 @@ public final class Course {
       }
       private int bitField0_;
 
-      private java.util.List<com.amur.home.course.rpc.Course.CourseShare> courseShare_ =
+      private java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseShare> courseShare_ =
         java.util.Collections.emptyList();
       private void ensureCourseShareIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          courseShare_ = new java.util.ArrayList<com.amur.home.course.rpc.Course.CourseShare>(courseShare_);
+          courseShare_ = new java.util.ArrayList<com.amur.home.course.rpc.CourseServiceProto.CourseShare>(courseShare_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseShare, com.amur.home.course.rpc.Course.CourseShare.Builder, com.amur.home.course.rpc.Course.CourseShareOrBuilder> courseShareBuilder_;
+          com.amur.home.course.rpc.CourseServiceProto.CourseShare, com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder> courseShareBuilder_;
 
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public java.util.List<com.amur.home.course.rpc.Course.CourseShare> getCourseShareList() {
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseShare> getCourseShareList() {
         if (courseShareBuilder_ == null) {
           return java.util.Collections.unmodifiableList(courseShare_);
         } else {
@@ -19610,7 +25385,7 @@ public final class Course {
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseShare getCourseShare(int index) {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShare getCourseShare(int index) {
         if (courseShareBuilder_ == null) {
           return courseShare_.get(index);
         } else {
@@ -19621,7 +25396,7 @@ public final class Course {
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
       public Builder setCourseShare(
-          int index, com.amur.home.course.rpc.Course.CourseShare value) {
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseShare value) {
         if (courseShareBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -19638,7 +25413,7 @@ public final class Course {
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
       public Builder setCourseShare(
-          int index, com.amur.home.course.rpc.Course.CourseShare.Builder builderForValue) {
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder builderForValue) {
         if (courseShareBuilder_ == null) {
           ensureCourseShareIsMutable();
           courseShare_.set(index, builderForValue.build());
@@ -19651,7 +25426,7 @@ public final class Course {
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public Builder addCourseShare(com.amur.home.course.rpc.Course.CourseShare value) {
+      public Builder addCourseShare(com.amur.home.course.rpc.CourseServiceProto.CourseShare value) {
         if (courseShareBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -19668,7 +25443,7 @@ public final class Course {
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
       public Builder addCourseShare(
-          int index, com.amur.home.course.rpc.Course.CourseShare value) {
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseShare value) {
         if (courseShareBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -19685,7 +25460,7 @@ public final class Course {
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
       public Builder addCourseShare(
-          com.amur.home.course.rpc.Course.CourseShare.Builder builderForValue) {
+          com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder builderForValue) {
         if (courseShareBuilder_ == null) {
           ensureCourseShareIsMutable();
           courseShare_.add(builderForValue.build());
@@ -19699,7 +25474,7 @@ public final class Course {
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
       public Builder addCourseShare(
-          int index, com.amur.home.course.rpc.Course.CourseShare.Builder builderForValue) {
+          int index, com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder builderForValue) {
         if (courseShareBuilder_ == null) {
           ensureCourseShareIsMutable();
           courseShare_.add(index, builderForValue.build());
@@ -19713,7 +25488,7 @@ public final class Course {
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
       public Builder addAllCourseShare(
-          java.lang.Iterable<? extends com.amur.home.course.rpc.Course.CourseShare> values) {
+          java.lang.Iterable<? extends com.amur.home.course.rpc.CourseServiceProto.CourseShare> values) {
         if (courseShareBuilder_ == null) {
           ensureCourseShareIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -19753,14 +25528,14 @@ public final class Course {
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseShare.Builder getCourseShareBuilder(
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder getCourseShareBuilder(
           int index) {
         return getCourseShareFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseShareOrBuilder getCourseShareOrBuilder(
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder getCourseShareOrBuilder(
           int index) {
         if (courseShareBuilder_ == null) {
           return courseShare_.get(index);  } else {
@@ -19770,7 +25545,7 @@ public final class Course {
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public java.util.List<? extends com.amur.home.course.rpc.Course.CourseShareOrBuilder> 
+      public java.util.List<? extends com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder> 
            getCourseShareOrBuilderList() {
         if (courseShareBuilder_ != null) {
           return courseShareBuilder_.getMessageOrBuilderList();
@@ -19781,31 +25556,31 @@ public final class Course {
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseShare.Builder addCourseShareBuilder() {
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder addCourseShareBuilder() {
         return getCourseShareFieldBuilder().addBuilder(
-            com.amur.home.course.rpc.Course.CourseShare.getDefaultInstance());
+            com.amur.home.course.rpc.CourseServiceProto.CourseShare.getDefaultInstance());
       }
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public com.amur.home.course.rpc.Course.CourseShare.Builder addCourseShareBuilder(
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder addCourseShareBuilder(
           int index) {
         return getCourseShareFieldBuilder().addBuilder(
-            index, com.amur.home.course.rpc.Course.CourseShare.getDefaultInstance());
+            index, com.amur.home.course.rpc.CourseServiceProto.CourseShare.getDefaultInstance());
       }
       /**
        * <code>repeated .com.amur.home.course.rpc.CourseShare courseShare = 1;</code>
        */
-      public java.util.List<com.amur.home.course.rpc.Course.CourseShare.Builder> 
+      public java.util.List<com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder> 
            getCourseShareBuilderList() {
         return getCourseShareFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.amur.home.course.rpc.Course.CourseShare, com.amur.home.course.rpc.Course.CourseShare.Builder, com.amur.home.course.rpc.Course.CourseShareOrBuilder> 
+          com.amur.home.course.rpc.CourseServiceProto.CourseShare, com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder> 
           getCourseShareFieldBuilder() {
         if (courseShareBuilder_ == null) {
           courseShareBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.amur.home.course.rpc.Course.CourseShare, com.amur.home.course.rpc.Course.CourseShare.Builder, com.amur.home.course.rpc.Course.CourseShareOrBuilder>(
+              com.amur.home.course.rpc.CourseServiceProto.CourseShare, com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder, com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder>(
                   courseShare_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -19831,12 +25606,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.ListShareInfoByUserIdResponse)
-    private static final com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -19861,7 +25636,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -19959,15 +25734,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CancelShareTokenRequest.class, com.amur.home.course.rpc.Course.CancelShareTokenRequest.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.Builder.class);
     }
 
     public static final int COURSEID_FIELD_NUMBER = 1;
@@ -20039,10 +25814,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CancelShareTokenRequest)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CancelShareTokenRequest other = (com.amur.home.course.rpc.Course.CancelShareTokenRequest) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest other = (com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest) obj;
 
       if (getCourseId()
           != other.getCourseId()) return false;
@@ -20070,69 +25845,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -20145,7 +25920,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CancelShareTokenRequest prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -20166,21 +25941,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CancelShareTokenRequest)
-        com.amur.home.course.rpc.Course.CancelShareTokenRequestOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CancelShareTokenRequest.class, com.amur.home.course.rpc.Course.CancelShareTokenRequest.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.class, com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CancelShareTokenRequest.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -20208,17 +25983,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CancelShareTokenRequest getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CancelShareTokenRequest.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CancelShareTokenRequest build() {
-        com.amur.home.course.rpc.Course.CancelShareTokenRequest result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest build() {
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -20226,8 +26001,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CancelShareTokenRequest buildPartial() {
-        com.amur.home.course.rpc.Course.CancelShareTokenRequest result = new com.amur.home.course.rpc.Course.CancelShareTokenRequest(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest result = new com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest(this);
         result.courseId_ = courseId_;
         result.userId_ = userId_;
         onBuilt();
@@ -20268,16 +26043,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CancelShareTokenRequest) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CancelShareTokenRequest)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CancelShareTokenRequest other) {
-        if (other == com.amur.home.course.rpc.Course.CancelShareTokenRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.getDefaultInstance()) return this;
         if (other.getCourseId() != 0L) {
           setCourseId(other.getCourseId());
         }
@@ -20299,11 +26074,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CancelShareTokenRequest parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CancelShareTokenRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -20391,12 +26166,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CancelShareTokenRequest)
-    private static final com.amur.home.course.rpc.Course.CancelShareTokenRequest DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CancelShareTokenRequest();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest();
     }
 
-    public static com.amur.home.course.rpc.Course.CancelShareTokenRequest getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20421,7 +26196,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CancelShareTokenRequest getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20508,15 +26283,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CancelShareTokenResponse.class, com.amur.home.course.rpc.Course.CancelShareTokenResponse.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.Builder.class);
     }
 
     public static final int SUCCESS_FIELD_NUMBER = 1;
@@ -20570,10 +26345,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CancelShareTokenResponse)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CancelShareTokenResponse other = (com.amur.home.course.rpc.Course.CancelShareTokenResponse) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse other = (com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse) obj;
 
       if (getSuccess()
           != other.getSuccess()) return false;
@@ -20596,69 +26371,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -20671,7 +26446,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CancelShareTokenResponse prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -20692,21 +26467,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CancelShareTokenResponse)
-        com.amur.home.course.rpc.Course.CancelShareTokenResponseOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CancelShareTokenResponse.class, com.amur.home.course.rpc.Course.CancelShareTokenResponse.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.class, com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CancelShareTokenResponse.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -20732,17 +26507,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CancelShareTokenResponse getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CancelShareTokenResponse.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CancelShareTokenResponse build() {
-        com.amur.home.course.rpc.Course.CancelShareTokenResponse result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse build() {
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -20750,8 +26525,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CancelShareTokenResponse buildPartial() {
-        com.amur.home.course.rpc.Course.CancelShareTokenResponse result = new com.amur.home.course.rpc.Course.CancelShareTokenResponse(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse result = new com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse(this);
         result.success_ = success_;
         onBuilt();
         return result;
@@ -20791,16 +26566,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CancelShareTokenResponse) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CancelShareTokenResponse)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CancelShareTokenResponse other) {
-        if (other == com.amur.home.course.rpc.Course.CancelShareTokenResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -20819,11 +26594,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CancelShareTokenResponse parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CancelShareTokenResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -20880,12 +26655,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CancelShareTokenResponse)
-    private static final com.amur.home.course.rpc.Course.CancelShareTokenResponse DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CancelShareTokenResponse();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse();
     }
 
-    public static com.amur.home.course.rpc.Course.CancelShareTokenResponse getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20910,7 +26685,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CancelShareTokenResponse getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -21173,15 +26948,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseComment_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseComment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseComment_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseComment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CourseComment.class, com.amur.home.course.rpc.Course.CourseComment.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CourseComment.class, com.amur.home.course.rpc.CourseServiceProto.CourseComment.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -21549,10 +27324,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CourseComment)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CourseComment)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CourseComment other = (com.amur.home.course.rpc.Course.CourseComment) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CourseComment other = (com.amur.home.course.rpc.CourseServiceProto.CourseComment) obj;
 
       if (getId()
           != other.getId()) return false;
@@ -21630,69 +27405,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseComment parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -21705,7 +27480,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CourseComment prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CourseComment prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -21726,21 +27501,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CourseComment)
-        com.amur.home.course.rpc.Course.CourseCommentOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CourseCommentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseComment_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseComment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseComment_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseComment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CourseComment.class, com.amur.home.course.rpc.Course.CourseComment.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CourseComment.class, com.amur.home.course.rpc.CourseServiceProto.CourseComment.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CourseComment.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CourseComment.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -21794,17 +27569,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseComment_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseComment_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseComment getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CourseComment.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseComment getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CourseComment.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseComment build() {
-        com.amur.home.course.rpc.Course.CourseComment result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseComment build() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseComment result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -21812,8 +27587,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseComment buildPartial() {
-        com.amur.home.course.rpc.Course.CourseComment result = new com.amur.home.course.rpc.Course.CourseComment(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CourseComment buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseComment result = new com.amur.home.course.rpc.CourseServiceProto.CourseComment(this);
         result.id_ = id_;
         result.courseId_ = courseId_;
         result.userId_ = userId_;
@@ -21871,16 +27646,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CourseComment) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CourseComment)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CourseComment) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CourseComment)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CourseComment other) {
-        if (other == com.amur.home.course.rpc.Course.CourseComment.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CourseComment other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CourseComment.getDefaultInstance()) return this;
         if (other.getId() != 0L) {
           setId(other.getId());
         }
@@ -21933,11 +27708,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CourseComment parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CourseComment parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CourseComment) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CourseComment) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -22660,12 +28435,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CourseComment)
-    private static final com.amur.home.course.rpc.Course.CourseComment DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CourseComment DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CourseComment();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CourseComment();
     }
 
-    public static com.amur.home.course.rpc.Course.CourseComment getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseComment getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -22690,7 +28465,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseComment getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseComment getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -23180,15 +28955,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseInfo_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseInfo_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseInfo_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CourseInfo.class, com.amur.home.course.rpc.Course.CourseInfo.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CourseInfo.class, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -23842,10 +29617,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CourseInfo)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CourseInfo)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CourseInfo other = (com.amur.home.course.rpc.Course.CourseInfo) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CourseInfo other = (com.amur.home.course.rpc.CourseServiceProto.CourseInfo) obj;
 
       if (getId()
           != other.getId()) return false;
@@ -23979,69 +29754,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseInfo parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -24054,7 +29829,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CourseInfo prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CourseInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -24075,21 +29850,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CourseInfo)
-        com.amur.home.course.rpc.Course.CourseInfoOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CourseInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseInfo_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseInfo_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseInfo_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CourseInfo.class, com.amur.home.course.rpc.Course.CourseInfo.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CourseInfo.class, com.amur.home.course.rpc.CourseServiceProto.CourseInfo.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CourseInfo.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CourseInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -24169,17 +29944,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseInfo_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseInfo_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseInfo getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseInfo build() {
-        com.amur.home.course.rpc.Course.CourseInfo result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo build() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -24187,8 +29962,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseInfo buildPartial() {
-        com.amur.home.course.rpc.Course.CourseInfo result = new com.amur.home.course.rpc.Course.CourseInfo(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CourseInfo buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseInfo result = new com.amur.home.course.rpc.CourseServiceProto.CourseInfo(this);
         int from_bitField0_ = bitField0_;
         result.id_ = id_;
         result.listId_ = listId_;
@@ -24276,16 +30051,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CourseInfo) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CourseInfo)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CourseInfo) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CourseInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CourseInfo other) {
-        if (other == com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CourseInfo other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance()) return this;
         if (other.getId() != 0L) {
           setId(other.getId());
         }
@@ -24386,11 +30161,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CourseInfo parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CourseInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CourseInfo) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CourseInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -25713,12 +31488,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CourseInfo)
-    private static final com.amur.home.course.rpc.Course.CourseInfo DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CourseInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CourseInfo();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CourseInfo();
     }
 
-    public static com.amur.home.course.rpc.Course.CourseInfo getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -25743,7 +31518,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseInfo getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -25919,15 +31694,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseJoinRelation_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseJoinRelation_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CourseJoinRelation.class, com.amur.home.course.rpc.Course.CourseJoinRelation.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation.class, com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -26101,10 +31876,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CourseJoinRelation)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CourseJoinRelation other = (com.amur.home.course.rpc.Course.CourseJoinRelation) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation other = (com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation) obj;
 
       if (getId()
           != other.getId()) return false;
@@ -26160,69 +31935,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -26235,7 +32010,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CourseJoinRelation prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -26256,21 +32031,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CourseJoinRelation)
-        com.amur.home.course.rpc.Course.CourseJoinRelationOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelationOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseJoinRelation_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseJoinRelation_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CourseJoinRelation.class, com.amur.home.course.rpc.Course.CourseJoinRelation.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation.class, com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CourseJoinRelation.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -26314,17 +32089,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseJoinRelation getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CourseJoinRelation.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseJoinRelation build() {
-        com.amur.home.course.rpc.Course.CourseJoinRelation result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation build() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -26332,8 +32107,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseJoinRelation buildPartial() {
-        com.amur.home.course.rpc.Course.CourseJoinRelation result = new com.amur.home.course.rpc.Course.CourseJoinRelation(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation result = new com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation(this);
         result.id_ = id_;
         result.userId_ = userId_;
         result.homeId_ = homeId_;
@@ -26386,16 +32161,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CourseJoinRelation) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CourseJoinRelation)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CourseJoinRelation other) {
-        if (other == com.amur.home.course.rpc.Course.CourseJoinRelation.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation.getDefaultInstance()) return this;
         if (other.getId() != 0L) {
           setId(other.getId());
         }
@@ -26429,11 +32204,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CourseJoinRelation parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CourseJoinRelation) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -26821,12 +32596,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CourseJoinRelation)
-    private static final com.amur.home.course.rpc.Course.CourseJoinRelation DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CourseJoinRelation();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation();
     }
 
-    public static com.amur.home.course.rpc.Course.CourseJoinRelation getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -26851,7 +32626,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseJoinRelation getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseJoinRelation getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -27116,15 +32891,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseList_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseList_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseList_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseList_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CourseList.class, com.amur.home.course.rpc.Course.CourseList.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CourseList.class, com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -27462,10 +33237,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CourseList)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CourseList)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CourseList other = (com.amur.home.course.rpc.Course.CourseList) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CourseList other = (com.amur.home.course.rpc.CourseServiceProto.CourseList) obj;
 
       if (getId()
           != other.getId()) return false;
@@ -27534,69 +33309,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseList parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -27609,7 +33384,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CourseList prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CourseList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -27630,21 +33405,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CourseList)
-        com.amur.home.course.rpc.Course.CourseListOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CourseListOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseList_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseList_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseList_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseList_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CourseList.class, com.amur.home.course.rpc.Course.CourseList.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CourseList.class, com.amur.home.course.rpc.CourseServiceProto.CourseList.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CourseList.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CourseList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -27694,17 +33469,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseList_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseList_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseList getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CourseList.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseList getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CourseList.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseList build() {
-        com.amur.home.course.rpc.Course.CourseList result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseList build() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseList result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -27712,8 +33487,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseList buildPartial() {
-        com.amur.home.course.rpc.Course.CourseList result = new com.amur.home.course.rpc.Course.CourseList(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CourseList buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseList result = new com.amur.home.course.rpc.CourseServiceProto.CourseList(this);
         int from_bitField0_ = bitField0_;
         result.id_ = id_;
         result.homeId_ = homeId_;
@@ -27774,16 +33549,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CourseList) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CourseList)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CourseList) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CourseList)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CourseList other) {
-        if (other == com.amur.home.course.rpc.Course.CourseList.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CourseList other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CourseList.getDefaultInstance()) return this;
         if (other.getId() != 0L) {
           setId(other.getId());
         }
@@ -27836,11 +33611,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CourseList parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CourseList parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CourseList) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CourseList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -28505,12 +34280,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CourseList)
-    private static final com.amur.home.course.rpc.Course.CourseList DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CourseList DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CourseList();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CourseList();
     }
 
-    public static com.amur.home.course.rpc.Course.CourseList getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseList getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -28535,7 +34310,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseList getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -28747,15 +34522,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseShare_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseShare_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseShare_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseShare_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CourseShare.class, com.amur.home.course.rpc.Course.CourseShare.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CourseShare.class, com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder.class);
     }
 
     public static final int TOKEN_FIELD_NUMBER = 1;
@@ -28988,10 +34763,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CourseShare)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CourseShare)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CourseShare other = (com.amur.home.course.rpc.Course.CourseShare) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CourseShare other = (com.amur.home.course.rpc.CourseServiceProto.CourseShare) obj;
 
       if (!getToken()
           .equals(other.getToken())) return false;
@@ -29054,69 +34829,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseShare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -29129,7 +34904,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CourseShare prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CourseShare prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -29150,21 +34925,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CourseShare)
-        com.amur.home.course.rpc.Course.CourseShareOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CourseShareOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseShare_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseShare_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseShare_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseShare_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CourseShare.class, com.amur.home.course.rpc.Course.CourseShare.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CourseShare.class, com.amur.home.course.rpc.CourseServiceProto.CourseShare.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CourseShare.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CourseShare.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -29214,17 +34989,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseShare_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseShare_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseShare getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CourseShare.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShare getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CourseShare.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseShare build() {
-        com.amur.home.course.rpc.Course.CourseShare result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShare build() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseShare result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -29232,8 +35007,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseShare buildPartial() {
-        com.amur.home.course.rpc.Course.CourseShare result = new com.amur.home.course.rpc.Course.CourseShare(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CourseShare buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseShare result = new com.amur.home.course.rpc.CourseServiceProto.CourseShare(this);
         result.token_ = token_;
         result.courseId_ = courseId_;
         result.inviterId_ = inviterId_;
@@ -29291,16 +35066,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CourseShare) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CourseShare)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CourseShare) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CourseShare)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CourseShare other) {
-        if (other == com.amur.home.course.rpc.Course.CourseShare.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CourseShare other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CourseShare.getDefaultInstance()) return this;
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
           onChanged();
@@ -29338,11 +35113,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CourseShare parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CourseShare parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CourseShare) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CourseShare) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -29894,12 +35669,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CourseShare)
-    private static final com.amur.home.course.rpc.Course.CourseShare DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CourseShare DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CourseShare();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CourseShare();
     }
 
-    public static com.amur.home.course.rpc.Course.CourseShare getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseShare getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -29924,7 +35699,7 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseShare getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseShare getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -30154,15 +35929,15 @@ public final class Course {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseWare_descriptor;
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseWare_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseWare_fieldAccessorTable
+      return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseWare_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.amur.home.course.rpc.Course.CourseWare.class, com.amur.home.course.rpc.Course.CourseWare.Builder.class);
+              com.amur.home.course.rpc.CourseServiceProto.CourseWare.class, com.amur.home.course.rpc.CourseServiceProto.CourseWare.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -30476,10 +36251,10 @@ public final class Course {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.amur.home.course.rpc.Course.CourseWare)) {
+      if (!(obj instanceof com.amur.home.course.rpc.CourseServiceProto.CourseWare)) {
         return super.equals(obj);
       }
-      com.amur.home.course.rpc.Course.CourseWare other = (com.amur.home.course.rpc.Course.CourseWare) obj;
+      com.amur.home.course.rpc.CourseServiceProto.CourseWare other = (com.amur.home.course.rpc.CourseServiceProto.CourseWare) obj;
 
       if (getId()
           != other.getId()) return false;
@@ -30541,69 +36316,69 @@ public final class Course {
       return hash;
     }
 
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(byte[] data)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseDelimitedFrom(java.io.InputStream input)
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseDelimitedFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.amur.home.course.rpc.Course.CourseWare parseFrom(
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -30616,7 +36391,7 @@ public final class Course {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.amur.home.course.rpc.Course.CourseWare prototype) {
+    public static Builder newBuilder(com.amur.home.course.rpc.CourseServiceProto.CourseWare prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -30637,21 +36412,21 @@ public final class Course {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.amur.home.course.rpc.CourseWare)
-        com.amur.home.course.rpc.Course.CourseWareOrBuilder {
+        com.amur.home.course.rpc.CourseServiceProto.CourseWareOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseWare_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseWare_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseWare_fieldAccessorTable
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseWare_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.amur.home.course.rpc.Course.CourseWare.class, com.amur.home.course.rpc.Course.CourseWare.Builder.class);
+                com.amur.home.course.rpc.CourseServiceProto.CourseWare.class, com.amur.home.course.rpc.CourseServiceProto.CourseWare.Builder.class);
       }
 
-      // Construct using com.amur.home.course.rpc.Course.CourseWare.newBuilder()
+      // Construct using com.amur.home.course.rpc.CourseServiceProto.CourseWare.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -30699,17 +36474,17 @@ public final class Course {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.amur.home.course.rpc.Course.internal_static_com_amur_home_course_rpc_CourseWare_descriptor;
+        return com.amur.home.course.rpc.CourseServiceProto.internal_static_com_amur_home_course_rpc_CourseWare_descriptor;
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseWare getDefaultInstanceForType() {
-        return com.amur.home.course.rpc.Course.CourseWare.getDefaultInstance();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseWare getDefaultInstanceForType() {
+        return com.amur.home.course.rpc.CourseServiceProto.CourseWare.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseWare build() {
-        com.amur.home.course.rpc.Course.CourseWare result = buildPartial();
+      public com.amur.home.course.rpc.CourseServiceProto.CourseWare build() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseWare result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -30717,8 +36492,8 @@ public final class Course {
       }
 
       @java.lang.Override
-      public com.amur.home.course.rpc.Course.CourseWare buildPartial() {
-        com.amur.home.course.rpc.Course.CourseWare result = new com.amur.home.course.rpc.Course.CourseWare(this);
+      public com.amur.home.course.rpc.CourseServiceProto.CourseWare buildPartial() {
+        com.amur.home.course.rpc.CourseServiceProto.CourseWare result = new com.amur.home.course.rpc.CourseServiceProto.CourseWare(this);
         result.id_ = id_;
         result.courseId_ = courseId_;
         result.title_ = title_;
@@ -30773,16 +36548,16 @@ public final class Course {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.course.rpc.Course.CourseWare) {
-          return mergeFrom((com.amur.home.course.rpc.Course.CourseWare)other);
+        if (other instanceof com.amur.home.course.rpc.CourseServiceProto.CourseWare) {
+          return mergeFrom((com.amur.home.course.rpc.CourseServiceProto.CourseWare)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.amur.home.course.rpc.Course.CourseWare other) {
-        if (other == com.amur.home.course.rpc.Course.CourseWare.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.amur.home.course.rpc.CourseServiceProto.CourseWare other) {
+        if (other == com.amur.home.course.rpc.CourseServiceProto.CourseWare.getDefaultInstance()) return this;
         if (other.getId() != 0L) {
           setId(other.getId());
         }
@@ -30826,11 +36601,11 @@ public final class Course {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.amur.home.course.rpc.Course.CourseWare parsedMessage = null;
+        com.amur.home.course.rpc.CourseServiceProto.CourseWare parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.course.rpc.Course.CourseWare) e.getUnfinishedMessage();
+          parsedMessage = (com.amur.home.course.rpc.CourseServiceProto.CourseWare) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -31460,12 +37235,12 @@ public final class Course {
     }
 
     // @@protoc_insertion_point(class_scope:com.amur.home.course.rpc.CourseWare)
-    private static final com.amur.home.course.rpc.Course.CourseWare DEFAULT_INSTANCE;
+    private static final com.amur.home.course.rpc.CourseServiceProto.CourseWare DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.amur.home.course.rpc.Course.CourseWare();
+      DEFAULT_INSTANCE = new com.amur.home.course.rpc.CourseServiceProto.CourseWare();
     }
 
-    public static com.amur.home.course.rpc.Course.CourseWare getDefaultInstance() {
+    public static com.amur.home.course.rpc.CourseServiceProto.CourseWare getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -31490,12 +37265,52 @@ public final class Course {
     }
 
     @java.lang.Override
-    public com.amur.home.course.rpc.Course.CourseWare getDefaultInstanceForType() {
+    public com.amur.home.course.rpc.CourseServiceProto.CourseWare getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_SearchCoursesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_SearchCoursesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_course_rpc_SearchCoursesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_course_rpc_SearchCoursesResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor;
   private static final 
@@ -31726,425 +37541,502 @@ public final class Course {
   static {
     java.lang.String[] descriptorData = {
       "\n\014Course.proto\022\030com.amur.home.course.rpc" +
-      "\032\037google/protobuf/timestamp.proto\"(\n\024Cre" +
-      "ateCourseResponse\022\020\n\010courseId\030\001 \001(\003\"\'\n\023D" +
-      "eleteCourseRequest\022\020\n\010courseId\030\001 \001(\003\"\'\n\024" +
-      "DeleteCourseResponse\022\017\n\007success\030\001 \001(\010\"O\n" +
-      "\023UpdateCourseRequest\0228\n\ncourseInfo\030\001 \001(\013" +
-      "2$.com.amur.home.course.rpc.CourseInfo\"\'" +
-      "\n\024UpdateCourseResponse\022\017\n\007success\030\001 \001(\010\"" +
-      "*\n\030CreateCourseListResponse\022\016\n\006listId\030\001 " +
-      "\001(\003\")\n\027DeleteCourseListRequest\022\016\n\006listId" +
-      "\030\001 \001(\003\"+\n\030DeleteCourseListResponse\022\017\n\007su" +
-      "ccess\030\001 \001(\010\"S\n\027UpdateCourseListRequest\0228" +
-      "\n\ncourseList\030\001 \001(\0132$.com.amur.home.cours" +
-      "e.rpc.CourseList\"+\n\030UpdateCourseListResp" +
-      "onse\022\017\n\007success\030\001 \001(\010\"M\n\031UpdateCourseAcc" +
-      "essRequest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002" +
-      " \001(\003\022\016\n\006access\030\003 \001(\t\"-\n\032UpdateCourseAcce" +
-      "ssResponse\022\017\n\007success\030\001 \001(\010\"(\n\024GetCourse" +
-      "InfoRequest\022\020\n\010courseId\030\001 \001(\003\"Q\n\025GetCour" +
-      "seInfoResponse\0228\n\ncourseInfo\030\001 \001(\0132$.com" +
-      ".amur.home.course.rpc.CourseInfo\"D\n\021Rank" +
+      "\032\037google/protobuf/timestamp.proto\"J\n\031Lis" +
+      "tCourseByUserIdRequest\022\016\n\006userId\030\001 \001(\003\022\016" +
+      "\n\006offset\030\002 \001(\003\022\r\n\005limit\030\003 \001(\003\"V\n\032ListCou" +
+      "rseByUserIdResponse\0228\n\ncourseInfo\030\001 \003(\0132" +
+      "$.com.amur.home.course.rpc.CourseInfo\"J\n" +
+      "\031ListCourseByListIdRequest\022\016\n\006listId\030\001 \001" +
+      "(\003\022\016\n\006offset\030\002 \001(\003\022\r\n\005limit\030\003 \001(\003\"V\n\032Lis" +
+      "tCourseByListIdResponse\0228\n\ncourseInfo\030\001 " +
+      "\003(\0132$.com.amur.home.course.rpc.CourseInf" +
+      "o\"6\n\025ListAllCoursesRequest\022\016\n\006offset\030\001 \001" +
+      "(\003\022\r\n\005limit\030\002 \001(\003\"R\n\026ListAllCoursesRespo" +
+      "nse\0228\n\ncourseInfo\030\001 \003(\0132$.com.amur.home." +
+      "course.rpc.CourseInfo\"F\n\024SearchCoursesRe" +
+      "quest\022\017\n\007keyword\030\001 \001(\t\022\016\n\006offset\030\002 \001(\003\022\r" +
+      "\n\005limit\030\003 \001(\003\"Q\n\025SearchCoursesResponse\0228" +
+      "\n\ncourseInfo\030\001 \003(\0132$.com.amur.home.cours" +
+      "e.rpc.CourseInfo\"(\n\024CreateCourseResponse" +
+      "\022\020\n\010courseId\030\001 \001(\003\"\'\n\023DeleteCourseReques" +
+      "t\022\020\n\010courseId\030\001 \001(\003\"\'\n\024DeleteCourseRespo" +
+      "nse\022\017\n\007success\030\001 \001(\010\"O\n\023UpdateCourseRequ" +
+      "est\0228\n\ncourseInfo\030\001 \001(\0132$.com.amur.home." +
+      "course.rpc.CourseInfo\"\'\n\024UpdateCourseRes" +
+      "ponse\022\017\n\007success\030\001 \001(\010\"*\n\030CreateCourseLi" +
+      "stResponse\022\016\n\006listId\030\001 \001(\003\")\n\027DeleteCour" +
+      "seListRequest\022\016\n\006listId\030\001 \001(\003\"+\n\030DeleteC" +
+      "ourseListResponse\022\017\n\007success\030\001 \001(\010\"S\n\027Up" +
+      "dateCourseListRequest\0228\n\ncourseList\030\001 \001(" +
+      "\0132$.com.amur.home.course.rpc.CourseList\"" +
+      "+\n\030UpdateCourseListResponse\022\017\n\007success\030\001" +
+      " \001(\010\"M\n\031UpdateCourseAccessRequest\022\020\n\010cou" +
+      "rseId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\016\n\006access\030\003 " +
+      "\001(\t\"-\n\032UpdateCourseAccessResponse\022\017\n\007suc" +
+      "cess\030\001 \001(\010\"(\n\024GetCourseInfoRequest\022\020\n\010co" +
+      "urseId\030\001 \001(\003\"Q\n\025GetCourseInfoResponse\0228\n" +
+      "\ncourseInfo\030\001 \001(\0132$.com.amur.home.course" +
+      ".rpc.CourseInfo\"D\n\021RankCourseRequest\022\020\n\010" +
+      "courseId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\r\n\005score\030" +
+      "\003 \001(\001\"%\n\022RankCourseResponse\022\017\n\007success\030\001" +
+      " \001(\010\"\\\n\024UpdateCommentRequest\022\020\n\010courseId" +
+      "\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\021\n\tcommentId\030\003 \001(" +
+      "\003\022\017\n\007comment\030\004 \001(\t\"(\n\025UpdateCommentRespo" +
+      "nse\022\017\n\007success\030\001 \001(\010\"X\n\024CreateCommentReq" +
+      "uest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\r" +
+      "\n\005score\030\003 \001(\001\022\017\n\007comment\030\004 \001(\t\"(\n\025Create" +
+      "CommentResponse\022\017\n\007success\030\001 \001(\010\"5\n\021Like" +
       "CourseRequest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userI" +
-      "d\030\002 \001(\003\022\r\n\005score\030\003 \001(\001\"%\n\022RankCourseResp" +
-      "onse\022\017\n\007success\030\001 \001(\010\"I\n\024UpdateCommentRe" +
-      "quest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022" +
-      "\017\n\007comment\030\003 \001(\t\"(\n\025UpdateCommentRespons" +
-      "e\022\017\n\007success\030\001 \001(\010\"X\n\024CreateCommentReque" +
-      "st\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\r\n\005" +
-      "score\030\003 \001(\001\022\017\n\007comment\030\004 \001(\t\"(\n\025CreateCo" +
-      "mmentResponse\022\017\n\007success\030\001 \001(\010\"5\n\021LikeCo" +
-      "urseRequest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030" +
-      "\002 \001(\003\"%\n\022LikeCourseResponse\022\017\n\007success\030\001" +
-      " \001(\010\"4\n\020FavCourseRequest\022\020\n\010courseId\030\001 \001" +
-      "(\003\022\016\n\006userId\030\002 \001(\003\"$\n\021FavCourseResponse\022" +
-      "\017\n\007success\030\001 \001(\010\"C\n\035JoinCourseByShareTok" +
-      "enRequest\022\022\n\nshareToken\030\001 \001(\t\022\016\n\006userId\030" +
-      "\002 \001(\003\"2\n\036JoinCourseByShareTokenResponse\022" +
-      "\020\n\010courseId\030\001 \001(\003\"=\n\031GenerateShareTokenR" +
-      "equest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003" +
-      "\"0\n\032GenerateShareTokenResponse\022\022\n\nshareT" +
-      "oken\030\001 \001(\t\")\n\023GetShareInfoRequest\022\022\n\nsha" +
-      "reToken\030\001 \001(\t\"(\n\024GetShareInfoResponse\022\020\n" +
-      "\010courseId\030\001 \001(\003\"-\n\027DeleteShareTokenReque" +
-      "st\022\022\n\nshareToken\030\001 \001(\t\"+\n\030DeleteShareTok" +
-      "enResponse\022\017\n\007success\030\001 \001(\010\"4\n\020HasJoined" +
-      "Request\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 \001(" +
-      "\003\"&\n\021HasJoinedResponse\022\021\n\thasJoined\030\001 \001(" +
-      "\010\".\n\034ListShareInfoByUserIdRequest\022\016\n\006use" +
-      "rId\030\001 \001(\003\"[\n\035ListShareInfoByUserIdRespon" +
-      "se\022:\n\013courseShare\030\001 \003(\0132%.com.amur.home." +
-      "course.rpc.CourseShare\";\n\027CancelShareTok" +
-      "enRequest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 " +
-      "\001(\003\"+\n\030CancelShareTokenResponse\022\017\n\007succe" +
-      "ss\030\001 \001(\010\"\217\002\n\rCourseComment\022\n\n\002id\030\001 \001(\003\022\021" +
-      "\n\tcourse_id\030\002 \001(\003\022\017\n\007user_id\030\003 \001(\003\022\017\n\007co" +
-      "ntent\030\004 \001(\t\022\r\n\005reply\030\005 \001(\t\022\025\n\rreply_user" +
-      "_id\030\006 \001(\t\022\022\n\nreply_time\030\007 \001(\t\022\022\n\nlike_co" +
-      "unt\030\010 \001(\003\022\r\n\005score\030\t \001(\001\022/\n\013create_time\030" +
-      "\n \001(\0132\032.google.protobuf.Timestamp\022/\n\013upd" +
-      "ate_time\030\013 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\"\356\003\n\nCourseInfo\022\n\n\002id\030\001 \001(\003\022\017\n\007list_id" +
-      "\030\002 \001(\003\022\r\n\005title\030\003 \001(\t\022\023\n\013description\030\004 \001" +
-      "(\t\022\017\n\007home_id\030\005 \001(\003\022\021\n\tcover_url\030\006 \001(\t\022\023" +
-      "\n\013teacher_ids\030\007 \003(\003\022\023\n\013student_ids\030\010 \003(\003" +
-      "\022\021\n\tissue_ids\030\t \003(\003\022\016\n\006status\030\n \001(\t\022.\n\ns" +
-      "tart_time\030\013 \001(\0132\032.google.protobuf.Timest" +
-      "amp\022,\n\010end_time\030\014 \001(\0132\032.google.protobuf." +
-      "Timestamp\022\014\n\004open\030\r \001(\010\022\022\n\nlike_count\030\016 " +
-      "\001(\003\022\021\n\tfav_count\030\017 \001(\003\022\025\n\rcomment_count\030" +
-      "\020 \001(\003\022\r\n\005score\030\021 \001(\001\022\023\n\013score_count\030\022 \001(" +
-      "\003\022/\n\013create_time\030\023 \001(\0132\032.google.protobuf" +
-      ".Timestamp\022/\n\013update_time\030\024 \001(\0132\032.google" +
-      ".protobuf.Timestamp\"\267\001\n\022CourseJoinRelati" +
-      "on\022\n\n\002id\030\001 \001(\003\022\017\n\007user_id\030\002 \001(\003\022\017\n\007home_" +
-      "id\030\003 \001(\003\022\021\n\tcourse_id\030\004 \001(\003\022/\n\013create_ti" +
-      "me\030\005 \001(\0132\032.google.protobuf.Timestamp\022/\n\013" +
-      "update_time\030\006 \001(\0132\032.google.protobuf.Time" +
-      "stamp\"\344\001\n\nCourseList\022\n\n\002id\030\001 \001(\003\022\017\n\007home" +
-      "_id\030\002 \001(\003\022\022\n\ncourse_ids\030\003 \003(\003\022\r\n\005title\030\004" +
-      " \001(\t\022\023\n\013description\030\005 \001(\t\022\021\n\tcover_url\030\006" +
-      " \001(\t\022\014\n\004open\030\007 \001(\010\022/\n\013create_time\030\010 \001(\0132" +
-      "\032.google.protobuf.Timestamp\022/\n\013update_ti" +
-      "me\030\t \001(\0132\032.google.protobuf.Timestamp\"\351\001\n" +
-      "\013CourseShare\022\r\n\005token\030\001 \001(\t\022\021\n\tcourse_id" +
-      "\030\002 \001(\003\022\022\n\ninviter_id\030\003 \001(\003\022\021\n\tinvite_as\030" +
-      "\004 \001(\005\022/\n\013expire_time\030\005 \001(\0132\032.google.prot" +
-      "obuf.Timestamp\022/\n\013create_time\030\006 \001(\0132\032.go" +
-      "ogle.protobuf.Timestamp\022/\n\013update_time\030\007" +
-      " \001(\0132\032.google.protobuf.Timestamp\"\314\001\n\nCou" +
-      "rseWare\022\n\n\002id\030\001 \001(\003\022\021\n\tcourse_id\030\002 \001(\003\022\r" +
-      "\n\005title\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\014\n\004ic" +
-      "on\030\005 \001(\t\022\013\n\003url\030\006 \001(\t\022/\n\013create_time\030\007 \001" +
-      "(\0132\032.google.protobuf.Timestamp\022/\n\013update" +
-      "_time\030\010 \001(\0132\032.google.protobuf.Timestamp2" +
-      "\253\022\n\rCourseService\022d\n\014CreateCourse\022$.com." +
-      "amur.home.course.rpc.CourseInfo\032..com.am" +
-      "ur.home.course.rpc.CreateCourseResponse\022" +
-      "m\n\014DeleteCourse\022-.com.amur.home.course.r" +
-      "pc.DeleteCourseRequest\032..com.amur.home.c" +
-      "ourse.rpc.DeleteCourseResponse\022m\n\014Update" +
-      "Course\022-.com.amur.home.course.rpc.Update" +
-      "CourseRequest\032..com.amur.home.course.rpc" +
-      ".UpdateCourseResponse\022l\n\020CreateCourseLis" +
-      "t\022$.com.amur.home.course.rpc.CourseList\032" +
-      "2.com.amur.home.course.rpc.CreateCourseL" +
-      "istResponse\022y\n\020DeleteCourseList\0221.com.am" +
-      "ur.home.course.rpc.DeleteCourseListReque" +
-      "st\0322.com.amur.home.course.rpc.DeleteCour" +
-      "seListResponse\022y\n\020UpdateCourseList\0221.com" +
-      ".amur.home.course.rpc.UpdateCourseListRe" +
-      "quest\0322.com.amur.home.course.rpc.UpdateC" +
-      "ourseListResponse\022\177\n\022UpdateCourseAccess\022" +
-      "3.com.amur.home.course.rpc.UpdateCourseA" +
-      "ccessRequest\0324.com.amur.home.course.rpc." +
-      "UpdateCourseAccessResponse\022p\n\rGetCourseI" +
-      "nfo\022..com.amur.home.course.rpc.GetCourse" +
-      "InfoRequest\032/.com.amur.home.course.rpc.G" +
-      "etCourseInfoResponse\022g\n\nRankCourse\022+.com" +
-      ".amur.home.course.rpc.RankCourseRequest\032" +
-      ",.com.amur.home.course.rpc.RankCourseRes" +
-      "ponse\022p\n\rUpdateComment\022..com.amur.home.c" +
-      "ourse.rpc.UpdateCommentRequest\032/.com.amu" +
-      "r.home.course.rpc.UpdateCommentResponse\022" +
-      "p\n\rCreateComment\022..com.amur.home.course." +
-      "rpc.CreateCommentRequest\032/.com.amur.home" +
-      ".course.rpc.CreateCommentResponse\022g\n\nLik" +
-      "eCourse\022+.com.amur.home.course.rpc.LikeC" +
-      "ourseRequest\032,.com.amur.home.course.rpc." +
-      "LikeCourseResponse\022d\n\tFavCourse\022*.com.am" +
-      "ur.home.course.rpc.FavCourseRequest\032+.co" +
-      "m.amur.home.course.rpc.FavCourseResponse" +
-      "\022\213\001\n\026JoinCourseByShareToken\0227.com.amur.h" +
-      "ome.course.rpc.JoinCourseByShareTokenReq" +
-      "uest\0328.com.amur.home.course.rpc.JoinCour" +
-      "seByShareTokenResponse\022\177\n\022GenerateShareT" +
-      "oken\0223.com.amur.home.course.rpc.Generate" +
-      "ShareTokenRequest\0324.com.amur.home.course" +
-      ".rpc.GenerateShareTokenResponse\022m\n\014GetSh" +
-      "areInfo\022-.com.amur.home.course.rpc.GetSh" +
-      "areInfoRequest\032..com.amur.home.course.rp" +
-      "c.GetShareInfoResponse\022y\n\020DeleteShareTok" +
-      "en\0221.com.amur.home.course.rpc.DeleteShar" +
-      "eTokenRequest\0322.com.amur.home.course.rpc" +
-      ".DeleteShareTokenResponse\022d\n\tHasJoined\022*" +
-      ".com.amur.home.course.rpc.HasJoinedReque" +
-      "st\032+.com.amur.home.course.rpc.HasJoinedR" +
-      "esponse\022\210\001\n\025ListShareInfoByUserId\0226.com." +
-      "amur.home.course.rpc.ListShareInfoByUser" +
-      "IdRequest\0327.com.amur.home.course.rpc.Lis" +
-      "tShareInfoByUserIdResponse\022y\n\020CancelShar" +
-      "eToken\0221.com.amur.home.course.rpc.Cancel" +
-      "ShareTokenRequest\0322.com.amur.home.course" +
-      ".rpc.CancelShareTokenResponseB$\n\030com.amu" +
-      "r.home.course.rpcB\006CourseP\000b\006proto3"
+      "d\030\002 \001(\003\"%\n\022LikeCourseResponse\022\017\n\007success" +
+      "\030\001 \001(\010\"4\n\020FavCourseRequest\022\020\n\010courseId\030\001" +
+      " \001(\003\022\016\n\006userId\030\002 \001(\003\"$\n\021FavCourseRespons" +
+      "e\022\017\n\007success\030\001 \001(\010\"C\n\035JoinCourseByShareT" +
+      "okenRequest\022\022\n\nshareToken\030\001 \001(\t\022\016\n\006userI" +
+      "d\030\002 \001(\003\"2\n\036JoinCourseByShareTokenRespons" +
+      "e\022\020\n\010courseId\030\001 \001(\003\"=\n\031GenerateShareToke" +
+      "nRequest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 \001" +
+      "(\003\"0\n\032GenerateShareTokenResponse\022\022\n\nshar" +
+      "eToken\030\001 \001(\t\")\n\023GetShareInfoRequest\022\022\n\ns" +
+      "hareToken\030\001 \001(\t\"(\n\024GetShareInfoResponse\022" +
+      "\020\n\010courseId\030\001 \001(\003\"-\n\027DeleteShareTokenReq" +
+      "uest\022\022\n\nshareToken\030\001 \001(\t\"+\n\030DeleteShareT" +
+      "okenResponse\022\017\n\007success\030\001 \001(\010\"4\n\020HasJoin" +
+      "edRequest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030\002 " +
+      "\001(\003\"&\n\021HasJoinedResponse\022\021\n\thasJoined\030\001 " +
+      "\001(\010\".\n\034ListShareInfoByUserIdRequest\022\016\n\006u" +
+      "serId\030\001 \001(\003\"[\n\035ListShareInfoByUserIdResp" +
+      "onse\022:\n\013courseShare\030\001 \003(\0132%.com.amur.hom" +
+      "e.course.rpc.CourseShare\";\n\027CancelShareT" +
+      "okenRequest\022\020\n\010courseId\030\001 \001(\003\022\016\n\006userId\030" +
+      "\002 \001(\003\"+\n\030CancelShareTokenResponse\022\017\n\007suc" +
+      "cess\030\001 \001(\010\"\217\002\n\rCourseComment\022\n\n\002id\030\001 \001(\003" +
+      "\022\021\n\tcourse_id\030\002 \001(\003\022\017\n\007user_id\030\003 \001(\003\022\017\n\007" +
+      "content\030\004 \001(\t\022\r\n\005reply\030\005 \001(\t\022\025\n\rreply_us" +
+      "er_id\030\006 \001(\t\022\022\n\nreply_time\030\007 \001(\t\022\022\n\nlike_" +
+      "count\030\010 \001(\003\022\r\n\005score\030\t \001(\001\022/\n\013create_tim" +
+      "e\030\n \001(\0132\032.google.protobuf.Timestamp\022/\n\013u" +
+      "pdate_time\030\013 \001(\0132\032.google.protobuf.Times" +
+      "tamp\"\356\003\n\nCourseInfo\022\n\n\002id\030\001 \001(\003\022\017\n\007list_" +
+      "id\030\002 \001(\003\022\r\n\005title\030\003 \001(\t\022\023\n\013description\030\004" +
+      " \001(\t\022\017\n\007home_id\030\005 \001(\003\022\021\n\tcover_url\030\006 \001(\t" +
+      "\022\023\n\013teacher_ids\030\007 \003(\003\022\023\n\013student_ids\030\010 \003" +
+      "(\003\022\021\n\tissue_ids\030\t \003(\003\022\016\n\006status\030\n \001(\t\022.\n" +
+      "\nstart_time\030\013 \001(\0132\032.google.protobuf.Time" +
+      "stamp\022,\n\010end_time\030\014 \001(\0132\032.google.protobu" +
+      "f.Timestamp\022\014\n\004open\030\r \001(\010\022\022\n\nlike_count\030" +
+      "\016 \001(\003\022\021\n\tfav_count\030\017 \001(\003\022\025\n\rcomment_coun" +
+      "t\030\020 \001(\003\022\r\n\005score\030\021 \001(\001\022\023\n\013score_count\030\022 " +
+      "\001(\003\022/\n\013create_time\030\023 \001(\0132\032.google.protob" +
+      "uf.Timestamp\022/\n\013update_time\030\024 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\"\267\001\n\022CourseJoinRela" +
+      "tion\022\n\n\002id\030\001 \001(\003\022\017\n\007user_id\030\002 \001(\003\022\017\n\007hom" +
+      "e_id\030\003 \001(\003\022\021\n\tcourse_id\030\004 \001(\003\022/\n\013create_" +
+      "time\030\005 \001(\0132\032.google.protobuf.Timestamp\022/" +
+      "\n\013update_time\030\006 \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\"\344\001\n\nCourseList\022\n\n\002id\030\001 \001(\003\022\017\n\007ho" +
+      "me_id\030\002 \001(\003\022\022\n\ncourse_ids\030\003 \003(\003\022\r\n\005title" +
+      "\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\021\n\tcover_url" +
+      "\030\006 \001(\t\022\014\n\004open\030\007 \001(\010\022/\n\013create_time\030\010 \001(" +
+      "\0132\032.google.protobuf.Timestamp\022/\n\013update_" +
+      "time\030\t \001(\0132\032.google.protobuf.Timestamp\"\351" +
+      "\001\n\013CourseShare\022\r\n\005token\030\001 \001(\t\022\021\n\tcourse_" +
+      "id\030\002 \001(\003\022\022\n\ninviter_id\030\003 \001(\003\022\021\n\tinvite_a" +
+      "s\030\004 \001(\005\022/\n\013expire_time\030\005 \001(\0132\032.google.pr" +
+      "otobuf.Timestamp\022/\n\013create_time\030\006 \001(\0132\032." +
+      "google.protobuf.Timestamp\022/\n\013update_time" +
+      "\030\007 \001(\0132\032.google.protobuf.Timestamp\"\314\001\n\nC" +
+      "ourseWare\022\n\n\002id\030\001 \001(\003\022\021\n\tcourse_id\030\002 \001(\003" +
+      "\022\r\n\005title\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\014\n\004" +
+      "icon\030\005 \001(\t\022\013\n\003url\030\006 \001(\t\022/\n\013create_time\030\007" +
+      " \001(\0132\032.google.protobuf.Timestamp\022/\n\013upda" +
+      "te_time\030\010 \001(\0132\032.google.protobuf.Timestam" +
+      "p2\224\026\n\rCourseService\022d\n\014CreateCourse\022$.co" +
+      "m.amur.home.course.rpc.CourseInfo\032..com." +
+      "amur.home.course.rpc.CreateCourseRespons" +
+      "e\022m\n\014DeleteCourse\022-.com.amur.home.course" +
+      ".rpc.DeleteCourseRequest\032..com.amur.home" +
+      ".course.rpc.DeleteCourseResponse\022m\n\014Upda" +
+      "teCourse\022-.com.amur.home.course.rpc.Upda" +
+      "teCourseRequest\032..com.amur.home.course.r" +
+      "pc.UpdateCourseResponse\022l\n\020CreateCourseL" +
+      "ist\022$.com.amur.home.course.rpc.CourseLis" +
+      "t\0322.com.amur.home.course.rpc.CreateCours" +
+      "eListResponse\022y\n\020DeleteCourseList\0221.com." +
+      "amur.home.course.rpc.DeleteCourseListReq" +
+      "uest\0322.com.amur.home.course.rpc.DeleteCo" +
+      "urseListResponse\022y\n\020UpdateCourseList\0221.c" +
+      "om.amur.home.course.rpc.UpdateCourseList" +
+      "Request\0322.com.amur.home.course.rpc.Updat" +
+      "eCourseListResponse\022\177\n\022UpdateCourseAcces" +
+      "s\0223.com.amur.home.course.rpc.UpdateCours" +
+      "eAccessRequest\0324.com.amur.home.course.rp" +
+      "c.UpdateCourseAccessResponse\022p\n\rGetCours" +
+      "eInfo\022..com.amur.home.course.rpc.GetCour" +
+      "seInfoRequest\032/.com.amur.home.course.rpc" +
+      ".GetCourseInfoResponse\022g\n\nRankCourse\022+.c" +
+      "om.amur.home.course.rpc.RankCourseReques" +
+      "t\032,.com.amur.home.course.rpc.RankCourseR" +
+      "esponse\022p\n\rUpdateComment\022..com.amur.home" +
+      ".course.rpc.UpdateCommentRequest\032/.com.a" +
+      "mur.home.course.rpc.UpdateCommentRespons" +
+      "e\022p\n\rCreateComment\022..com.amur.home.cours" +
+      "e.rpc.CreateCommentRequest\032/.com.amur.ho" +
+      "me.course.rpc.CreateCommentResponse\022g\n\nL" +
+      "ikeCourse\022+.com.amur.home.course.rpc.Lik" +
+      "eCourseRequest\032,.com.amur.home.course.rp" +
+      "c.LikeCourseResponse\022d\n\tFavCourse\022*.com." +
+      "amur.home.course.rpc.FavCourseRequest\032+." +
+      "com.amur.home.course.rpc.FavCourseRespon" +
+      "se\022\213\001\n\026JoinCourseByShareToken\0227.com.amur" +
+      ".home.course.rpc.JoinCourseByShareTokenR" +
+      "equest\0328.com.amur.home.course.rpc.JoinCo" +
+      "urseByShareTokenResponse\022\177\n\022GenerateShar" +
+      "eToken\0223.com.amur.home.course.rpc.Genera" +
+      "teShareTokenRequest\0324.com.amur.home.cour" +
+      "se.rpc.GenerateShareTokenResponse\022m\n\014Get" +
+      "ShareInfo\022-.com.amur.home.course.rpc.Get" +
+      "ShareInfoRequest\032..com.amur.home.course." +
+      "rpc.GetShareInfoResponse\022y\n\020DeleteShareT" +
+      "oken\0221.com.amur.home.course.rpc.DeleteSh" +
+      "areTokenRequest\0322.com.amur.home.course.r" +
+      "pc.DeleteShareTokenResponse\022d\n\tHasJoined" +
+      "\022*.com.amur.home.course.rpc.HasJoinedReq" +
+      "uest\032+.com.amur.home.course.rpc.HasJoine" +
+      "dResponse\022\210\001\n\025ListShareInfoByUserId\0226.co" +
+      "m.amur.home.course.rpc.ListShareInfoByUs" +
+      "erIdRequest\0327.com.amur.home.course.rpc.L" +
+      "istShareInfoByUserIdResponse\022y\n\020CancelSh" +
+      "areToken\0221.com.amur.home.course.rpc.Canc" +
+      "elShareTokenRequest\0322.com.amur.home.cour" +
+      "se.rpc.CancelShareTokenResponse\022p\n\rSearc" +
+      "hCourses\022..com.amur.home.course.rpc.Sear" +
+      "chCoursesRequest\032/.com.amur.home.course." +
+      "rpc.SearchCoursesResponse\022s\n\016ListAllCour" +
+      "ses\022/.com.amur.home.course.rpc.ListAllCo" +
+      "ursesRequest\0320.com.amur.home.course.rpc." +
+      "ListAllCoursesResponse\022\177\n\022ListCourseByUs" +
+      "erId\0223.com.amur.home.course.rpc.ListCour" +
+      "seByUserIdRequest\0324.com.amur.home.course" +
+      ".rpc.ListCourseByUserIdResponse\022\177\n\022ListC" +
+      "ourseByListId\0223.com.amur.home.course.rpc" +
+      ".ListCourseByListIdRequest\0324.com.amur.ho" +
+      "me.course.rpc.ListCourseByListIdResponse" +
+      "B0\n\030com.amur.home.course.rpcB\022CourseServ" +
+      "iceProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
-    internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor =
+    internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_ListCourseByUserIdRequest_descriptor,
+        new java.lang.String[] { "UserId", "Offset", "Limit", });
+    internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_ListCourseByUserIdResponse_descriptor,
+        new java.lang.String[] { "CourseInfo", });
+    internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_ListCourseByListIdRequest_descriptor,
+        new java.lang.String[] { "ListId", "Offset", "Limit", });
+    internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_ListCourseByListIdResponse_descriptor,
+        new java.lang.String[] { "CourseInfo", });
+    internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_ListAllCoursesRequest_descriptor,
+        new java.lang.String[] { "Offset", "Limit", });
+    internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_ListAllCoursesResponse_descriptor,
+        new java.lang.String[] { "CourseInfo", });
+    internal_static_com_amur_home_course_rpc_SearchCoursesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_amur_home_course_rpc_SearchCoursesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_SearchCoursesRequest_descriptor,
+        new java.lang.String[] { "Keyword", "Offset", "Limit", });
+    internal_static_com_amur_home_course_rpc_SearchCoursesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_com_amur_home_course_rpc_SearchCoursesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_course_rpc_SearchCoursesResponse_descriptor,
+        new java.lang.String[] { "CourseInfo", });
+    internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_amur_home_course_rpc_CreateCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CreateCourseResponse_descriptor,
         new java.lang.String[] { "CourseId", });
     internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_amur_home_course_rpc_DeleteCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_DeleteCourseRequest_descriptor,
         new java.lang.String[] { "CourseId", });
     internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_amur_home_course_rpc_DeleteCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_DeleteCourseResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_amur_home_course_rpc_UpdateCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCourseRequest_descriptor,
         new java.lang.String[] { "CourseInfo", });
     internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_amur_home_course_rpc_UpdateCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCourseResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_amur_home_course_rpc_CreateCourseListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CreateCourseListResponse_descriptor,
         new java.lang.String[] { "ListId", });
     internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_DeleteCourseListRequest_descriptor,
         new java.lang.String[] { "ListId", });
     internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_DeleteCourseListResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCourseListRequest_descriptor,
         new java.lang.String[] { "CourseList", });
     internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCourseListResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCourseAccessRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", "Access", });
     internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCourseAccessResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_GetCourseInfoRequest_descriptor,
         new java.lang.String[] { "CourseId", });
     internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_GetCourseInfoResponse_descriptor,
         new java.lang.String[] { "CourseInfo", });
     internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_com_amur_home_course_rpc_RankCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_RankCourseRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", "Score", });
     internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_com_amur_home_course_rpc_RankCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_RankCourseResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_com_amur_home_course_rpc_UpdateCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCommentRequest_descriptor,
-        new java.lang.String[] { "CourseId", "UserId", "Comment", });
+        new java.lang.String[] { "CourseId", "UserId", "CommentId", "Comment", });
     internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_com_amur_home_course_rpc_UpdateCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_UpdateCommentResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_com_amur_home_course_rpc_CreateCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CreateCommentRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", "Score", "Comment", });
     internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_com_amur_home_course_rpc_CreateCommentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CreateCommentResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_com_amur_home_course_rpc_LikeCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_LikeCourseRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", });
     internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_com_amur_home_course_rpc_LikeCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_LikeCourseResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_com_amur_home_course_rpc_FavCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_FavCourseRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", });
     internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_com_amur_home_course_rpc_FavCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_FavCourseResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenRequest_descriptor,
         new java.lang.String[] { "ShareToken", "UserId", });
     internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_JoinCourseByShareTokenResponse_descriptor,
         new java.lang.String[] { "CourseId", });
     internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_GenerateShareTokenRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", });
     internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_GenerateShareTokenResponse_descriptor,
         new java.lang.String[] { "ShareToken", });
     internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_com_amur_home_course_rpc_GetShareInfoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_GetShareInfoRequest_descriptor,
         new java.lang.String[] { "ShareToken", });
     internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_com_amur_home_course_rpc_GetShareInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_GetShareInfoResponse_descriptor,
         new java.lang.String[] { "CourseId", });
     internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_DeleteShareTokenRequest_descriptor,
         new java.lang.String[] { "ShareToken", });
     internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_DeleteShareTokenResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_com_amur_home_course_rpc_HasJoinedRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_HasJoinedRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", });
     internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_com_amur_home_course_rpc_HasJoinedResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_HasJoinedResponse_descriptor,
         new java.lang.String[] { "HasJoined", });
     internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_ListShareInfoByUserIdResponse_descriptor,
         new java.lang.String[] { "CourseShare", });
     internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CancelShareTokenRequest_descriptor,
         new java.lang.String[] { "CourseId", "UserId", });
     internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CancelShareTokenResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_com_amur_home_course_rpc_CourseComment_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_com_amur_home_course_rpc_CourseComment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CourseComment_descriptor,
         new java.lang.String[] { "Id", "CourseId", "UserId", "Content", "Reply", "ReplyUserId", "ReplyTime", "LikeCount", "Score", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_course_rpc_CourseInfo_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_com_amur_home_course_rpc_CourseInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CourseInfo_descriptor,
         new java.lang.String[] { "Id", "ListId", "Title", "Description", "HomeId", "CoverUrl", "TeacherIds", "StudentIds", "IssueIds", "Status", "StartTime", "EndTime", "Open", "LikeCount", "FavCount", "CommentCount", "Score", "ScoreCount", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_com_amur_home_course_rpc_CourseJoinRelation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor,
         new java.lang.String[] { "Id", "UserId", "HomeId", "CourseId", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_course_rpc_CourseList_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_com_amur_home_course_rpc_CourseList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CourseList_descriptor,
         new java.lang.String[] { "Id", "HomeId", "CourseIds", "Title", "Description", "CoverUrl", "Open", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_course_rpc_CourseShare_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_com_amur_home_course_rpc_CourseShare_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CourseShare_descriptor,
         new java.lang.String[] { "Token", "CourseId", "InviterId", "InviteAs", "ExpireTime", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_course_rpc_CourseWare_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_com_amur_home_course_rpc_CourseWare_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CourseWare_descriptor,

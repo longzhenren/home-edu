@@ -22,9 +22,12 @@ public class HomeServiceImpl implements HomeService {
     @Resource
     private UserMapper userMapper;
 
+
     /**
-     * @param homeId
-     * @return
+     * 根据家庭ID获取家庭信息
+     *
+     * @param homeId 家庭ID
+     * @return 家庭信息
      */
     @Override
     public HomeEntity getHomeInfo(Long homeId) {
@@ -32,7 +35,9 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @return
+     * 获取家庭列表
+     *
+     * @return 家庭列表
      */
     @Override
     public List<HomeEntity> getHomeList() {
@@ -40,8 +45,10 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @param homeEntity
-     * @return
+     * 创建家庭
+     *
+     * @param homeEntity 家庭信息
+     * @return 家庭ID
      */
     @Override
     public Long createHome(HomeEntity homeEntity) {
@@ -50,8 +57,10 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @param homeEntity
-     * @return
+     * 更新家庭信息
+     *
+     * @param homeEntity 家庭信息
+     * @return 是否更新成功
      */
     @Override
     public boolean updateHome(HomeEntity homeEntity) {
@@ -59,8 +68,10 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @param homeId
-     * @return
+     * 根据家庭ID删除家庭
+     *
+     * @param homeId 家庭ID
+     * @return 是否删除成功
      */
     @Override
     public boolean deleteHome(Long homeId) {
@@ -68,8 +79,10 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @param homeId
-     * @return
+     * 根据家庭ID获取家庭用户列表
+     *
+     * @param homeId 家庭ID
+     * @return 家庭用户列表
      */
     @Override
     public List<UserEntity> getHomeUserList(Long homeId) {
@@ -82,9 +95,11 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @param homeId
-     * @param userId
-     * @return
+     * 更新家庭用户
+     *
+     * @param homeId 家庭ID
+     * @param userId 用户ID
+     * @return 是否更新成功
      */
     @Override
     public boolean updateHomeUser(Long homeId, Long userId) {
@@ -97,9 +112,11 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @param homeId
-     * @param userId
-     * @return
+     * 删除家庭用户
+     *
+     * @param homeId 家庭ID
+     * @param userId 用户ID
+     * @return 是否删除成功
      */
     @Override
     public boolean deleteHomeUser(Long homeId, Long userId) {
@@ -112,9 +129,11 @@ public class HomeServiceImpl implements HomeService {
     }
 
     /**
-     * @param homeId
-     * @param userId
-     * @return
+     * 设置家庭管理员
+     *
+     * @param homeId 家庭ID
+     * @param userId 用户ID
+     * @return 是否设置成功
      */
     @Override
     public boolean setHomeAdmin(Long homeId, Long userId) {

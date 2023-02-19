@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 
 option java_package = "com.amur.home.course.rpc";
 option java_multiple_files = false;
-option java_outer_classname = "Course";
+option java_outer_classname = "CourseServiceProto";
 
 service CourseService {
   rpc CreateCourse(CourseInfo) returns (CreateCourseResponse);
@@ -29,7 +29,46 @@ service CourseService {
   rpc HasJoined(HasJoinedRequest) returns (HasJoinedResponse);
   rpc ListShareInfoByUserId(ListShareInfoByUserIdRequest) returns (ListShareInfoByUserIdResponse);
   rpc CancelShareToken(CancelShareTokenRequest) returns (CancelShareTokenResponse);
+  rpc SearchCourses(SearchCoursesRequest) returns (SearchCoursesResponse);
+  rpc ListAllCourses(ListAllCoursesRequest) returns (ListAllCoursesResponse);
+  rpc ListCourseByUserId(ListCourseByUserIdRequest) returns (ListCourseByUserIdResponse);
+  rpc ListCourseByListId(ListCourseByListIdRequest) returns (ListCourseByListIdResponse);
 }
+message ListCourseByUserIdRequest {
+  int64 userId = 1;
+  int64 offset = 2;
+  int64 limit = 3;
+}
+message ListCourseByUserIdResponse {
+  repeated CourseInfo courseInfo = 1;
+}
+
+message ListCourseByListIdRequest {
+  int64 listId = 1;
+  int64 offset = 2;
+  int64 limit = 3;
+}
+message ListCourseByListIdResponse {
+  repeated CourseInfo courseInfo = 1;
+}
+
+message ListAllCoursesRequest {
+  int64 offset = 1;
+  int64 limit = 2;
+}
+message ListAllCoursesResponse {
+  repeated CourseInfo courseInfo = 1;
+}
+
+message SearchCoursesRequest {
+  string keyword = 1;
+  int64 offset = 2;
+  int64 limit = 3;
+}
+message SearchCoursesResponse {
+  repeated CourseInfo courseInfo = 1;
+}
+
 message CreateCourseResponse {
   int64 courseId = 1;
 }
@@ -101,7 +140,8 @@ message RankCourseResponse {
 message UpdateCommentRequest {
   int64 courseId = 1;
   int64 userId = 2;
-  string comment = 3;
+  int64 commentId = 3;
+  string comment = 4;
 }
 
 message UpdateCommentResponse {

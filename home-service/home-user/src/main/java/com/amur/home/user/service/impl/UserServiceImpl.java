@@ -17,8 +17,10 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     /**
-     * @param userId
-     * @return
+     * 根据用户 ID 获取用户信息。
+     *
+     * @param userId 用户 ID。
+     * @return 用户实体对象。
      */
     @Override
     public UserEntity getUserInfo(Long userId) {
@@ -26,8 +28,10 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * @param userEntity
-     * @return
+     * 更新用户信息。
+     *
+     * @param userEntity 用户实体对象。
+     * @return 如果更新成功，返回 true；否则，返回 false。
      */
     @Override
     public boolean updateUser(UserEntity userEntity) {
@@ -35,8 +39,10 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * @param userId
-     * @return
+     * 删除用户。
+     *
+     * @param userId 用户 ID。
+     * @return 如果删除成功，返回 true；否则，返回 false。
      */
     @Override
     public boolean deleteUser(Long userId) {
@@ -44,8 +50,10 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * @param userEntity
-     * @return
+     * 创建用户。
+     *
+     * @param userEntity 用户实体对象。
+     * @return 新创建的用户的 ID。
      */
     @Override
     public Long createUser(UserEntity userEntity) {
@@ -53,6 +61,12 @@ public class UserServiceImpl implements UserService {
         return userEntity.getId();
     }
 
+    /**
+     * 根据用户名获取用户信息。
+     *
+     * @param username 用户名。
+     * @return 用户实体对象。
+     */
     @Override
     public UserEntity getUserByName(String username) {
         QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
@@ -60,10 +74,18 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectOne(queryWrapper);
     }
 
+    /**
+     * 更新用户密码。
+     *
+     * @param userId      用户 ID。
+     * @param oldPassword 旧密码。
+     * @param newPassword 新密码。
+     * @return 如果更新成功，返回 true；否则，返回 false。
+     */
     @Override
     public boolean updatePassword(Long userId, String oldPassword, String newPassword) {
         UserEntity userEntity = userMapper.selectById(userId);
-        if(userEntity == null) {
+        if (userEntity == null) {
             return false;
         }
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

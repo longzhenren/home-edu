@@ -15,29 +15,29 @@ public final class CourseServiceGrpc {
   public static final String SERVICE_NAME = "com.amur.home.course.rpc.CourseService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CourseInfo,
-      com.amur.home.course.rpc.Course.CreateCourseResponse> getCreateCourseMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CourseInfo,
+      com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse> getCreateCourseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateCourse",
-      requestType = com.amur.home.course.rpc.Course.CourseInfo.class,
-      responseType = com.amur.home.course.rpc.Course.CreateCourseResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.CourseInfo.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CourseInfo,
-      com.amur.home.course.rpc.Course.CreateCourseResponse> getCreateCourseMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CreateCourseResponse> getCreateCourseMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CourseInfo,
+      com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse> getCreateCourseMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse> getCreateCourseMethod;
     if ((getCreateCourseMethod = CourseServiceGrpc.getCreateCourseMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getCreateCourseMethod = CourseServiceGrpc.getCreateCourseMethod) == null) {
           CourseServiceGrpc.getCreateCourseMethod = getCreateCourseMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.CourseInfo, com.amur.home.course.rpc.Course.CreateCourseResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.CourseInfo, com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateCourse"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CourseInfo.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CourseInfo.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CreateCourseResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("CreateCourse"))
               .build();
         }
@@ -46,29 +46,29 @@ public final class CourseServiceGrpc {
     return getCreateCourseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteCourseRequest,
-      com.amur.home.course.rpc.Course.DeleteCourseResponse> getDeleteCourseMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse> getDeleteCourseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteCourse",
-      requestType = com.amur.home.course.rpc.Course.DeleteCourseRequest.class,
-      responseType = com.amur.home.course.rpc.Course.DeleteCourseResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteCourseRequest,
-      com.amur.home.course.rpc.Course.DeleteCourseResponse> getDeleteCourseMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteCourseRequest, com.amur.home.course.rpc.Course.DeleteCourseResponse> getDeleteCourseMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse> getDeleteCourseMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse> getDeleteCourseMethod;
     if ((getDeleteCourseMethod = CourseServiceGrpc.getDeleteCourseMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getDeleteCourseMethod = CourseServiceGrpc.getDeleteCourseMethod) == null) {
           CourseServiceGrpc.getDeleteCourseMethod = getDeleteCourseMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.DeleteCourseRequest, com.amur.home.course.rpc.Course.DeleteCourseResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteCourse"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.DeleteCourseRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.DeleteCourseResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("DeleteCourse"))
               .build();
         }
@@ -77,29 +77,29 @@ public final class CourseServiceGrpc {
     return getDeleteCourseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseRequest,
-      com.amur.home.course.rpc.Course.UpdateCourseResponse> getUpdateCourseMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse> getUpdateCourseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateCourse",
-      requestType = com.amur.home.course.rpc.Course.UpdateCourseRequest.class,
-      responseType = com.amur.home.course.rpc.Course.UpdateCourseResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseRequest,
-      com.amur.home.course.rpc.Course.UpdateCourseResponse> getUpdateCourseMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseRequest, com.amur.home.course.rpc.Course.UpdateCourseResponse> getUpdateCourseMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse> getUpdateCourseMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse> getUpdateCourseMethod;
     if ((getUpdateCourseMethod = CourseServiceGrpc.getUpdateCourseMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getUpdateCourseMethod = CourseServiceGrpc.getUpdateCourseMethod) == null) {
           CourseServiceGrpc.getUpdateCourseMethod = getUpdateCourseMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.UpdateCourseRequest, com.amur.home.course.rpc.Course.UpdateCourseResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateCourse"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCourseRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCourseResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("UpdateCourse"))
               .build();
         }
@@ -108,29 +108,29 @@ public final class CourseServiceGrpc {
     return getUpdateCourseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CourseList,
-      com.amur.home.course.rpc.Course.CreateCourseListResponse> getCreateCourseListMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CourseList,
+      com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse> getCreateCourseListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateCourseList",
-      requestType = com.amur.home.course.rpc.Course.CourseList.class,
-      responseType = com.amur.home.course.rpc.Course.CreateCourseListResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.CourseList.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CourseList,
-      com.amur.home.course.rpc.Course.CreateCourseListResponse> getCreateCourseListMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CourseList, com.amur.home.course.rpc.Course.CreateCourseListResponse> getCreateCourseListMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CourseList,
+      com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse> getCreateCourseListMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CourseList, com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse> getCreateCourseListMethod;
     if ((getCreateCourseListMethod = CourseServiceGrpc.getCreateCourseListMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getCreateCourseListMethod = CourseServiceGrpc.getCreateCourseListMethod) == null) {
           CourseServiceGrpc.getCreateCourseListMethod = getCreateCourseListMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.CourseList, com.amur.home.course.rpc.Course.CreateCourseListResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.CourseList, com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateCourseList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CourseList.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CourseList.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CreateCourseListResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("CreateCourseList"))
               .build();
         }
@@ -139,29 +139,29 @@ public final class CourseServiceGrpc {
     return getCreateCourseListMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteCourseListRequest,
-      com.amur.home.course.rpc.Course.DeleteCourseListResponse> getDeleteCourseListMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest,
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse> getDeleteCourseListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteCourseList",
-      requestType = com.amur.home.course.rpc.Course.DeleteCourseListRequest.class,
-      responseType = com.amur.home.course.rpc.Course.DeleteCourseListResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteCourseListRequest,
-      com.amur.home.course.rpc.Course.DeleteCourseListResponse> getDeleteCourseListMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteCourseListRequest, com.amur.home.course.rpc.Course.DeleteCourseListResponse> getDeleteCourseListMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest,
+      com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse> getDeleteCourseListMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse> getDeleteCourseListMethod;
     if ((getDeleteCourseListMethod = CourseServiceGrpc.getDeleteCourseListMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getDeleteCourseListMethod = CourseServiceGrpc.getDeleteCourseListMethod) == null) {
           CourseServiceGrpc.getDeleteCourseListMethod = getDeleteCourseListMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.DeleteCourseListRequest, com.amur.home.course.rpc.Course.DeleteCourseListResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest, com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteCourseList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.DeleteCourseListRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.DeleteCourseListResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("DeleteCourseList"))
               .build();
         }
@@ -170,29 +170,29 @@ public final class CourseServiceGrpc {
     return getDeleteCourseListMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseListRequest,
-      com.amur.home.course.rpc.Course.UpdateCourseListResponse> getUpdateCourseListMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse> getUpdateCourseListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateCourseList",
-      requestType = com.amur.home.course.rpc.Course.UpdateCourseListRequest.class,
-      responseType = com.amur.home.course.rpc.Course.UpdateCourseListResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseListRequest,
-      com.amur.home.course.rpc.Course.UpdateCourseListResponse> getUpdateCourseListMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseListRequest, com.amur.home.course.rpc.Course.UpdateCourseListResponse> getUpdateCourseListMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse> getUpdateCourseListMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse> getUpdateCourseListMethod;
     if ((getUpdateCourseListMethod = CourseServiceGrpc.getUpdateCourseListMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getUpdateCourseListMethod = CourseServiceGrpc.getUpdateCourseListMethod) == null) {
           CourseServiceGrpc.getUpdateCourseListMethod = getUpdateCourseListMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.UpdateCourseListRequest, com.amur.home.course.rpc.Course.UpdateCourseListResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateCourseList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCourseListRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCourseListResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("UpdateCourseList"))
               .build();
         }
@@ -201,29 +201,29 @@ public final class CourseServiceGrpc {
     return getUpdateCourseListMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseAccessRequest,
-      com.amur.home.course.rpc.Course.UpdateCourseAccessResponse> getUpdateCourseAccessMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse> getUpdateCourseAccessMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateCourseAccess",
-      requestType = com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.class,
-      responseType = com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseAccessRequest,
-      com.amur.home.course.rpc.Course.UpdateCourseAccessResponse> getUpdateCourseAccessMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCourseAccessRequest, com.amur.home.course.rpc.Course.UpdateCourseAccessResponse> getUpdateCourseAccessMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse> getUpdateCourseAccessMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse> getUpdateCourseAccessMethod;
     if ((getUpdateCourseAccessMethod = CourseServiceGrpc.getUpdateCourseAccessMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getUpdateCourseAccessMethod = CourseServiceGrpc.getUpdateCourseAccessMethod) == null) {
           CourseServiceGrpc.getUpdateCourseAccessMethod = getUpdateCourseAccessMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.UpdateCourseAccessRequest, com.amur.home.course.rpc.Course.UpdateCourseAccessResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateCourseAccess"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCourseAccessRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCourseAccessResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("UpdateCourseAccess"))
               .build();
         }
@@ -232,29 +232,29 @@ public final class CourseServiceGrpc {
     return getUpdateCourseAccessMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GetCourseInfoRequest,
-      com.amur.home.course.rpc.Course.GetCourseInfoResponse> getGetCourseInfoMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest,
+      com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse> getGetCourseInfoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetCourseInfo",
-      requestType = com.amur.home.course.rpc.Course.GetCourseInfoRequest.class,
-      responseType = com.amur.home.course.rpc.Course.GetCourseInfoResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GetCourseInfoRequest,
-      com.amur.home.course.rpc.Course.GetCourseInfoResponse> getGetCourseInfoMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GetCourseInfoRequest, com.amur.home.course.rpc.Course.GetCourseInfoResponse> getGetCourseInfoMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest,
+      com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse> getGetCourseInfoMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest, com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse> getGetCourseInfoMethod;
     if ((getGetCourseInfoMethod = CourseServiceGrpc.getGetCourseInfoMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getGetCourseInfoMethod = CourseServiceGrpc.getGetCourseInfoMethod) == null) {
           CourseServiceGrpc.getGetCourseInfoMethod = getGetCourseInfoMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.GetCourseInfoRequest, com.amur.home.course.rpc.Course.GetCourseInfoResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest, com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetCourseInfo"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.GetCourseInfoRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.GetCourseInfoResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("GetCourseInfo"))
               .build();
         }
@@ -263,29 +263,29 @@ public final class CourseServiceGrpc {
     return getGetCourseInfoMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.RankCourseRequest,
-      com.amur.home.course.rpc.Course.RankCourseResponse> getRankCourseMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse> getRankCourseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "RankCourse",
-      requestType = com.amur.home.course.rpc.Course.RankCourseRequest.class,
-      responseType = com.amur.home.course.rpc.Course.RankCourseResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.RankCourseRequest,
-      com.amur.home.course.rpc.Course.RankCourseResponse> getRankCourseMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.RankCourseRequest, com.amur.home.course.rpc.Course.RankCourseResponse> getRankCourseMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse> getRankCourseMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest, com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse> getRankCourseMethod;
     if ((getRankCourseMethod = CourseServiceGrpc.getRankCourseMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getRankCourseMethod = CourseServiceGrpc.getRankCourseMethod) == null) {
           CourseServiceGrpc.getRankCourseMethod = getRankCourseMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.RankCourseRequest, com.amur.home.course.rpc.Course.RankCourseResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest, com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RankCourse"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.RankCourseRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.RankCourseResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("RankCourse"))
               .build();
         }
@@ -294,29 +294,29 @@ public final class CourseServiceGrpc {
     return getRankCourseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCommentRequest,
-      com.amur.home.course.rpc.Course.UpdateCommentResponse> getUpdateCommentMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse> getUpdateCommentMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateComment",
-      requestType = com.amur.home.course.rpc.Course.UpdateCommentRequest.class,
-      responseType = com.amur.home.course.rpc.Course.UpdateCommentResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCommentRequest,
-      com.amur.home.course.rpc.Course.UpdateCommentResponse> getUpdateCommentMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.UpdateCommentRequest, com.amur.home.course.rpc.Course.UpdateCommentResponse> getUpdateCommentMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest,
+      com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse> getUpdateCommentMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse> getUpdateCommentMethod;
     if ((getUpdateCommentMethod = CourseServiceGrpc.getUpdateCommentMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getUpdateCommentMethod = CourseServiceGrpc.getUpdateCommentMethod) == null) {
           CourseServiceGrpc.getUpdateCommentMethod = getUpdateCommentMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.UpdateCommentRequest, com.amur.home.course.rpc.Course.UpdateCommentResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest, com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateComment"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCommentRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.UpdateCommentResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("UpdateComment"))
               .build();
         }
@@ -325,29 +325,29 @@ public final class CourseServiceGrpc {
     return getUpdateCommentMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CreateCommentRequest,
-      com.amur.home.course.rpc.Course.CreateCommentResponse> getCreateCommentMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest,
+      com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse> getCreateCommentMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateComment",
-      requestType = com.amur.home.course.rpc.Course.CreateCommentRequest.class,
-      responseType = com.amur.home.course.rpc.Course.CreateCommentResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CreateCommentRequest,
-      com.amur.home.course.rpc.Course.CreateCommentResponse> getCreateCommentMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CreateCommentRequest, com.amur.home.course.rpc.Course.CreateCommentResponse> getCreateCommentMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest,
+      com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse> getCreateCommentMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest, com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse> getCreateCommentMethod;
     if ((getCreateCommentMethod = CourseServiceGrpc.getCreateCommentMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getCreateCommentMethod = CourseServiceGrpc.getCreateCommentMethod) == null) {
           CourseServiceGrpc.getCreateCommentMethod = getCreateCommentMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.CreateCommentRequest, com.amur.home.course.rpc.Course.CreateCommentResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest, com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateComment"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CreateCommentRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CreateCommentResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("CreateComment"))
               .build();
         }
@@ -356,29 +356,29 @@ public final class CourseServiceGrpc {
     return getCreateCommentMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.LikeCourseRequest,
-      com.amur.home.course.rpc.Course.LikeCourseResponse> getLikeCourseMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse> getLikeCourseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "LikeCourse",
-      requestType = com.amur.home.course.rpc.Course.LikeCourseRequest.class,
-      responseType = com.amur.home.course.rpc.Course.LikeCourseResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.LikeCourseRequest,
-      com.amur.home.course.rpc.Course.LikeCourseResponse> getLikeCourseMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.LikeCourseRequest, com.amur.home.course.rpc.Course.LikeCourseResponse> getLikeCourseMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse> getLikeCourseMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest, com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse> getLikeCourseMethod;
     if ((getLikeCourseMethod = CourseServiceGrpc.getLikeCourseMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getLikeCourseMethod = CourseServiceGrpc.getLikeCourseMethod) == null) {
           CourseServiceGrpc.getLikeCourseMethod = getLikeCourseMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.LikeCourseRequest, com.amur.home.course.rpc.Course.LikeCourseResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest, com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "LikeCourse"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.LikeCourseRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.LikeCourseResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("LikeCourse"))
               .build();
         }
@@ -387,29 +387,29 @@ public final class CourseServiceGrpc {
     return getLikeCourseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.FavCourseRequest,
-      com.amur.home.course.rpc.Course.FavCourseResponse> getFavCourseMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse> getFavCourseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "FavCourse",
-      requestType = com.amur.home.course.rpc.Course.FavCourseRequest.class,
-      responseType = com.amur.home.course.rpc.Course.FavCourseResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.FavCourseRequest,
-      com.amur.home.course.rpc.Course.FavCourseResponse> getFavCourseMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.FavCourseRequest, com.amur.home.course.rpc.Course.FavCourseResponse> getFavCourseMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest,
+      com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse> getFavCourseMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest, com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse> getFavCourseMethod;
     if ((getFavCourseMethod = CourseServiceGrpc.getFavCourseMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getFavCourseMethod = CourseServiceGrpc.getFavCourseMethod) == null) {
           CourseServiceGrpc.getFavCourseMethod = getFavCourseMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.FavCourseRequest, com.amur.home.course.rpc.Course.FavCourseResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest, com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "FavCourse"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.FavCourseRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.FavCourseResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("FavCourse"))
               .build();
         }
@@ -418,29 +418,29 @@ public final class CourseServiceGrpc {
     return getFavCourseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest,
-      com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse> getJoinCourseByShareTokenMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse> getJoinCourseByShareTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "JoinCourseByShareToken",
-      requestType = com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.class,
-      responseType = com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest,
-      com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse> getJoinCourseByShareTokenMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest, com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse> getJoinCourseByShareTokenMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse> getJoinCourseByShareTokenMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse> getJoinCourseByShareTokenMethod;
     if ((getJoinCourseByShareTokenMethod = CourseServiceGrpc.getJoinCourseByShareTokenMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getJoinCourseByShareTokenMethod = CourseServiceGrpc.getJoinCourseByShareTokenMethod) == null) {
           CourseServiceGrpc.getJoinCourseByShareTokenMethod = getJoinCourseByShareTokenMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest, com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "JoinCourseByShareToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("JoinCourseByShareToken"))
               .build();
         }
@@ -449,29 +449,29 @@ public final class CourseServiceGrpc {
     return getJoinCourseByShareTokenMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GenerateShareTokenRequest,
-      com.amur.home.course.rpc.Course.GenerateShareTokenResponse> getGenerateShareTokenMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse> getGenerateShareTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GenerateShareToken",
-      requestType = com.amur.home.course.rpc.Course.GenerateShareTokenRequest.class,
-      responseType = com.amur.home.course.rpc.Course.GenerateShareTokenResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GenerateShareTokenRequest,
-      com.amur.home.course.rpc.Course.GenerateShareTokenResponse> getGenerateShareTokenMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GenerateShareTokenRequest, com.amur.home.course.rpc.Course.GenerateShareTokenResponse> getGenerateShareTokenMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse> getGenerateShareTokenMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse> getGenerateShareTokenMethod;
     if ((getGenerateShareTokenMethod = CourseServiceGrpc.getGenerateShareTokenMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getGenerateShareTokenMethod = CourseServiceGrpc.getGenerateShareTokenMethod) == null) {
           CourseServiceGrpc.getGenerateShareTokenMethod = getGenerateShareTokenMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.GenerateShareTokenRequest, com.amur.home.course.rpc.Course.GenerateShareTokenResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateShareToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.GenerateShareTokenRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.GenerateShareTokenResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("GenerateShareToken"))
               .build();
         }
@@ -480,29 +480,29 @@ public final class CourseServiceGrpc {
     return getGenerateShareTokenMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GetShareInfoRequest,
-      com.amur.home.course.rpc.Course.GetShareInfoResponse> getGetShareInfoMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest,
+      com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse> getGetShareInfoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetShareInfo",
-      requestType = com.amur.home.course.rpc.Course.GetShareInfoRequest.class,
-      responseType = com.amur.home.course.rpc.Course.GetShareInfoResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GetShareInfoRequest,
-      com.amur.home.course.rpc.Course.GetShareInfoResponse> getGetShareInfoMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.GetShareInfoRequest, com.amur.home.course.rpc.Course.GetShareInfoResponse> getGetShareInfoMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest,
+      com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse> getGetShareInfoMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest, com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse> getGetShareInfoMethod;
     if ((getGetShareInfoMethod = CourseServiceGrpc.getGetShareInfoMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getGetShareInfoMethod = CourseServiceGrpc.getGetShareInfoMethod) == null) {
           CourseServiceGrpc.getGetShareInfoMethod = getGetShareInfoMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.GetShareInfoRequest, com.amur.home.course.rpc.Course.GetShareInfoResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest, com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetShareInfo"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.GetShareInfoRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.GetShareInfoResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("GetShareInfo"))
               .build();
         }
@@ -511,29 +511,29 @@ public final class CourseServiceGrpc {
     return getGetShareInfoMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteShareTokenRequest,
-      com.amur.home.course.rpc.Course.DeleteShareTokenResponse> getDeleteShareTokenMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse> getDeleteShareTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteShareToken",
-      requestType = com.amur.home.course.rpc.Course.DeleteShareTokenRequest.class,
-      responseType = com.amur.home.course.rpc.Course.DeleteShareTokenResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteShareTokenRequest,
-      com.amur.home.course.rpc.Course.DeleteShareTokenResponse> getDeleteShareTokenMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.DeleteShareTokenRequest, com.amur.home.course.rpc.Course.DeleteShareTokenResponse> getDeleteShareTokenMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse> getDeleteShareTokenMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse> getDeleteShareTokenMethod;
     if ((getDeleteShareTokenMethod = CourseServiceGrpc.getDeleteShareTokenMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getDeleteShareTokenMethod = CourseServiceGrpc.getDeleteShareTokenMethod) == null) {
           CourseServiceGrpc.getDeleteShareTokenMethod = getDeleteShareTokenMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.DeleteShareTokenRequest, com.amur.home.course.rpc.Course.DeleteShareTokenResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteShareToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.DeleteShareTokenRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.DeleteShareTokenResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("DeleteShareToken"))
               .build();
         }
@@ -542,29 +542,29 @@ public final class CourseServiceGrpc {
     return getDeleteShareTokenMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.HasJoinedRequest,
-      com.amur.home.course.rpc.Course.HasJoinedResponse> getHasJoinedMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest,
+      com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse> getHasJoinedMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "HasJoined",
-      requestType = com.amur.home.course.rpc.Course.HasJoinedRequest.class,
-      responseType = com.amur.home.course.rpc.Course.HasJoinedResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.HasJoinedRequest,
-      com.amur.home.course.rpc.Course.HasJoinedResponse> getHasJoinedMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.HasJoinedRequest, com.amur.home.course.rpc.Course.HasJoinedResponse> getHasJoinedMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest,
+      com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse> getHasJoinedMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest, com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse> getHasJoinedMethod;
     if ((getHasJoinedMethod = CourseServiceGrpc.getHasJoinedMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getHasJoinedMethod = CourseServiceGrpc.getHasJoinedMethod) == null) {
           CourseServiceGrpc.getHasJoinedMethod = getHasJoinedMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.HasJoinedRequest, com.amur.home.course.rpc.Course.HasJoinedResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest, com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "HasJoined"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.HasJoinedRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.HasJoinedResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("HasJoined"))
               .build();
         }
@@ -573,29 +573,29 @@ public final class CourseServiceGrpc {
     return getHasJoinedMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest,
-      com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse> getListShareInfoByUserIdMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse> getListShareInfoByUserIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ListShareInfoByUserId",
-      requestType = com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.class,
-      responseType = com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest,
-      com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse> getListShareInfoByUserIdMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest, com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse> getListShareInfoByUserIdMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse> getListShareInfoByUserIdMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest, com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse> getListShareInfoByUserIdMethod;
     if ((getListShareInfoByUserIdMethod = CourseServiceGrpc.getListShareInfoByUserIdMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getListShareInfoByUserIdMethod = CourseServiceGrpc.getListShareInfoByUserIdMethod) == null) {
           CourseServiceGrpc.getListShareInfoByUserIdMethod = getListShareInfoByUserIdMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest, com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest, com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListShareInfoByUserId"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("ListShareInfoByUserId"))
               .build();
         }
@@ -604,35 +604,159 @@ public final class CourseServiceGrpc {
     return getListShareInfoByUserIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CancelShareTokenRequest,
-      com.amur.home.course.rpc.Course.CancelShareTokenResponse> getCancelShareTokenMethod;
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse> getCancelShareTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CancelShareToken",
-      requestType = com.amur.home.course.rpc.Course.CancelShareTokenRequest.class,
-      responseType = com.amur.home.course.rpc.Course.CancelShareTokenResponse.class,
+      requestType = com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CancelShareTokenRequest,
-      com.amur.home.course.rpc.Course.CancelShareTokenResponse> getCancelShareTokenMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.course.rpc.Course.CancelShareTokenRequest, com.amur.home.course.rpc.Course.CancelShareTokenResponse> getCancelShareTokenMethod;
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest,
+      com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse> getCancelShareTokenMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse> getCancelShareTokenMethod;
     if ((getCancelShareTokenMethod = CourseServiceGrpc.getCancelShareTokenMethod) == null) {
       synchronized (CourseServiceGrpc.class) {
         if ((getCancelShareTokenMethod = CourseServiceGrpc.getCancelShareTokenMethod) == null) {
           CourseServiceGrpc.getCancelShareTokenMethod = getCancelShareTokenMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.Course.CancelShareTokenRequest, com.amur.home.course.rpc.Course.CancelShareTokenResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest, com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CancelShareToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CancelShareTokenRequest.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.course.rpc.Course.CancelShareTokenResponse.getDefaultInstance()))
+                  com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse.getDefaultInstance()))
               .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("CancelShareToken"))
               .build();
         }
       }
     }
     return getCancelShareTokenMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest,
+      com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse> getSearchCoursesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SearchCourses",
+      requestType = com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest,
+      com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse> getSearchCoursesMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest, com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse> getSearchCoursesMethod;
+    if ((getSearchCoursesMethod = CourseServiceGrpc.getSearchCoursesMethod) == null) {
+      synchronized (CourseServiceGrpc.class) {
+        if ((getSearchCoursesMethod = CourseServiceGrpc.getSearchCoursesMethod) == null) {
+          CourseServiceGrpc.getSearchCoursesMethod = getSearchCoursesMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest, com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SearchCourses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("SearchCourses"))
+              .build();
+        }
+      }
+    }
+    return getSearchCoursesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse> getListAllCoursesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListAllCourses",
+      requestType = com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse> getListAllCoursesMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest, com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse> getListAllCoursesMethod;
+    if ((getListAllCoursesMethod = CourseServiceGrpc.getListAllCoursesMethod) == null) {
+      synchronized (CourseServiceGrpc.class) {
+        if ((getListAllCoursesMethod = CourseServiceGrpc.getListAllCoursesMethod) == null) {
+          CourseServiceGrpc.getListAllCoursesMethod = getListAllCoursesMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest, com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListAllCourses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("ListAllCourses"))
+              .build();
+        }
+      }
+    }
+    return getListAllCoursesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse> getListCourseByUserIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListCourseByUserId",
+      requestType = com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse> getListCourseByUserIdMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest, com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse> getListCourseByUserIdMethod;
+    if ((getListCourseByUserIdMethod = CourseServiceGrpc.getListCourseByUserIdMethod) == null) {
+      synchronized (CourseServiceGrpc.class) {
+        if ((getListCourseByUserIdMethod = CourseServiceGrpc.getListCourseByUserIdMethod) == null) {
+          CourseServiceGrpc.getListCourseByUserIdMethod = getListCourseByUserIdMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest, com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListCourseByUserId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("ListCourseByUserId"))
+              .build();
+        }
+      }
+    }
+    return getListCourseByUserIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse> getListCourseByListIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListCourseByListId",
+      requestType = com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.class,
+      responseType = com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest,
+      com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse> getListCourseByListIdMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest, com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse> getListCourseByListIdMethod;
+    if ((getListCourseByListIdMethod = CourseServiceGrpc.getListCourseByListIdMethod) == null) {
+      synchronized (CourseServiceGrpc.class) {
+        if ((getListCourseByListIdMethod = CourseServiceGrpc.getListCourseByListIdMethod) == null) {
+          CourseServiceGrpc.getListCourseByListIdMethod = getListCourseByListIdMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest, com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListCourseByListId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new CourseServiceMethodDescriptorSupplier("ListCourseByListId"))
+              .build();
+        }
+      }
+    }
+    return getListCourseByListIdMethod;
   }
 
   /**
@@ -685,142 +809,170 @@ public final class CourseServiceGrpc {
 
     /**
      */
-    public void createCourse(com.amur.home.course.rpc.Course.CourseInfo request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCourseResponse> responseObserver) {
+    public void createCourse(com.amur.home.course.rpc.CourseServiceProto.CourseInfo request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateCourseMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteCourse(com.amur.home.course.rpc.Course.DeleteCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteCourseResponse> responseObserver) {
+    public void deleteCourse(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteCourseMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateCourse(com.amur.home.course.rpc.Course.UpdateCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseResponse> responseObserver) {
+    public void updateCourse(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateCourseMethod(), responseObserver);
     }
 
     /**
      */
-    public void createCourseList(com.amur.home.course.rpc.Course.CourseList request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCourseListResponse> responseObserver) {
+    public void createCourseList(com.amur.home.course.rpc.CourseServiceProto.CourseList request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateCourseListMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteCourseList(com.amur.home.course.rpc.Course.DeleteCourseListRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteCourseListResponse> responseObserver) {
+    public void deleteCourseList(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteCourseListMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateCourseList(com.amur.home.course.rpc.Course.UpdateCourseListRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseListResponse> responseObserver) {
+    public void updateCourseList(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateCourseListMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateCourseAccess(com.amur.home.course.rpc.Course.UpdateCourseAccessRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseAccessResponse> responseObserver) {
+    public void updateCourseAccess(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateCourseAccessMethod(), responseObserver);
     }
 
     /**
      */
-    public void getCourseInfo(com.amur.home.course.rpc.Course.GetCourseInfoRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GetCourseInfoResponse> responseObserver) {
+    public void getCourseInfo(com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCourseInfoMethod(), responseObserver);
     }
 
     /**
      */
-    public void rankCourse(com.amur.home.course.rpc.Course.RankCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.RankCourseResponse> responseObserver) {
+    public void rankCourse(com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRankCourseMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateComment(com.amur.home.course.rpc.Course.UpdateCommentRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCommentResponse> responseObserver) {
+    public void updateComment(com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateCommentMethod(), responseObserver);
     }
 
     /**
      */
-    public void createComment(com.amur.home.course.rpc.Course.CreateCommentRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCommentResponse> responseObserver) {
+    public void createComment(com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateCommentMethod(), responseObserver);
     }
 
     /**
      */
-    public void likeCourse(com.amur.home.course.rpc.Course.LikeCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.LikeCourseResponse> responseObserver) {
+    public void likeCourse(com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getLikeCourseMethod(), responseObserver);
     }
 
     /**
      */
-    public void favCourse(com.amur.home.course.rpc.Course.FavCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.FavCourseResponse> responseObserver) {
+    public void favCourse(com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFavCourseMethod(), responseObserver);
     }
 
     /**
      */
-    public void joinCourseByShareToken(com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse> responseObserver) {
+    public void joinCourseByShareToken(com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getJoinCourseByShareTokenMethod(), responseObserver);
     }
 
     /**
      */
-    public void generateShareToken(com.amur.home.course.rpc.Course.GenerateShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GenerateShareTokenResponse> responseObserver) {
+    public void generateShareToken(com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateShareTokenMethod(), responseObserver);
     }
 
     /**
      */
-    public void getShareInfo(com.amur.home.course.rpc.Course.GetShareInfoRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GetShareInfoResponse> responseObserver) {
+    public void getShareInfo(com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetShareInfoMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteShareToken(com.amur.home.course.rpc.Course.DeleteShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteShareTokenResponse> responseObserver) {
+    public void deleteShareToken(com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteShareTokenMethod(), responseObserver);
     }
 
     /**
      */
-    public void hasJoined(com.amur.home.course.rpc.Course.HasJoinedRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.HasJoinedResponse> responseObserver) {
+    public void hasJoined(com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getHasJoinedMethod(), responseObserver);
     }
 
     /**
      */
-    public void listShareInfoByUserId(com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse> responseObserver) {
+    public void listShareInfoByUserId(com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListShareInfoByUserIdMethod(), responseObserver);
     }
 
     /**
      */
-    public void cancelShareToken(com.amur.home.course.rpc.Course.CancelShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CancelShareTokenResponse> responseObserver) {
+    public void cancelShareToken(com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCancelShareTokenMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void searchCourses(com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSearchCoursesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listAllCourses(com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAllCoursesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listCourseByUserId(com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListCourseByUserIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listCourseByListId(com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListCourseByListIdMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -829,142 +981,170 @@ public final class CourseServiceGrpc {
             getCreateCourseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.CourseInfo,
-                com.amur.home.course.rpc.Course.CreateCourseResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.CourseInfo,
+                com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse>(
                   this, METHODID_CREATE_COURSE)))
           .addMethod(
             getDeleteCourseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.DeleteCourseRequest,
-                com.amur.home.course.rpc.Course.DeleteCourseResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest,
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse>(
                   this, METHODID_DELETE_COURSE)))
           .addMethod(
             getUpdateCourseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.UpdateCourseRequest,
-                com.amur.home.course.rpc.Course.UpdateCourseResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest,
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse>(
                   this, METHODID_UPDATE_COURSE)))
           .addMethod(
             getCreateCourseListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.CourseList,
-                com.amur.home.course.rpc.Course.CreateCourseListResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.CourseList,
+                com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse>(
                   this, METHODID_CREATE_COURSE_LIST)))
           .addMethod(
             getDeleteCourseListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.DeleteCourseListRequest,
-                com.amur.home.course.rpc.Course.DeleteCourseListResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest,
+                com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse>(
                   this, METHODID_DELETE_COURSE_LIST)))
           .addMethod(
             getUpdateCourseListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.UpdateCourseListRequest,
-                com.amur.home.course.rpc.Course.UpdateCourseListResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest,
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse>(
                   this, METHODID_UPDATE_COURSE_LIST)))
           .addMethod(
             getUpdateCourseAccessMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.UpdateCourseAccessRequest,
-                com.amur.home.course.rpc.Course.UpdateCourseAccessResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest,
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse>(
                   this, METHODID_UPDATE_COURSE_ACCESS)))
           .addMethod(
             getGetCourseInfoMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.GetCourseInfoRequest,
-                com.amur.home.course.rpc.Course.GetCourseInfoResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest,
+                com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse>(
                   this, METHODID_GET_COURSE_INFO)))
           .addMethod(
             getRankCourseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.RankCourseRequest,
-                com.amur.home.course.rpc.Course.RankCourseResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest,
+                com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse>(
                   this, METHODID_RANK_COURSE)))
           .addMethod(
             getUpdateCommentMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.UpdateCommentRequest,
-                com.amur.home.course.rpc.Course.UpdateCommentResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest,
+                com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse>(
                   this, METHODID_UPDATE_COMMENT)))
           .addMethod(
             getCreateCommentMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.CreateCommentRequest,
-                com.amur.home.course.rpc.Course.CreateCommentResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest,
+                com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse>(
                   this, METHODID_CREATE_COMMENT)))
           .addMethod(
             getLikeCourseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.LikeCourseRequest,
-                com.amur.home.course.rpc.Course.LikeCourseResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest,
+                com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse>(
                   this, METHODID_LIKE_COURSE)))
           .addMethod(
             getFavCourseMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.FavCourseRequest,
-                com.amur.home.course.rpc.Course.FavCourseResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest,
+                com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse>(
                   this, METHODID_FAV_COURSE)))
           .addMethod(
             getJoinCourseByShareTokenMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest,
-                com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest,
+                com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse>(
                   this, METHODID_JOIN_COURSE_BY_SHARE_TOKEN)))
           .addMethod(
             getGenerateShareTokenMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.GenerateShareTokenRequest,
-                com.amur.home.course.rpc.Course.GenerateShareTokenResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest,
+                com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse>(
                   this, METHODID_GENERATE_SHARE_TOKEN)))
           .addMethod(
             getGetShareInfoMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.GetShareInfoRequest,
-                com.amur.home.course.rpc.Course.GetShareInfoResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest,
+                com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse>(
                   this, METHODID_GET_SHARE_INFO)))
           .addMethod(
             getDeleteShareTokenMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.DeleteShareTokenRequest,
-                com.amur.home.course.rpc.Course.DeleteShareTokenResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest,
+                com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse>(
                   this, METHODID_DELETE_SHARE_TOKEN)))
           .addMethod(
             getHasJoinedMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.HasJoinedRequest,
-                com.amur.home.course.rpc.Course.HasJoinedResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest,
+                com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse>(
                   this, METHODID_HAS_JOINED)))
           .addMethod(
             getListShareInfoByUserIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest,
-                com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest,
+                com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse>(
                   this, METHODID_LIST_SHARE_INFO_BY_USER_ID)))
           .addMethod(
             getCancelShareTokenMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.amur.home.course.rpc.Course.CancelShareTokenRequest,
-                com.amur.home.course.rpc.Course.CancelShareTokenResponse>(
+                com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest,
+                com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse>(
                   this, METHODID_CANCEL_SHARE_TOKEN)))
+          .addMethod(
+            getSearchCoursesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest,
+                com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse>(
+                  this, METHODID_SEARCH_COURSES)))
+          .addMethod(
+            getListAllCoursesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest,
+                com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse>(
+                  this, METHODID_LIST_ALL_COURSES)))
+          .addMethod(
+            getListCourseByUserIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest,
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse>(
+                  this, METHODID_LIST_COURSE_BY_USER_ID)))
+          .addMethod(
+            getListCourseByListIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest,
+                com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse>(
+                  this, METHODID_LIST_COURSE_BY_LIST_ID)))
           .build();
     }
   }
@@ -985,162 +1165,194 @@ public final class CourseServiceGrpc {
 
     /**
      */
-    public void createCourse(com.amur.home.course.rpc.Course.CourseInfo request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCourseResponse> responseObserver) {
+    public void createCourse(com.amur.home.course.rpc.CourseServiceProto.CourseInfo request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateCourseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void deleteCourse(com.amur.home.course.rpc.Course.DeleteCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteCourseResponse> responseObserver) {
+    public void deleteCourse(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteCourseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateCourse(com.amur.home.course.rpc.Course.UpdateCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseResponse> responseObserver) {
+    public void updateCourse(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateCourseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void createCourseList(com.amur.home.course.rpc.Course.CourseList request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCourseListResponse> responseObserver) {
+    public void createCourseList(com.amur.home.course.rpc.CourseServiceProto.CourseList request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateCourseListMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void deleteCourseList(com.amur.home.course.rpc.Course.DeleteCourseListRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteCourseListResponse> responseObserver) {
+    public void deleteCourseList(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteCourseListMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateCourseList(com.amur.home.course.rpc.Course.UpdateCourseListRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseListResponse> responseObserver) {
+    public void updateCourseList(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateCourseListMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateCourseAccess(com.amur.home.course.rpc.Course.UpdateCourseAccessRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseAccessResponse> responseObserver) {
+    public void updateCourseAccess(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateCourseAccessMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getCourseInfo(com.amur.home.course.rpc.Course.GetCourseInfoRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GetCourseInfoResponse> responseObserver) {
+    public void getCourseInfo(com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetCourseInfoMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void rankCourse(com.amur.home.course.rpc.Course.RankCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.RankCourseResponse> responseObserver) {
+    public void rankCourse(com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getRankCourseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateComment(com.amur.home.course.rpc.Course.UpdateCommentRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCommentResponse> responseObserver) {
+    public void updateComment(com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateCommentMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void createComment(com.amur.home.course.rpc.Course.CreateCommentRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCommentResponse> responseObserver) {
+    public void createComment(com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateCommentMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void likeCourse(com.amur.home.course.rpc.Course.LikeCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.LikeCourseResponse> responseObserver) {
+    public void likeCourse(com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getLikeCourseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void favCourse(com.amur.home.course.rpc.Course.FavCourseRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.FavCourseResponse> responseObserver) {
+    public void favCourse(com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFavCourseMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void joinCourseByShareToken(com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse> responseObserver) {
+    public void joinCourseByShareToken(com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getJoinCourseByShareTokenMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void generateShareToken(com.amur.home.course.rpc.Course.GenerateShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GenerateShareTokenResponse> responseObserver) {
+    public void generateShareToken(com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGenerateShareTokenMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getShareInfo(com.amur.home.course.rpc.Course.GetShareInfoRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GetShareInfoResponse> responseObserver) {
+    public void getShareInfo(com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetShareInfoMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void deleteShareToken(com.amur.home.course.rpc.Course.DeleteShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteShareTokenResponse> responseObserver) {
+    public void deleteShareToken(com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteShareTokenMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void hasJoined(com.amur.home.course.rpc.Course.HasJoinedRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.HasJoinedResponse> responseObserver) {
+    public void hasJoined(com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getHasJoinedMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void listShareInfoByUserId(com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse> responseObserver) {
+    public void listShareInfoByUserId(com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListShareInfoByUserIdMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void cancelShareToken(com.amur.home.course.rpc.Course.CancelShareTokenRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CancelShareTokenResponse> responseObserver) {
+    public void cancelShareToken(com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCancelShareTokenMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void searchCourses(com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSearchCoursesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listAllCourses(com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListAllCoursesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listCourseByUserId(com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListCourseByUserIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listCourseByListId(com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListCourseByListIdMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -1160,142 +1372,170 @@ public final class CourseServiceGrpc {
 
     /**
      */
-    public com.amur.home.course.rpc.Course.CreateCourseResponse createCourse(com.amur.home.course.rpc.Course.CourseInfo request) {
+    public com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse createCourse(com.amur.home.course.rpc.CourseServiceProto.CourseInfo request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateCourseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.DeleteCourseResponse deleteCourse(com.amur.home.course.rpc.Course.DeleteCourseRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse deleteCourse(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteCourseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.UpdateCourseResponse updateCourse(com.amur.home.course.rpc.Course.UpdateCourseRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse updateCourse(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateCourseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.CreateCourseListResponse createCourseList(com.amur.home.course.rpc.Course.CourseList request) {
+    public com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse createCourseList(com.amur.home.course.rpc.CourseServiceProto.CourseList request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateCourseListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.DeleteCourseListResponse deleteCourseList(com.amur.home.course.rpc.Course.DeleteCourseListRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse deleteCourseList(com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteCourseListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.UpdateCourseListResponse updateCourseList(com.amur.home.course.rpc.Course.UpdateCourseListRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse updateCourseList(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateCourseListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.UpdateCourseAccessResponse updateCourseAccess(com.amur.home.course.rpc.Course.UpdateCourseAccessRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse updateCourseAccess(com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateCourseAccessMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.GetCourseInfoResponse getCourseInfo(com.amur.home.course.rpc.Course.GetCourseInfoRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse getCourseInfo(com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetCourseInfoMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.RankCourseResponse rankCourse(com.amur.home.course.rpc.Course.RankCourseRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse rankCourse(com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRankCourseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.UpdateCommentResponse updateComment(com.amur.home.course.rpc.Course.UpdateCommentRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse updateComment(com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateCommentMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.CreateCommentResponse createComment(com.amur.home.course.rpc.Course.CreateCommentRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse createComment(com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateCommentMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.LikeCourseResponse likeCourse(com.amur.home.course.rpc.Course.LikeCourseRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse likeCourse(com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getLikeCourseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.FavCourseResponse favCourse(com.amur.home.course.rpc.Course.FavCourseRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse favCourse(com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFavCourseMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse joinCourseByShareToken(com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse joinCourseByShareToken(com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getJoinCourseByShareTokenMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.GenerateShareTokenResponse generateShareToken(com.amur.home.course.rpc.Course.GenerateShareTokenRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse generateShareToken(com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGenerateShareTokenMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.GetShareInfoResponse getShareInfo(com.amur.home.course.rpc.Course.GetShareInfoRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse getShareInfo(com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetShareInfoMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.DeleteShareTokenResponse deleteShareToken(com.amur.home.course.rpc.Course.DeleteShareTokenRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse deleteShareToken(com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteShareTokenMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.HasJoinedResponse hasJoined(com.amur.home.course.rpc.Course.HasJoinedRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse hasJoined(com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getHasJoinedMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse listShareInfoByUserId(com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse listShareInfoByUserId(com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListShareInfoByUserIdMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.course.rpc.Course.CancelShareTokenResponse cancelShareToken(com.amur.home.course.rpc.Course.CancelShareTokenRequest request) {
+    public com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse cancelShareToken(com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCancelShareTokenMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse searchCourses(com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSearchCoursesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse listAllCourses(com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListAllCoursesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse listCourseByUserId(com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListCourseByUserIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse listCourseByListId(com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListCourseByListIdMethod(), getCallOptions(), request);
     }
   }
 
@@ -1315,162 +1555,194 @@ public final class CourseServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.CreateCourseResponse> createCourse(
-        com.amur.home.course.rpc.Course.CourseInfo request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse> createCourse(
+        com.amur.home.course.rpc.CourseServiceProto.CourseInfo request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateCourseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.DeleteCourseResponse> deleteCourse(
-        com.amur.home.course.rpc.Course.DeleteCourseRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse> deleteCourse(
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteCourseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.UpdateCourseResponse> updateCourse(
-        com.amur.home.course.rpc.Course.UpdateCourseRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse> updateCourse(
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateCourseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.CreateCourseListResponse> createCourseList(
-        com.amur.home.course.rpc.Course.CourseList request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse> createCourseList(
+        com.amur.home.course.rpc.CourseServiceProto.CourseList request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateCourseListMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.DeleteCourseListResponse> deleteCourseList(
-        com.amur.home.course.rpc.Course.DeleteCourseListRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse> deleteCourseList(
+        com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteCourseListMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.UpdateCourseListResponse> updateCourseList(
-        com.amur.home.course.rpc.Course.UpdateCourseListRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse> updateCourseList(
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateCourseListMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.UpdateCourseAccessResponse> updateCourseAccess(
-        com.amur.home.course.rpc.Course.UpdateCourseAccessRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse> updateCourseAccess(
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateCourseAccessMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.GetCourseInfoResponse> getCourseInfo(
-        com.amur.home.course.rpc.Course.GetCourseInfoRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse> getCourseInfo(
+        com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetCourseInfoMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.RankCourseResponse> rankCourse(
-        com.amur.home.course.rpc.Course.RankCourseRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse> rankCourse(
+        com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getRankCourseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.UpdateCommentResponse> updateComment(
-        com.amur.home.course.rpc.Course.UpdateCommentRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse> updateComment(
+        com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateCommentMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.CreateCommentResponse> createComment(
-        com.amur.home.course.rpc.Course.CreateCommentRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse> createComment(
+        com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateCommentMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.LikeCourseResponse> likeCourse(
-        com.amur.home.course.rpc.Course.LikeCourseRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse> likeCourse(
+        com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getLikeCourseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.FavCourseResponse> favCourse(
-        com.amur.home.course.rpc.Course.FavCourseRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse> favCourse(
+        com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFavCourseMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse> joinCourseByShareToken(
-        com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse> joinCourseByShareToken(
+        com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getJoinCourseByShareTokenMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.GenerateShareTokenResponse> generateShareToken(
-        com.amur.home.course.rpc.Course.GenerateShareTokenRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse> generateShareToken(
+        com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGenerateShareTokenMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.GetShareInfoResponse> getShareInfo(
-        com.amur.home.course.rpc.Course.GetShareInfoRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse> getShareInfo(
+        com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetShareInfoMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.DeleteShareTokenResponse> deleteShareToken(
-        com.amur.home.course.rpc.Course.DeleteShareTokenRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse> deleteShareToken(
+        com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteShareTokenMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.HasJoinedResponse> hasJoined(
-        com.amur.home.course.rpc.Course.HasJoinedRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse> hasJoined(
+        com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getHasJoinedMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse> listShareInfoByUserId(
-        com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse> listShareInfoByUserId(
+        com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListShareInfoByUserIdMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.Course.CancelShareTokenResponse> cancelShareToken(
-        com.amur.home.course.rpc.Course.CancelShareTokenRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse> cancelShareToken(
+        com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCancelShareTokenMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse> searchCourses(
+        com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSearchCoursesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse> listAllCourses(
+        com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListAllCoursesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse> listCourseByUserId(
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListCourseByUserIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse> listCourseByListId(
+        com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListCourseByListIdMethod(), getCallOptions()), request);
     }
   }
 
@@ -1494,6 +1766,10 @@ public final class CourseServiceGrpc {
   private static final int METHODID_HAS_JOINED = 17;
   private static final int METHODID_LIST_SHARE_INFO_BY_USER_ID = 18;
   private static final int METHODID_CANCEL_SHARE_TOKEN = 19;
+  private static final int METHODID_SEARCH_COURSES = 20;
+  private static final int METHODID_LIST_ALL_COURSES = 21;
+  private static final int METHODID_LIST_COURSE_BY_USER_ID = 22;
+  private static final int METHODID_LIST_COURSE_BY_LIST_ID = 23;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1513,84 +1789,100 @@ public final class CourseServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_COURSE:
-          serviceImpl.createCourse((com.amur.home.course.rpc.Course.CourseInfo) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCourseResponse>) responseObserver);
+          serviceImpl.createCourse((com.amur.home.course.rpc.CourseServiceProto.CourseInfo) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCourseResponse>) responseObserver);
           break;
         case METHODID_DELETE_COURSE:
-          serviceImpl.deleteCourse((com.amur.home.course.rpc.Course.DeleteCourseRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteCourseResponse>) responseObserver);
+          serviceImpl.deleteCourse((com.amur.home.course.rpc.CourseServiceProto.DeleteCourseRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseResponse>) responseObserver);
           break;
         case METHODID_UPDATE_COURSE:
-          serviceImpl.updateCourse((com.amur.home.course.rpc.Course.UpdateCourseRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseResponse>) responseObserver);
+          serviceImpl.updateCourse((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseResponse>) responseObserver);
           break;
         case METHODID_CREATE_COURSE_LIST:
-          serviceImpl.createCourseList((com.amur.home.course.rpc.Course.CourseList) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCourseListResponse>) responseObserver);
+          serviceImpl.createCourseList((com.amur.home.course.rpc.CourseServiceProto.CourseList) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCourseListResponse>) responseObserver);
           break;
         case METHODID_DELETE_COURSE_LIST:
-          serviceImpl.deleteCourseList((com.amur.home.course.rpc.Course.DeleteCourseListRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteCourseListResponse>) responseObserver);
+          serviceImpl.deleteCourseList((com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteCourseListResponse>) responseObserver);
           break;
         case METHODID_UPDATE_COURSE_LIST:
-          serviceImpl.updateCourseList((com.amur.home.course.rpc.Course.UpdateCourseListRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseListResponse>) responseObserver);
+          serviceImpl.updateCourseList((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseListResponse>) responseObserver);
           break;
         case METHODID_UPDATE_COURSE_ACCESS:
-          serviceImpl.updateCourseAccess((com.amur.home.course.rpc.Course.UpdateCourseAccessRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCourseAccessResponse>) responseObserver);
+          serviceImpl.updateCourseAccess((com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCourseAccessResponse>) responseObserver);
           break;
         case METHODID_GET_COURSE_INFO:
-          serviceImpl.getCourseInfo((com.amur.home.course.rpc.Course.GetCourseInfoRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GetCourseInfoResponse>) responseObserver);
+          serviceImpl.getCourseInfo((com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GetCourseInfoResponse>) responseObserver);
           break;
         case METHODID_RANK_COURSE:
-          serviceImpl.rankCourse((com.amur.home.course.rpc.Course.RankCourseRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.RankCourseResponse>) responseObserver);
+          serviceImpl.rankCourse((com.amur.home.course.rpc.CourseServiceProto.RankCourseRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.RankCourseResponse>) responseObserver);
           break;
         case METHODID_UPDATE_COMMENT:
-          serviceImpl.updateComment((com.amur.home.course.rpc.Course.UpdateCommentRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.UpdateCommentResponse>) responseObserver);
+          serviceImpl.updateComment((com.amur.home.course.rpc.CourseServiceProto.UpdateCommentRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.UpdateCommentResponse>) responseObserver);
           break;
         case METHODID_CREATE_COMMENT:
-          serviceImpl.createComment((com.amur.home.course.rpc.Course.CreateCommentRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CreateCommentResponse>) responseObserver);
+          serviceImpl.createComment((com.amur.home.course.rpc.CourseServiceProto.CreateCommentRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CreateCommentResponse>) responseObserver);
           break;
         case METHODID_LIKE_COURSE:
-          serviceImpl.likeCourse((com.amur.home.course.rpc.Course.LikeCourseRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.LikeCourseResponse>) responseObserver);
+          serviceImpl.likeCourse((com.amur.home.course.rpc.CourseServiceProto.LikeCourseRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.LikeCourseResponse>) responseObserver);
           break;
         case METHODID_FAV_COURSE:
-          serviceImpl.favCourse((com.amur.home.course.rpc.Course.FavCourseRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.FavCourseResponse>) responseObserver);
+          serviceImpl.favCourse((com.amur.home.course.rpc.CourseServiceProto.FavCourseRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.FavCourseResponse>) responseObserver);
           break;
         case METHODID_JOIN_COURSE_BY_SHARE_TOKEN:
-          serviceImpl.joinCourseByShareToken((com.amur.home.course.rpc.Course.JoinCourseByShareTokenRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.JoinCourseByShareTokenResponse>) responseObserver);
+          serviceImpl.joinCourseByShareToken((com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.JoinCourseByShareTokenResponse>) responseObserver);
           break;
         case METHODID_GENERATE_SHARE_TOKEN:
-          serviceImpl.generateShareToken((com.amur.home.course.rpc.Course.GenerateShareTokenRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GenerateShareTokenResponse>) responseObserver);
+          serviceImpl.generateShareToken((com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GenerateShareTokenResponse>) responseObserver);
           break;
         case METHODID_GET_SHARE_INFO:
-          serviceImpl.getShareInfo((com.amur.home.course.rpc.Course.GetShareInfoRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.GetShareInfoResponse>) responseObserver);
+          serviceImpl.getShareInfo((com.amur.home.course.rpc.CourseServiceProto.GetShareInfoRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.GetShareInfoResponse>) responseObserver);
           break;
         case METHODID_DELETE_SHARE_TOKEN:
-          serviceImpl.deleteShareToken((com.amur.home.course.rpc.Course.DeleteShareTokenRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.DeleteShareTokenResponse>) responseObserver);
+          serviceImpl.deleteShareToken((com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.DeleteShareTokenResponse>) responseObserver);
           break;
         case METHODID_HAS_JOINED:
-          serviceImpl.hasJoined((com.amur.home.course.rpc.Course.HasJoinedRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.HasJoinedResponse>) responseObserver);
+          serviceImpl.hasJoined((com.amur.home.course.rpc.CourseServiceProto.HasJoinedRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.HasJoinedResponse>) responseObserver);
           break;
         case METHODID_LIST_SHARE_INFO_BY_USER_ID:
-          serviceImpl.listShareInfoByUserId((com.amur.home.course.rpc.Course.ListShareInfoByUserIdRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.ListShareInfoByUserIdResponse>) responseObserver);
+          serviceImpl.listShareInfoByUserId((com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListShareInfoByUserIdResponse>) responseObserver);
           break;
         case METHODID_CANCEL_SHARE_TOKEN:
-          serviceImpl.cancelShareToken((com.amur.home.course.rpc.Course.CancelShareTokenRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.Course.CancelShareTokenResponse>) responseObserver);
+          serviceImpl.cancelShareToken((com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.CancelShareTokenResponse>) responseObserver);
+          break;
+        case METHODID_SEARCH_COURSES:
+          serviceImpl.searchCourses((com.amur.home.course.rpc.CourseServiceProto.SearchCoursesRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.SearchCoursesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_ALL_COURSES:
+          serviceImpl.listAllCourses((com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListAllCoursesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_COURSE_BY_USER_ID:
+          serviceImpl.listCourseByUserId((com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListCourseByUserIdResponse>) responseObserver);
+          break;
+        case METHODID_LIST_COURSE_BY_LIST_ID:
+          serviceImpl.listCourseByListId((com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.course.rpc.CourseServiceProto.ListCourseByListIdResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1614,7 +1906,7 @@ public final class CourseServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.amur.home.course.rpc.Course.getDescriptor();
+      return com.amur.home.course.rpc.CourseServiceProto.getDescriptor();
     }
 
     @java.lang.Override
@@ -1673,6 +1965,10 @@ public final class CourseServiceGrpc {
               .addMethod(getHasJoinedMethod())
               .addMethod(getListShareInfoByUserIdMethod())
               .addMethod(getCancelShareTokenMethod())
+              .addMethod(getSearchCoursesMethod())
+              .addMethod(getListAllCoursesMethod())
+              .addMethod(getListCourseByUserIdMethod())
+              .addMethod(getListCourseByListIdMethod())
               .build();
         }
       }
