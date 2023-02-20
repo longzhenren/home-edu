@@ -1,47 +1,79 @@
 package com.amur.home.user.service.impl;
 
-import com.amur.home.user.HomeUserApplication;
-import com.amur.home.user.entity.UserEntity;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import com.amur.home.user.entity.UserInfo;
+import com.amur.home.user.mapper.UserMapper;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
-@SpringBootTest(classes = HomeUserApplication.class)
-@RunWith(SpringRunner.class)
-public class UserServiceImplTest {
-    @Autowired
+@DisplayName("UserServiceImpl 测试类")
+class UserServiceImplTest {
+
     private UserServiceImpl userService;
 
-//    private final UserEntity userEntity = buildEntity();
+    @Mock
+    private UserMapper userMapper;
 
-    @Test
-    public void getUserInfo() {
-        System.out.println(userService.getUserInfo(1L));
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+        userService = new UserServiceImpl();
+        userService.setUserMapper(userMapper);
     }
 
     @Test
-    public void updateUser() {
-        System.out.println(userService.updateUser(buildEntity()));
+    @DisplayName("根据用户 ID 获取用户信息")
+    void testGetUserInfo() {
+        Long userId = 1L;
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(userId);
+        Mockito.when(userMapper.selectById(userId)).thenReturn(userInfo);
+        UserInfo result = userService.getUserInfo(userId).getData();
+        Assertions.assertEquals(userInfo, result);
     }
 
     @Test
-    public void deleteUser() {
-        System.out.println(userService.deleteUser(1L));
+    @DisplayName("更新用户信息")
+    void testUpdateUser() {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(1L);
+        Mockito.when(userMapper.updateById(userInfo)).thenReturn(1);
+        boolean result = userService.updateUser(userInfo).isSuccess();
+        Assertions.assertTrue(result);
     }
 
     @Test
-    public void createUser() {
-        System.out.println(userService.createUser(buildEntity()));
+    @DisplayName("删除用户")
+    void testDeleteUser() {
+        Long userId = 1L;
+        Mockito.when(userMapper.deleteById(userId)).thenReturn(1);
+        boolean result = userService.deleteUser(userId).isSuccess();
+        Assertions.assertTrue(result);
     }
 
-    private UserEntity buildEntity() {
-        UserEntity userEntity = new UserEntity();
-//        userEntity.setId(1L);
-        userEntity.setName("test");
-        userEntity.setAge(18);
-        userEntity.setSex("男");
-        return userEntity;
+    @Test
+    @DisplayName("创建用户")
+    void testCreateUser() {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(1L);
+        Mockito.when(userMapper.insert(userInfo)).thenReturn(1);
+        Long result = userService.createUser(userInfo).getData();
+        Assertions.assertEquals(userInfo.getId(), result);
+    }
+
+    @Test
+    @DisplayName("根据用户名获取用户信息")
+    void testGetUserByName() {
+        String username = "test";
+        UserInfo userInfo = new UserInfo();
+        userInfo.setName(username);
+        Mockito.when(userMapper.selectOne(ArgumentMatchers.any())).thenReturn(userInfo);
+        UserInfo result = userService.getUserByName(username).getData();
+        Assertions.assertEquals(userInfo, result);
     }
 }

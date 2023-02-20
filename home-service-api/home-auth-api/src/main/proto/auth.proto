@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.amur.home.auth.rpc;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.amur.home.auth.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "AuthServiceProto";
+
+service AuthService {
+  //  rpc Login (LoginRequest) returns (LoginResponse){};
+  //  rpc Logout (LogoutRequest) returns (LogoutResponse){};
+  //  rpc Register (RegisterRequest) returns (RegisterResponse){};
+  rpc GetAuthById(GetAuthByIdRequest) returns (GetAuthByIdResponse){};
+}
+
+message GetAuthByIdRequest {
+  int64 id = 1;
+}
+message GetAuthByIdResponse{
+  UserAuth auth = 1;
+}
+
+message UserAuth {
+  int64 id = 1;
+  string password = 2;
+  repeated string roles = 3;
+  repeated string permissions = 4;
+}

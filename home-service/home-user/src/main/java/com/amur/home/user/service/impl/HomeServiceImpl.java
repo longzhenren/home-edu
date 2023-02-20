@@ -1,7 +1,7 @@
 package com.amur.home.user.service.impl;
 
 import com.amur.home.user.entity.HomeEntity;
-import com.amur.home.user.entity.UserEntity;
+import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.mapper.HomeMapper;
 import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.HomeService;
@@ -85,7 +85,7 @@ public class HomeServiceImpl implements HomeService {
      * @return 家庭用户列表
      */
     @Override
-    public List<UserEntity> getHomeUserList(Long homeId) {
+    public List<UserInfo> getHomeUserList(Long homeId) {
         HomeEntity homeEntity = homeMapper.selectById(homeId);
         if (homeEntity == null) {
             return null;

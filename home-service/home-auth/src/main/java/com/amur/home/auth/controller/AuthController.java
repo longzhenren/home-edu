@@ -1,10 +1,8 @@
 package com.amur.home.auth.controller;
 
-import cn.dev33.satoken.stp.StpUtil;
-import com.amur.home.auth.client.UserGrpcClient;
-import com.amur.home.auth.util.RedisUtils;
-import com.amur.home.user.entity.UserEntity;
+import com.amur.home.auth.service.AuthService;
 import com.amur.home.util.ResponseWrapper;
+import com.amur.home.util.ServiceResult;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import io.swagger.v3.oas.annotations.Operation;
@@ -12,8 +10,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,27 +20,24 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
-import java.util.HashMap;
 import java.util.Map;
 
 @Tag(name = "登录模块")
 @RestController
 @Slf4j
 public class AuthController {
-    @Autowired
+    @Resource
     private Producer producer;
-    @Autowired
-    private UserGrpcClient userGrpcClient;
 
     @Resource
-    private RedisUtils redisUtils;
+    private AuthService authService;
 
     /**
      * 获取验证码
      *
-     * @param response
-     * @param request
-     * @throws Exception
+     * @param response 响应
+     * @param request  请求
+     * @throws Exception 异常
      */
     @Operation(summary = "获取验证码")
     @GetMapping(value = "/captcha.jpg", produces = "image/jpeg")
@@ -62,18 +55,14 @@ public class AuthController {
     /**
      * 登录入口
      *
-     * @param username
-     * @param password
-     * @param captcha
-     * @param request
-     * @return
+     * @param username 用户名
+     * @param password 密码
+     * @param captcha  验证码
+     * @param request  请求
+     * @return 登录结果
      */
     @Operation(summary = "登录")
-    @Parameters(value = {
-            @Parameter(name = "username", description = "用户名"),
-            @Parameter(name = "password", description = "密码"),
-            @Parameter(name = "captcha", description = "验证码")
-    })
+    @Parameters(value = {@Parameter(name = "username", description = "用户名"), @Parameter(name = "password", description = "密码"), @Parameter(name = "captcha", description = "验证码")})
     @PostMapping(value = "/login")
     public ResponseWrapper<Map<String, Object>> login(String username, String password, String captcha, HttpServletRequest request) {
         //从session中获取之前保存的验证码，跟前台传过来的验证码进行匹配
@@ -86,28 +75,14 @@ public class AuthController {
                 return ResponseWrapper.fail("验证码不正确");
             }
         }
-        UserEntity user = userGrpcClient.getUserEntityByUserName(username);
-        //用户信息
-        if (user == null) {
-            return ResponseWrapper.fail("帐号不存在");
-        }
-        if (!new BCryptPasswordEncoder().matches(password, user.getPassword())) {
-            return ResponseWrapper.fail("密码不正确");
-        }
-        redisUtils.set("user:" + user.getId(), user);
-        StpUtil.login(user.getId());
-        user.setPassword(null);
-        Map<String, Object> map = new HashMap<>();
-        map.put("token", StpUtil.getTokenInfo());
-        map.put("user", user);
-        return ResponseWrapper.data(map);
+        ServiceResult<Map<String, Object>> res = authService.login(username, password);
+        return ResponseWrapper.data(res.getData());
     }
 
     @PostMapping(value = "/logout")
     public ResponseWrapper<?> logout() {
-        StpUtil.logout();
-        redisUtils.remove("user:" + StpUtil.getLoginId());
-        return ResponseWrapper.status(true);
+        ServiceResult<Void> res = authService.logout();
+        return ResponseWrapper.status(res.isSuccess());
     }
 
     @PostMapping(value = "/register")
@@ -122,12 +97,10 @@ public class AuthController {
                 return ResponseWrapper.fail("验证码不正确");
             }
         }
-        UserEntity user = userGrpcClient.getUserEntityByUserName(username);
-        //用户信息
-        if (user != null) {
-            return ResponseWrapper.fail("帐号已存在");
+        ServiceResult<Long> res = authService.register(username, password);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
         }
-        userGrpcClient.createUser(username, password);
         return ResponseWrapper.status(true);
     }
 }

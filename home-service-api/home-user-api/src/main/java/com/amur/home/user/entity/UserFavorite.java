@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 
 @Data
@@ -21,7 +22,8 @@ public class UserFavorite {
     private Set<Long> courseWareIds;
     @TableField(typeHandler = JacksonTypeHandler.class)
     private Set<Long> courseListIds;
-    private String userMap; // id到别名
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Map<Long, String> userMap; // id到别名
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)

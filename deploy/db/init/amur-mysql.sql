@@ -1,30 +1,78 @@
 CREATE DATABASE IF NOT EXISTS `homeedu`;
 use `homeedu`;
-create table if not exists `user`
+CREATE TABLE IF NOT EXISTS `user_info`
 (
-    id            bigint NOT NULL,
-    name          varchar(64)  DEFAULT NULL,
-    email         varchar(128) DEFAULT NULL,
-    phone         varchar(32)  DEFAULT NULL,
-    avatar_url    varchar(255) DEFAULT NULL,
-    home_id       bigint       DEFAULT NULL,
-    relative_type int          DEFAULT NULL,
-    create_time   datetime     DEFAULT NULL,
-    version       int          DEFAULT NULL,
-    description   varchar(512) DEFAULT NULL,
-    update_time   datetime     DEFAULT NULL,
-    deleted       int          DEFAULT NULL,
-    sex           varchar(32)  DEFAULT NULL,
-    age           int          DEFAULT NULL,
-    role_id       bigint       DEFAULT NULL,
-    password      varchar(128) DEFAULT NULL,
-    permissions   varchar(255) DEFAULT NULL,
+    `id`            bigint NOT NULL,
+    `name`          varchar(64)  DEFAULT NULL,
+    `email`         varchar(128) DEFAULT NULL,
+    `phone`         varchar(32)  DEFAULT NULL,
+    `avatar_url`    varchar(255) DEFAULT NULL,
+    `home_id`       bigint       DEFAULT NULL,
+    `sex`           varchar(32)  DEFAULT NULL,
+    `age`           int          DEFAULT NULL,
+    `relative_type` int          DEFAULT NULL,
+    `create_time`   datetime     DEFAULT NULL,
+    `version`       int          DEFAULT NULL,
+    `description`   varchar(512) DEFAULT NULL,
+    `update_time`   datetime     DEFAULT NULL,
+    `deleted`       int          DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_user_home_id` (`home_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
-CREATE TABLE `course_comment`
+
+CREATE TABLE IF NOT EXISTS `user_auth`
+(
+    `id`          bigint NOT NULL,
+    `password`    varchar(128) DEFAULT NULL,
+    `permissions` json         DEFAULT NULL,
+    `roles`       json         DEFAULT NULL,
+    `create_time` datetime     DEFAULT NULL,
+    `update_time` datetime     DEFAULT NULL,
+    `version`     int          DEFAULT NULL,
+    `deleted`     int          DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `user_permission`
+(
+    `id`          bigint NOT NULL,
+    `user_id`     bigint   DEFAULT NULL,
+    `role_id`     bigint   DEFAULT NULL,
+    `create_time` datetime DEFAULT NULL,
+    `update_time` datetime DEFAULT NULL,
+    `version`     int      DEFAULT NULL,
+    `deleted`     int      DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_user_role_user_id` (`user_id`),
+    KEY `idx_user_role_role_id` (`role_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `user_fav`
+(
+    `id`              bigint NOT NULL,
+    `user_id`         bigint     DEFAULT NULL,
+    `home_ids`        json       DEFAULT NULL,
+    `course_ids`      json       DEFAULT NULL,
+    `course_ware_ids` json       DEFAULT NULL,
+    `course_list_ids` json       DEFAULT NULL,
+    `user_map`        json       DEFAULT NULL,
+    `create_time`     datetime   DEFAULT NULL,
+    `update_time`     datetime   DEFAULT NULL,
+    `version`         int    NOT NULL,
+    `deleted`         tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_user_id` (`user_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `course_comment`
 (
     `id`            bigint NOT NULL,
     `course_id`     bigint       DEFAULT NULL,
@@ -37,8 +85,8 @@ CREATE TABLE `course_comment`
     `score`         double       DEFAULT NULL,
     `create_time`   datetime     DEFAULT NULL,
     `update_time`   datetime     DEFAULT NULL,
-    `version`       int(11)      DEFAULT NULL,
-    `deleted`       int(11)      DEFAULT NULL,
+    `version`       int          DEFAULT NULL,
+    `deleted`       int          DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

@@ -2,7 +2,7 @@
 //
 //import com.amur.home.user.dto.AddHomeImageDto;
 //import com.amur.home.user.entity.HomeEntity;
-//import com.amur.home.user.entity.UserEntity;
+//import com.amur.home.user.entity.UserInfo;
 //import com.amur.home.user.rpc.Home.*;
 //import com.amur.home.user.rpc.HomeServiceGrpc;
 //import com.amur.home.user.rpc.StatusOuterClass.Status;
@@ -128,8 +128,8 @@
 //    @Override
 //    public void getHomeUserList(GetHomeUserListRequest request, StreamObserver<GetHomeUserListResponse> responseObserver) {
 //        GetHomeUserListResponse response = GetHomeUserListResponse.newBuilder().build();
-//        List<UserEntity> userList = homeService.getHomeUserList(request.getHomeId());
-//        for (UserEntity userEntity : userList) {
+//        List<UserInfo> userList = homeService.getHomeUserList(request.getHomeId());
+//        for (UserInfo userEntity : userList) {
 //            response = response.toBuilder().addHomeUserList(HomeUser.newBuilder().setUserId(userEntity.getId()).setUserName(userEntity.getName()).setUserAvatar(userEntity.getAvatarUrl()).build()).build();
 //        }
 //        response = response.toBuilder().setStatus(Status.SUCCESS).build();

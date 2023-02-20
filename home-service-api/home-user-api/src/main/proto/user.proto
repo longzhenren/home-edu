@@ -1,122 +1,59 @@
 syntax = "proto3";
+
 package com.amur.home.user.rpc;
 
-import "status.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.amur.home.user.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "UserServiceProto";
 
 service UserService {
-  rpc GetUserBaseInfo (GetUserBaseRequest) returns (GetUserBaseResponse) {}
-  rpc GetUserDetailInfo (GetUserDetailRequest) returns (GetUserDetailResponse) {}
-  rpc GetUserAuthByName (GetUserAuthByNameRequest) returns (GetUserAuthByNameResponse) {}
-  rpc GetUserAuthById (GetUserAuthByIdRequest) returns (GetUserAuthByIdResponse) {}
-  rpc getUserPermissionsByName (GetUserPermissionsByNameRequest) returns (GetUserPermissionsByNameResponse) {}
-  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
-  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
-  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
+  rpc GetUserInfo(UserIdRequest) returns (UserInfoResponse) {}
+  rpc UpdateUser(UserInfoRequest) returns (ServiceResult) {}
+  rpc DeleteUser(UserIdRequest) returns (ServiceResult) {}
+  rpc CreateUser(UserInfoRequest) returns (UserIdResponse) {}
+  rpc GetUserByName(UserNameRequest) returns (UserInfoResponse) {}
 }
-message GetUserBaseRequest {
+
+message UserIdRequest {
   int64 user_id = 1;
 }
 
-message GetUserDetailRequest {
-  int64 user_id = 1;
+message UserInfoRequest {
+  UserInfo user_info = 1;
 }
 
-message GetUserAuthByNameRequest {
+message UserInfoResponse {
+  UserInfo user_info = 1;
+}
+
+message ServiceResult {
+  bool success = 1;
+  string message = 2;
+}
+
+message UserNameRequest {
   string user_name = 1;
 }
 
-message GetUserAuthByNameResponse{
-  int64 user_id = 1;
-  string user_name = 2;
-  string password = 3;
-  Status status = 4;
-  repeated string permissions = 5;
-}
-
-message GetUserAuthByIdRequest {
+message UserIdResponse {
   int64 user_id = 1;
 }
 
-message GetUserAuthByIdResponse{
-  int64 user_id = 1;
-  string user_name = 2;
-  string password = 3;
-  Status status = 4;
-  repeated string permissions = 5;
-}
-
-message GetUserPermissionsByNameRequest{
-  string user_name = 1;
-}
-
-message GetUserPermissionsByNameResponse{
-  int64 user_id = 1;
-  string user_name = 2;
-  repeated string permissions = 3;
-  Status status = 4;
-}
-
-message CreateUserRequest{
-  string name = 1;
-  string email = 2;
-  string phone = 3;
-  string password = 4;
-  string description = 5;
-}
-message UpdateUserRequest{
-  int64 user_id = 1;
-  string name = 2;
-  string email = 3;
-  string phone = 4;
-  string description = 5;
-  string avatar_url = 6;
-}
-
-message DeleteUserRequest{
-  int64 user_id = 1;
-}
-
-
-message GetUserBaseResponse{
-  Status status = 1;
-  UserBase user_base = 2;
-}
-message GetUserDetailResponse {
-  Status status = 1;
-  UserDetail user_detail = 2;
-}
-
-message CreateUserResponse {
-  Status status = 1;
-  int64 user_id = 2;
-}
-
-message UpdateUserResponse {
-  Status status = 1;
-}
-
-message DeleteUserResponse{
-  Status status = 1;
-}
-
-message UserBase{
+message UserInfo {
   int64 id = 1;
   string name = 2;
+  string description = 3;
   string phone = 4;
-  string avatar_url = 6;
-  UserRelativeType relative_type = 9;
-}
-
-message UserDetail{
-  int64 id = 1;
-  string name = 2;
-  string email = 3;
-  string phone = 4;
-  string description = 5;
+  string email = 5;
   string avatar_url = 6;
   int64 home_id = 7;
-  string created_at = 8;
-  UserRelativeType relative_type = 9;
+  string sex = 8;
+  int32 age = 9;
+  UserRelativeType relative_type = 10;
+  google.protobuf.Timestamp create_time = 11;
+  google.protobuf.Timestamp update_time = 12;
 }
 
 enum UserRelativeType{

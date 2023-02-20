@@ -78,6 +78,15 @@ public class Constants {
         private final String description;
         @EnumValue
         private final int value;
+
+        public static UserRelativeType valueOf(int value) {
+            for (UserRelativeType userRelativeType : UserRelativeType.values()) {
+                if (userRelativeType.value == value) {
+                    return userRelativeType;
+                }
+            }
+            return null;
+        }
     }
 
     public enum Home {

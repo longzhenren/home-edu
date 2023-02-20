@@ -13,7 +13,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "home", autoResultMap = true)
+@TableName(value = "home_info", autoResultMap = true)
 public class HomeEntity {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;

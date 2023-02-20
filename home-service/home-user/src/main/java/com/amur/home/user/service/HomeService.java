@@ -1,7 +1,7 @@
 package com.amur.home.user.service;
 
 import com.amur.home.user.entity.HomeEntity;
-import com.amur.home.user.entity.UserEntity;
+import com.amur.home.user.entity.UserInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public interface HomeService {
 
     public boolean deleteHome(Long homeId);
 
-    public List<UserEntity> getHomeUserList(Long homeId);
+    public List<UserInfo> getHomeUserList(Long homeId);
 
     public boolean updateHomeUser(Long homeId, Long userId);
 
