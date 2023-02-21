@@ -1,7 +1,7 @@
 //package com.amur.home.user.service.rpc;
 //
 //import com.amur.home.user.dto.AddHomeImageDto;
-//import com.amur.home.user.entity.HomeEntity;
+//import com.amur.home.user.entity.HomeInfo;
 //import com.amur.home.user.entity.UserInfo;
 //import com.amur.home.user.rpc.Home.*;
 //import com.amur.home.user.rpc.HomeServiceGrpc;
@@ -31,7 +31,7 @@
 //    @Override
 //    public void getHomeBaseInfo(GetHomeBaseRequest request, StreamObserver<GetHomeBaseResponse> responseObserver) {
 //        GetHomeBaseResponse response;
-//        HomeEntity homeEntity = homeService.getHomeInfo(request.getHomeId());
+//        HomeInfo homeEntity = homeService.getHomeInfo(request.getHomeId());
 //        if (homeEntity != null) {
 //            response = GetHomeBaseResponse.newBuilder().setHomeBase(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).build()).setStatus(Status.SUCCESS).build();
 //        } else {
@@ -48,7 +48,7 @@
 //    @Override
 //    public void getHomeDetailInfo(GetHomeDetailRequest request, StreamObserver<GetHomeDetailResponse> responseObserver) {
 //        GetHomeDetailResponse response;
-//        HomeEntity homeEntity = homeService.getHomeInfo(request.getHomeId());
+//        HomeInfo homeEntity = homeService.getHomeInfo(request.getHomeId());
 //        if (homeEntity != null) {
 //            response = GetHomeDetailResponse.newBuilder().setHomeDetail(HomeDetail.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAddress(homeEntity.getAddress()).setHomeRegTime(homeEntity.getCreateTime().toString()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(JSON.parseArray(homeEntity.getHomeUserIds(), Long.class).size()).addAllHomeImage(JSON.parseArray(homeEntity.getImageUrls(), String.class)).build()).setStatus(Status.SUCCESS).build();
 //        } else {
@@ -65,8 +65,8 @@
 //    @Override
 //    public void getHomeList(Empty request, StreamObserver<GetHomeListResponse> responseObserver) {
 //        GetHomeListResponse response = GetHomeListResponse.newBuilder().build();
-//        List<HomeEntity> homeList = homeService.getHomeList();
-//        for (HomeEntity homeEntity : homeList) {
+//        List<HomeInfo> homeList = homeService.getHomeList();
+//        for (HomeInfo homeEntity : homeList) {
 //            response = response.toBuilder().addHomeList(HomeBase.newBuilder().setHomeId(homeEntity.getId()).setHomeName(homeEntity.getName()).setHomeAvatar(homeEntity.getAvatarUrl()).setHomeMemberCount(((List<Long>) Objects.requireNonNull(JsonUtils.toObject(List.class, homeEntity.getHomeUserIds()))).size()).build()).build();
 //        }
 //        response.toBuilder().setStatus(Status.SUCCESS).build();
@@ -81,7 +81,7 @@
 //    @Override
 //    public void createHome(CreateHomeRequest request, StreamObserver<CreateHomeResponse> responseObserver) {
 //        CreateHomeResponse response = CreateHomeResponse.newBuilder().build();
-//        HomeEntity homeEntity = new HomeEntity();
+//        HomeInfo homeEntity = new HomeInfo();
 //        homeEntity.setName(request.getHomeName());
 //        homeEntity.setAddress(request.getHomeAddress());
 //        homeEntity.setCreateTime(new Date());
@@ -99,7 +99,7 @@
 //    @Override
 //    public void updateHome(UpdateHomeRequest request, StreamObserver<UpdateHomeResponse> responseObserver) {
 //        UpdateHomeResponse response = UpdateHomeResponse.newBuilder().build();
-//        HomeEntity homeEntity = new HomeEntity();
+//        HomeInfo homeEntity = new HomeInfo();
 //        homeEntity.setName(request.getHomeName());
 //        homeEntity.setAddress(request.getHomeAddress());
 //        homeEntity.setAvatarUrl(request.getHomeAvatarUrl());

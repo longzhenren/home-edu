@@ -23,6 +23,8 @@ public class UserInfo {
     private Long homeId;
     private String sex;
     private Integer age;
+    private Integer likeCount;
+    private Integer favCount;
     private UserRelativeType relativeType;
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;

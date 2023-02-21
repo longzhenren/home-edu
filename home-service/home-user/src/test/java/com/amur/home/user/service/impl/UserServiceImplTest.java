@@ -60,9 +60,8 @@ class UserServiceImplTest {
     @DisplayName("创建用户")
     void testCreateUser() {
         UserInfo userInfo = new UserInfo();
-        userInfo.setId(1L);
         Mockito.when(userMapper.insert(userInfo)).thenReturn(1);
-        Long result = userService.createUser(userInfo).getData();
+        Long result = userService.createUser("testUserName").getData();
         Assertions.assertEquals(userInfo.getId(), result);
     }
 

@@ -11,11 +11,12 @@ import java.util.Set;
 @Data
 @TableName(value = "user_fav", autoResultMap = true)
 public class UserFavorite {
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId
     private Long id;
-    private Long userId;
     @TableField(typeHandler = JacksonTypeHandler.class)
     private Set<Long> homeIds;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> userIds;
     @TableField(typeHandler = JacksonTypeHandler.class)
     private Set<Long> courseIds;
     @TableField(typeHandler = JacksonTypeHandler.class)

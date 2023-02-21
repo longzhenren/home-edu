@@ -1,5 +1,6 @@
 package com.amur.home.user.service.rpc;
 
+import com.amur.home.user.converter.ServiceResultProtoConverter;
 import com.amur.home.user.converter.UserProtoConverter;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.rpc.UserServiceGrpc;
@@ -27,11 +28,13 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
     public void getUserInfo(UserServiceProto.UserIdRequest request, StreamObserver<UserServiceProto.UserInfoResponse> responseObserver) {
         ServiceResult<UserInfo> res = userService.getUserInfo(request.getUserId());
         if (!res.isSuccess()) {
-            responseObserver.onError(new Exception(res.getMessage()));
+            UserServiceProto.UserInfoResponse response = UserServiceProto.UserInfoResponse.newBuilder().setResult(ServiceResultProtoConverter.toServiceResultProto(res)).build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
             return;
         }
         UserServiceProto.UserInfo userInfoProto = UserProtoConverter.toUserInfoProto(res.getData());
-        UserServiceProto.UserInfoResponse response = UserServiceProto.UserInfoResponse.newBuilder().setUserInfo(userInfoProto).build();
+        UserServiceProto.UserInfoResponse response = UserServiceProto.UserInfoResponse.newBuilder().setUserInfo(userInfoProto).setResult(ServiceResultProtoConverter.toServiceResultProto(res)).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -45,7 +48,14 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         UserServiceProto.UserInfo userInfoProto = request.getUserInfo();
         UserInfo userInfo = UserProtoConverter.toUserInfo(userInfoProto);
         ServiceResult<Void> res = userService.updateUser(userInfo);
-        responseObserver.onNext(UserServiceProto.ServiceResult.newBuilder().setSuccess(res.isSuccess()).setMessage(res.getMessage()).build());
+        if (!res.isSuccess()) {
+            UserServiceProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
+            responseObserver.onNext(resProto);
+            responseObserver.onCompleted();
+            return;
+        }
+        UserServiceProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
+        responseObserver.onNext(resProto);
         responseObserver.onCompleted();
     }
 
@@ -56,7 +66,14 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
     @Override
     public void deleteUser(UserServiceProto.UserIdRequest request, StreamObserver<UserServiceProto.ServiceResult> responseObserver) {
         ServiceResult<Void> res = userService.deleteUser(request.getUserId());
-        responseObserver.onNext(UserServiceProto.ServiceResult.newBuilder().setSuccess(res.isSuccess()).setMessage(res.getMessage()).build());
+        if (!res.isSuccess()) {
+            UserServiceProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
+            responseObserver.onNext(resProto);
+            responseObserver.onCompleted();
+            return;
+        }
+        UserServiceProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
+        responseObserver.onNext(resProto);
         responseObserver.onCompleted();
     }
 
@@ -65,16 +82,17 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
      * @param responseObserver
      */
     @Override
-    public void createUser(UserServiceProto.UserInfoRequest request, StreamObserver<UserServiceProto.UserIdResponse> responseObserver) {
-        UserServiceProto.UserInfo userInfoProto = request.getUserInfo();
-        UserInfo userInfo = UserProtoConverter.toUserInfo(userInfoProto);
-        ServiceResult<Long> res = userService.createUser(userInfo);
+    public void createUser(UserServiceProto.CreateUserRequest request, StreamObserver<UserServiceProto.UserIdResponse> responseObserver) {
+        ServiceResult<Long> res = userService.createUser(request.getUserName());
         if (!res.isSuccess()) {
-            responseObserver.onError(new Exception(res.getMessage()));
+            UserServiceProto.UserIdResponse response = UserServiceProto.UserIdResponse.newBuilder().setResult(ServiceResultProtoConverter.toServiceResultProto(res)).build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
             return;
         }
+        UserServiceProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
         Long userId = res.getData();
-        responseObserver.onNext(UserServiceProto.UserIdResponse.newBuilder().setUserId(userId).build());
+        responseObserver.onNext(UserServiceProto.UserIdResponse.newBuilder().setUserId(userId).setResult(resProto).build());
         responseObserver.onCompleted();
     }
 
@@ -86,12 +104,15 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
     public void getUserByName(UserServiceProto.UserNameRequest request, StreamObserver<UserServiceProto.UserInfoResponse> responseObserver) {
         ServiceResult<UserInfo> res = userService.getUserByName(request.getUserName());
         if (!res.isSuccess()) {
-            responseObserver.onError(new Exception(res.getMessage()));
+            UserServiceProto.UserInfoResponse response = UserServiceProto.UserInfoResponse.newBuilder().setResult(ServiceResultProtoConverter.toServiceResultProto(res)).build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
             return;
         }
+        UserServiceProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
         UserInfo userInfo = res.getData();
         UserServiceProto.UserInfo userInfoProto = UserProtoConverter.toUserInfoProto(userInfo);
-        UserServiceProto.UserInfoResponse response = UserServiceProto.UserInfoResponse.newBuilder().setUserInfo(userInfoProto).build();
+        UserServiceProto.UserInfoResponse response = UserServiceProto.UserInfoResponse.newBuilder().setUserInfo(userInfoProto).setResult(resProto).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }

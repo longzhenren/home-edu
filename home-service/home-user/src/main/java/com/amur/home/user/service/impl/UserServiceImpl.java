@@ -71,11 +71,13 @@ public class UserServiceImpl implements UserService {
     /**
      * 创建用户。
      *
-     * @param userInfo 用户实体对象。
+     * @param userName 用户名。
      * @return 新创建的用户的 ID。
      */
     @Override
-    public ServiceResult<Long> createUser(UserInfo userInfo) {
+    public ServiceResult<Long> createUser(String userName) {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setName(userName);
         int res = userMapper.insert(userInfo);
         if (res <= 0) {
             return ServiceResult.fail("创建用户失败");

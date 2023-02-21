@@ -1,30 +1,31 @@
 package com.amur.home.user.service;
 
-import com.amur.home.user.entity.HomeEntity;
+import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserInfo;
+import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public interface HomeService {
-    public HomeEntity getHomeInfo(Long homeId);
+    public ServiceResult<HomeInfo> getHomeInfo(Long homeId);
 
-    public List<HomeEntity> getHomeList();
+    public ServiceResult<List<HomeInfo>> getHomeList();
 
-    public Long createHome(HomeEntity homeEntity);
+    public ServiceResult<Long> createHome(HomeInfo homeInfo);
 
-    public boolean updateHome(HomeEntity homeEntity);
+    public ServiceResult<Void> updateHome(HomeInfo homeInfo);
 
-    public boolean deleteHome(Long homeId);
+    public ServiceResult<Void> deleteHome(Long homeId);
 
-    public List<UserInfo> getHomeUserList(Long homeId);
+    public ServiceResult<List<UserInfo>> getHomeUserList(Long homeId);
 
-    public boolean updateHomeUser(Long homeId, Long userId);
+    public ServiceResult<Void> updateHomeUser(Long homeId, Long userId);
 
-    public boolean deleteHomeUser(Long homeId, Long userId);
+    public ServiceResult<Void> deleteHomeUser(Long homeId, Long userId);
 
-    public boolean setHomeAdmin(Long homeId, Long userId);
+    public ServiceResult<Void> setHomeAdmin(Long homeId, Long userId);
 
 //    public boolean addHomeImage(AddHomeImageDto request);
 }

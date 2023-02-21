@@ -12,7 +12,7 @@ public interface UserService {
 
     public ServiceResult<Void> deleteUser(Long userId);
 
-    public ServiceResult<Long> createUser(UserInfo userInfo);
+    public ServiceResult<Long> createUser(String userName);
 
     public ServiceResult<UserInfo> getUserByName(String username);
 }

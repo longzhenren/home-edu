@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName(value = "home_info", autoResultMap = true)
-public class HomeEntity {
+public class HomeInfo {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
     private String name;

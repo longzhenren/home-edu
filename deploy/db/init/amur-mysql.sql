@@ -12,10 +12,12 @@ CREATE TABLE IF NOT EXISTS `user_info`
     `age`           int          DEFAULT NULL,
     `relative_type` int          DEFAULT NULL,
     `create_time`   datetime     DEFAULT NULL,
+    `like_count`    int          DEFAULT NULL,
+    `fav_count`     int          DEFAULT NULL,
     `version`       int          DEFAULT NULL,
     `description`   varchar(512) DEFAULT NULL,
     `update_time`   datetime     DEFAULT NULL,
-    `deleted`       int          DEFAULT NULL,
+    `deleted`       tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_user_home_id` (`home_id`)
 ) ENGINE = InnoDB
@@ -31,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `user_auth`
     `create_time` datetime     DEFAULT NULL,
     `update_time` datetime     DEFAULT NULL,
     `version`     int          DEFAULT NULL,
-    `deleted`     int          DEFAULT NULL,
+    `deleted`     tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
@@ -40,12 +42,12 @@ CREATE TABLE IF NOT EXISTS `user_auth`
 CREATE TABLE IF NOT EXISTS `user_permission`
 (
     `id`          bigint NOT NULL,
-    `user_id`     bigint   DEFAULT NULL,
-    `role_id`     bigint   DEFAULT NULL,
-    `create_time` datetime DEFAULT NULL,
-    `update_time` datetime DEFAULT NULL,
-    `version`     int      DEFAULT NULL,
-    `deleted`     int      DEFAULT NULL,
+    `user_id`     bigint     DEFAULT NULL,
+    `role_id`     bigint     DEFAULT NULL,
+    `create_time` datetime   DEFAULT NULL,
+    `update_time` datetime   DEFAULT NULL,
+    `version`     int        DEFAULT NULL,
+    `deleted`     tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_user_role_user_id` (`user_id`),
     KEY `idx_user_role_role_id` (`role_id`)
@@ -56,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `user_permission`
 CREATE TABLE IF NOT EXISTS `user_fav`
 (
     `id`              bigint NOT NULL,
-    `user_id`         bigint     DEFAULT NULL,
+    `user_ids`        json       DEFAULT NULL,
     `home_ids`        json       DEFAULT NULL,
     `course_ids`      json       DEFAULT NULL,
     `course_ware_ids` json       DEFAULT NULL,
@@ -66,8 +68,7 @@ CREATE TABLE IF NOT EXISTS `user_fav`
     `update_time`     datetime   DEFAULT NULL,
     `version`         int    NOT NULL,
     `deleted`         tinyint(1) DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    KEY `idx_user_id` (`user_id`)
+    PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
@@ -86,12 +87,12 @@ CREATE TABLE IF NOT EXISTS `course_comment`
     `create_time`   datetime     DEFAULT NULL,
     `update_time`   datetime     DEFAULT NULL,
     `version`       int          DEFAULT NULL,
-    `deleted`       int          DEFAULT NULL,
+    `deleted`       tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
-CREATE TABLE `course_info`
+CREATE TABLE IF NOT EXISTS `course_info`
 (
     `id`            bigint NOT NULL,
     `title`         varchar(255) DEFAULT NULL,
@@ -113,13 +114,13 @@ CREATE TABLE `course_info`
     `create_time`   datetime     DEFAULT NULL,
     `update_time`   datetime     DEFAULT NULL,
     `version`       int          DEFAULT NULL,
-    `deleted`       int          DEFAULT NULL,
+    `deleted`       tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `course_join`
+CREATE TABLE IF NOT EXISTS `course_join`
 (
     `id`        bigint NOT NULL,
     `user_id`   bigint DEFAULT NULL,
@@ -133,7 +134,7 @@ CREATE TABLE `course_join`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `course_list`
+CREATE TABLE IF NOT EXISTS `course_list`
 (
     `id`          bigint NOT NULL,
     `home_id`     bigint       DEFAULT NULL,
@@ -145,14 +146,14 @@ CREATE TABLE `course_list`
     `create_time` datetime     DEFAULT NULL,
     `update_time` datetime     DEFAULT NULL,
     `version`     int          DEFAULT NULL,
-    `deleted`     int          DEFAULT NULL,
+    `deleted`     tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_course_list_home_id` (`home_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `course_share`
+CREATE TABLE IF NOT EXISTS `course_share`
 (
     `id`          varchar(36) NOT NULL,
     `course_id`   bigint       DEFAULT NULL,
@@ -162,7 +163,7 @@ CREATE TABLE `course_share`
     `create_time` datetime     DEFAULT NULL,
     `update_time` datetime     DEFAULT NULL,
     `version`     int          DEFAULT NULL,
-    `deleted`     int          DEFAULT NULL,
+    `deleted`     tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_course_share_course_id` (`course_id`),
     KEY `idx_course_share_inviter_id` (`inviter_id`)
@@ -170,20 +171,20 @@ CREATE TABLE `course_share`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `course_ware`
+CREATE TABLE IF NOT EXISTS `course_ware`
 (
-    `id`          bigint NOT NULL,
-    `course_id`   bigint       DEFAULT NULL,
-    `title`       varchar(255) DEFAULT NULL,
-    `description` varchar(255) DEFAULT NULL,
-    `icon`        varchar(255) DEFAULT NULL,
-    `url`         varchar(255) DEFAULT NULL,
-    `create_time` datetime     DEFAULT NULL,
-    `update_time` datetime     DEFAULT NULL,
-    `version`     int          DEFAULT NULL,
-    `deleted`     int          DEFAULT NULL,
+    `id`                    varchar(32) NOT NULL,
+    `course_id`             bigint(20)   DEFAULT NULL,
+    `file_name`             varchar(255) DEFAULT NULL,
+    `description`           varchar(255) DEFAULT NULL,
+    `file_url`              varchar(255) DEFAULT NULL,
+    `additional_properties` json         DEFAULT NULL,
+    `create_time`           datetime     DEFAULT NULL,
+    `update_time`           datetime     DEFAULT NULL,
+    `version`               int          DEFAULT NULL,
+    `deleted`               tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_course_ware_course_id` (`course_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_0900_ai_ci;
+  COLLATE = utf8mb4_unicode_ci;

@@ -1313,6 +1313,574 @@ public final class UserServiceProto {
 
   }
 
+  public interface CreateUserRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.CreateUserRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string user_name = 1;</code>
+     * @return The userName.
+     */
+    java.lang.String getUserName();
+    /**
+     * <code>string user_name = 1;</code>
+     * @return The bytes for userName.
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.CreateUserRequest}
+   */
+  public static final class CreateUserRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.CreateUserRequest)
+      CreateUserRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateUserRequest.newBuilder() to construct.
+    private CreateUserRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateUserRequest() {
+      userName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateUserRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateUserRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.UserServiceProto.CreateUserRequest.class, com.amur.home.user.rpc.UserServiceProto.CreateUserRequest.Builder.class);
+    }
+
+    public static final int USER_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object userName_;
+    /**
+     * <code>string user_name = 1;</code>
+     * @return The userName.
+     */
+    @java.lang.Override
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string user_name = 1;</code>
+     * @return The bytes for userName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.UserServiceProto.CreateUserRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.UserServiceProto.CreateUserRequest other = (com.amur.home.user.rpc.UserServiceProto.CreateUserRequest) obj;
+
+      if (!getUserName()
+          .equals(other.getUserName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUserName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.UserServiceProto.CreateUserRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.CreateUserRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.CreateUserRequest)
+        com.amur.home.user.rpc.UserServiceProto.CreateUserRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.UserServiceProto.CreateUserRequest.class, com.amur.home.user.rpc.UserServiceProto.CreateUserRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.UserServiceProto.CreateUserRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.CreateUserRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.UserServiceProto.CreateUserRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.CreateUserRequest build() {
+        com.amur.home.user.rpc.UserServiceProto.CreateUserRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.CreateUserRequest buildPartial() {
+        com.amur.home.user.rpc.UserServiceProto.CreateUserRequest result = new com.amur.home.user.rpc.UserServiceProto.CreateUserRequest(this);
+        result.userName_ = userName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.UserServiceProto.CreateUserRequest) {
+          return mergeFrom((com.amur.home.user.rpc.UserServiceProto.CreateUserRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.UserServiceProto.CreateUserRequest other) {
+        if (other == com.amur.home.user.rpc.UserServiceProto.CreateUserRequest.getDefaultInstance()) return this;
+        if (!other.getUserName().isEmpty()) {
+          userName_ = other.userName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.UserServiceProto.CreateUserRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.UserServiceProto.CreateUserRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object userName_ = "";
+      /**
+       * <code>string user_name = 1;</code>
+       * @return The userName.
+       */
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string user_name = 1;</code>
+       * @return The bytes for userName.
+       */
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string user_name = 1;</code>
+       * @param value The userName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserName() {
+        
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_name = 1;</code>
+       * @param value The bytes for userName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.CreateUserRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.CreateUserRequest)
+    private static final com.amur.home.user.rpc.UserServiceProto.CreateUserRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.UserServiceProto.CreateUserRequest();
+    }
+
+    public static com.amur.home.user.rpc.UserServiceProto.CreateUserRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateUserRequest>
+        PARSER = new com.google.protobuf.AbstractParser<CreateUserRequest>() {
+      @java.lang.Override
+      public CreateUserRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateUserRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateUserRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateUserRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.UserServiceProto.CreateUserRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface UserInfoResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.UserInfoResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -1331,6 +1899,21 @@ public final class UserServiceProto {
      * <code>.com.amur.home.user.rpc.UserInfo user_info = 1;</code>
      */
     com.amur.home.user.rpc.UserServiceProto.UserInfoOrBuilder getUserInfoOrBuilder();
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder();
   }
   /**
    * Protobuf type {@code com.amur.home.user.rpc.UserInfoResponse}
@@ -1386,6 +1969,19 @@ public final class UserServiceProto {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(userInfo_);
                 userInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.UserServiceProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
               }
 
               break;
@@ -1448,6 +2044,32 @@ public final class UserServiceProto {
       return getUserInfo();
     }
 
+    public static final int RESULT_FIELD_NUMBER = 2;
+    private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1465,6 +2087,9 @@ public final class UserServiceProto {
       if (userInfo_ != null) {
         output.writeMessage(1, getUserInfo());
       }
+      if (result_ != null) {
+        output.writeMessage(2, getResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1477,6 +2102,10 @@ public final class UserServiceProto {
       if (userInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getUserInfo());
+      }
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1498,6 +2127,11 @@ public final class UserServiceProto {
         if (!getUserInfo()
             .equals(other.getUserInfo())) return false;
       }
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1512,6 +2146,10 @@ public final class UserServiceProto {
       if (hasUserInfo()) {
         hash = (37 * hash) + USER_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getUserInfo().hashCode();
+      }
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1652,6 +2290,12 @@ public final class UserServiceProto {
           userInfo_ = null;
           userInfoBuilder_ = null;
         }
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
         return this;
       }
 
@@ -1682,6 +2326,11 @@ public final class UserServiceProto {
           result.userInfo_ = userInfo_;
         } else {
           result.userInfo_ = userInfoBuilder_.build();
+        }
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1733,6 +2382,9 @@ public final class UserServiceProto {
         if (other == com.amur.home.user.rpc.UserServiceProto.UserInfoResponse.getDefaultInstance()) return this;
         if (other.hasUserInfo()) {
           mergeUserInfo(other.getUserInfo());
+        }
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1880,6 +2532,125 @@ public final class UserServiceProto {
           userInfo_ = null;
         }
         return userInfoBuilder_;
+      }
+
+      private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3150,6 +3921,21 @@ public final class UserServiceProto {
      * @return The userId.
      */
     long getUserId();
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder();
   }
   /**
    * Protobuf type {@code com.amur.home.user.rpc.UserIdResponse}
@@ -3201,6 +3987,19 @@ public final class UserServiceProto {
               userId_ = input.readInt64();
               break;
             }
+            case 18: {
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.UserServiceProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3244,6 +4043,32 @@ public final class UserServiceProto {
       return userId_;
     }
 
+    public static final int RESULT_FIELD_NUMBER = 2;
+    private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3261,6 +4086,9 @@ public final class UserServiceProto {
       if (userId_ != 0L) {
         output.writeInt64(1, userId_);
       }
+      if (result_ != null) {
+        output.writeMessage(2, getResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3273,6 +4101,10 @@ public final class UserServiceProto {
       if (userId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, userId_);
+      }
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3291,6 +4123,11 @@ public final class UserServiceProto {
 
       if (getUserId()
           != other.getUserId()) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3305,6 +4142,10 @@ public final class UserServiceProto {
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getUserId());
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3440,6 +4281,12 @@ public final class UserServiceProto {
         super.clear();
         userId_ = 0L;
 
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
         return this;
       }
 
@@ -3467,6 +4314,11 @@ public final class UserServiceProto {
       public com.amur.home.user.rpc.UserServiceProto.UserIdResponse buildPartial() {
         com.amur.home.user.rpc.UserServiceProto.UserIdResponse result = new com.amur.home.user.rpc.UserServiceProto.UserIdResponse(this);
         result.userId_ = userId_;
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -3517,6 +4369,9 @@ public final class UserServiceProto {
         if (other == com.amur.home.user.rpc.UserServiceProto.UserIdResponse.getDefaultInstance()) return this;
         if (other.getUserId() != 0L) {
           setUserId(other.getUserId());
+        }
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3576,6 +4431,125 @@ public final class UserServiceProto {
         userId_ = 0L;
         onChanged();
         return this;
+      }
+
+      private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5673,6 +6647,2209 @@ public final class UserServiceProto {
 
   }
 
+  public interface UserFavoriteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.UserFavorite)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <code>int64 user_id = 2;</code>
+     * @return The userId.
+     */
+    long getUserId();
+
+    /**
+     * <code>repeated int64 home_ids = 3;</code>
+     * @return A list containing the homeIds.
+     */
+    java.util.List<java.lang.Long> getHomeIdsList();
+    /**
+     * <code>repeated int64 home_ids = 3;</code>
+     * @return The count of homeIds.
+     */
+    int getHomeIdsCount();
+    /**
+     * <code>repeated int64 home_ids = 3;</code>
+     * @param index The index of the element to return.
+     * @return The homeIds at the given index.
+     */
+    long getHomeIds(int index);
+
+    /**
+     * <code>repeated int64 course_ids = 4;</code>
+     * @return A list containing the courseIds.
+     */
+    java.util.List<java.lang.Long> getCourseIdsList();
+    /**
+     * <code>repeated int64 course_ids = 4;</code>
+     * @return The count of courseIds.
+     */
+    int getCourseIdsCount();
+    /**
+     * <code>repeated int64 course_ids = 4;</code>
+     * @param index The index of the element to return.
+     * @return The courseIds at the given index.
+     */
+    long getCourseIds(int index);
+
+    /**
+     * <code>repeated int64 course_ware_ids = 5;</code>
+     * @return A list containing the courseWareIds.
+     */
+    java.util.List<java.lang.Long> getCourseWareIdsList();
+    /**
+     * <code>repeated int64 course_ware_ids = 5;</code>
+     * @return The count of courseWareIds.
+     */
+    int getCourseWareIdsCount();
+    /**
+     * <code>repeated int64 course_ware_ids = 5;</code>
+     * @param index The index of the element to return.
+     * @return The courseWareIds at the given index.
+     */
+    long getCourseWareIds(int index);
+
+    /**
+     * <code>repeated int64 course_list_ids = 6;</code>
+     * @return A list containing the courseListIds.
+     */
+    java.util.List<java.lang.Long> getCourseListIdsList();
+    /**
+     * <code>repeated int64 course_list_ids = 6;</code>
+     * @return The count of courseListIds.
+     */
+    int getCourseListIdsCount();
+    /**
+     * <code>repeated int64 course_list_ids = 6;</code>
+     * @param index The index of the element to return.
+     * @return The courseListIds at the given index.
+     */
+    long getCourseListIds(int index);
+
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+    int getUserMapCount();
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+    boolean containsUserMap(
+        long key);
+    /**
+     * Use {@link #getUserMapMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Long, java.lang.String>
+    getUserMap();
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+    java.util.Map<java.lang.Long, java.lang.String>
+    getUserMapMap();
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+
+    java.lang.String getUserMapOrDefault(
+        long key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+
+    java.lang.String getUserMapOrThrow(
+        long key);
+
+    /**
+     * <code>.google.protobuf.Timestamp create_time = 8;</code>
+     * @return Whether the createTime field is set.
+     */
+    boolean hasCreateTime();
+    /**
+     * <code>.google.protobuf.Timestamp create_time = 8;</code>
+     * @return The createTime.
+     */
+    com.google.protobuf.Timestamp getCreateTime();
+    /**
+     * <code>.google.protobuf.Timestamp create_time = 8;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp update_time = 9;</code>
+     * @return Whether the updateTime field is set.
+     */
+    boolean hasUpdateTime();
+    /**
+     * <code>.google.protobuf.Timestamp update_time = 9;</code>
+     * @return The updateTime.
+     */
+    com.google.protobuf.Timestamp getUpdateTime();
+    /**
+     * <code>.google.protobuf.Timestamp update_time = 9;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder();
+
+    /**
+     * <code>int32 version = 10;</code>
+     * @return The version.
+     */
+    int getVersion();
+
+    /**
+     * <code>bool deleted = 11;</code>
+     * @return The deleted.
+     */
+    boolean getDeleted();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.UserFavorite}
+   */
+  public static final class UserFavorite extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.UserFavorite)
+      UserFavoriteOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UserFavorite.newBuilder() to construct.
+    private UserFavorite(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UserFavorite() {
+      homeIds_ = emptyLongList();
+      courseIds_ = emptyLongList();
+      courseWareIds_ = emptyLongList();
+      courseListIds_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UserFavorite();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UserFavorite(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                homeIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              homeIds_.addLong(input.readInt64());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                homeIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                homeIds_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 32: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                courseIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              courseIds_.addLong(input.readInt64());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                courseIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                courseIds_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 40: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                courseWareIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              courseWareIds_.addLong(input.readInt64());
+              break;
+            }
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000004) != 0) && input.getBytesUntilLimit() > 0) {
+                courseWareIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                courseWareIds_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 48: {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                courseListIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              courseListIds_.addLong(input.readInt64());
+              break;
+            }
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000008) != 0) && input.getBytesUntilLimit() > 0) {
+                courseListIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                courseListIds_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                userMap_ = com.google.protobuf.MapField.newMapField(
+                    UserMapDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000010;
+              }
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.String>
+              userMap__ = input.readMessage(
+                  UserMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              userMap_.getMutableMap().put(
+                  userMap__.getKey(), userMap__.getValue());
+              break;
+            }
+            case 66: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (createTime_ != null) {
+                subBuilder = createTime_.toBuilder();
+              }
+              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(createTime_);
+                createTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (updateTime_ != null) {
+                subBuilder = updateTime_.toBuilder();
+              }
+              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(updateTime_);
+                updateTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 80: {
+
+              version_ = input.readInt32();
+              break;
+            }
+            case 88: {
+
+              deleted_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          homeIds_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          courseIds_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          courseWareIds_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          courseListIds_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_UserFavorite_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 7:
+          return internalGetUserMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_UserFavorite_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.UserServiceProto.UserFavorite.class, com.amur.home.user.rpc.UserServiceProto.UserFavorite.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+
+    public static final int USER_ID_FIELD_NUMBER = 2;
+    private long userId_;
+    /**
+     * <code>int64 user_id = 2;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    public static final int HOME_IDS_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.LongList homeIds_;
+    /**
+     * <code>repeated int64 home_ids = 3;</code>
+     * @return A list containing the homeIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getHomeIdsList() {
+      return homeIds_;
+    }
+    /**
+     * <code>repeated int64 home_ids = 3;</code>
+     * @return The count of homeIds.
+     */
+    public int getHomeIdsCount() {
+      return homeIds_.size();
+    }
+    /**
+     * <code>repeated int64 home_ids = 3;</code>
+     * @param index The index of the element to return.
+     * @return The homeIds at the given index.
+     */
+    public long getHomeIds(int index) {
+      return homeIds_.getLong(index);
+    }
+    private int homeIdsMemoizedSerializedSize = -1;
+
+    public static final int COURSE_IDS_FIELD_NUMBER = 4;
+    private com.google.protobuf.Internal.LongList courseIds_;
+    /**
+     * <code>repeated int64 course_ids = 4;</code>
+     * @return A list containing the courseIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getCourseIdsList() {
+      return courseIds_;
+    }
+    /**
+     * <code>repeated int64 course_ids = 4;</code>
+     * @return The count of courseIds.
+     */
+    public int getCourseIdsCount() {
+      return courseIds_.size();
+    }
+    /**
+     * <code>repeated int64 course_ids = 4;</code>
+     * @param index The index of the element to return.
+     * @return The courseIds at the given index.
+     */
+    public long getCourseIds(int index) {
+      return courseIds_.getLong(index);
+    }
+    private int courseIdsMemoizedSerializedSize = -1;
+
+    public static final int COURSE_WARE_IDS_FIELD_NUMBER = 5;
+    private com.google.protobuf.Internal.LongList courseWareIds_;
+    /**
+     * <code>repeated int64 course_ware_ids = 5;</code>
+     * @return A list containing the courseWareIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getCourseWareIdsList() {
+      return courseWareIds_;
+    }
+    /**
+     * <code>repeated int64 course_ware_ids = 5;</code>
+     * @return The count of courseWareIds.
+     */
+    public int getCourseWareIdsCount() {
+      return courseWareIds_.size();
+    }
+    /**
+     * <code>repeated int64 course_ware_ids = 5;</code>
+     * @param index The index of the element to return.
+     * @return The courseWareIds at the given index.
+     */
+    public long getCourseWareIds(int index) {
+      return courseWareIds_.getLong(index);
+    }
+    private int courseWareIdsMemoizedSerializedSize = -1;
+
+    public static final int COURSE_LIST_IDS_FIELD_NUMBER = 6;
+    private com.google.protobuf.Internal.LongList courseListIds_;
+    /**
+     * <code>repeated int64 course_list_ids = 6;</code>
+     * @return A list containing the courseListIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getCourseListIdsList() {
+      return courseListIds_;
+    }
+    /**
+     * <code>repeated int64 course_list_ids = 6;</code>
+     * @return The count of courseListIds.
+     */
+    public int getCourseListIdsCount() {
+      return courseListIds_.size();
+    }
+    /**
+     * <code>repeated int64 course_list_ids = 6;</code>
+     * @param index The index of the element to return.
+     * @return The courseListIds at the given index.
+     */
+    public long getCourseListIds(int index) {
+      return courseListIds_.getLong(index);
+    }
+    private int courseListIdsMemoizedSerializedSize = -1;
+
+    public static final int USER_MAP_FIELD_NUMBER = 7;
+    private static final class UserMapDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.Long, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.Long, java.lang.String>newDefaultInstance(
+                  com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_UserFavorite_UserMapEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.INT64,
+                  0L,
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.Long, java.lang.String> userMap_;
+    private com.google.protobuf.MapField<java.lang.Long, java.lang.String>
+    internalGetUserMap() {
+      if (userMap_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            UserMapDefaultEntryHolder.defaultEntry);
+      }
+      return userMap_;
+    }
+
+    public int getUserMapCount() {
+      return internalGetUserMap().getMap().size();
+    }
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsUserMap(
+        long key) {
+      
+      return internalGetUserMap().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getUserMapMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Long, java.lang.String> getUserMap() {
+      return getUserMapMap();
+    }
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Long, java.lang.String> getUserMapMap() {
+      return internalGetUserMap().getMap();
+    }
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getUserMapOrDefault(
+        long key,
+        java.lang.String defaultValue) {
+      
+      java.util.Map<java.lang.Long, java.lang.String> map =
+          internalGetUserMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;int64, string&gt; user_map = 7;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getUserMapOrThrow(
+        long key) {
+      
+      java.util.Map<java.lang.Long, java.lang.String> map =
+          internalGetUserMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int CREATE_TIME_FIELD_NUMBER = 8;
+    private com.google.protobuf.Timestamp createTime_;
+    /**
+     * <code>.google.protobuf.Timestamp create_time = 8;</code>
+     * @return Whether the createTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasCreateTime() {
+      return createTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp create_time = 8;</code>
+     * @return The createTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getCreateTime() {
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp create_time = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
+      return getCreateTime();
+    }
+
+    public static final int UPDATE_TIME_FIELD_NUMBER = 9;
+    private com.google.protobuf.Timestamp updateTime_;
+    /**
+     * <code>.google.protobuf.Timestamp update_time = 9;</code>
+     * @return Whether the updateTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasUpdateTime() {
+      return updateTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp update_time = 9;</code>
+     * @return The updateTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getUpdateTime() {
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp update_time = 9;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
+      return getUpdateTime();
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 10;
+    private int version_;
+    /**
+     * <code>int32 version = 10;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public int getVersion() {
+      return version_;
+    }
+
+    public static final int DELETED_FIELD_NUMBER = 11;
+    private boolean deleted_;
+    /**
+     * <code>bool deleted = 11;</code>
+     * @return The deleted.
+     */
+    @java.lang.Override
+    public boolean getDeleted() {
+      return deleted_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
+      if (userId_ != 0L) {
+        output.writeInt64(2, userId_);
+      }
+      if (getHomeIdsList().size() > 0) {
+        output.writeUInt32NoTag(26);
+        output.writeUInt32NoTag(homeIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < homeIds_.size(); i++) {
+        output.writeInt64NoTag(homeIds_.getLong(i));
+      }
+      if (getCourseIdsList().size() > 0) {
+        output.writeUInt32NoTag(34);
+        output.writeUInt32NoTag(courseIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < courseIds_.size(); i++) {
+        output.writeInt64NoTag(courseIds_.getLong(i));
+      }
+      if (getCourseWareIdsList().size() > 0) {
+        output.writeUInt32NoTag(42);
+        output.writeUInt32NoTag(courseWareIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < courseWareIds_.size(); i++) {
+        output.writeInt64NoTag(courseWareIds_.getLong(i));
+      }
+      if (getCourseListIdsList().size() > 0) {
+        output.writeUInt32NoTag(50);
+        output.writeUInt32NoTag(courseListIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < courseListIds_.size(); i++) {
+        output.writeInt64NoTag(courseListIds_.getLong(i));
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeLongMapTo(
+          output,
+          internalGetUserMap(),
+          UserMapDefaultEntryHolder.defaultEntry,
+          7);
+      if (createTime_ != null) {
+        output.writeMessage(8, getCreateTime());
+      }
+      if (updateTime_ != null) {
+        output.writeMessage(9, getUpdateTime());
+      }
+      if (version_ != 0) {
+        output.writeInt32(10, version_);
+      }
+      if (deleted_ != false) {
+        output.writeBool(11, deleted_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, userId_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < homeIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(homeIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getHomeIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        homeIdsMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < courseIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(courseIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getCourseIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        courseIdsMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < courseWareIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(courseWareIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getCourseWareIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        courseWareIdsMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < courseListIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(courseListIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getCourseListIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        courseListIdsMemoizedSerializedSize = dataSize;
+      }
+      for (java.util.Map.Entry<java.lang.Long, java.lang.String> entry
+           : internalGetUserMap().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.Long, java.lang.String>
+        userMap__ = UserMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(7, userMap__);
+      }
+      if (createTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getCreateTime());
+      }
+      if (updateTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getUpdateTime());
+      }
+      if (version_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, version_);
+      }
+      if (deleted_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(11, deleted_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.UserServiceProto.UserFavorite)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.UserServiceProto.UserFavorite other = (com.amur.home.user.rpc.UserServiceProto.UserFavorite) obj;
+
+      if (getId()
+          != other.getId()) return false;
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (!getHomeIdsList()
+          .equals(other.getHomeIdsList())) return false;
+      if (!getCourseIdsList()
+          .equals(other.getCourseIdsList())) return false;
+      if (!getCourseWareIdsList()
+          .equals(other.getCourseWareIdsList())) return false;
+      if (!getCourseListIdsList()
+          .equals(other.getCourseListIdsList())) return false;
+      if (!internalGetUserMap().equals(
+          other.internalGetUserMap())) return false;
+      if (hasCreateTime() != other.hasCreateTime()) return false;
+      if (hasCreateTime()) {
+        if (!getCreateTime()
+            .equals(other.getCreateTime())) return false;
+      }
+      if (hasUpdateTime() != other.hasUpdateTime()) return false;
+      if (hasUpdateTime()) {
+        if (!getUpdateTime()
+            .equals(other.getUpdateTime())) return false;
+      }
+      if (getVersion()
+          != other.getVersion()) return false;
+      if (getDeleted()
+          != other.getDeleted()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
+      hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      if (getHomeIdsCount() > 0) {
+        hash = (37 * hash) + HOME_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getHomeIdsList().hashCode();
+      }
+      if (getCourseIdsCount() > 0) {
+        hash = (37 * hash) + COURSE_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseIdsList().hashCode();
+      }
+      if (getCourseWareIdsCount() > 0) {
+        hash = (37 * hash) + COURSE_WARE_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseWareIdsList().hashCode();
+      }
+      if (getCourseListIdsCount() > 0) {
+        hash = (37 * hash) + COURSE_LIST_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseListIdsList().hashCode();
+      }
+      if (!internalGetUserMap().getMap().isEmpty()) {
+        hash = (37 * hash) + USER_MAP_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetUserMap().hashCode();
+      }
+      if (hasCreateTime()) {
+        hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getCreateTime().hashCode();
+      }
+      if (hasUpdateTime()) {
+        hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateTime().hashCode();
+      }
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion();
+      hash = (37 * hash) + DELETED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDeleted());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.UserServiceProto.UserFavorite prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.UserFavorite}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.UserFavorite)
+        com.amur.home.user.rpc.UserServiceProto.UserFavoriteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_UserFavorite_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 7:
+            return internalGetUserMap();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 7:
+            return internalGetMutableUserMap();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_UserFavorite_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.UserServiceProto.UserFavorite.class, com.amur.home.user.rpc.UserServiceProto.UserFavorite.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.UserServiceProto.UserFavorite.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+
+        userId_ = 0L;
+
+        homeIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        courseIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        courseWareIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        courseListIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        internalGetMutableUserMap().clear();
+        if (createTimeBuilder_ == null) {
+          createTime_ = null;
+        } else {
+          createTime_ = null;
+          createTimeBuilder_ = null;
+        }
+        if (updateTimeBuilder_ == null) {
+          updateTime_ = null;
+        } else {
+          updateTime_ = null;
+          updateTimeBuilder_ = null;
+        }
+        version_ = 0;
+
+        deleted_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_UserFavorite_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.UserFavorite getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.UserServiceProto.UserFavorite.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.UserFavorite build() {
+        com.amur.home.user.rpc.UserServiceProto.UserFavorite result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.UserFavorite buildPartial() {
+        com.amur.home.user.rpc.UserServiceProto.UserFavorite result = new com.amur.home.user.rpc.UserServiceProto.UserFavorite(this);
+        int from_bitField0_ = bitField0_;
+        result.id_ = id_;
+        result.userId_ = userId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          homeIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.homeIds_ = homeIds_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          courseIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.courseIds_ = courseIds_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          courseWareIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.courseWareIds_ = courseWareIds_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          courseListIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.courseListIds_ = courseListIds_;
+        result.userMap_ = internalGetUserMap();
+        result.userMap_.makeImmutable();
+        if (createTimeBuilder_ == null) {
+          result.createTime_ = createTime_;
+        } else {
+          result.createTime_ = createTimeBuilder_.build();
+        }
+        if (updateTimeBuilder_ == null) {
+          result.updateTime_ = updateTime_;
+        } else {
+          result.updateTime_ = updateTimeBuilder_.build();
+        }
+        result.version_ = version_;
+        result.deleted_ = deleted_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.UserServiceProto.UserFavorite) {
+          return mergeFrom((com.amur.home.user.rpc.UserServiceProto.UserFavorite)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.UserServiceProto.UserFavorite other) {
+        if (other == com.amur.home.user.rpc.UserServiceProto.UserFavorite.getDefaultInstance()) return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        if (!other.homeIds_.isEmpty()) {
+          if (homeIds_.isEmpty()) {
+            homeIds_ = other.homeIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureHomeIdsIsMutable();
+            homeIds_.addAll(other.homeIds_);
+          }
+          onChanged();
+        }
+        if (!other.courseIds_.isEmpty()) {
+          if (courseIds_.isEmpty()) {
+            courseIds_ = other.courseIds_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureCourseIdsIsMutable();
+            courseIds_.addAll(other.courseIds_);
+          }
+          onChanged();
+        }
+        if (!other.courseWareIds_.isEmpty()) {
+          if (courseWareIds_.isEmpty()) {
+            courseWareIds_ = other.courseWareIds_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureCourseWareIdsIsMutable();
+            courseWareIds_.addAll(other.courseWareIds_);
+          }
+          onChanged();
+        }
+        if (!other.courseListIds_.isEmpty()) {
+          if (courseListIds_.isEmpty()) {
+            courseListIds_ = other.courseListIds_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureCourseListIdsIsMutable();
+            courseListIds_.addAll(other.courseListIds_);
+          }
+          onChanged();
+        }
+        internalGetMutableUserMap().mergeFrom(
+            other.internalGetUserMap());
+        if (other.hasCreateTime()) {
+          mergeCreateTime(other.getCreateTime());
+        }
+        if (other.hasUpdateTime()) {
+          mergeUpdateTime(other.getUpdateTime());
+        }
+        if (other.getVersion() != 0) {
+          setVersion(other.getVersion());
+        }
+        if (other.getDeleted() != false) {
+          setDeleted(other.getDeleted());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.UserServiceProto.UserFavorite parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.UserServiceProto.UserFavorite) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long id_ ;
+      /**
+       * <code>int64 id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 user_id = 2;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 user_id = 2;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 user_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList homeIds_ = emptyLongList();
+      private void ensureHomeIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          homeIds_ = mutableCopy(homeIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int64 home_ids = 3;</code>
+       * @return A list containing the homeIds.
+       */
+      public java.util.List<java.lang.Long>
+          getHomeIdsList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(homeIds_) : homeIds_;
+      }
+      /**
+       * <code>repeated int64 home_ids = 3;</code>
+       * @return The count of homeIds.
+       */
+      public int getHomeIdsCount() {
+        return homeIds_.size();
+      }
+      /**
+       * <code>repeated int64 home_ids = 3;</code>
+       * @param index The index of the element to return.
+       * @return The homeIds at the given index.
+       */
+      public long getHomeIds(int index) {
+        return homeIds_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 home_ids = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The homeIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHomeIds(
+          int index, long value) {
+        ensureHomeIdsIsMutable();
+        homeIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 home_ids = 3;</code>
+       * @param value The homeIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addHomeIds(long value) {
+        ensureHomeIdsIsMutable();
+        homeIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 home_ids = 3;</code>
+       * @param values The homeIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllHomeIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureHomeIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, homeIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 home_ids = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHomeIds() {
+        homeIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList courseIds_ = emptyLongList();
+      private void ensureCourseIdsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          courseIds_ = mutableCopy(courseIds_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated int64 course_ids = 4;</code>
+       * @return A list containing the courseIds.
+       */
+      public java.util.List<java.lang.Long>
+          getCourseIdsList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(courseIds_) : courseIds_;
+      }
+      /**
+       * <code>repeated int64 course_ids = 4;</code>
+       * @return The count of courseIds.
+       */
+      public int getCourseIdsCount() {
+        return courseIds_.size();
+      }
+      /**
+       * <code>repeated int64 course_ids = 4;</code>
+       * @param index The index of the element to return.
+       * @return The courseIds at the given index.
+       */
+      public long getCourseIds(int index) {
+        return courseIds_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 course_ids = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The courseIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCourseIds(
+          int index, long value) {
+        ensureCourseIdsIsMutable();
+        courseIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_ids = 4;</code>
+       * @param value The courseIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCourseIds(long value) {
+        ensureCourseIdsIsMutable();
+        courseIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_ids = 4;</code>
+       * @param values The courseIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllCourseIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureCourseIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, courseIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_ids = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCourseIds() {
+        courseIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList courseWareIds_ = emptyLongList();
+      private void ensureCourseWareIdsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          courseWareIds_ = mutableCopy(courseWareIds_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated int64 course_ware_ids = 5;</code>
+       * @return A list containing the courseWareIds.
+       */
+      public java.util.List<java.lang.Long>
+          getCourseWareIdsList() {
+        return ((bitField0_ & 0x00000004) != 0) ?
+                 java.util.Collections.unmodifiableList(courseWareIds_) : courseWareIds_;
+      }
+      /**
+       * <code>repeated int64 course_ware_ids = 5;</code>
+       * @return The count of courseWareIds.
+       */
+      public int getCourseWareIdsCount() {
+        return courseWareIds_.size();
+      }
+      /**
+       * <code>repeated int64 course_ware_ids = 5;</code>
+       * @param index The index of the element to return.
+       * @return The courseWareIds at the given index.
+       */
+      public long getCourseWareIds(int index) {
+        return courseWareIds_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 course_ware_ids = 5;</code>
+       * @param index The index to set the value at.
+       * @param value The courseWareIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCourseWareIds(
+          int index, long value) {
+        ensureCourseWareIdsIsMutable();
+        courseWareIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_ware_ids = 5;</code>
+       * @param value The courseWareIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCourseWareIds(long value) {
+        ensureCourseWareIdsIsMutable();
+        courseWareIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_ware_ids = 5;</code>
+       * @param values The courseWareIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllCourseWareIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureCourseWareIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, courseWareIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_ware_ids = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCourseWareIds() {
+        courseWareIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList courseListIds_ = emptyLongList();
+      private void ensureCourseListIdsIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          courseListIds_ = mutableCopy(courseListIds_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated int64 course_list_ids = 6;</code>
+       * @return A list containing the courseListIds.
+       */
+      public java.util.List<java.lang.Long>
+          getCourseListIdsList() {
+        return ((bitField0_ & 0x00000008) != 0) ?
+                 java.util.Collections.unmodifiableList(courseListIds_) : courseListIds_;
+      }
+      /**
+       * <code>repeated int64 course_list_ids = 6;</code>
+       * @return The count of courseListIds.
+       */
+      public int getCourseListIdsCount() {
+        return courseListIds_.size();
+      }
+      /**
+       * <code>repeated int64 course_list_ids = 6;</code>
+       * @param index The index of the element to return.
+       * @return The courseListIds at the given index.
+       */
+      public long getCourseListIds(int index) {
+        return courseListIds_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 course_list_ids = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The courseListIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCourseListIds(
+          int index, long value) {
+        ensureCourseListIdsIsMutable();
+        courseListIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_list_ids = 6;</code>
+       * @param value The courseListIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCourseListIds(long value) {
+        ensureCourseListIdsIsMutable();
+        courseListIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_list_ids = 6;</code>
+       * @param values The courseListIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllCourseListIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureCourseListIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, courseListIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 course_list_ids = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCourseListIds() {
+        courseListIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.Long, java.lang.String> userMap_;
+      private com.google.protobuf.MapField<java.lang.Long, java.lang.String>
+      internalGetUserMap() {
+        if (userMap_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              UserMapDefaultEntryHolder.defaultEntry);
+        }
+        return userMap_;
+      }
+      private com.google.protobuf.MapField<java.lang.Long, java.lang.String>
+      internalGetMutableUserMap() {
+        onChanged();;
+        if (userMap_ == null) {
+          userMap_ = com.google.protobuf.MapField.newMapField(
+              UserMapDefaultEntryHolder.defaultEntry);
+        }
+        if (!userMap_.isMutable()) {
+          userMap_ = userMap_.copy();
+        }
+        return userMap_;
+      }
+
+      public int getUserMapCount() {
+        return internalGetUserMap().getMap().size();
+      }
+      /**
+       * <code>map&lt;int64, string&gt; user_map = 7;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsUserMap(
+          long key) {
+        
+        return internalGetUserMap().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getUserMapMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Long, java.lang.String> getUserMap() {
+        return getUserMapMap();
+      }
+      /**
+       * <code>map&lt;int64, string&gt; user_map = 7;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.Long, java.lang.String> getUserMapMap() {
+        return internalGetUserMap().getMap();
+      }
+      /**
+       * <code>map&lt;int64, string&gt; user_map = 7;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getUserMapOrDefault(
+          long key,
+          java.lang.String defaultValue) {
+        
+        java.util.Map<java.lang.Long, java.lang.String> map =
+            internalGetUserMap().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;int64, string&gt; user_map = 7;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getUserMapOrThrow(
+          long key) {
+        
+        java.util.Map<java.lang.Long, java.lang.String> map =
+            internalGetUserMap().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearUserMap() {
+        internalGetMutableUserMap().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;int64, string&gt; user_map = 7;</code>
+       */
+
+      public Builder removeUserMap(
+          long key) {
+        
+        internalGetMutableUserMap().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Long, java.lang.String>
+      getMutableUserMap() {
+        return internalGetMutableUserMap().getMutableMap();
+      }
+      /**
+       * <code>map&lt;int64, string&gt; user_map = 7;</code>
+       */
+      public Builder putUserMap(
+          long key,
+          java.lang.String value) {
+        
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableUserMap().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;int64, string&gt; user_map = 7;</code>
+       */
+
+      public Builder putAllUserMap(
+          java.util.Map<java.lang.Long, java.lang.String> values) {
+        internalGetMutableUserMap().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp createTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       * @return Whether the createTime field is set.
+       */
+      public boolean hasCreateTime() {
+        return createTimeBuilder_ != null || createTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       * @return The createTime.
+       */
+      public com.google.protobuf.Timestamp getCreateTime() {
+        if (createTimeBuilder_ == null) {
+          return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
+        } else {
+          return createTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       */
+      public Builder setCreateTime(com.google.protobuf.Timestamp value) {
+        if (createTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          createTime_ = value;
+          onChanged();
+        } else {
+          createTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       */
+      public Builder setCreateTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (createTimeBuilder_ == null) {
+          createTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          createTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       */
+      public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
+        if (createTimeBuilder_ == null) {
+          if (createTime_ != null) {
+            createTime_ =
+              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          } else {
+            createTime_ = value;
+          }
+          onChanged();
+        } else {
+          createTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       */
+      public Builder clearCreateTime() {
+        if (createTimeBuilder_ == null) {
+          createTime_ = null;
+          onChanged();
+        } else {
+          createTime_ = null;
+          createTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
+        
+        onChanged();
+        return getCreateTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
+        if (createTimeBuilder_ != null) {
+          return createTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return createTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp create_time = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getCreateTimeFieldBuilder() {
+        if (createTimeBuilder_ == null) {
+          createTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getCreateTime(),
+                  getParentForChildren(),
+                  isClean());
+          createTime_ = null;
+        }
+        return createTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp updateTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updateTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       * @return Whether the updateTime field is set.
+       */
+      public boolean hasUpdateTime() {
+        return updateTimeBuilder_ != null || updateTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       * @return The updateTime.
+       */
+      public com.google.protobuf.Timestamp getUpdateTime() {
+        if (updateTimeBuilder_ == null) {
+          return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+        } else {
+          return updateTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       */
+      public Builder setUpdateTime(com.google.protobuf.Timestamp value) {
+        if (updateTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          updateTime_ = value;
+          onChanged();
+        } else {
+          updateTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       */
+      public Builder setUpdateTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (updateTimeBuilder_ == null) {
+          updateTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          updateTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       */
+      public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
+        if (updateTimeBuilder_ == null) {
+          if (updateTime_ != null) {
+            updateTime_ =
+              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          } else {
+            updateTime_ = value;
+          }
+          onChanged();
+        } else {
+          updateTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       */
+      public Builder clearUpdateTime() {
+        if (updateTimeBuilder_ == null) {
+          updateTime_ = null;
+          onChanged();
+        } else {
+          updateTime_ = null;
+          updateTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
+        
+        onChanged();
+        return getUpdateTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
+        if (updateTimeBuilder_ != null) {
+          return updateTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return updateTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp update_time = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getUpdateTimeFieldBuilder() {
+        if (updateTimeBuilder_ == null) {
+          updateTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getUpdateTime(),
+                  getParentForChildren(),
+                  isClean());
+          updateTime_ = null;
+        }
+        return updateTimeBuilder_;
+      }
+
+      private int version_ ;
+      /**
+       * <code>int32 version = 10;</code>
+       * @return The version.
+       */
+      @java.lang.Override
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <code>int32 version = 10;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(int value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 version = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean deleted_ ;
+      /**
+       * <code>bool deleted = 11;</code>
+       * @return The deleted.
+       */
+      @java.lang.Override
+      public boolean getDeleted() {
+        return deleted_;
+      }
+      /**
+       * <code>bool deleted = 11;</code>
+       * @param value The deleted to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDeleted(boolean value) {
+        
+        deleted_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool deleted = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDeleted() {
+        
+        deleted_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.UserFavorite)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.UserFavorite)
+    private static final com.amur.home.user.rpc.UserServiceProto.UserFavorite DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.UserServiceProto.UserFavorite();
+    }
+
+    public static com.amur.home.user.rpc.UserServiceProto.UserFavorite getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UserFavorite>
+        PARSER = new com.google.protobuf.AbstractParser<UserFavorite>() {
+      @java.lang.Override
+      public UserFavorite parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UserFavorite(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UserFavorite> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UserFavorite> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.UserServiceProto.UserFavorite getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_user_rpc_UserIdRequest_descriptor;
   private static final 
@@ -5683,6 +8860,11 @@ public final class UserServiceProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_amur_home_user_rpc_UserInfoRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_user_rpc_UserInfoResponse_descriptor;
   private static final 
@@ -5708,6 +8890,16 @@ public final class UserServiceProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_amur_home_user_rpc_UserInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_UserFavorite_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_UserFavorite_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_UserFavorite_UserMapEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_UserFavorite_UserMapEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5721,38 +8913,51 @@ public final class UserServiceProto {
       "ogle/protobuf/timestamp.proto\" \n\rUserIdR" +
       "equest\022\017\n\007user_id\030\001 \001(\003\"F\n\017UserInfoReque" +
       "st\0223\n\tuser_info\030\001 \001(\0132 .com.amur.home.us" +
-      "er.rpc.UserInfo\"G\n\020UserInfoResponse\0223\n\tu" +
+      "er.rpc.UserInfo\"&\n\021CreateUserRequest\022\021\n\t" +
+      "user_name\030\001 \001(\t\"~\n\020UserInfoResponse\0223\n\tu" +
       "ser_info\030\001 \001(\0132 .com.amur.home.user.rpc." +
-      "UserInfo\"1\n\rServiceResult\022\017\n\007success\030\001 \001" +
-      "(\010\022\017\n\007message\030\002 \001(\t\"$\n\017UserNameRequest\022\021" +
-      "\n\tuser_name\030\001 \001(\t\"!\n\016UserIdResponse\022\017\n\007u" +
-      "ser_id\030\001 \001(\003\"\271\002\n\010UserInfo\022\n\n\002id\030\001 \001(\003\022\014\n" +
-      "\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005phon" +
-      "e\030\004 \001(\t\022\r\n\005email\030\005 \001(\t\022\022\n\navatar_url\030\006 \001" +
-      "(\t\022\017\n\007home_id\030\007 \001(\003\022\013\n\003sex\030\010 \001(\t\022\013\n\003age\030" +
-      "\t \001(\005\022?\n\rrelative_type\030\n \001(\0162(.com.amur." +
-      "home.user.rpc.UserRelativeType\022/\n\013create" +
-      "_time\030\013 \001(\0132\032.google.protobuf.Timestamp\022" +
-      "/\n\013update_time\030\014 \001(\0132\032.google.protobuf.T" +
-      "imestamp*\234\001\n\020UserRelativeType\022\n\n\006FATHER\020" +
-      "\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013" +
-      "GRANDFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BROTHE" +
-      "R\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005" +
-      "OTHER\020\n2\364\003\n\013UserService\022`\n\013GetUserInfo\022%" +
-      ".com.amur.home.user.rpc.UserIdRequest\032(." +
-      "com.amur.home.user.rpc.UserInfoResponse\"" +
-      "\000\022^\n\nUpdateUser\022\'.com.amur.home.user.rpc" +
-      ".UserInfoRequest\032%.com.amur.home.user.rp" +
-      "c.ServiceResult\"\000\022\\\n\nDeleteUser\022%.com.am" +
-      "ur.home.user.rpc.UserIdRequest\032%.com.amu" +
-      "r.home.user.rpc.ServiceResult\"\000\022_\n\nCreat" +
-      "eUser\022\'.com.amur.home.user.rpc.UserInfoR" +
-      "equest\032&.com.amur.home.user.rpc.UserIdRe" +
-      "sponse\"\000\022d\n\rGetUserByName\022\'.com.amur.hom" +
-      "e.user.rpc.UserNameRequest\032(.com.amur.ho" +
-      "me.user.rpc.UserInfoResponse\"\000B,\n\026com.am" +
-      "ur.home.user.rpcB\020UserServiceProtoP\000b\006pr" +
-      "oto3"
+      "UserInfo\0225\n\006result\030\002 \001(\0132%.com.amur.home" +
+      ".user.rpc.ServiceResult\"1\n\rServiceResult" +
+      "\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"$\n\017Us" +
+      "erNameRequest\022\021\n\tuser_name\030\001 \001(\t\"X\n\016User" +
+      "IdResponse\022\017\n\007user_id\030\001 \001(\003\0225\n\006result\030\002 " +
+      "\001(\0132%.com.amur.home.user.rpc.ServiceResu" +
+      "lt\"\271\002\n\010UserInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(" +
+      "\t\022\023\n\013description\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\r\n" +
+      "\005email\030\005 \001(\t\022\022\n\navatar_url\030\006 \001(\t\022\017\n\007home" +
+      "_id\030\007 \001(\003\022\013\n\003sex\030\010 \001(\t\022\013\n\003age\030\t \001(\005\022?\n\rr" +
+      "elative_type\030\n \001(\0162(.com.amur.home.user." +
+      "rpc.UserRelativeType\022/\n\013create_time\030\013 \001(" +
+      "\0132\032.google.protobuf.Timestamp\022/\n\013update_" +
+      "time\030\014 \001(\0132\032.google.protobuf.Timestamp\"\374" +
+      "\002\n\014UserFavorite\022\n\n\002id\030\001 \001(\003\022\017\n\007user_id\030\002" +
+      " \001(\003\022\020\n\010home_ids\030\003 \003(\003\022\022\n\ncourse_ids\030\004 \003" +
+      "(\003\022\027\n\017course_ware_ids\030\005 \003(\003\022\027\n\017course_li" +
+      "st_ids\030\006 \003(\003\022C\n\010user_map\030\007 \003(\01321.com.amu" +
+      "r.home.user.rpc.UserFavorite.UserMapEntr" +
+      "y\022/\n\013create_time\030\010 \001(\0132\032.google.protobuf" +
+      ".Timestamp\022/\n\013update_time\030\t \001(\0132\032.google" +
+      ".protobuf.Timestamp\022\017\n\007version\030\n \001(\005\022\017\n\007" +
+      "deleted\030\013 \001(\010\032.\n\014UserMapEntry\022\013\n\003key\030\001 \001" +
+      "(\003\022\r\n\005value\030\002 \001(\t:\0028\001*\234\001\n\020UserRelativeTy" +
+      "pe\022\n\n\006FATHER\020\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010D" +
+      "AUGHTER\020\003\022\017\n\013GRANDFATHER\020\004\022\017\n\013GRANDMOTHE" +
+      "R\020\005\022\013\n\007BROTHER\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022" +
+      "\010\n\004AUNT\020\t\022\t\n\005OTHER\020\n2\366\003\n\013UserService\022`\n\013" +
+      "GetUserInfo\022%.com.amur.home.user.rpc.Use" +
+      "rIdRequest\032(.com.amur.home.user.rpc.User" +
+      "InfoResponse\"\000\022^\n\nUpdateUser\022\'.com.amur." +
+      "home.user.rpc.UserInfoRequest\032%.com.amur" +
+      ".home.user.rpc.ServiceResult\"\000\022\\\n\nDelete" +
+      "User\022%.com.amur.home.user.rpc.UserIdRequ" +
+      "est\032%.com.amur.home.user.rpc.ServiceResu" +
+      "lt\"\000\022a\n\nCreateUser\022).com.amur.home.user." +
+      "rpc.CreateUserRequest\032&.com.amur.home.us" +
+      "er.rpc.UserIdResponse\"\000\022d\n\rGetUserByName" +
+      "\022\'.com.amur.home.user.rpc.UserNameReques" +
+      "t\032(.com.amur.home.user.rpc.UserInfoRespo" +
+      "nse\"\000B,\n\026com.amur.home.user.rpcB\020UserSer" +
+      "viceProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5771,36 +8976,54 @@ public final class UserServiceProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfoRequest_descriptor,
         new java.lang.String[] { "UserInfo", });
-    internal_static_com_amur_home_user_rpc_UserInfoResponse_descriptor =
+    internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor,
+        new java.lang.String[] { "UserName", });
+    internal_static_com_amur_home_user_rpc_UserInfoResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_amur_home_user_rpc_UserInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfoResponse_descriptor,
-        new java.lang.String[] { "UserInfo", });
+        new java.lang.String[] { "UserInfo", "Result", });
     internal_static_com_amur_home_user_rpc_ServiceResult_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_amur_home_user_rpc_ServiceResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_ServiceResult_descriptor,
         new java.lang.String[] { "Success", "Message", });
     internal_static_com_amur_home_user_rpc_UserNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_amur_home_user_rpc_UserNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserNameRequest_descriptor,
         new java.lang.String[] { "UserName", });
     internal_static_com_amur_home_user_rpc_UserIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_amur_home_user_rpc_UserIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserIdResponse_descriptor,
-        new java.lang.String[] { "UserId", });
+        new java.lang.String[] { "UserId", "Result", });
     internal_static_com_amur_home_user_rpc_UserInfo_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_amur_home_user_rpc_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfo_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "Phone", "Email", "AvatarUrl", "HomeId", "Sex", "Age", "RelativeType", "CreateTime", "UpdateTime", });
+    internal_static_com_amur_home_user_rpc_UserFavorite_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_com_amur_home_user_rpc_UserFavorite_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_UserFavorite_descriptor,
+        new java.lang.String[] { "Id", "UserId", "HomeIds", "CourseIds", "CourseWareIds", "CourseListIds", "UserMap", "CreateTime", "UpdateTime", "Version", "Deleted", });
+    internal_static_com_amur_home_user_rpc_UserFavorite_UserMapEntry_descriptor =
+      internal_static_com_amur_home_user_rpc_UserFavorite_descriptor.getNestedTypes().get(0);
+    internal_static_com_amur_home_user_rpc_UserFavorite_UserMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_UserFavorite_UserMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

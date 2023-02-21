@@ -3,11 +3,12 @@ package com.amur.home.course.converter;
 import com.amur.home.common.Constants;
 import com.amur.home.course.entity.*;
 import com.amur.home.course.rpc.CourseServiceProto;
-import com.google.protobuf.Timestamp;
+import com.google.protobuf.*;
 
 import java.time.Instant;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CourseProtoConverter {
@@ -79,21 +80,56 @@ public class CourseProtoConverter {
         return courseShare;
     }
 
-    public static CourseWare toCourseWare(CourseServiceProto.CourseWare courseWareProto) {
-        CourseWare courseWare = new CourseWare();
-        courseWare.setId(courseWareProto.getId());
-        courseWare.setCourseId(courseWareProto.getCourseId());
-        courseWare.setTitle(courseWareProto.getTitle());
-        courseWare.setDescription(courseWareProto.getDescription());
-        courseWare.setIcon(courseWareProto.getIcon());
-        courseWare.setUrl(courseWareProto.getUrl());
-        if (courseWareProto.hasCreateTime()) {
-            courseWare.setCreateTime(toDate(courseWareProto.getCreateTime()));
+    public static CourseWare toCourseWare(CourseServiceProto.CourseWare proto) {
+        CourseWare entity = new CourseWare();
+        entity.setId(proto.getId());
+        entity.setCourseId(proto.getCourseId());
+        entity.setFileName(proto.getFileName());
+        entity.setDescription(proto.getDescription());
+        entity.setFileUrl(proto.getFileUrl());
+        entity.setCreateTime(toDate(proto.getCreateTime()));
+        entity.setUpdateTime(toDate(proto.getUpdateTime()));
+
+        Map<String, Object> additionalProperties = proto.getAdditionalPropertiesMap().entrySet().stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        entry -> unpack(entry.getValue())
+                ));
+        entity.setAdditionalProperties(additionalProperties);
+
+        return entity;
+    }
+
+    private static Object unpack(Any any) {
+        try {
+            return any.unpack(StringValue.class).getValue();
+        } catch (InvalidProtocolBufferException e1) {
+            try {
+                return any.unpack(BoolValue.class).getValue();
+            } catch (InvalidProtocolBufferException e2) {
+                try {
+                    return any.unpack(DoubleValue.class).getValue();
+                } catch (InvalidProtocolBufferException e3) {
+                    try {
+                        return any.unpack(FloatValue.class).getValue();
+                    } catch (InvalidProtocolBufferException e4) {
+                        try {
+                            return any.unpack(Int32Value.class).getValue();
+                        } catch (InvalidProtocolBufferException e5) {
+                            try {
+                                return any.unpack(Int64Value.class).getValue();
+                            } catch (InvalidProtocolBufferException e6) {
+                                try {
+                                    return any.unpack(CourseServiceProto.CourseWare.class);
+                                } catch (Exception e7) {
+                                    return e7;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-        if (courseWareProto.hasUpdateTime()) {
-            courseWare.setUpdateTime(toDate(courseWareProto.getUpdateTime()));
-        }
-        return courseWare;
     }
 
     public static CourseServiceProto.CourseShare toCourseShareProto(CourseShare courseShare) {
@@ -114,22 +150,6 @@ public class CourseProtoConverter {
         return builder.build();
     }
 
-    public static CourseServiceProto.CourseWare toCourseWareProto(CourseWare courseWare) {
-        CourseServiceProto.CourseWare.Builder builder = CourseServiceProto.CourseWare.newBuilder();
-        builder.setId(courseWare.getId());
-        builder.setCourseId(courseWare.getCourseId());
-        builder.setTitle(courseWare.getTitle());
-        builder.setDescription(courseWare.getDescription());
-        builder.setIcon(courseWare.getIcon());
-        builder.setUrl(courseWare.getUrl());
-        if (courseWare.getCreateTime() != null) {
-            builder.setCreateTime(toTimestamp(courseWare.getCreateTime()));
-        }
-        if (courseWare.getUpdateTime() != null) {
-            builder.setUpdateTime(toTimestamp(courseWare.getUpdateTime()));
-        }
-        return builder.build();
-    }
 
     public static CourseServiceProto.CourseList toCourseListProto(CourseList courseList) {
         CourseServiceProto.CourseList.Builder builder = CourseServiceProto.CourseList.newBuilder();

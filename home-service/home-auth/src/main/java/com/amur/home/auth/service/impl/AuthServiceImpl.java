@@ -34,11 +34,11 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     public ServiceResult<Map<String, Object>> login(String userName, String password) {
-        UserInfo user = userGrpcClient.getUserEntityByUserName(userName);
-        //用户信息
-        if (user == null) {
-            return ServiceResult.fail("帐号不存在");
+        ServiceResult<UserInfo> res = userGrpcClient.getUserEntityByUserName(userName);
+        if (!res.isSuccess()) {
+            return ServiceResult.fail(res.getMessage());
         }
+        UserInfo user = res.getData();
         UserAuth userAuth = authMapper.selectById(user.getId());
         if (!new BCryptPasswordEncoder().matches(password, userAuth.getPassword())) {
             return ServiceResult.fail("密码不正确");
@@ -70,14 +70,14 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     public ServiceResult<Long> register(String userName, String password) {
-        UserInfo user = userGrpcClient.getUserEntityByUserName(userName);
-        if (user != null) {
+        if (userGrpcClient.getUserEntityByUserName(userName).isSuccess()) {
             return ServiceResult.fail("用户已存在");
         }
-        UserInfo userInfo = new UserInfo();
-        userInfo.setName(userName);
-        Long userId = userGrpcClient.createUser(userInfo);
-
+        ServiceResult<Long> res = userGrpcClient.createUser(userName);
+        if (!res.isSuccess()) {
+            return ServiceResult.fail(res.getMessage());
+        }
+        Long userId = res.getData();
         UserAuth userAuth = new UserAuth();
         userAuth.setId(userId);
         userAuth.setPassword(new BCryptPasswordEncoder().encode(password));

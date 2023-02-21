@@ -1,40 +1,45 @@
 package com.amur.home.course.controller;
 
-import com.amur.home.util.ResponseWrapper;
+import com.amur.home.course.service.CourseWareService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.net.URI;
+
 
 @Tag(name = "课程资料接口")
 @Slf4j
 @RestController
 @RequestMapping("/courseware")
 public class CourseWareController {
+    @Autowired
+    CourseWareService courseWareService;
+
     @PostMapping("/upload")
     @Operation(summary = "上传课件")
-    public ResponseWrapper<?> upload() {
-        return null;
+    public ResponseEntity<Void> uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
+        String url = courseWareService.upload(file);
+        return ResponseEntity.created(new URI(url)).build();
     }
 
-    @PostMapping("/get")
+    @GetMapping("/{fileName}")
     @Operation(summary = "下载课件")
-    public ResponseWrapper<?> download() {
-        return null;
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws Exception {
+        Resource resource = courseWareService.download(fileName);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"").body(resource);
     }
 
-    @PostMapping("/del")
-    @Operation(summary = "删除课件")
-    public ResponseWrapper<?> del() {
-        return null;
-    }
-
-    @PostMapping("/preview")
+    @GetMapping("/{fileName}/preview")
     @Operation(summary = "预览课件")
-    public ResponseWrapper<?> preview() {
-        return null;
+    public ResponseEntity<Resource> previewFile(@PathVariable String fileName) throws Exception {
+        Resource resource = courseWareService.preview(fileName);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + fileName + "\"").body(resource);
     }
-
 }

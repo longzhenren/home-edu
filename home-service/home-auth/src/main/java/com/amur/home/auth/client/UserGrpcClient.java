@@ -4,6 +4,7 @@ import com.amur.home.user.converter.UserProtoConverter;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.rpc.UserServiceGrpc;
 import com.amur.home.user.rpc.UserServiceProto;
+import com.amur.home.util.ServiceResult;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Component;
 
@@ -12,23 +13,34 @@ public class UserGrpcClient {
     @GrpcClient("home-user")
     private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
 
-    public UserInfo getUserEntityByUserName(String username) {
+    public ServiceResult<UserInfo> getUserEntityByUserName(String username) {
         UserServiceProto.UserNameRequest userNameRequest = UserServiceProto.UserNameRequest.newBuilder().setUserName(username).build();
         UserServiceProto.UserInfoResponse resp = userServiceBlockingStub.getUserByName(userNameRequest);
-        UserServiceProto.UserInfo userInfoProto = resp.getUserInfo();
-        return UserProtoConverter.toUserInfo(userInfoProto);
+        if (resp.getResult().getSuccess()) {
+            UserServiceProto.UserInfo userInfoProto = resp.getUserInfo();
+            return ServiceResult.success(UserProtoConverter.toUserInfo(userInfoProto));
+        } else {
+            return ServiceResult.fail(resp.getResult().getMessage());
+        }
     }
 
-    public Long createUser(UserInfo userInfo) {
-        UserServiceProto.UserInfo userInfoProto = UserProtoConverter.toUserInfoProto(userInfo);
-        UserServiceProto.UserInfoRequest userInfoRequest = UserServiceProto.UserInfoRequest.newBuilder().setUserInfo(userInfoProto).build();
-        UserServiceProto.UserIdResponse resp = userServiceBlockingStub.createUser(userInfoRequest);
-        return resp.getUserId();
+    public ServiceResult<Long> createUser(String userName) {
+        UserServiceProto.CreateUserRequest createUserRequest = UserServiceProto.CreateUserRequest.newBuilder().setUserName(userName).build();
+        UserServiceProto.UserIdResponse resp = userServiceBlockingStub.createUser(createUserRequest);
+        if (resp.getResult().getSuccess()) {
+            return ServiceResult.success(resp.getUserId());
+        } else {
+            return ServiceResult.fail(resp.getResult().getMessage());
+        }
     }
 
-    public boolean deleteUser(Long userId) {
+    public ServiceResult<Void> deleteUser(Long userId) {
         UserServiceProto.UserIdRequest userIdRequest = UserServiceProto.UserIdRequest.newBuilder().setUserId(userId).build();
         UserServiceProto.ServiceResult resp = userServiceBlockingStub.deleteUser(userIdRequest);
-        return resp.getSuccess();
+        if (resp.getSuccess()) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.fail(resp.getMessage());
+        }
     }
 }

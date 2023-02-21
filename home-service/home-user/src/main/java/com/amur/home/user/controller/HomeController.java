@@ -1,8 +1,9 @@
 package com.amur.home.user.controller;
 
-import com.amur.home.user.entity.HomeEntity;
+import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.service.impl.HomeServiceImpl;
 import com.amur.home.util.ResponseWrapper;
+import com.amur.home.util.ServiceResult;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -27,57 +28,92 @@ public class HomeController {
     @Operation(summary = "获取家庭信息")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
     @GetMapping("/get_info")
-    public ResponseWrapper<HomeEntity> getInfo(Long homeId) {
-        return ResponseWrapper.data(homeService.getHomeInfo(homeId));
+    public ResponseWrapper<HomeInfo> getInfo(Long homeId) {
+        return ResponseWrapper.data(homeService.getHomeInfo(homeId).getData());
     }
 
     @Operation(summary = "获取家庭列表")
     @GetMapping("/get_list")
-    public ResponseWrapper<List<HomeEntity>> getList() {
-        return ResponseWrapper.data(homeService.getHomeList());
+    public ResponseWrapper<List<HomeInfo>> getList() {
+        ServiceResult<List<HomeInfo>> res = homeService.getHomeList();
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
     }
 
     @Operation(summary = "创建家庭")
-    @Parameters({@Parameter(name = "homeEntity", description = "家庭实体", required = true)})
+    @Parameters({@Parameter(name = "homeInfo", description = "家庭实体", required = true)})
     @PostMapping("/create")
-    public ResponseWrapper<Long> createHome(HomeEntity homeEntity) {
-        return ResponseWrapper.data(homeService.createHome(homeEntity));
+    public ResponseWrapper<Long> createHome(HomeInfo homeInfo) {
+        ServiceResult<Long> res = homeService.createHome(homeInfo);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
     }
 
 
     @Operation(summary = "更新家庭信息")
-    @Parameters({@Parameter(name = "homeEntity", description = "家庭实体", required = true)})
+    @Parameters({@Parameter(name = "homeInfo", description = "家庭实体", required = true)})
     @PostMapping("/update")
-    public ResponseWrapper updateHome(HomeEntity homeEntity) {
-        return ResponseWrapper.status(homeService.updateHome(homeEntity));
+    public ResponseWrapper<Void> updateHome(HomeInfo homeInfo) {
+        ServiceResult<Void> res = homeService.updateHome(homeInfo);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
     }
 
     @Operation(summary = "删除家庭")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
     @PostMapping("/delete")
-    public ResponseWrapper deleteHome(Long homeId) {
-        return ResponseWrapper.status(homeService.deleteHome(homeId));
+    public ResponseWrapper<Void> deleteHome(Long homeId) {
+        ServiceResult<Void> res = homeService.deleteHome(homeId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
     }
 
     @Operation(summary = "家庭添加用户")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
     @PostMapping("/update_user")
-    public ResponseWrapper updateHomeUser(Long homeId, Long userId) {
-        return ResponseWrapper.status(homeService.updateHomeUser(homeId, userId));
+    public ResponseWrapper<Void> updateHomeUser(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.updateHomeUser(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
     }
 
     @Operation(summary = "家庭删除用户")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
     @PostMapping("/delete_user")
-    public ResponseWrapper deleteHomeUser(Long homeId, Long userId) {
-        return ResponseWrapper.status(homeService.deleteHomeUser(homeId, userId));
+    public ResponseWrapper<Void> deleteHomeUser(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.deleteHomeUser(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
     }
 
     @Operation(summary = "设置家庭管理员")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
     @PostMapping("/set_admin")
-    public ResponseWrapper setHomeAdmin(Long homeId, Long userId) {
-        return ResponseWrapper.status(homeService.setHomeAdmin(homeId, userId));
+    public ResponseWrapper<Void> setHomeAdmin(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.setHomeAdmin(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
     }
 
 

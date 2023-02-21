@@ -4,8 +4,8 @@ import com.amur.home.common.Constants.UserRelativeType;
 import com.amur.home.user.rpc.UserServiceProto;
 
 public class RelativeTypeConverter {
-    public static UserRelativeType toEnum(UserServiceProto.UserRelativeType protoType) {
-        int value = protoType.getNumber();
+    public static UserRelativeType toEnum(UserServiceProto.UserRelativeType proto) {
+        int value = proto.getNumber();
         switch (value) {
             case 0:
                 return UserRelativeType.FATHER;
@@ -27,10 +27,8 @@ public class RelativeTypeConverter {
                 return UserRelativeType.UNCLE;
             case 9:
                 return UserRelativeType.AUNT;
-            case 10:
-                return UserRelativeType.OTHER;
             default:
-                throw new IllegalArgumentException("Invalid UserRelativeType value: " + value);
+                return UserRelativeType.OTHER;
         }
     }
 
@@ -57,10 +55,8 @@ public class RelativeTypeConverter {
                 return UserServiceProto.UserRelativeType.UNCLE;
             case 9:
                 return UserServiceProto.UserRelativeType.AUNT;
-            case 10:
-                return UserServiceProto.UserRelativeType.OTHER;
             default:
-                throw new IllegalArgumentException("Invalid UserRelativeType value: " + value);
+                return UserServiceProto.UserRelativeType.OTHER;
         }
     }
 }
