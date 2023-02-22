@@ -26,8 +26,8 @@ public class HomeController {
     private HomeServiceImpl homeService;
 
     @Operation(summary = "获取家庭信息")
-    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
     @GetMapping("/info")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
     public ResponseWrapper<HomeInfo> getInfo(Long homeId) {
         return ResponseWrapper.data(homeService.getHomeInfo(homeId).getData());
     }
@@ -45,6 +45,7 @@ public class HomeController {
 
     @Operation(summary = "搜索公开的家庭")
     @GetMapping("/search")
+    @Parameters({@Parameter(name = "keyword", description = "关键字", required = true)})
     public ResponseWrapper<List<HomeInfo>> searchHome(String keyword) {
         ServiceResult<List<HomeInfo>> res = homeService.searchHome(keyword);
         if (res.isSuccess()) {
@@ -56,6 +57,12 @@ public class HomeController {
 
     @Operation(summary = "创建家庭")
     @PostMapping("/create")
+    @Parameters({
+            @Parameter(name = "name", description = "家庭名称", required = true),
+            @Parameter(name = "description", description = "家庭描述", required = true),
+            @Parameter(name = "userId", description = "创建者ID", required = true),
+            @Parameter(name = "avatarUrl", description = "家庭头像", required = true)
+    })
     public ResponseWrapper<Long> createHome(String name, String description, Long userId, String avatarUrl) {
         ServiceResult<Long> res = homeService.createHome(name, description, userId, avatarUrl);
         if (res.isSuccess()) {
@@ -124,6 +131,4 @@ public class HomeController {
             return ResponseWrapper.fail(res.getMessage());
         }
     }
-
-
 }

@@ -8,13 +8,18 @@ import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.HomeService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.minio.MinioClient;
+import io.minio.PutObjectArgs;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.InputStream;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +30,12 @@ public class HomeServiceImpl implements HomeService {
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private MinioClient minioClient;
+
+    @Value("${minio.endpoint}")
+    private String endpoint;
 
 
     /**
@@ -77,6 +88,28 @@ public class HomeServiceImpl implements HomeService {
             return ServiceResult.fail("创建家庭失败");
         }
         return ServiceResult.success(homeId);
+    }
+
+    /**
+     * @param file 文件
+     * @return 文件URL
+     */
+    @Override
+    public ServiceResult<String> updateAvatar(MultipartFile file) {
+        String originalFileName = file.getOriginalFilename();
+        String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
+        String uuid = UUID.randomUUID().toString();
+        String newFileName = uuid + fileExtension;
+
+        String bucketName = "home-avatar";
+        try {
+            InputStream inputStream = file.getInputStream();
+            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
+        } catch (Exception e) {
+            return ServiceResult.fail("获取文件信息失败");
+        }
+        String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+        return ServiceResult.success(fileUrl);
     }
 
     /**

@@ -5,11 +5,18 @@ import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.UserService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.minio.MinioClient;
+import io.minio.PutObjectArgs;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.InputStream;
+import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -17,6 +24,12 @@ public class UserServiceImpl implements UserService {
     @Resource
     @Setter
     private UserMapper userMapper;
+
+    @Resource
+    private MinioClient minioClient;
+
+    @Value("${minio.endpoint}")
+    private String endpoint;
 
     /**
      * 根据用户 ID 获取用户信息。
@@ -49,6 +62,28 @@ public class UserServiceImpl implements UserService {
             result.setMessage("更新用户信息失败！");
         }
         return result;
+    }
+
+    /**
+     * @param file
+     * @return
+     */
+    @Override
+    public ServiceResult<String> updateAvatar(MultipartFile file) {
+        String originalFileName = file.getOriginalFilename();
+        String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
+        String uuid = UUID.randomUUID().toString();
+        String newFileName = uuid + fileExtension;
+
+        String bucketName = "user-avatar";
+        try {
+            InputStream inputStream = file.getInputStream();
+            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
+        } catch (Exception e) {
+            return ServiceResult.fail("获取文件信息失败");
+        }
+        String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+        return ServiceResult.success(fileUrl);
     }
 
     /**

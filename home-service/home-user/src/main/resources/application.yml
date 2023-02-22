@@ -117,3 +117,9 @@ sa-token:
 tinyid:
   token: 0f673adf80504e2eaa552f5d791b644c
   bizType: home
+
+minio:
+  endpoint: http://127.0.0.1:65531
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucket-name: user

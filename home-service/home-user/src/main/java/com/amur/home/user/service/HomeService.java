@@ -4,6 +4,7 @@ import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface HomeService {
     public ServiceResult<List<HomeInfo>> getHomeList();
 
     public ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl);
+
+    public ServiceResult<String> updateAvatar(MultipartFile file);
 
     public ServiceResult<Void> updateHome(HomeInfo homeInfo);
 

@@ -3,12 +3,15 @@ package com.amur.home.user.service;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public interface UserService {
     public ServiceResult<UserInfo> getUserInfo(Long userId);
 
     public ServiceResult<Void> updateUser(UserInfo userInfo);
+
+    public ServiceResult<String> updateAvatar(MultipartFile file);
 
     public ServiceResult<Void> deleteUser(Long userId);
 
