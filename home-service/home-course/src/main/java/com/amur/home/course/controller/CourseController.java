@@ -1,6 +1,5 @@
 package com.amur.home.course.controller;
 
-import com.amur.home.common.Constants;
 import com.amur.home.course.dto.PageResult;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseList;

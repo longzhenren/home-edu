@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `homeedu`;
+CREATE DATABASE `homeedu`;
 use `homeedu`;
-CREATE TABLE IF NOT EXISTS `user_info`
+CREATE TABLE `user_info`
 (
     `id`            bigint NOT NULL,
     `name`          varchar(64)  DEFAULT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `user_info`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `user_auth`
+CREATE TABLE `user_auth`
 (
     `id`          bigint NOT NULL,
     `password`    varchar(128) DEFAULT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `user_auth`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `user_permission`
+CREATE TABLE `user_permission`
 (
     `id`          bigint NOT NULL,
     `user_id`     bigint     DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `user_permission`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `user_fav`
+CREATE TABLE `user_fav`
 (
     `id`              bigint NOT NULL,
     `user_ids`        json       DEFAULT NULL,
@@ -73,7 +73,31 @@ CREATE TABLE IF NOT EXISTS `user_fav`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `course_comment`
+CREATE TABLE `home_info`
+(
+    `id`             bigint NOT NULL,
+    `name`           varchar(255) DEFAULT NULL,
+    `description`    varchar(255) DEFAULT NULL,
+    `avatar_url`     varchar(255) DEFAULT NULL,
+    `image_urls`     json         DEFAULT NULL,
+    `admin_ids`      json         DEFAULT NULL,
+    `create_user_id` bigint       DEFAULT NULL,
+    `member_ids`     json         DEFAULT NULL,
+    `like_count`     bigint(20)   DEFAULT NULL,
+    `fav_count`      bigint(20)   DEFAULT NULL,
+    `open`           bit(1)       DEFAULT NULL,
+    `create_time`    datetime     DEFAULT NULL,
+    `update_time`    datetime     DEFAULT NULL,
+    `version`        int          DEFAULT NULL,
+    `deleted`        tinyint(1)   DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_create_time` (`create_time`),
+    KEY `idx_update_time` (`update_time`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `course_comment`
 (
     `id`            bigint NOT NULL,
     `course_id`     bigint       DEFAULT NULL,
@@ -94,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `course_comment`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
-CREATE TABLE IF NOT EXISTS `course_info`
+CREATE TABLE `course_info`
 (
     `id`            bigint NOT NULL,
     `name`          varchar(255) DEFAULT NULL,
@@ -123,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `course_info`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `course_join`
+CREATE TABLE `course_join`
 (
     `id`          bigint NOT NULL AUTO_INCREMENT,
     `user_id`     bigint     DEFAULT NULL,
@@ -139,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `course_join`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `course_list`
+CREATE TABLE `course_list`
 (
     `id`          bigint NOT NULL,
     `home_id`     bigint       DEFAULT NULL,
@@ -158,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `course_list`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `course_share`
+CREATE TABLE `course_share`
 (
     `id`          varchar(36) NOT NULL,
     `course_id`   bigint       DEFAULT NULL,
@@ -176,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `course_share`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE IF NOT EXISTS `course_ware`
+CREATE TABLE `course_ware`
 (
     `id`                    varchar(32) NOT NULL,
     `course_id`             bigint(20)   DEFAULT NULL,

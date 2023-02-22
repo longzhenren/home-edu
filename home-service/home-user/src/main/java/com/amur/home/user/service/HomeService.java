@@ -13,11 +13,13 @@ public interface HomeService {
 
     public ServiceResult<List<HomeInfo>> getHomeList();
 
-    public ServiceResult<Long> createHome(HomeInfo homeInfo);
+    public ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl);
 
     public ServiceResult<Void> updateHome(HomeInfo homeInfo);
 
-    public ServiceResult<Void> deleteHome(Long homeId);
+    public ServiceResult<Void> deleteHome(Long homeId, Long userId);
+
+    public ServiceResult<List<HomeInfo>> searchHome(String keyword);
 
     public ServiceResult<List<UserInfo>> getHomeUserList(Long homeId);
 

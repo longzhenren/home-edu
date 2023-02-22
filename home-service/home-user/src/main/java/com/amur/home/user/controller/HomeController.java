@@ -27,13 +27,13 @@ public class HomeController {
 
     @Operation(summary = "获取家庭信息")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
-    @GetMapping("/get_info")
+    @GetMapping("/info")
     public ResponseWrapper<HomeInfo> getInfo(Long homeId) {
         return ResponseWrapper.data(homeService.getHomeInfo(homeId).getData());
     }
 
     @Operation(summary = "获取家庭列表")
-    @GetMapping("/get_list")
+    @GetMapping("/list")
     public ResponseWrapper<List<HomeInfo>> getList() {
         ServiceResult<List<HomeInfo>> res = homeService.getHomeList();
         if (res.isSuccess()) {
@@ -43,11 +43,21 @@ public class HomeController {
         }
     }
 
+    @Operation(summary = "搜索公开的家庭")
+    @GetMapping("/search")
+    public ResponseWrapper<List<HomeInfo>> searchHome(String keyword) {
+        ServiceResult<List<HomeInfo>> res = homeService.searchHome(keyword);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
     @Operation(summary = "创建家庭")
-    @Parameters({@Parameter(name = "homeInfo", description = "家庭实体", required = true)})
     @PostMapping("/create")
-    public ResponseWrapper<Long> createHome(HomeInfo homeInfo) {
-        ServiceResult<Long> res = homeService.createHome(homeInfo);
+    public ResponseWrapper<Long> createHome(String name, String description, Long userId, String avatarUrl) {
+        ServiceResult<Long> res = homeService.createHome(name, description, userId, avatarUrl);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {
@@ -69,10 +79,9 @@ public class HomeController {
     }
 
     @Operation(summary = "删除家庭")
-    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
     @PostMapping("/delete")
-    public ResponseWrapper<Void> deleteHome(Long homeId) {
-        ServiceResult<Void> res = homeService.deleteHome(homeId);
+    public ResponseWrapper<Void> deleteHome(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.deleteHome(homeId, userId);
         if (res.isSuccess()) {
             return ResponseWrapper.status(true);
         } else {

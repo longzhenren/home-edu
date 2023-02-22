@@ -1,16 +1,19 @@
 package com.amur.home.user.service.impl;
 
+import com.amur.home.common.Constants;
 import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.mapper.HomeMapper;
 import com.amur.home.user.mapper.UserMapper;
 import com.amur.home.user.service.HomeService;
 import com.amur.home.util.ServiceResult;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,20 +54,29 @@ public class HomeServiceImpl implements HomeService {
         return ServiceResult.success(homeInfoList);
     }
 
-    /**
-     * 创建家庭
-     *
-     * @param homeInfo 家庭信息
-     * @return 家庭ID
-     */
     @Override
-    public ServiceResult<Long> createHome(HomeInfo homeInfo) {
-        if (homeMapper.insert(homeInfo) > 0) {
-            return ServiceResult.success(homeInfo.getId());
-        } else {
+    public ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl) {
+        UserInfo userInfo = userMapper.selectById(userId);
+        if (userInfo == null) {
+            return ServiceResult.fail("用户不存在");
+        }
+        HomeInfo homeInfo = new HomeInfo();
+        homeInfo.setCreateUserId(userId);
+        homeInfo.setName(name);
+        homeInfo.setDescription(description);
+        homeInfo.setAvatarUrl(avatarUrl);
+        homeInfo.setAdminIds(Collections.singleton(userId));
+        homeInfo.setMemberIds(Collections.singleton(userId));
+        if (homeMapper.insert(homeInfo) <= 0) {
             return ServiceResult.fail("创建家庭失败");
         }
-
+        Long homeId = homeInfo.getId();
+        userInfo.setHomeId(homeId);
+        userInfo.setRelativeType(Constants.UserRelativeType.OTHER);
+        if (userMapper.updateById(userInfo) <= 0) {
+            return ServiceResult.fail("创建家庭失败");
+        }
+        return ServiceResult.success(homeId);
     }
 
     /**
@@ -89,11 +101,33 @@ public class HomeServiceImpl implements HomeService {
      * @return 是否删除成功
      */
     @Override
-    public ServiceResult<Void> deleteHome(Long homeId) {
+    public ServiceResult<Void> deleteHome(Long homeId, Long userId) {
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("home_id", homeId).ne("user_id", userId);
+        List<UserInfo> userInfoList = userMapper.selectList(queryWrapper);
+        if (userInfoList.size() > 0) {
+            return ServiceResult.fail("家庭中还有其他用户，无法删除");
+        }
         if (homeMapper.deleteById(homeId) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("删除失败");
+        }
+    }
+
+    /**
+     * @param keyword 关键字
+     * @return 家庭信息列表
+     */
+    @Override
+    public ServiceResult<List<HomeInfo>> searchHome(String keyword) {
+        QueryWrapper<HomeInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("open", true).like("name", keyword).or().like("description", keyword);
+        List<HomeInfo> homeInfoList = homeMapper.selectList(queryWrapper);
+        if (homeInfoList.size() > 0) {
+            return ServiceResult.success(homeInfoList);
+        } else {
+            return ServiceResult.fail("没有搜索到相关家庭");
         }
     }
 
@@ -109,7 +143,7 @@ public class HomeServiceImpl implements HomeService {
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
-        List<Long> userIdList = new ArrayList<>(homeInfo.getHomeUserIds());
+        List<Long> userIdList = new ArrayList<>(homeInfo.getMemberIds());
         return ServiceResult.success(userIdList.stream().map(userId -> userMapper.selectById(userId)).collect(Collectors.toList()));
     }
 
@@ -130,7 +164,7 @@ public class HomeServiceImpl implements HomeService {
         if (userInfo == null) {
             return ServiceResult.fail("用户不存在");
         }
-        homeInfo.getHomeUserIds().add(userId);
+        homeInfo.getMemberIds().add(userId);
         if (homeMapper.updateById(homeInfo) > 0) {
             return ServiceResult.success();
         } else {
@@ -151,7 +185,15 @@ public class HomeServiceImpl implements HomeService {
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
-        homeInfo.getHomeUserIds().remove(userId);
+        UserInfo userInfo = userMapper.selectById(userId);
+        if (userInfo == null) {
+            return ServiceResult.fail("用户不存在");
+        }
+        if (!homeInfo.getMemberIds().contains(userId)) {
+            return ServiceResult.fail("成员不在家庭中");
+        }
+        homeInfo.getMemberIds().remove(userId);
+        userInfo.setHomeId(0L);
         if (homeMapper.updateById(homeInfo) > 0) {
             return ServiceResult.success();
         } else {
@@ -172,7 +214,7 @@ public class HomeServiceImpl implements HomeService {
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
-        homeInfo.setAdminId(userId);
+        homeInfo.getAdminIds().add(userId);
         if (homeMapper.updateById(homeInfo) > 0) {
             return ServiceResult.success();
         } else {

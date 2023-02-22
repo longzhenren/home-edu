@@ -23,12 +23,14 @@ public class HomeInfo {
     private String avatarUrl;
     @TableField(typeHandler = JacksonTypeHandler.class)
     private List<String> imageUrls;
-    private Long adminId;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private Set<Long> adminIds;
     private Long createUserId;
     @TableField(typeHandler = JacksonTypeHandler.class)
-    private Set<Long> homeUserIds;
+    private Set<Long> memberIds;
     private Long likeCount;                 //点赞数
     private Long favCount;                  //收藏数
+    private Boolean open;
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
