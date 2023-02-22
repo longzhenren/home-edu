@@ -15,7 +15,7 @@ public class CourseProtoConverter {
     public static CourseInfo toCourseInfo(CourseServiceProto.CourseInfo courseInfoProto) {
         CourseInfo courseInfo = new CourseInfo();
         courseInfo.setId(courseInfoProto.getId());
-        courseInfo.setTitle(courseInfoProto.getTitle());
+        courseInfo.setName(courseInfoProto.getName());
         courseInfo.setDescription(courseInfoProto.getDescription());
         courseInfo.setHomeId(courseInfoProto.getHomeId());
         courseInfo.setCoverUrl(courseInfoProto.getCoverUrl());
@@ -173,7 +173,7 @@ public class CourseProtoConverter {
     public static CourseServiceProto.CourseInfo toCourseInfoProto(CourseInfo courseInfo) {
         CourseServiceProto.CourseInfo.Builder builder = CourseServiceProto.CourseInfo.newBuilder();
         builder.setId(courseInfo.getId());
-        builder.setTitle(courseInfo.getTitle());
+        builder.setName(courseInfo.getName());
         builder.setDescription(courseInfo.getDescription());
         builder.setHomeId(courseInfo.getHomeId());
         builder.setCoverUrl(courseInfo.getCoverUrl());

@@ -1,53 +1,85 @@
 package com.amur.home.course.service;
 
 import com.amur.home.common.Constants;
+import com.amur.home.course.dto.PageResult;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseList;
 import com.amur.home.course.entity.CourseShare;
+import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
 public interface CourseService {
-    public Long createCourse(CourseInfo courseInfo);
+    ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl);
 
-    public boolean deleteCourse(Long courseId);
+    ServiceResult<String> courseAddCover(MultipartFile cover);
 
-    public CourseInfo updateCourse(CourseInfo courseInfo);
+    ServiceResult<Void> courseDel(Long courseId);
 
-    public Long createCourseList(CourseList courseList);
+    ServiceResult<PageResult<CourseInfo>> courseSearch(Long homeId, String keyword, Integer pageNum, Integer pageSize);
 
-    public boolean deleteCourseList(Long listId);
+    ServiceResult<Void> courseUpdate(CourseInfo courseInfo);
 
-    public CourseInfo updateCourseList(CourseList courseList);
+    ServiceResult<CourseInfo> courseInfo(Long courseId);
 
-    public boolean updateCourseAccess(Long courseId, Long userId, String access);
+    ServiceResult<?> courseInfoByUserId(Long userId);
 
-    public CourseInfo getCourseInfo(Long courseId);
+    ServiceResult<?> courseInfoByHomeId(Long homeId);
 
-    public boolean rankCourse(Long courseId, Long userId, Double score);
+    ServiceResult<?> rank(Long courseId, Double rank);
 
-    public boolean updateComment(Long courseId, Long userId, String comment);
+    ServiceResult<?> commentAdd(Long courseId, Long userId, String comment);
 
-    public boolean createComment(Long courseId, Long userId, Double score, String comment);
+    ServiceResult<?> commentDel(Long courseId, Long userId);
 
-    public boolean likeCourse(Long courseId, Long userId);
+    ServiceResult<?> commentInfoList(Long courseId);
 
-    public boolean favCourse(Long courseId, Long userId);
+    ServiceResult<?> commentInfoList(Long courseId, String keyword);
 
-    public boolean joinCourseByShareToken(Long userId, String token);
+    ServiceResult<?> commentInfoByUserId(Long userId);
 
-    public String generateShareToken(Long courseId, Long userId, Date expireAt, Constants.InviteAs inviteAs);
+    ServiceResult<?> share(Long courseId, Long inviterId, Constants.InviteAs as, Date expireTime);
 
-    public CourseShare getShareInfo(String token);
+    ServiceResult<CourseShare> shareInfo(String shareToken);
 
-    public boolean deleteShareToken(String token);
+    ServiceResult<CourseShare> joinByToken(String shareToken, Long userId);
 
-    public boolean hasJoined(Long courseId, Long userId);
+    ServiceResult<?> shareInfoByUserId(Long userId);
 
-    public List<CourseShare> listShareInfoByUserId(Long userId);
+    ServiceResult<?> shareInfoById(Long courseId);
 
-    public boolean cancelShareToken(String token, Long userId);
+    ServiceResult<?> shareCancel(String shareToken);
+
+    ServiceResult<?> addStudent(Long courseId, Long userId);
+
+    ServiceResult<?> delStudent(Long courseId, Long userId);
+
+    ServiceResult<?> listStudent(Long courseId);
+
+    ServiceResult<?> addTeacher(Long courseId, Long userId);
+
+    ServiceResult<?> delTeacher(Long courseId, Long userId);
+
+    ServiceResult<?> listTeacher(Long courseId);
+
+    ServiceResult<?> createList(Long homeId, String title, String description, boolean open, List<Long> courseIdList);
+
+    ServiceResult<?> courseListInfo(Long courseId);
+
+    ServiceResult<?> courseListSearch(String keyword);
+
+    ServiceResult<?> courseListInfoByHomeId(Long homeId);
+
+    ServiceResult<?> deleteList(Long listId);
+
+    ServiceResult<?> listAdd(Long listId, Long courseId);
+
+    ServiceResult<?> listRemove(Long listId, Long courseId);
+
+    ServiceResult<?> listUpdate(CourseList courseList);
+
 }

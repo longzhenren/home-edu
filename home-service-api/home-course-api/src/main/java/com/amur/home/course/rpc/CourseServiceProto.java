@@ -28488,16 +28488,16 @@ public final class CourseServiceProto {
     long getListId();
 
     /**
-     * <code>string title = 3;</code>
-     * @return The title.
+     * <code>string name = 3;</code>
+     * @return The name.
      */
-    java.lang.String getTitle();
+    java.lang.String getName();
     /**
-     * <code>string title = 3;</code>
-     * @return The bytes for title.
+     * <code>string name = 3;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
-        getTitleBytes();
+        getNameBytes();
 
     /**
      * <code>string description = 4;</code>
@@ -28701,7 +28701,7 @@ public final class CourseServiceProto {
       super(builder);
     }
     private CourseInfo() {
-      title_ = "";
+      name_ = "";
       description_ = "";
       coverUrl_ = "";
       teacherIds_ = emptyLongList();
@@ -28754,7 +28754,7 @@ public final class CourseServiceProto {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              title_ = s;
+              name_ = s;
               break;
             }
             case 34: {
@@ -28988,38 +28988,38 @@ public final class CourseServiceProto {
       return listId_;
     }
 
-    public static final int TITLE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object title_;
+    public static final int NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object name_;
     /**
-     * <code>string title = 3;</code>
-     * @return The title.
+     * <code>string name = 3;</code>
+     * @return The name.
      */
     @java.lang.Override
-    public java.lang.String getTitle() {
-      java.lang.Object ref = title_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        title_ = s;
+        name_ = s;
         return s;
       }
     }
     /**
-     * <code>string title = 3;</code>
-     * @return The bytes for title.
+     * <code>string name = 3;</code>
+     * @return The bytes for name.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getTitleBytes() {
-      java.lang.Object ref = title_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        title_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -29426,8 +29426,8 @@ public final class CourseServiceProto {
       if (listId_ != 0L) {
         output.writeInt64(2, listId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, title_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -29509,8 +29509,8 @@ public final class CourseServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, listId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, title_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -29626,8 +29626,8 @@ public final class CourseServiceProto {
           != other.getId()) return false;
       if (getListId()
           != other.getListId()) return false;
-      if (!getTitle()
-          .equals(other.getTitle())) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
       if (!getDescription()
           .equals(other.getDescription())) return false;
       if (getHomeId()
@@ -29692,8 +29692,8 @@ public final class CourseServiceProto {
       hash = (37 * hash) + LIST_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getListId());
-      hash = (37 * hash) + TITLE_FIELD_NUMBER;
-      hash = (53 * hash) + getTitle().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + HOME_ID_FIELD_NUMBER;
@@ -29886,7 +29886,7 @@ public final class CourseServiceProto {
 
         listId_ = 0L;
 
-        title_ = "";
+        name_ = "";
 
         description_ = "";
 
@@ -29967,7 +29967,7 @@ public final class CourseServiceProto {
         int from_bitField0_ = bitField0_;
         result.id_ = id_;
         result.listId_ = listId_;
-        result.title_ = title_;
+        result.name_ = name_;
         result.description_ = description_;
         result.homeId_ = homeId_;
         result.coverUrl_ = coverUrl_;
@@ -30067,8 +30067,8 @@ public final class CourseServiceProto {
         if (other.getListId() != 0L) {
           setListId(other.getListId());
         }
-        if (!other.getTitle().isEmpty()) {
-          title_ = other.title_;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
@@ -30238,78 +30238,78 @@ public final class CourseServiceProto {
         return this;
       }
 
-      private java.lang.Object title_ = "";
+      private java.lang.Object name_ = "";
       /**
-       * <code>string title = 3;</code>
-       * @return The title.
+       * <code>string name = 3;</code>
+       * @return The name.
        */
-      public java.lang.String getTitle() {
-        java.lang.Object ref = title_;
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          title_ = s;
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string title = 3;</code>
-       * @return The bytes for title.
+       * <code>string name = 3;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
-          getTitleBytes() {
-        java.lang.Object ref = title_;
+          getNameBytes() {
+        java.lang.Object ref = name_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          title_ = b;
+          name_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string title = 3;</code>
-       * @param value The title to set.
+       * <code>string name = 3;</code>
+       * @param value The name to set.
        * @return This builder for chaining.
        */
-      public Builder setTitle(
+      public Builder setName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        title_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string title = 3;</code>
+       * <code>string name = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTitle() {
+      public Builder clearName() {
         
-        title_ = getDefaultInstance().getTitle();
+        name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       /**
-       * <code>string title = 3;</code>
-       * @param value The bytes for title to set.
+       * <code>string name = 3;</code>
+       * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
-      public Builder setTitleBytes(
+      public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        title_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
@@ -37873,118 +37873,118 @@ public final class CourseServiceProto {
       "\n\nreply_time\030\007 \001(\t\022\022\n\nlike_count\030\010 \001(\003\022\r" +
       "\n\005score\030\t \001(\001\022/\n\013create_time\030\n \001(\0132\032.goo" +
       "gle.protobuf.Timestamp\022/\n\013update_time\030\013 " +
-      "\001(\0132\032.google.protobuf.Timestamp\"\356\003\n\nCour" +
-      "seInfo\022\n\n\002id\030\001 \001(\003\022\017\n\007list_id\030\002 \001(\003\022\r\n\005t" +
-      "itle\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\017\n\007home_" +
-      "id\030\005 \001(\003\022\021\n\tcover_url\030\006 \001(\t\022\023\n\013teacher_i" +
-      "ds\030\007 \003(\003\022\023\n\013student_ids\030\010 \003(\003\022\021\n\tissue_i" +
-      "ds\030\t \003(\003\022\016\n\006status\030\n \001(\t\022.\n\nstart_time\030\013" +
-      " \001(\0132\032.google.protobuf.Timestamp\022,\n\010end_" +
-      "time\030\014 \001(\0132\032.google.protobuf.Timestamp\022\014" +
-      "\n\004open\030\r \001(\010\022\022\n\nlike_count\030\016 \001(\003\022\021\n\tfav_" +
-      "count\030\017 \001(\003\022\025\n\rcomment_count\030\020 \001(\003\022\r\n\005sc" +
-      "ore\030\021 \001(\001\022\023\n\013score_count\030\022 \001(\003\022/\n\013create" +
-      "_time\030\023 \001(\0132\032.google.protobuf.Timestamp\022" +
-      "/\n\013update_time\030\024 \001(\0132\032.google.protobuf.T" +
-      "imestamp\"\267\001\n\022CourseJoinRelation\022\n\n\002id\030\001 " +
-      "\001(\003\022\017\n\007user_id\030\002 \001(\003\022\017\n\007home_id\030\003 \001(\003\022\021\n" +
-      "\tcourse_id\030\004 \001(\003\022/\n\013create_time\030\005 \001(\0132\032." +
-      "google.protobuf.Timestamp\022/\n\013update_time" +
-      "\030\006 \001(\0132\032.google.protobuf.Timestamp\"\344\001\n\nC" +
-      "ourseList\022\n\n\002id\030\001 \001(\003\022\017\n\007home_id\030\002 \001(\003\022\022" +
-      "\n\ncourse_ids\030\003 \003(\003\022\r\n\005title\030\004 \001(\t\022\023\n\013des" +
-      "cription\030\005 \001(\t\022\021\n\tcover_url\030\006 \001(\t\022\014\n\004ope" +
-      "n\030\007 \001(\010\022/\n\013create_time\030\010 \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\022/\n\013update_time\030\t \001(\0132\032." +
-      "google.protobuf.Timestamp\"\351\001\n\013CourseShar" +
-      "e\022\r\n\005token\030\001 \001(\t\022\021\n\tcourse_id\030\002 \001(\003\022\022\n\ni" +
-      "nviter_id\030\003 \001(\003\022\021\n\tinvite_as\030\004 \001(\005\022/\n\013ex" +
-      "pire_time\030\005 \001(\0132\032.google.protobuf.Timest" +
-      "amp\022/\n\013create_time\030\006 \001(\0132\032.google.protob" +
-      "uf.Timestamp\022/\n\013update_time\030\007 \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\"\363\002\n\nCourseWare\022\n\n\002" +
-      "id\030\001 \001(\t\022\020\n\010courseId\030\002 \001(\003\022\020\n\010fileName\030\003" +
-      " \001(\t\022\023\n\013description\030\004 \001(\t\022\017\n\007fileUrl\030\005 \001" +
-      "(\t\022\\\n\024additionalProperties\030\006 \003(\0132>.com.a" +
-      "mur.home.course.rpc.CourseWare.Additiona" +
-      "lPropertiesEntry\022.\n\ncreateTime\030\007 \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\022.\n\nupdateTime\030\010" +
-      " \001(\0132\032.google.protobuf.Timestamp\032Q\n\031Addi" +
-      "tionalPropertiesEntry\022\013\n\003key\030\001 \001(\t\022#\n\005va" +
-      "lue\030\002 \001(\0132\024.google.protobuf.Any:\0028\0012\224\026\n\r" +
-      "CourseService\022d\n\014CreateCourse\022$.com.amur" +
-      ".home.course.rpc.CourseInfo\032..com.amur.h" +
-      "ome.course.rpc.CreateCourseResponse\022m\n\014D" +
-      "eleteCourse\022-.com.amur.home.course.rpc.D" +
-      "eleteCourseRequest\032..com.amur.home.cours" +
-      "e.rpc.DeleteCourseResponse\022m\n\014UpdateCour" +
-      "se\022-.com.amur.home.course.rpc.UpdateCour" +
-      "seRequest\032..com.amur.home.course.rpc.Upd" +
-      "ateCourseResponse\022l\n\020CreateCourseList\022$." +
-      "com.amur.home.course.rpc.CourseList\0322.co" +
-      "m.amur.home.course.rpc.CreateCourseListR" +
-      "esponse\022y\n\020DeleteCourseList\0221.com.amur.h" +
-      "ome.course.rpc.DeleteCourseListRequest\0322" +
-      ".com.amur.home.course.rpc.DeleteCourseLi" +
-      "stResponse\022y\n\020UpdateCourseList\0221.com.amu" +
-      "r.home.course.rpc.UpdateCourseListReques" +
-      "t\0322.com.amur.home.course.rpc.UpdateCours" +
-      "eListResponse\022\177\n\022UpdateCourseAccess\0223.co" +
-      "m.amur.home.course.rpc.UpdateCourseAcces" +
-      "sRequest\0324.com.amur.home.course.rpc.Upda" +
-      "teCourseAccessResponse\022p\n\rGetCourseInfo\022" +
-      "..com.amur.home.course.rpc.GetCourseInfo" +
-      "Request\032/.com.amur.home.course.rpc.GetCo" +
-      "urseInfoResponse\022g\n\nRankCourse\022+.com.amu" +
-      "r.home.course.rpc.RankCourseRequest\032,.co" +
-      "m.amur.home.course.rpc.RankCourseRespons" +
-      "e\022p\n\rUpdateComment\022..com.amur.home.cours" +
-      "e.rpc.UpdateCommentRequest\032/.com.amur.ho" +
-      "me.course.rpc.UpdateCommentResponse\022p\n\rC" +
-      "reateComment\022..com.amur.home.course.rpc." +
-      "CreateCommentRequest\032/.com.amur.home.cou" +
-      "rse.rpc.CreateCommentResponse\022g\n\nLikeCou" +
-      "rse\022+.com.amur.home.course.rpc.LikeCours" +
-      "eRequest\032,.com.amur.home.course.rpc.Like" +
-      "CourseResponse\022d\n\tFavCourse\022*.com.amur.h" +
-      "ome.course.rpc.FavCourseRequest\032+.com.am" +
-      "ur.home.course.rpc.FavCourseResponse\022\213\001\n" +
-      "\026JoinCourseByShareToken\0227.com.amur.home." +
-      "course.rpc.JoinCourseByShareTokenRequest" +
-      "\0328.com.amur.home.course.rpc.JoinCourseBy" +
-      "ShareTokenResponse\022\177\n\022GenerateShareToken" +
-      "\0223.com.amur.home.course.rpc.GenerateShar" +
-      "eTokenRequest\0324.com.amur.home.course.rpc" +
-      ".GenerateShareTokenResponse\022m\n\014GetShareI" +
-      "nfo\022-.com.amur.home.course.rpc.GetShareI" +
-      "nfoRequest\032..com.amur.home.course.rpc.Ge" +
-      "tShareInfoResponse\022y\n\020DeleteShareToken\0221" +
-      ".com.amur.home.course.rpc.DeleteShareTok" +
-      "enRequest\0322.com.amur.home.course.rpc.Del" +
-      "eteShareTokenResponse\022d\n\tHasJoined\022*.com" +
-      ".amur.home.course.rpc.HasJoinedRequest\032+" +
-      ".com.amur.home.course.rpc.HasJoinedRespo" +
-      "nse\022\210\001\n\025ListShareInfoByUserId\0226.com.amur" +
-      ".home.course.rpc.ListShareInfoByUserIdRe" +
-      "quest\0327.com.amur.home.course.rpc.ListSha" +
-      "reInfoByUserIdResponse\022y\n\020CancelShareTok" +
-      "en\0221.com.amur.home.course.rpc.CancelShar" +
-      "eTokenRequest\0322.com.amur.home.course.rpc" +
-      ".CancelShareTokenResponse\022p\n\rSearchCours" +
-      "es\022..com.amur.home.course.rpc.SearchCour" +
-      "sesRequest\032/.com.amur.home.course.rpc.Se" +
-      "archCoursesResponse\022s\n\016ListAllCourses\022/." +
-      "com.amur.home.course.rpc.ListAllCoursesR" +
-      "equest\0320.com.amur.home.course.rpc.ListAl" +
-      "lCoursesResponse\022\177\n\022ListCourseByUserId\0223" +
-      ".com.amur.home.course.rpc.ListCourseByUs" +
-      "erIdRequest\0324.com.amur.home.course.rpc.L" +
-      "istCourseByUserIdResponse\022\177\n\022ListCourseB" +
-      "yListId\0223.com.amur.home.course.rpc.ListC" +
-      "ourseByListIdRequest\0324.com.amur.home.cou" +
-      "rse.rpc.ListCourseByListIdResponseB0\n\030co" +
-      "m.amur.home.course.rpcB\022CourseServicePro" +
-      "toP\000b\006proto3"
+      "\001(\0132\032.google.protobuf.Timestamp\"\355\003\n\nCour" +
+      "seInfo\022\n\n\002id\030\001 \001(\003\022\017\n\007list_id\030\002 \001(\003\022\014\n\004n" +
+      "ame\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\017\n\007home_i" +
+      "d\030\005 \001(\003\022\021\n\tcover_url\030\006 \001(\t\022\023\n\013teacher_id" +
+      "s\030\007 \003(\003\022\023\n\013student_ids\030\010 \003(\003\022\021\n\tissue_id" +
+      "s\030\t \003(\003\022\016\n\006status\030\n \001(\t\022.\n\nstart_time\030\013 " +
+      "\001(\0132\032.google.protobuf.Timestamp\022,\n\010end_t" +
+      "ime\030\014 \001(\0132\032.google.protobuf.Timestamp\022\014\n" +
+      "\004open\030\r \001(\010\022\022\n\nlike_count\030\016 \001(\003\022\021\n\tfav_c" +
+      "ount\030\017 \001(\003\022\025\n\rcomment_count\030\020 \001(\003\022\r\n\005sco" +
+      "re\030\021 \001(\001\022\023\n\013score_count\030\022 \001(\003\022/\n\013create_" +
+      "time\030\023 \001(\0132\032.google.protobuf.Timestamp\022/" +
+      "\n\013update_time\030\024 \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\"\267\001\n\022CourseJoinRelation\022\n\n\002id\030\001 \001" +
+      "(\003\022\017\n\007user_id\030\002 \001(\003\022\017\n\007home_id\030\003 \001(\003\022\021\n\t" +
+      "course_id\030\004 \001(\003\022/\n\013create_time\030\005 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022/\n\013update_time\030" +
+      "\006 \001(\0132\032.google.protobuf.Timestamp\"\344\001\n\nCo" +
+      "urseList\022\n\n\002id\030\001 \001(\003\022\017\n\007home_id\030\002 \001(\003\022\022\n" +
+      "\ncourse_ids\030\003 \003(\003\022\r\n\005title\030\004 \001(\t\022\023\n\013desc" +
+      "ription\030\005 \001(\t\022\021\n\tcover_url\030\006 \001(\t\022\014\n\004open" +
+      "\030\007 \001(\010\022/\n\013create_time\030\010 \001(\0132\032.google.pro" +
+      "tobuf.Timestamp\022/\n\013update_time\030\t \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\"\351\001\n\013CourseShare" +
+      "\022\r\n\005token\030\001 \001(\t\022\021\n\tcourse_id\030\002 \001(\003\022\022\n\nin" +
+      "viter_id\030\003 \001(\003\022\021\n\tinvite_as\030\004 \001(\005\022/\n\013exp" +
+      "ire_time\030\005 \001(\0132\032.google.protobuf.Timesta" +
+      "mp\022/\n\013create_time\030\006 \001(\0132\032.google.protobu" +
+      "f.Timestamp\022/\n\013update_time\030\007 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\"\363\002\n\nCourseWare\022\n\n\002i" +
+      "d\030\001 \001(\t\022\020\n\010courseId\030\002 \001(\003\022\020\n\010fileName\030\003 " +
+      "\001(\t\022\023\n\013description\030\004 \001(\t\022\017\n\007fileUrl\030\005 \001(" +
+      "\t\022\\\n\024additionalProperties\030\006 \003(\0132>.com.am" +
+      "ur.home.course.rpc.CourseWare.Additional" +
+      "PropertiesEntry\022.\n\ncreateTime\030\007 \001(\0132\032.go" +
+      "ogle.protobuf.Timestamp\022.\n\nupdateTime\030\010 " +
+      "\001(\0132\032.google.protobuf.Timestamp\032Q\n\031Addit" +
+      "ionalPropertiesEntry\022\013\n\003key\030\001 \001(\t\022#\n\005val" +
+      "ue\030\002 \001(\0132\024.google.protobuf.Any:\0028\0012\224\026\n\rC" +
+      "ourseService\022d\n\014CreateCourse\022$.com.amur." +
+      "home.course.rpc.CourseInfo\032..com.amur.ho" +
+      "me.course.rpc.CreateCourseResponse\022m\n\014De" +
+      "leteCourse\022-.com.amur.home.course.rpc.De" +
+      "leteCourseRequest\032..com.amur.home.course" +
+      ".rpc.DeleteCourseResponse\022m\n\014UpdateCours" +
+      "e\022-.com.amur.home.course.rpc.UpdateCours" +
+      "eRequest\032..com.amur.home.course.rpc.Upda" +
+      "teCourseResponse\022l\n\020CreateCourseList\022$.c" +
+      "om.amur.home.course.rpc.CourseList\0322.com" +
+      ".amur.home.course.rpc.CreateCourseListRe" +
+      "sponse\022y\n\020DeleteCourseList\0221.com.amur.ho" +
+      "me.course.rpc.DeleteCourseListRequest\0322." +
+      "com.amur.home.course.rpc.DeleteCourseLis" +
+      "tResponse\022y\n\020UpdateCourseList\0221.com.amur" +
+      ".home.course.rpc.UpdateCourseListRequest" +
+      "\0322.com.amur.home.course.rpc.UpdateCourse" +
+      "ListResponse\022\177\n\022UpdateCourseAccess\0223.com" +
+      ".amur.home.course.rpc.UpdateCourseAccess" +
+      "Request\0324.com.amur.home.course.rpc.Updat" +
+      "eCourseAccessResponse\022p\n\rGetCourseInfo\022." +
+      ".com.amur.home.course.rpc.GetCourseInfoR" +
+      "equest\032/.com.amur.home.course.rpc.GetCou" +
+      "rseInfoResponse\022g\n\nRankCourse\022+.com.amur" +
+      ".home.course.rpc.RankCourseRequest\032,.com" +
+      ".amur.home.course.rpc.RankCourseResponse" +
+      "\022p\n\rUpdateComment\022..com.amur.home.course" +
+      ".rpc.UpdateCommentRequest\032/.com.amur.hom" +
+      "e.course.rpc.UpdateCommentResponse\022p\n\rCr" +
+      "eateComment\022..com.amur.home.course.rpc.C" +
+      "reateCommentRequest\032/.com.amur.home.cour" +
+      "se.rpc.CreateCommentResponse\022g\n\nLikeCour" +
+      "se\022+.com.amur.home.course.rpc.LikeCourse" +
+      "Request\032,.com.amur.home.course.rpc.LikeC" +
+      "ourseResponse\022d\n\tFavCourse\022*.com.amur.ho" +
+      "me.course.rpc.FavCourseRequest\032+.com.amu" +
+      "r.home.course.rpc.FavCourseResponse\022\213\001\n\026" +
+      "JoinCourseByShareToken\0227.com.amur.home.c" +
+      "ourse.rpc.JoinCourseByShareTokenRequest\032" +
+      "8.com.amur.home.course.rpc.JoinCourseByS" +
+      "hareTokenResponse\022\177\n\022GenerateShareToken\022" +
+      "3.com.amur.home.course.rpc.GenerateShare" +
+      "TokenRequest\0324.com.amur.home.course.rpc." +
+      "GenerateShareTokenResponse\022m\n\014GetShareIn" +
+      "fo\022-.com.amur.home.course.rpc.GetShareIn" +
+      "foRequest\032..com.amur.home.course.rpc.Get" +
+      "ShareInfoResponse\022y\n\020DeleteShareToken\0221." +
+      "com.amur.home.course.rpc.DeleteShareToke" +
+      "nRequest\0322.com.amur.home.course.rpc.Dele" +
+      "teShareTokenResponse\022d\n\tHasJoined\022*.com." +
+      "amur.home.course.rpc.HasJoinedRequest\032+." +
+      "com.amur.home.course.rpc.HasJoinedRespon" +
+      "se\022\210\001\n\025ListShareInfoByUserId\0226.com.amur." +
+      "home.course.rpc.ListShareInfoByUserIdReq" +
+      "uest\0327.com.amur.home.course.rpc.ListShar" +
+      "eInfoByUserIdResponse\022y\n\020CancelShareToke" +
+      "n\0221.com.amur.home.course.rpc.CancelShare" +
+      "TokenRequest\0322.com.amur.home.course.rpc." +
+      "CancelShareTokenResponse\022p\n\rSearchCourse" +
+      "s\022..com.amur.home.course.rpc.SearchCours" +
+      "esRequest\032/.com.amur.home.course.rpc.Sea" +
+      "rchCoursesResponse\022s\n\016ListAllCourses\022/.c" +
+      "om.amur.home.course.rpc.ListAllCoursesRe" +
+      "quest\0320.com.amur.home.course.rpc.ListAll" +
+      "CoursesResponse\022\177\n\022ListCourseByUserId\0223." +
+      "com.amur.home.course.rpc.ListCourseByUse" +
+      "rIdRequest\0324.com.amur.home.course.rpc.Li" +
+      "stCourseByUserIdResponse\022\177\n\022ListCourseBy" +
+      "ListId\0223.com.amur.home.course.rpc.ListCo" +
+      "urseByListIdRequest\0324.com.amur.home.cour" +
+      "se.rpc.ListCourseByListIdResponseB0\n\030com" +
+      ".amur.home.course.rpcB\022CourseServiceProt" +
+      "oP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -38279,7 +38279,7 @@ public final class CourseServiceProto {
     internal_static_com_amur_home_course_rpc_CourseInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_course_rpc_CourseInfo_descriptor,
-        new java.lang.String[] { "Id", "ListId", "Title", "Description", "HomeId", "CoverUrl", "TeacherIds", "StudentIds", "IssueIds", "Status", "StartTime", "EndTime", "Open", "LikeCount", "FavCount", "CommentCount", "Score", "ScoreCount", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "Id", "ListId", "Name", "Description", "HomeId", "CoverUrl", "TeacherIds", "StudentIds", "IssueIds", "Status", "StartTime", "EndTime", "Open", "LikeCount", "FavCount", "CommentCount", "Score", "ScoreCount", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_course_rpc_CourseJoinRelation_descriptor =
       getDescriptor().getMessageTypes().get(48);
     internal_static_com_amur_home_course_rpc_CourseJoinRelation_fieldAccessorTable = new

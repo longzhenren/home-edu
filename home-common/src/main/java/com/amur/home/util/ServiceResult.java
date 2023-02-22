@@ -37,9 +37,9 @@ public class ServiceResult<T> implements Serializable {
         return new ServiceResult<>(false, message);
     }
 
-    public static <T> ServiceResult<T> success(String message) {
-        return new ServiceResult<>(true, message);
-    }
+//    public static <T> ServiceResult<T> success(String message) {
+//        return new ServiceResult<>(true, message);
+//    }
 
     public static <T> ServiceResult<T> success() {
         return new ServiceResult<>(true);

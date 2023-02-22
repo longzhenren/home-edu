@@ -88,14 +88,16 @@ CREATE TABLE IF NOT EXISTS `course_comment`
     `update_time`   datetime     DEFAULT NULL,
     `version`       int          DEFAULT NULL,
     `deleted`       tinyint(1)   DEFAULT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    KEY `idx_course_comment_user_id` (`user_id`),
+    KEY `idx_course_comment_course_id` (`course_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `course_info`
 (
     `id`            bigint NOT NULL,
-    `title`         varchar(255) DEFAULT NULL,
+    `name`          varchar(255) DEFAULT NULL,
     `description`   varchar(255) DEFAULT NULL,
     `home_id`       bigint       DEFAULT NULL,
     `cover_url`     varchar(255) DEFAULT NULL,
@@ -115,20 +117,23 @@ CREATE TABLE IF NOT EXISTS `course_info`
     `update_time`   datetime     DEFAULT NULL,
     `version`       int          DEFAULT NULL,
     `deleted`       tinyint(1)   DEFAULT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    KEY `idx_course_info_home_id` (`home_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `course_join`
 (
-    `id`        bigint NOT NULL,
-    `user_id`   bigint DEFAULT NULL,
-    `home_id`   bigint DEFAULT NULL,
-    `course_id` bigint DEFAULT NULL,
+    `id`          bigint NOT NULL AUTO_INCREMENT,
+    `user_id`     bigint     DEFAULT NULL,
+    `course_id`   bigint     DEFAULT NULL,
+    `create_time` datetime   DEFAULT NULL,
+    `update_time` datetime   DEFAULT NULL,
+    `version`     int        DEFAULT NULL,
+    `deleted`     tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_course_join_user_id` (`user_id`),
-    KEY `idx_course_join_home_id` (`home_id`),
     KEY `idx_course_join_course_id` (`course_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

@@ -12,7 +12,7 @@ import java.util.Set;
 public class CourseInfo {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
-    private String title;
+    private String name;
     private String description;
     private Long homeId;
     private String coverUrl;
@@ -31,7 +31,7 @@ public class CourseInfo {
     private Long favCount;      //  收藏数
     private Long commentCount;  //  评论数
     private Double score;       //  评分
-    private Long scoreCount;     //  评论
+    private Long scoreCount;     //  评分人数
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
