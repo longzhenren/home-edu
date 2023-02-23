@@ -17,7 +17,7 @@ public class MyBatisTinyIdGenerator implements IdentifierGenerator {
     @Value("${tinyid.bizType}")
     private String bizType = "home";
 
-    @Value("${tinyid.token}")
+    
     private String token = "0f673adf80504e2eaa552f5d791b644c";
 
     @Override

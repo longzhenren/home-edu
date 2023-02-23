@@ -101,6 +101,6 @@ public class AuthController {
         if (!res.isSuccess()) {
             return ResponseWrapper.fail(res.getMessage());
         }
-        return ResponseWrapper.status(true);
+        return ResponseWrapper.data(res.getData());
     }
 }

@@ -2,7 +2,6 @@ package com.amur.home.course.entity;
 
 import com.amur.home.course.handler.SetTypeHandler;
 import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -13,7 +12,7 @@ import java.util.Set;
 @Data
 @TableName(value = "course_list", autoResultMap = true)
 public class CourseList {
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId
     private Long id;
     private Long homeId;
     @TableField(typeHandler = SetTypeHandler.class)

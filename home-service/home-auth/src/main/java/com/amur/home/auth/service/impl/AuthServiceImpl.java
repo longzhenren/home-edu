@@ -82,6 +82,7 @@ public class AuthServiceImpl implements AuthService {
         userAuth.setId(userId);
         userAuth.setPassword(new BCryptPasswordEncoder().encode(password));
         userAuth.setRoles(Collections.singleton("user"));
+        userAuth.setPermissions(Collections.singleton("user"));
         if (authMapper.insert(userAuth) > 0) {
             return ServiceResult.success(userId);
         } else {

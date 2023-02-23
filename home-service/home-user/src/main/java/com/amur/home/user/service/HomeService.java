@@ -10,31 +10,33 @@ import java.util.List;
 
 @Service
 public interface HomeService {
-    public ServiceResult<HomeInfo> getHomeInfo(Long homeId);
+    ServiceResult<HomeInfo> getHomeInfo(Long homeId);
 
-    public ServiceResult<List<HomeInfo>> getHomeList();
+    ServiceResult<List<HomeInfo>> getHomeList();
 
-    public ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl);
+    ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl, Boolean open);
 
-    public ServiceResult<String> updateAvatar(MultipartFile file);
+    ServiceResult<String> updateAvatar(MultipartFile file);
 
-    public ServiceResult<String> uploadPicture(MultipartFile file);
+    ServiceResult<String> uploadPicture(MultipartFile file);
 
-    public ServiceResult<Void> updateHome(HomeInfo homeInfo);
+    ServiceResult<Void> updateHome(HomeInfo homeInfo);
 
-    public ServiceResult<Void> deleteHome(Long homeId, Long userId);
+    ServiceResult<Void> deleteHome(Long homeId, Long userId);
 
-    public ServiceResult<List<HomeInfo>> searchHome(String keyword);
+    ServiceResult<List<HomeInfo>> searchHome(String keyword);
 
-    public ServiceResult<List<UserInfo>> getHomeUserList(Long homeId);
+    ServiceResult<List<UserInfo>> getHomeUserList(Long homeId);
 
-    public ServiceResult<Void> updateHomeUser(Long homeId, Long userId);
+    ServiceResult<Void> updateHomeUser(Long homeId, Long userId);
 
-    public ServiceResult<Void> deleteHomeUser(Long homeId, Long userId);
+    ServiceResult<Void> deleteHomeUser(Long homeId, Long userId);
 
-    public ServiceResult<Void> setHomeAdmin(Long homeId, Long userId);
+    ServiceResult<Void> setHomeAdmin(Long homeId, Long userId);
 
-    public ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId);
+    ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId);
 
-//    public boolean addHomeImage(AddHomeImageDto request);
+    ServiceResult<Void> favHome(Long homeId, Long userId);
+
+//    boolean addHomeImage(AddHomeImageDto request);
 }

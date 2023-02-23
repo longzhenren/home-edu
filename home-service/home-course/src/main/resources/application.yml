@@ -54,9 +54,9 @@ mybatis-plus:
       logic-delete-field: deleted
     banner: false
 
-  grpc:
-    server:
-      port: 9704
+grpc:
+  server:
+    port: 9704
 
 
 # springdoc-openapi项目配置
@@ -116,3 +116,4 @@ minio:
   accessKey: minioadmin
   secretKey: minioadmin
   bucketName: course
+

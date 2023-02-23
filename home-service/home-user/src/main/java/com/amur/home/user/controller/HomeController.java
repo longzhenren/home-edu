@@ -29,7 +29,12 @@ public class HomeController {
     @GetMapping("/info")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
     public ResponseWrapper<HomeInfo> getInfo(Long homeId) {
-        return ResponseWrapper.data(homeService.getHomeInfo(homeId).getData());
+        ServiceResult<HomeInfo> result = homeService.getHomeInfo(homeId);
+        if (result.isSuccess()) {
+            return ResponseWrapper.data(result.getData());
+        } else {
+            return ResponseWrapper.fail(result.getMessage());
+        }
     }
 
     @Operation(summary = "获取家庭列表")
@@ -57,9 +62,9 @@ public class HomeController {
 
     @Operation(summary = "创建家庭")
     @PostMapping("/add")
-    @Parameters({@Parameter(name = "name", description = "家庭名称", required = true), @Parameter(name = "description", description = "家庭描述", required = true), @Parameter(name = "userId", description = "创建者ID", required = true), @Parameter(name = "avatarUrl", description = "家庭头像", required = true)})
-    public ResponseWrapper<Long> createHome(String name, String description, Long userId, String avatarUrl) {
-        ServiceResult<Long> res = homeService.createHome(name, description, userId, avatarUrl);
+    @Parameters({@Parameter(name = "name", description = "家庭名称", required = true), @Parameter(name = "description", description = "家庭描述", required = false), @Parameter(name = "userId", description = "创建者ID", required = true), @Parameter(name = "avatarUrl", description = "家庭头像", required = false), @Parameter(name = "open", description = "是否公开", required = false)})
+    public ResponseWrapper<Long> createHome(String name, String description, Long userId, String avatarUrl, Boolean open) {
+        ServiceResult<Long> res = homeService.createHome(name, description, userId, avatarUrl, open);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {
@@ -138,4 +143,17 @@ public class HomeController {
             return ResponseWrapper.fail(res.getMessage());
         }
     }
+
+    @Operation(summary = "收藏家庭")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @PostMapping("/fav")
+    public ResponseWrapper<Void> favHome(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.favHome(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
 }

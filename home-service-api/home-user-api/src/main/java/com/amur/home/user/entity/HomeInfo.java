@@ -18,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @TableName(value = "home_info", autoResultMap = true)
 public class HomeInfo {
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId
     private Long id;
     private String name;
     //    private String address;

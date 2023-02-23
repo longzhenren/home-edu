@@ -1,10 +1,13 @@
 package com.amur.home.user.service.impl;
 
 import com.amur.home.common.Constants;
+import com.amur.home.user.client.TinyIdClient;
 import com.amur.home.user.entity.HomeInfo;
+import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
-import com.amur.home.user.mapper.HomeMapper;
-import com.amur.home.user.mapper.UserMapper;
+import com.amur.home.user.mapper.HomeInfoMapper;
+import com.amur.home.user.mapper.UserFavMapper;
+import com.amur.home.user.mapper.UserInfoMapper;
 import com.amur.home.user.service.HomeService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -24,10 +27,16 @@ import java.util.stream.Collectors;
 @Slf4j
 public class HomeServiceImpl implements HomeService {
     @Resource
-    private HomeMapper homeMapper;
+    private HomeInfoMapper homeInfoMapper;
 
     @Resource
-    private UserMapper userMapper;
+    private UserInfoMapper userInfoMapper;
+
+    @Resource
+    private UserFavMapper userFavMapper;
+
+    @Resource
+    private TinyIdClient tinyIdClient;
 
     @Resource
     private MinioClient minioClient;
@@ -44,7 +53,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<HomeInfo> getHomeInfo(Long homeId) {
-        HomeInfo homeInfo = homeMapper.selectById(homeId);
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         } else {
@@ -59,30 +68,42 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<List<HomeInfo>> getHomeList() {
-        List<HomeInfo> homeInfoList = homeMapper.selectList(null);
+        List<HomeInfo> homeInfoList = homeInfoMapper.selectList(null);
         return ServiceResult.success(homeInfoList);
     }
 
     @Override
-    public ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl) {
-        UserInfo userInfo = userMapper.selectById(userId);
+    public ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl, Boolean open) {
+        UserInfo userInfo = userInfoMapper.selectById(userId);
         if (userInfo == null) {
             return ServiceResult.fail("用户不存在");
         }
+        if (userInfo.getHomeId() != null && userInfo.getHomeId() > 0) {
+            return ServiceResult.fail("用户已经加入家庭");
+        }
+        ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.HOME_INFO.getDesc());
+        if (!res.isSuccess()) {
+            return ServiceResult.fail("id生成失败");
+        }
         HomeInfo homeInfo = new HomeInfo();
+        homeInfo.setId(res.getData());
         homeInfo.setCreateUserId(userId);
         homeInfo.setName(name);
-        homeInfo.setDescription(description);
-        homeInfo.setAvatarUrl(avatarUrl);
+        homeInfo.setDescription(description == null ? "" : description);
+        homeInfo.setAvatarUrl(avatarUrl == null ? "" : avatarUrl);
         homeInfo.setAdminIds(Collections.singleton(userId));
         homeInfo.setMemberIds(Collections.singleton(userId));
-        if (homeMapper.insert(homeInfo) <= 0) {
+        homeInfo.setImageUrls(Collections.emptyList());
+        homeInfo.setLikeCount(0L);
+        homeInfo.setFavCount(0L);
+        homeInfo.setOpen(open != null && open);
+        if (homeInfoMapper.insert(homeInfo) <= 0) {
             return ServiceResult.fail("创建家庭失败");
         }
         Long homeId = homeInfo.getId();
         userInfo.setHomeId(homeId);
         userInfo.setRelativeType(Constants.UserRelativeType.OTHER);
-        if (userMapper.updateById(userInfo) <= 0) {
+        if (userInfoMapper.updateById(userInfo) <= 0) {
             return ServiceResult.fail("创建家庭失败");
         }
         return ServiceResult.success(homeId);
@@ -140,7 +161,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<Void> updateHome(HomeInfo homeInfo) {
-        if (homeMapper.updateById(homeInfo) > 0) {
+        if (homeInfoMapper.updateById(homeInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("更新失败");
@@ -157,11 +178,11 @@ public class HomeServiceImpl implements HomeService {
     public ServiceResult<Void> deleteHome(Long homeId, Long userId) {
         QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("home_id", homeId).ne("user_id", userId);
-        List<UserInfo> userInfoList = userMapper.selectList(queryWrapper);
+        List<UserInfo> userInfoList = userInfoMapper.selectList(queryWrapper);
         if (userInfoList.size() > 0) {
             return ServiceResult.fail("家庭中还有其他用户，无法删除");
         }
-        if (homeMapper.deleteById(homeId) > 0) {
+        if (homeInfoMapper.deleteById(homeId) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("删除失败");
@@ -176,7 +197,7 @@ public class HomeServiceImpl implements HomeService {
     public ServiceResult<List<HomeInfo>> searchHome(String keyword) {
         QueryWrapper<HomeInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("open", true).like("name", keyword).or().like("description", keyword);
-        List<HomeInfo> homeInfoList = homeMapper.selectList(queryWrapper);
+        List<HomeInfo> homeInfoList = homeInfoMapper.selectList(queryWrapper);
         if (homeInfoList.size() > 0) {
             return ServiceResult.success(homeInfoList);
         } else {
@@ -192,12 +213,12 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<List<UserInfo>> getHomeUserList(Long homeId) {
-        HomeInfo homeInfo = homeMapper.selectById(homeId);
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
         List<Long> userIdList = new ArrayList<>(homeInfo.getMemberIds());
-        return ServiceResult.success(userIdList.stream().map(userId -> userMapper.selectById(userId)).collect(Collectors.toList()));
+        return ServiceResult.success(userIdList.stream().map(userId -> userInfoMapper.selectById(userId)).collect(Collectors.toList()));
     }
 
     /**
@@ -209,16 +230,20 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<Void> updateHomeUser(Long homeId, Long userId) {
-        HomeInfo homeInfo = homeMapper.selectById(homeId);
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
-        UserInfo userInfo = userMapper.selectById(userId);
+        UserInfo userInfo = userInfoMapper.selectById(userId);
         if (userInfo == null) {
             return ServiceResult.fail("用户不存在");
         }
+        if (userInfo.getHomeId() != null && userInfo.getHomeId() != 0) {
+            return ServiceResult.fail("用户已经加入家庭");
+        }
         homeInfo.getMemberIds().add(userId);
-        if (homeMapper.updateById(homeInfo) > 0) {
+        userInfo.setHomeId(homeId);
+        if (homeInfoMapper.updateById(homeInfo) > 0 && userInfoMapper.updateById(userInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("保存失败");
@@ -234,11 +259,11 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<Void> deleteHomeUser(Long homeId, Long userId) {
-        HomeInfo homeInfo = homeMapper.selectById(homeId);
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
-        UserInfo userInfo = userMapper.selectById(userId);
+        UserInfo userInfo = userInfoMapper.selectById(userId);
         if (userInfo == null) {
             return ServiceResult.fail("用户不存在");
         }
@@ -247,7 +272,7 @@ public class HomeServiceImpl implements HomeService {
         }
         homeInfo.getMemberIds().remove(userId);
         userInfo.setHomeId(0L);
-        if (homeMapper.updateById(homeInfo) > 0) {
+        if (homeInfoMapper.updateById(homeInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("删除用户失败");
@@ -263,12 +288,12 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<Void> setHomeAdmin(Long homeId, Long userId) {
-        HomeInfo homeInfo = homeMapper.selectById(homeId);
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
         homeInfo.getAdminIds().add(userId);
-        if (homeMapper.updateById(homeInfo) > 0) {
+        if (homeInfoMapper.updateById(homeInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("设置管理员失败");
@@ -282,7 +307,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId) {
-        HomeInfo homeInfo = homeMapper.selectById(homeId);
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
         }
@@ -290,10 +315,39 @@ public class HomeServiceImpl implements HomeService {
             return ServiceResult.fail("用户不是管理员");
         }
         homeInfo.getAdminIds().remove(userId);
-        if (homeMapper.updateById(homeInfo) > 0) {
+        if (homeInfoMapper.updateById(homeInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("删除管理员失败");
         }
     }
+
+    /**
+     * @param homeId 家庭ID
+     * @param userId 用户ID
+     * @return
+     */
+    @Override
+    public ServiceResult<Void> favHome(Long homeId, Long userId) {
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
+        if (homeInfo == null) {
+            return ServiceResult.fail("家庭不存在");
+        }
+        UserFavorite userFavorite = userFavMapper.selectById(userId);
+        if (userFavorite == null) {
+            return ServiceResult.fail("用户不存在");
+        }
+        if (userFavorite.getHomeIds().contains(homeId)) {
+            return ServiceResult.fail("已经收藏过该家庭");
+        }
+        homeInfo.setFavCount(homeInfo.getFavCount() + 1);
+        userFavorite.getHomeIds().add(homeId);
+        if (homeInfoMapper.updateById(homeInfo) > 0 && userFavMapper.insert(userFavorite) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.fail("收藏失败");
+        }
+    }
+
+
 }

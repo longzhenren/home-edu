@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @TableName("course_share")
 public class CourseShare {
-    @TableId(value = "id", type = IdType.ASSIGN_UUID)
+    @TableId
     private String token;
     private Long courseId;
     private Long inviterId;

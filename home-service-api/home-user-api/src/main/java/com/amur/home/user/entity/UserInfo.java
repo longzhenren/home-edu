@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @TableName(value = "user_info", autoResultMap = true)
 public class UserInfo {
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId
     private Long id;
     private String name;
     private String description;

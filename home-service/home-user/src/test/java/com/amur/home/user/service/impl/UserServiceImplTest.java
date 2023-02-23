@@ -1,7 +1,7 @@
 package com.amur.home.user.service.impl;
 
 import com.amur.home.user.entity.UserInfo;
-import com.amur.home.user.mapper.UserMapper;
+import com.amur.home.user.mapper.UserInfoMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,13 +17,13 @@ class UserServiceImplTest {
     private UserServiceImpl userService;
 
     @Mock
-    private UserMapper userMapper;
+    private UserInfoMapper userInfoMapper;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
         userService = new UserServiceImpl();
-        userService.setUserMapper(userMapper);
+        userService.setUserInfoMapper(userInfoMapper);
     }
 
     @Test
@@ -32,7 +32,7 @@ class UserServiceImplTest {
         Long userId = 1L;
         UserInfo userInfo = new UserInfo();
         userInfo.setId(userId);
-        Mockito.when(userMapper.selectById(userId)).thenReturn(userInfo);
+        Mockito.when(userInfoMapper.selectById(userId)).thenReturn(userInfo);
         UserInfo result = userService.getUserInfo(userId).getData();
         Assertions.assertEquals(userInfo, result);
     }
@@ -42,7 +42,7 @@ class UserServiceImplTest {
     void testUpdateUser() {
         UserInfo userInfo = new UserInfo();
         userInfo.setId(1L);
-        Mockito.when(userMapper.updateById(userInfo)).thenReturn(1);
+        Mockito.when(userInfoMapper.updateById(userInfo)).thenReturn(1);
         boolean result = userService.updateUser(userInfo).isSuccess();
         Assertions.assertTrue(result);
     }
@@ -51,7 +51,7 @@ class UserServiceImplTest {
     @DisplayName("删除用户")
     void testDeleteUser() {
         Long userId = 1L;
-        Mockito.when(userMapper.deleteById(userId)).thenReturn(1);
+        Mockito.when(userInfoMapper.deleteById(userId)).thenReturn(1);
         boolean result = userService.deleteUser(userId).isSuccess();
         Assertions.assertTrue(result);
     }
@@ -60,7 +60,7 @@ class UserServiceImplTest {
     @DisplayName("创建用户")
     void testCreateUser() {
         UserInfo userInfo = new UserInfo();
-        Mockito.when(userMapper.insert(userInfo)).thenReturn(1);
+        Mockito.when(userInfoMapper.insert(userInfo)).thenReturn(1);
         Long result = userService.createUser("testUserName").getData();
         Assertions.assertEquals(userInfo.getId(), result);
     }
@@ -71,7 +71,7 @@ class UserServiceImplTest {
         String username = "test";
         UserInfo userInfo = new UserInfo();
         userInfo.setName(username);
-        Mockito.when(userMapper.selectOne(ArgumentMatchers.any())).thenReturn(userInfo);
+        Mockito.when(userInfoMapper.selectOne(ArgumentMatchers.any())).thenReturn(userInfo);
         UserInfo result = userService.getUserByName(username).getData();
         Assertions.assertEquals(userInfo, result);
     }

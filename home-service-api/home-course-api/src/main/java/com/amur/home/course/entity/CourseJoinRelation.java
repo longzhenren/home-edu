@@ -10,7 +10,7 @@ import java.util.Date;
 @Data
 @TableName(value = "course_join", autoResultMap = true)
 public class CourseJoinRelation {
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId
     private Long id;
     private Long userId;
     private Long courseId;

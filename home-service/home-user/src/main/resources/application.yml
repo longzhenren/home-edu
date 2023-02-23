@@ -91,6 +91,11 @@ grpc:
       keepAliveWithoutCalls: true
       address: 'discovery:///home-tinyid'
       negotiation-type: plaintext
+    home-auth:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-auth'
+      negotiation-type: plaintext
 #logging:
 #  level:
 #    root: DEBUG

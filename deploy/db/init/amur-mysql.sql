@@ -39,22 +39,6 @@ CREATE TABLE `user_auth`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `user_permission`
-(
-    `id`          bigint NOT NULL,
-    `user_id`     bigint     DEFAULT NULL,
-    `role_id`     bigint     DEFAULT NULL,
-    `create_time` datetime   DEFAULT NULL,
-    `update_time` datetime   DEFAULT NULL,
-    `version`     int        DEFAULT NULL,
-    `deleted`     tinyint(1) DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    KEY `idx_user_role_user_id` (`user_id`),
-    KEY `idx_user_role_role_id` (`role_id`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `user_fav`
 (
     `id`              bigint NOT NULL,

@@ -7,15 +7,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public interface UserService {
-    public ServiceResult<UserInfo> getUserInfo(Long userId);
+    ServiceResult<UserInfo> getUserInfo(Long userId);
 
-    public ServiceResult<Void> updateUser(UserInfo userInfo);
+    ServiceResult<Void> updateUser(UserInfo userInfo);
 
-    public ServiceResult<String> updateAvatar(MultipartFile file);
+    ServiceResult<String> updateAvatar(MultipartFile file);
 
-    public ServiceResult<Void> deleteUser(Long userId);
+    ServiceResult<Void> deleteUser(Long userId);
 
-    public ServiceResult<Long> createUser(String userName);
+    ServiceResult<Long> createUser(String userName);
 
-    public ServiceResult<UserInfo> getUserByName(String username);
+    ServiceResult<UserInfo> getUserByName(String username);
+
+    ServiceResult<Void> favUser(Long favId, String nickName, Long userId);
 }

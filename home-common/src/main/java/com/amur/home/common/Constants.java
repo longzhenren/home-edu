@@ -63,17 +63,18 @@ public class Constants {
     @AllArgsConstructor
     @Getter
     public enum UserRelativeType {
-        FATHER("FATHER", "父亲", 0),
-        MOTHER("MOTHER", "母亲", 1),
-        SON("SON", "儿子", 2),
-        DAUGHTER("DAUGHTER", "女儿", 3),
-        GRANDFATHER("GRANDFATHER", "祖父", 4),
-        GRANDMOTHER("GRANDMOTHER", "祖母", 5),
-        BROTHER("BROTHER", "哥哥", 6),
-        SISTER("SISTER", "姐姐", 7),
-        UNCLE("UNCLE", "叔叔", 8),
-        AUNT("AUNT", "阿姨", 9),
-        OTHER("OTHER", "其他", 10);
+        NONE("NONE", "无", 0),
+        FATHER("FATHER", "父亲", 1),
+        MOTHER("MOTHER", "母亲", 2),
+        SON("SON", "儿子", 3),
+        DAUGHTER("DAUGHTER", "女儿", 4),
+        GRANDFATHER("GRANDFATHER", "祖父", 5),
+        GRANDMOTHER("GRANDMOTHER", "祖母", 6),
+        BROTHER("BROTHER", "哥哥", 7),
+        SISTER("SISTER", "姐姐", 8),
+        UNCLE("UNCLE", "叔叔", 9),
+        AUNT("AUNT", "阿姨", 10),
+        OTHER("OTHER", "其他", 11);
         private final String rpcType;
         private final String description;
         @EnumValue
@@ -118,6 +119,40 @@ public class Constants {
             }
             return null;
         }
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public enum ServiceName {
+        HOME_SERVICE("home-service"),
+        HOME_USER("home-user"),
+        HOME_COURSE("home-course"),
+        HOME_RTC("home-rtc"),
+        HOME_MSG("home-msg"),
+        HOME_GATEWAY("home-gateway"),
+        HOME_AUTH("home-auth"),
+        HOME_COMMON("home-common"),
+        HOME_SBA("home-sba"),
+        HOME_TINYID("home-tinyid");
+        private final String desc;
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public enum TableName {
+        USER_INFO("user_info"),
+        USER_AUTH("user_auth"),
+        USER_PERMISSION("user_permission"),
+        USER_FAV("user_fav"),
+        HOME_INFO("home_info"),
+        COURSE_COMMENT("course_comment"),
+        COURSE_INFO("course_info"),
+        COURSE_SHARE("course_share"),
+        COURSE_LIST("course_list"),
+        COURSE_WARE("course_ware"),
+        COURSE_JOIN("course_join"),
+        USER("user");
+        private final String desc;
     }
 
 }

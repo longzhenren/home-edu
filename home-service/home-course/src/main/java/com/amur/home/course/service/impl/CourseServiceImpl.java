@@ -1,6 +1,7 @@
 package com.amur.home.course.service.impl;
 
 import com.amur.home.common.Constants;
+import com.amur.home.course.client.TinyIdClient;
 import com.amur.home.course.dto.PageResult;
 import com.amur.home.course.entity.*;
 import com.amur.home.course.mapper.*;
@@ -38,6 +39,9 @@ public class CourseServiceImpl implements CourseService {
     @Resource
     private MinioClient minioClient;
 
+    @Resource
+    private TinyIdClient tinyIdClient;
+
     @Value("${minio.bucket-name}")
     private String bucketName;
 
@@ -56,6 +60,11 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl) {
         CourseInfo courseInfo = new CourseInfo();
+        ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.COURSE_INFO.getDesc());
+        if (!res.isSuccess()) {
+            return ServiceResult.fail("id生成失败");
+        }
+        courseInfo.setId(res.getData());
         courseInfo.setHomeId(homeId);
         courseInfo.setName(name);
         courseInfo.setDescription(description);
@@ -238,6 +247,11 @@ public class CourseServiceImpl implements CourseService {
             return ServiceResult.fail("课程不存在");
         }
         CourseComment courseComment = new CourseComment();
+        ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.COURSE_COMMENT.getDesc());
+        if (!res.isSuccess()) {
+            return ServiceResult.fail("id生成失败");
+        }
+        courseComment.setId(res.getData());
         courseComment.setCourseId(courseId);
         courseComment.setUserId(userId);
         courseComment.setContent(comment);
@@ -376,6 +390,11 @@ public class CourseServiceImpl implements CourseService {
         }
         if (courseShare.getInviteAs().equals(Constants.InviteAs.AS_STUDENT)) {
             CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
+            ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.COURSE_JOIN.getDesc());
+            if (!res.isSuccess()) {
+                return ServiceResult.fail("id生成失败");
+            }
+            courseJoinRelation.setId(res.getData());
             courseJoinRelation.setCourseId(courseShare.getCourseId());
             courseJoinRelation.setUserId(userId);
             Set<Long> studentIds = courseInfo.getStudentIds();
@@ -463,6 +482,11 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public ServiceResult<?> addStudent(Long courseId, Long userId) {
         CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
+        ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.COURSE_JOIN.getDesc());
+        if (!res.isSuccess()) {
+            return ServiceResult.fail("id生成失败");
+        }
+        courseJoinRelation.setId(res.getData());
         courseJoinRelation.setCourseId(courseId);
         courseJoinRelation.setUserId(userId);
         if (courseJoinMapper.insert(courseJoinRelation) > 0) {
@@ -590,6 +614,11 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public ServiceResult<?> createList(Long homeId, String title, String description, boolean open, List<Long> courseIdList) {
         CourseList courseList = new CourseList();
+        ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.COURSE_LIST.getDesc());
+        if (!res.isSuccess()) {
+            return ServiceResult.fail("id生成失败");
+        }
+        courseList.setId(res.getData());
         courseList.setHomeId(homeId);
         courseList.setTitle(title);
         courseList.setDescription(description);

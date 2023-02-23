@@ -21,12 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @description： minio工具类
- * @author：weirx
- * @date：2021/8/25 10:03
- * @version：3.0
- */
 @Component
 public class MinioUtils {
 

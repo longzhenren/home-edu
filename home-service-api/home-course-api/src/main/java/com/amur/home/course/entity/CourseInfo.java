@@ -12,7 +12,7 @@ import java.util.Set;
 @Data
 @TableName(value = "course_info", autoResultMap = true)
 public class CourseInfo {
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId
     private Long id;
     private String name;
     private String description;

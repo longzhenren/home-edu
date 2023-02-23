@@ -3,6 +3,7 @@ package com.amur.home.user.controller;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.service.UserService;
 import com.amur.home.util.ResponseWrapper;
+import com.amur.home.util.ServiceResult;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -27,24 +28,49 @@ public class UserController {
 
     @Operation(summary = "获取用户信息")
     @Parameters({@Parameter(name = "userId", description = "用户id", required = true)})
-    @GetMapping("/get_info")
+    @GetMapping("/info")
     public ResponseWrapper<UserInfo> getUserInfo(Long userId) {
-        UserInfo user = userService.getUserInfo(userId).getData();
-        return ResponseWrapper.data(user);
+        ServiceResult<UserInfo> res = userService.getUserInfo(userId);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
+        } else {
+            return ResponseWrapper.data(res.getData());
+        }
     }
 
     @Operation(summary = "更新用户信息")
     @Parameters({@Parameter(name = "userInfo", description = "用户实体", required = true)})
     @PostMapping("/update")
-    public ResponseWrapper<?> updateUser(UserInfo userInfo) {
-        return ResponseWrapper.status(userService.updateUser(userInfo).isSuccess());
+    public ResponseWrapper<Void> updateUser(UserInfo userInfo) {
+        ServiceResult<Void> res = userService.updateUser(userInfo);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
+        } else {
+            return ResponseWrapper.status(res.isSuccess());
+        }
     }
 
     @Operation(summary = "删除用户")
     @Parameters({@Parameter(name = "userId", description = "用户id", required = true)})
     @GetMapping("/delete")
-    public ResponseWrapper<?> deleteUser(Long userId) {
-        return ResponseWrapper.status(userService.deleteUser(userId).isSuccess());
+    public ResponseWrapper<Void> deleteUser(Long userId) {
+        ServiceResult<Void> res = userService.deleteUser(userId);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
+        } else {
+            return ResponseWrapper.status(res.isSuccess());
+        }
+    }
+
+    @Operation(summary = "收藏用户")
+    @PostMapping("fav")
+    public ResponseWrapper<Void> favUser(Long favId, String nickName, Long userId) {
+        ServiceResult<Void> res = userService.favUser(favId, nickName, userId);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
+        } else {
+            return ResponseWrapper.status(res.isSuccess());
+        }
     }
 
 }
