@@ -3,6 +3,7 @@ syntax = "proto3";
 package com.amur.home.user.rpc;
 
 import "google/protobuf/timestamp.proto";
+import "ServiceResult.proto";
 
 option java_package = "com.amur.home.user.rpc";
 option java_multiple_files = false;
@@ -31,11 +32,6 @@ message CreateUserRequest{
 message UserInfoResponse {
   UserInfo user_info = 1;
   ServiceResult result = 2;
-}
-
-message ServiceResult {
-  bool success = 1;
-  string message = 2;
 }
 
 message UserNameRequest {

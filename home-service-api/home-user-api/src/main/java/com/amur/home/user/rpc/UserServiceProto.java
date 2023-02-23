@@ -1909,11 +1909,11 @@ public final class UserServiceProto {
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      * @return The result.
      */
-    com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult();
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
     /**
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      */
-    com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder();
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
   }
   /**
    * Protobuf type {@code com.amur.home.user.rpc.UserInfoResponse}
@@ -1974,11 +1974,11 @@ public final class UserServiceProto {
               break;
             }
             case 18: {
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder subBuilder = null;
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
               if (result_ != null) {
                 subBuilder = result_.toBuilder();
               }
-              result_ = input.readMessage(com.amur.home.user.rpc.UserServiceProto.ServiceResult.parser(), extensionRegistry);
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(result_);
                 result_ = subBuilder.buildPartial();
@@ -2045,7 +2045,7 @@ public final class UserServiceProto {
     }
 
     public static final int RESULT_FIELD_NUMBER = 2;
-    private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
     /**
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      * @return Whether the result field is set.
@@ -2059,14 +2059,14 @@ public final class UserServiceProto {
      * @return The result.
      */
     @java.lang.Override
-    public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
-      return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
     }
     /**
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      */
     @java.lang.Override
-    public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
       return getResult();
     }
 
@@ -2534,9 +2534,9 @@ public final class UserServiceProto {
         return userInfoBuilder_;
       }
 
-      private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> resultBuilder_;
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        * @return Whether the result field is set.
@@ -2548,9 +2548,9 @@ public final class UserServiceProto {
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        * @return The result.
        */
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
         if (resultBuilder_ == null) {
-          return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
         } else {
           return resultBuilder_.getMessage();
         }
@@ -2558,7 +2558,7 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public Builder setResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
         if (resultBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2575,7 +2575,7 @@ public final class UserServiceProto {
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
       public Builder setResult(
-          com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder builderForValue) {
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
         if (resultBuilder_ == null) {
           result_ = builderForValue.build();
           onChanged();
@@ -2588,11 +2588,11 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public Builder mergeResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
         if (resultBuilder_ == null) {
           if (result_ != null) {
             result_ =
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
           } else {
             result_ = value;
           }
@@ -2620,7 +2620,7 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder getResultBuilder() {
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
         
         onChanged();
         return getResultFieldBuilder().getBuilder();
@@ -2628,23 +2628,23 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
         if (resultBuilder_ != null) {
           return resultBuilder_.getMessageOrBuilder();
         } else {
           return result_ == null ?
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
         }
       }
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> 
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
           getResultFieldBuilder() {
         if (resultBuilder_ == null) {
           resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder>(
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
                   getResult(),
                   getParentForChildren(),
                   isClean());
@@ -2700,645 +2700,6 @@ public final class UserServiceProto {
 
     @java.lang.Override
     public com.amur.home.user.rpc.UserServiceProto.UserInfoResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ServiceResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.ServiceResult)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>bool success = 1;</code>
-     * @return The success.
-     */
-    boolean getSuccess();
-
-    /**
-     * <code>string message = 2;</code>
-     * @return The message.
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
-  }
-  /**
-   * Protobuf type {@code com.amur.home.user.rpc.ServiceResult}
-   */
-  public static final class ServiceResult extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.ServiceResult)
-      ServiceResultOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ServiceResult.newBuilder() to construct.
-    private ServiceResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ServiceResult() {
-      message_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ServiceResult();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ServiceResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              success_ = input.readBool();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              message_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_ServiceResult_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_ServiceResult_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult.class, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder.class);
-    }
-
-    public static final int SUCCESS_FIELD_NUMBER = 1;
-    private boolean success_;
-    /**
-     * <code>bool success = 1;</code>
-     * @return The success.
-     */
-    @java.lang.Override
-    public boolean getSuccess() {
-      return success_;
-    }
-
-    public static final int MESSAGE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object message_;
-    /**
-     * <code>string message = 2;</code>
-     * @return The message.
-     */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (success_ != false) {
-        output.writeBool(1, success_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (success_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, success_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.amur.home.user.rpc.UserServiceProto.ServiceResult)) {
-        return super.equals(obj);
-      }
-      com.amur.home.user.rpc.UserServiceProto.ServiceResult other = (com.amur.home.user.rpc.UserServiceProto.ServiceResult) obj;
-
-      if (getSuccess()
-          != other.getSuccess()) return false;
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getSuccess());
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.amur.home.user.rpc.UserServiceProto.ServiceResult prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.amur.home.user.rpc.ServiceResult}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.ServiceResult)
-        com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_ServiceResult_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_ServiceResult_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.amur.home.user.rpc.UserServiceProto.ServiceResult.class, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder.class);
-      }
-
-      // Construct using com.amur.home.user.rpc.UserServiceProto.ServiceResult.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        success_ = false;
-
-        message_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_ServiceResult_descriptor;
-      }
-
-      @java.lang.Override
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResult getDefaultInstanceForType() {
-        return com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResult build() {
-        com.amur.home.user.rpc.UserServiceProto.ServiceResult result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResult buildPartial() {
-        com.amur.home.user.rpc.UserServiceProto.ServiceResult result = new com.amur.home.user.rpc.UserServiceProto.ServiceResult(this);
-        result.success_ = success_;
-        result.message_ = message_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.user.rpc.UserServiceProto.ServiceResult) {
-          return mergeFrom((com.amur.home.user.rpc.UserServiceProto.ServiceResult)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.amur.home.user.rpc.UserServiceProto.ServiceResult other) {
-        if (other == com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance()) return this;
-        if (other.getSuccess() != false) {
-          setSuccess(other.getSuccess());
-        }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.amur.home.user.rpc.UserServiceProto.ServiceResult parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.user.rpc.UserServiceProto.ServiceResult) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private boolean success_ ;
-      /**
-       * <code>bool success = 1;</code>
-       * @return The success.
-       */
-      @java.lang.Override
-      public boolean getSuccess() {
-        return success_;
-      }
-      /**
-       * <code>bool success = 1;</code>
-       * @param value The success to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSuccess(boolean value) {
-        
-        success_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool success = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSuccess() {
-        
-        success_ = false;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object message_ = "";
-      /**
-       * <code>string message = 2;</code>
-       * @return The message.
-       */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @return The bytes for message.
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        message_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        
-        message_ = getDefaultInstance().getMessage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The bytes for message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        message_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.ServiceResult)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.ServiceResult)
-    private static final com.amur.home.user.rpc.UserServiceProto.ServiceResult DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.amur.home.user.rpc.UserServiceProto.ServiceResult();
-    }
-
-    public static com.amur.home.user.rpc.UserServiceProto.ServiceResult getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ServiceResult>
-        PARSER = new com.google.protobuf.AbstractParser<ServiceResult>() {
-      @java.lang.Override
-      public ServiceResult parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ServiceResult(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ServiceResult> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ServiceResult> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.amur.home.user.rpc.UserServiceProto.ServiceResult getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3931,11 +3292,11 @@ public final class UserServiceProto {
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      * @return The result.
      */
-    com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult();
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
     /**
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      */
-    com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder();
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
   }
   /**
    * Protobuf type {@code com.amur.home.user.rpc.UserIdResponse}
@@ -3988,11 +3349,11 @@ public final class UserServiceProto {
               break;
             }
             case 18: {
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder subBuilder = null;
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
               if (result_ != null) {
                 subBuilder = result_.toBuilder();
               }
-              result_ = input.readMessage(com.amur.home.user.rpc.UserServiceProto.ServiceResult.parser(), extensionRegistry);
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(result_);
                 result_ = subBuilder.buildPartial();
@@ -4044,7 +3405,7 @@ public final class UserServiceProto {
     }
 
     public static final int RESULT_FIELD_NUMBER = 2;
-    private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
     /**
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      * @return Whether the result field is set.
@@ -4058,14 +3419,14 @@ public final class UserServiceProto {
      * @return The result.
      */
     @java.lang.Override
-    public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
-      return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
     }
     /**
      * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
      */
     @java.lang.Override
-    public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
       return getResult();
     }
 
@@ -4433,9 +3794,9 @@ public final class UserServiceProto {
         return this;
       }
 
-      private com.amur.home.user.rpc.UserServiceProto.ServiceResult result_;
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> resultBuilder_;
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        * @return Whether the result field is set.
@@ -4447,9 +3808,9 @@ public final class UserServiceProto {
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        * @return The result.
        */
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResult getResult() {
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
         if (resultBuilder_ == null) {
-          return result_ == null ? com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
         } else {
           return resultBuilder_.getMessage();
         }
@@ -4457,7 +3818,7 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public Builder setResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
         if (resultBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4474,7 +3835,7 @@ public final class UserServiceProto {
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
       public Builder setResult(
-          com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder builderForValue) {
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
         if (resultBuilder_ == null) {
           result_ = builderForValue.build();
           onChanged();
@@ -4487,11 +3848,11 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public Builder mergeResult(com.amur.home.user.rpc.UserServiceProto.ServiceResult value) {
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
         if (resultBuilder_ == null) {
           if (result_ != null) {
             result_ =
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
           } else {
             result_ = value;
           }
@@ -4519,7 +3880,7 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder getResultBuilder() {
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
         
         onChanged();
         return getResultFieldBuilder().getBuilder();
@@ -4527,23 +3888,23 @@ public final class UserServiceProto {
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
-      public com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder getResultOrBuilder() {
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
         if (resultBuilder_ != null) {
           return resultBuilder_.getMessageOrBuilder();
         } else {
           return result_ == null ?
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance() : result_;
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
         }
       }
       /**
        * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder> 
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
           getResultFieldBuilder() {
         if (resultBuilder_ == null) {
           resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.amur.home.user.rpc.UserServiceProto.ServiceResult, com.amur.home.user.rpc.UserServiceProto.ServiceResult.Builder, com.amur.home.user.rpc.UserServiceProto.ServiceResultOrBuilder>(
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
                   getResult(),
                   getParentForChildren(),
                   isClean());
@@ -8800,11 +8161,6 @@ public final class UserServiceProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_amur_home_user_rpc_UserInfoResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_home_user_rpc_ServiceResult_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_home_user_rpc_ServiceResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_user_rpc_UserNameRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8839,59 +8195,59 @@ public final class UserServiceProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022\026com.amur.home.user.rpc\032\037go" +
-      "ogle/protobuf/timestamp.proto\" \n\rUserIdR" +
-      "equest\022\017\n\007user_id\030\001 \001(\003\"F\n\017UserInfoReque" +
-      "st\0223\n\tuser_info\030\001 \001(\0132 .com.amur.home.us" +
-      "er.rpc.UserInfo\"&\n\021CreateUserRequest\022\021\n\t" +
-      "user_name\030\001 \001(\t\"~\n\020UserInfoResponse\0223\n\tu" +
-      "ser_info\030\001 \001(\0132 .com.amur.home.user.rpc." +
-      "UserInfo\0225\n\006result\030\002 \001(\0132%.com.amur.home" +
-      ".user.rpc.ServiceResult\"1\n\rServiceResult" +
-      "\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"$\n\017Us" +
-      "erNameRequest\022\021\n\tuser_name\030\001 \001(\t\"X\n\016User" +
-      "IdResponse\022\017\n\007user_id\030\001 \001(\003\0225\n\006result\030\002 " +
-      "\001(\0132%.com.amur.home.user.rpc.ServiceResu" +
-      "lt\"\250\002\n\010UserInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(" +
-      "\t\022\023\n\013description\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\r\n" +
-      "\005email\030\005 \001(\t\022\022\n\navatar_url\030\006 \001(\t\022\013\n\003sex\030" +
-      "\010 \001(\t\022\013\n\003age\030\t \001(\005\022?\n\rrelative_type\030\n \001(" +
-      "\0162(.com.amur.home.user.rpc.UserRelativeT" +
-      "ype\022/\n\013create_time\030\013 \001(\0132\032.google.protob" +
-      "uf.Timestamp\022/\n\013update_time\030\014 \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\"\374\002\n\014UserFavorite\022\n" +
-      "\n\002id\030\001 \001(\003\022\017\n\007user_id\030\002 \001(\003\022\020\n\010home_ids\030" +
-      "\003 \003(\003\022\022\n\ncourse_ids\030\004 \003(\003\022\027\n\017course_ware" +
-      "_ids\030\005 \003(\003\022\027\n\017course_list_ids\030\006 \003(\003\022C\n\010u" +
-      "ser_map\030\007 \003(\01321.com.amur.home.user.rpc.U" +
-      "serFavorite.UserMapEntry\022/\n\013create_time\030" +
-      "\010 \001(\0132\032.google.protobuf.Timestamp\022/\n\013upd" +
-      "ate_time\030\t \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022\017\n\007version\030\n \001(\005\022\017\n\007deleted\030\013 \001(\010\032.\n\014" +
-      "UserMapEntry\022\013\n\003key\030\001 \001(\003\022\r\n\005value\030\002 \001(\t" +
-      ":\0028\001*\234\001\n\020UserRelativeType\022\n\n\006FATHER\020\000\022\n\n" +
-      "\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013GRAN" +
-      "DFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BROTHER\020\006\022" +
-      "\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005OTHE" +
-      "R\020\n2\366\003\n\013UserService\022`\n\013GetUserInfo\022%.com" +
-      ".amur.home.user.rpc.UserIdRequest\032(.com." +
-      "amur.home.user.rpc.UserInfoResponse\"\000\022^\n" +
-      "\nUpdateUser\022\'.com.amur.home.user.rpc.Use" +
-      "rInfoRequest\032%.com.amur.home.user.rpc.Se" +
-      "rviceResult\"\000\022\\\n\nDeleteUser\022%.com.amur.h" +
-      "ome.user.rpc.UserIdRequest\032%.com.amur.ho" +
-      "me.user.rpc.ServiceResult\"\000\022a\n\nCreateUse" +
-      "r\022).com.amur.home.user.rpc.CreateUserReq" +
-      "uest\032&.com.amur.home.user.rpc.UserIdResp" +
-      "onse\"\000\022d\n\rGetUserByName\022\'.com.amur.home." +
-      "user.rpc.UserNameRequest\032(.com.amur.home" +
-      ".user.rpc.UserInfoResponse\"\000B,\n\026com.amur" +
-      ".home.user.rpcB\020UserServiceProtoP\000b\006prot" +
-      "o3"
+      "ogle/protobuf/timestamp.proto\032\023ServiceRe" +
+      "sult.proto\" \n\rUserIdRequest\022\017\n\007user_id\030\001" +
+      " \001(\003\"F\n\017UserInfoRequest\0223\n\tuser_info\030\001 \001" +
+      "(\0132 .com.amur.home.user.rpc.UserInfo\"&\n\021" +
+      "CreateUserRequest\022\021\n\tuser_name\030\001 \001(\t\"~\n\020" +
+      "UserInfoResponse\0223\n\tuser_info\030\001 \001(\0132 .co" +
+      "m.amur.home.user.rpc.UserInfo\0225\n\006result\030" +
+      "\002 \001(\0132%.com.amur.home.user.rpc.ServiceRe" +
+      "sult\"$\n\017UserNameRequest\022\021\n\tuser_name\030\001 \001" +
+      "(\t\"X\n\016UserIdResponse\022\017\n\007user_id\030\001 \001(\003\0225\n" +
+      "\006result\030\002 \001(\0132%.com.amur.home.user.rpc.S" +
+      "erviceResult\"\250\002\n\010UserInfo\022\n\n\002id\030\001 \001(\003\022\014\n" +
+      "\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005phon" +
+      "e\030\004 \001(\t\022\r\n\005email\030\005 \001(\t\022\022\n\navatar_url\030\006 \001" +
+      "(\t\022\013\n\003sex\030\010 \001(\t\022\013\n\003age\030\t \001(\005\022?\n\rrelative" +
+      "_type\030\n \001(\0162(.com.amur.home.user.rpc.Use" +
+      "rRelativeType\022/\n\013create_time\030\013 \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\022/\n\013update_time\030\014 " +
+      "\001(\0132\032.google.protobuf.Timestamp\"\374\002\n\014User" +
+      "Favorite\022\n\n\002id\030\001 \001(\003\022\017\n\007user_id\030\002 \001(\003\022\020\n" +
+      "\010home_ids\030\003 \003(\003\022\022\n\ncourse_ids\030\004 \003(\003\022\027\n\017c" +
+      "ourse_ware_ids\030\005 \003(\003\022\027\n\017course_list_ids\030" +
+      "\006 \003(\003\022C\n\010user_map\030\007 \003(\01321.com.amur.home." +
+      "user.rpc.UserFavorite.UserMapEntry\022/\n\013cr" +
+      "eate_time\030\010 \001(\0132\032.google.protobuf.Timest" +
+      "amp\022/\n\013update_time\030\t \001(\0132\032.google.protob" +
+      "uf.Timestamp\022\017\n\007version\030\n \001(\005\022\017\n\007deleted" +
+      "\030\013 \001(\010\032.\n\014UserMapEntry\022\013\n\003key\030\001 \001(\003\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001*\234\001\n\020UserRelativeType\022\n\n\006F" +
+      "ATHER\020\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER" +
+      "\020\003\022\017\n\013GRANDFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007" +
+      "BROTHER\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT" +
+      "\020\t\022\t\n\005OTHER\020\n2\366\003\n\013UserService\022`\n\013GetUser" +
+      "Info\022%.com.amur.home.user.rpc.UserIdRequ" +
+      "est\032(.com.amur.home.user.rpc.UserInfoRes" +
+      "ponse\"\000\022^\n\nUpdateUser\022\'.com.amur.home.us" +
+      "er.rpc.UserInfoRequest\032%.com.amur.home.u" +
+      "ser.rpc.ServiceResult\"\000\022\\\n\nDeleteUser\022%." +
+      "com.amur.home.user.rpc.UserIdRequest\032%.c" +
+      "om.amur.home.user.rpc.ServiceResult\"\000\022a\n" +
+      "\nCreateUser\022).com.amur.home.user.rpc.Cre" +
+      "ateUserRequest\032&.com.amur.home.user.rpc." +
+      "UserIdResponse\"\000\022d\n\rGetUserByName\022\'.com." +
+      "amur.home.user.rpc.UserNameRequest\032(.com" +
+      ".amur.home.user.rpc.UserInfoResponse\"\000B," +
+      "\n\026com.amur.home.user.rpcB\020UserServicePro" +
+      "toP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.TimestampProto.getDescriptor(),
+          com.amur.home.user.rpc.ServiceResultProto.getDescriptor(),
         });
     internal_static_com_amur_home_user_rpc_UserIdRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -8917,32 +8273,26 @@ public final class UserServiceProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfoResponse_descriptor,
         new java.lang.String[] { "UserInfo", "Result", });
-    internal_static_com_amur_home_user_rpc_ServiceResult_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_com_amur_home_user_rpc_ServiceResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_home_user_rpc_ServiceResult_descriptor,
-        new java.lang.String[] { "Success", "Message", });
     internal_static_com_amur_home_user_rpc_UserNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_amur_home_user_rpc_UserNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserNameRequest_descriptor,
         new java.lang.String[] { "UserName", });
     internal_static_com_amur_home_user_rpc_UserIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_amur_home_user_rpc_UserIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserIdResponse_descriptor,
         new java.lang.String[] { "UserId", "Result", });
     internal_static_com_amur_home_user_rpc_UserInfo_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_amur_home_user_rpc_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfo_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "Phone", "Email", "AvatarUrl", "Sex", "Age", "RelativeType", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_user_rpc_UserFavorite_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_amur_home_user_rpc_UserFavorite_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserFavorite_descriptor,
@@ -8954,6 +8304,7 @@ public final class UserServiceProto {
         internal_static_com_amur_home_user_rpc_UserFavorite_UserMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.TimestampProto.getDescriptor();
+    com.amur.home.user.rpc.ServiceResultProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

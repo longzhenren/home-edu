@@ -2,7 +2,7 @@ server:
   port: 8703
 spring:
   application:
-    name: home-class
+    name: home-rtc
   cloud:
     nacos:
       discovery:

@@ -3,6 +3,7 @@ package com.amur.home.course.controller;
 import com.amur.home.course.dto.PageResult;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseList;
+import com.amur.home.course.service.CourseFavService;
 import com.amur.home.course.service.CourseService;
 import com.amur.home.util.ResponseWrapper;
 import com.amur.home.util.ServiceResult;
@@ -29,6 +30,9 @@ import java.util.List;
 public class CourseController {
     @Resource
     private CourseService courseService;
+
+    @Resource
+    private CourseFavService courseFavService;
 
     @PostMapping("/add")
     @Operation(summary = "添加课程")
@@ -59,6 +63,55 @@ public class CourseController {
     @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
     public ResponseWrapper<Void> courseDel(Long courseId) {
         ServiceResult<Void> res = courseService.courseDel(courseId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @GetMapping("/fav/list")
+    @Operation(summary = "查看收藏课程")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID")})
+    public ResponseWrapper<List<Long>> courseFavList(Long userId) {
+        ServiceResult<List<Long>> res = courseFavService.courseFavList(userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @GetMapping("/fav/list/info")
+    @Operation(summary = "查看收藏课程详情")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID")})
+    public ResponseWrapper<List<CourseInfo>> courseFavListInfo(Long userId) {
+        ServiceResult<List<CourseInfo>> res = courseFavService.courseFavListInfo(userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/fav/add")
+    @Operation(summary = "添加收藏课程")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
+    public ResponseWrapper<Void> courseFavAdd(Long userId, Long courseId) {
+        ServiceResult<Void> res = courseFavService.courseFavAdd(userId, courseId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+
+    @PostMapping("/fav/cancel")
+    @Operation(summary = "取消收藏课程")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
+    public ResponseWrapper<Void> courseFavDel(Long userId, Long courseId) {
+        ServiceResult<Void> res = courseFavService.courseFavDel(userId, courseId);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {
@@ -162,16 +215,6 @@ public class CourseController {
         }
     }
 
-//    @PostMapping("/comment/id")
-//    @Operation(summary = "查看课程评价")
-//    public ResponseWrapper<?> commentInfo() {
-//                if (res.isSuccess()) {
-//            return ResponseWrapper.data(res.getData());
-//} else{
-//        return ResponseWrapper.fail(res.getMessage());
-//        }
-//    }
-
     @PostMapping("/comment/list")
     @Operation(summary = "列出课程评价")
     @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
@@ -207,15 +250,6 @@ public class CourseController {
             return ResponseWrapper.fail(res.getMessage());
         }
     }
-//    @PostMapping("/share/info/home")
-//    @Operation(summary = "根据家庭id查看课程分享链接")
-//    public ResponseWrapper<?> shareInfoByHomeId(Long homeId) {
-//                if (res.isSuccess()) {
-//        return ResponseWrapper.data(res.getData());
-//}else{
-//        return ResponseWrapper.fail(res.getMessage());
-//        }
-//    }
 
 //    @PostMapping("/access/mod")
 //    @Operation(summary = "课程权限修改")
@@ -395,35 +429,55 @@ public class CourseController {
         }
     }
 
-//    @PostMapping("/fav/add")
-//    @Operation(summary = "收藏课程")
-//    public ResponseWrapper<?> favAdd(Long userId) {
-//                if (res.isSuccess()) {
-//        return ResponseWrapper.data(res.getData());
-//}else{
-//        return ResponseWrapper.fail(res.getMessage());
-//        }
-//    }
-//
-//    @PostMapping("/fav/rm")
-//    @Operation(summary = "取消收藏课程")
-//    public ResponseWrapper<?> favRemove() {
-//                if (res.isSuccess()) {
-//        return ResponseWrapper.data(res.getData());
-//        }else{
-//        return ResponseWrapper.fail(res.getMessage());
-//        }
-//    }
-//
-//    @PostMapping("/fav/add_list")
-//    @Operation(summary = "收藏列表")
-//    public ResponseWrapper<?> favAddList() {
-//                if (res.isSuccess()) {
-//        return ResponseWrapper.data(res.getData());
-//        }else{
-//        return ResponseWrapper.fail(res.getMessage());
-//        }
-//    }
+    @GetMapping("/list/fav/list")
+    @Operation(summary = "查看收藏课程列表")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID")})
+    public ResponseWrapper<List<Long>> courseListFavList(Long userId) {
+        ServiceResult<List<Long>> res = courseFavService.courseListFavList(userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @GetMapping("/list/fav/list/info")
+    @Operation(summary = "查看收藏课程列表详情")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID")})
+    public ResponseWrapper<List<CourseList>> courseListFavListInfo(Long userId) {
+        ServiceResult<List<CourseList>> res = courseFavService.courseListFavListInfo(userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/list/fav/add")
+    @Operation(summary = "添加收藏课程列表")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseListId", in = ParameterIn.QUERY, required = true, description = "课程列表ID")})
+    public ResponseWrapper<Void> courseListFavAdd(Long userId, Long courseListId) {
+        ServiceResult<Void> res = courseFavService.courseListFavAdd(userId, courseListId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+
+    @PostMapping("/list/fav/cancel")
+    @Operation(summary = "取消收藏课程列表")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseListId", in = ParameterIn.QUERY, required = true, description = "课程列表ID")})
+    public ResponseWrapper<Void> courseListFavDel(Long userId, Long courseListId) {
+        ServiceResult<Void> res = courseFavService.courseListFavDel(userId, courseListId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
 //
 //    @PostMapping("/like/add")
 //    @Operation(summary = "点赞课程")

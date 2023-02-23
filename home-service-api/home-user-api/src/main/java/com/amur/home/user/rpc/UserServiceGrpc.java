@@ -47,28 +47,28 @@ public final class UserServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserInfoRequest,
-      com.amur.home.user.rpc.UserServiceProto.ServiceResult> getUpdateUserMethod;
+      com.amur.home.user.rpc.ServiceResultProto.ServiceResult> getUpdateUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateUser",
       requestType = com.amur.home.user.rpc.UserServiceProto.UserInfoRequest.class,
-      responseType = com.amur.home.user.rpc.UserServiceProto.ServiceResult.class,
+      responseType = com.amur.home.user.rpc.ServiceResultProto.ServiceResult.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserInfoRequest,
-      com.amur.home.user.rpc.UserServiceProto.ServiceResult> getUpdateUserMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserInfoRequest, com.amur.home.user.rpc.UserServiceProto.ServiceResult> getUpdateUserMethod;
+      com.amur.home.user.rpc.ServiceResultProto.ServiceResult> getUpdateUserMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserInfoRequest, com.amur.home.user.rpc.ServiceResultProto.ServiceResult> getUpdateUserMethod;
     if ((getUpdateUserMethod = UserServiceGrpc.getUpdateUserMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getUpdateUserMethod = UserServiceGrpc.getUpdateUserMethod) == null) {
           UserServiceGrpc.getUpdateUserMethod = getUpdateUserMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.UserServiceProto.UserInfoRequest, com.amur.home.user.rpc.UserServiceProto.ServiceResult>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.UserServiceProto.UserInfoRequest, com.amur.home.user.rpc.ServiceResultProto.ServiceResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.amur.home.user.rpc.UserServiceProto.UserInfoRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance()))
+                  com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance()))
               .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("UpdateUser"))
               .build();
         }
@@ -78,28 +78,28 @@ public final class UserServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserIdRequest,
-      com.amur.home.user.rpc.UserServiceProto.ServiceResult> getDeleteUserMethod;
+      com.amur.home.user.rpc.ServiceResultProto.ServiceResult> getDeleteUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteUser",
       requestType = com.amur.home.user.rpc.UserServiceProto.UserIdRequest.class,
-      responseType = com.amur.home.user.rpc.UserServiceProto.ServiceResult.class,
+      responseType = com.amur.home.user.rpc.ServiceResultProto.ServiceResult.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserIdRequest,
-      com.amur.home.user.rpc.UserServiceProto.ServiceResult> getDeleteUserMethod() {
-    io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserIdRequest, com.amur.home.user.rpc.UserServiceProto.ServiceResult> getDeleteUserMethod;
+      com.amur.home.user.rpc.ServiceResultProto.ServiceResult> getDeleteUserMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserIdRequest, com.amur.home.user.rpc.ServiceResultProto.ServiceResult> getDeleteUserMethod;
     if ((getDeleteUserMethod = UserServiceGrpc.getDeleteUserMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getDeleteUserMethod = UserServiceGrpc.getDeleteUserMethod) == null) {
           UserServiceGrpc.getDeleteUserMethod = getDeleteUserMethod =
-              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.UserServiceProto.UserIdRequest, com.amur.home.user.rpc.UserServiceProto.ServiceResult>newBuilder()
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.UserServiceProto.UserIdRequest, com.amur.home.user.rpc.ServiceResultProto.ServiceResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.amur.home.user.rpc.UserServiceProto.UserIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.amur.home.user.rpc.UserServiceProto.ServiceResult.getDefaultInstance()))
+                  com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance()))
               .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("DeleteUser"))
               .build();
         }
@@ -228,14 +228,14 @@ public final class UserServiceGrpc {
     /**
      */
     public void updateUser(com.amur.home.user.rpc.UserServiceProto.UserInfoRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.ServiceResult> responseObserver) {
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.ServiceResultProto.ServiceResult> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateUserMethod(), responseObserver);
     }
 
     /**
      */
     public void deleteUser(com.amur.home.user.rpc.UserServiceProto.UserIdRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.ServiceResult> responseObserver) {
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.ServiceResultProto.ServiceResult> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteUserMethod(), responseObserver);
     }
 
@@ -267,14 +267,14 @@ public final class UserServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.amur.home.user.rpc.UserServiceProto.UserInfoRequest,
-                com.amur.home.user.rpc.UserServiceProto.ServiceResult>(
+                com.amur.home.user.rpc.ServiceResultProto.ServiceResult>(
                   this, METHODID_UPDATE_USER)))
           .addMethod(
             getDeleteUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.amur.home.user.rpc.UserServiceProto.UserIdRequest,
-                com.amur.home.user.rpc.UserServiceProto.ServiceResult>(
+                com.amur.home.user.rpc.ServiceResultProto.ServiceResult>(
                   this, METHODID_DELETE_USER)))
           .addMethod(
             getCreateUserMethod(),
@@ -319,7 +319,7 @@ public final class UserServiceGrpc {
     /**
      */
     public void updateUser(com.amur.home.user.rpc.UserServiceProto.UserInfoRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.ServiceResult> responseObserver) {
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.ServiceResultProto.ServiceResult> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateUserMethod(), getCallOptions()), request, responseObserver);
     }
@@ -327,7 +327,7 @@ public final class UserServiceGrpc {
     /**
      */
     public void deleteUser(com.amur.home.user.rpc.UserServiceProto.UserIdRequest request,
-        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.ServiceResult> responseObserver) {
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.ServiceResultProto.ServiceResult> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteUserMethod(), getCallOptions()), request, responseObserver);
     }
@@ -372,14 +372,14 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.amur.home.user.rpc.UserServiceProto.ServiceResult updateUser(com.amur.home.user.rpc.UserServiceProto.UserInfoRequest request) {
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult updateUser(com.amur.home.user.rpc.UserServiceProto.UserInfoRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateUserMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.amur.home.user.rpc.UserServiceProto.ServiceResult deleteUser(com.amur.home.user.rpc.UserServiceProto.UserIdRequest request) {
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult deleteUser(com.amur.home.user.rpc.UserServiceProto.UserIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteUserMethod(), getCallOptions(), request);
     }
@@ -423,7 +423,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.UserServiceProto.ServiceResult> updateUser(
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.ServiceResultProto.ServiceResult> updateUser(
         com.amur.home.user.rpc.UserServiceProto.UserInfoRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateUserMethod(), getCallOptions()), request);
@@ -431,7 +431,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.UserServiceProto.ServiceResult> deleteUser(
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.ServiceResultProto.ServiceResult> deleteUser(
         com.amur.home.user.rpc.UserServiceProto.UserIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteUserMethod(), getCallOptions()), request);
@@ -483,11 +483,11 @@ public final class UserServiceGrpc {
           break;
         case METHODID_UPDATE_USER:
           serviceImpl.updateUser((com.amur.home.user.rpc.UserServiceProto.UserInfoRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.ServiceResult>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.ServiceResultProto.ServiceResult>) responseObserver);
           break;
         case METHODID_DELETE_USER:
           serviceImpl.deleteUser((com.amur.home.user.rpc.UserServiceProto.UserIdRequest) request,
-              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.ServiceResult>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.ServiceResultProto.ServiceResult>) responseObserver);
           break;
         case METHODID_CREATE_USER:
           serviceImpl.createUser((com.amur.home.user.rpc.UserServiceProto.CreateUserRequest) request,

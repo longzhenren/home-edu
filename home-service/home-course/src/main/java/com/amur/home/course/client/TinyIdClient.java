@@ -13,7 +13,6 @@ public class TinyIdClient {
     @GrpcClient("home-tinyid")
     private IdServiceGrpc.IdServiceBlockingStub idServiceBlockingStub;
 
-
     private String token = "0f673adf80504e2eaa552f5d791b644c";
 
     public ServiceResult<Long> getNextId(String bizType) {

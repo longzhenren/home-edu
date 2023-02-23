@@ -2,6 +2,7 @@ package com.amur.home.auth.client;
 
 import com.amur.home.user.converter.UserProtoConverter;
 import com.amur.home.user.entity.UserInfo;
+import com.amur.home.user.rpc.ServiceResultProto;
 import com.amur.home.user.rpc.UserServiceGrpc;
 import com.amur.home.user.rpc.UserServiceProto;
 import com.amur.home.util.ServiceResult;
@@ -36,7 +37,7 @@ public class UserGrpcClient {
 
     public ServiceResult<Void> deleteUser(Long userId) {
         UserServiceProto.UserIdRequest userIdRequest = UserServiceProto.UserIdRequest.newBuilder().setUserId(userId).build();
-        UserServiceProto.ServiceResult resp = userServiceBlockingStub.deleteUser(userIdRequest);
+        ServiceResultProto.ServiceResult resp = userServiceBlockingStub.deleteUser(userIdRequest);
         if (resp.getSuccess()) {
             return ServiceResult.success();
         } else {
