@@ -20,10 +20,12 @@ public class SaTokenConfigure {
         return new SaReactorFilter()
                 // 拦截地址
                 .addInclude("/**")    /* 拦截全部path */
+                .addExclude("/**")
                 .addExclude("/home-sba/**")    /* 放行sba监控 */
-                .addExclude("/home-auth/**")    /* 放行oss */
+                .addExclude("/home-auth/login", "/home-auth/register", "/home-auth/captcha.jpg")    /* 放行登录注册 */
                 // 开放地址
                 .addExclude("/doc.html", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/v3/**", "/actuator/**", "/favicon.ico")
+                .addExclude("/home-auth/v3/**", "/home-auth/swagger-resources/**", "/home-auth/webjars/**", "/home-auth/swagger-ui.html/**", "/home-auth/doc.html", "/home-auth/actuator/**")
                 .addExclude("/home-user/v3/**", "/home-user/swagger-resources/**", "/home-user/webjars/**", "/home-user/swagger-ui.html/**", "/home-user/doc.html", "/home-user/actuator/**")
                 .addExclude("/home-course/v3/**", "/home-course/swagger-resources/**", "/home-course/webjars/**", "/home-course/swagger-ui.html/**", "/home-course/doc.html", "/home-course/actuator/**")
                 .addExclude("/home-tinyid/v3/**", "/home-tinyid/swagger-resources/**", "/home-tinyid/webjars/**", "/home-tinyid/swagger-ui.html/**", "/home-tinyid/doc.html", "/home-tinyid/actuator/**")
@@ -34,9 +36,9 @@ public class SaTokenConfigure {
                     // 登录校验 -- 拦截所有路由，并放行登录
                     SaRouter.match("/**", "/home-auth/login", r -> StpUtil.checkLogin());
                     // 权限认证 -- 不同模块, 校验不同权限
-                    SaRouter.match("/home-user/**", r -> StpUtil.checkPermission("user"));
-                    SaRouter.match("/home-sba/**", r -> StpUtil.checkPermissionOr("su", "sre"));
-                    SaRouter.match("/home-sw/**", r -> StpUtil.checkPermissionOr("su", "sre"));
+//                    SaRouter.match("/home-user/**", r -> StpUtil.checkPermission("user"));
+//                    SaRouter.match("/home-sba/**", r -> StpUtil.checkPermissionOr("su", "sre"));
+//                    SaRouter.match("/home-sw/**", r -> StpUtil.checkPermissionOr("su", "sre"));
                 })
 //         异常处理方法：每次setAuth函数出现异常时进入
                 .setError(e -> ResponseWrapper.fail(e.getMessage()));

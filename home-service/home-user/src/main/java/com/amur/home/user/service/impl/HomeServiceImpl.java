@@ -10,8 +10,6 @@ import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -102,6 +100,28 @@ public class HomeServiceImpl implements HomeService {
         String newFileName = uuid + fileExtension;
 
         String bucketName = "home-avatar";
+        try {
+            InputStream inputStream = file.getInputStream();
+            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
+        } catch (Exception e) {
+            return ServiceResult.fail("获取文件信息失败");
+        }
+        String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+        return ServiceResult.success(fileUrl);
+    }
+
+    /**
+     * @param file 文件
+     * @return
+     */
+    @Override
+    public ServiceResult<String> uploadPicture(MultipartFile file) {
+        String originalFileName = file.getOriginalFilename();
+        String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
+        String uuid = UUID.randomUUID().toString();
+        String newFileName = uuid + fileExtension;
+
+        String bucketName = "home-pic";
         try {
             InputStream inputStream = file.getInputStream();
             minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
@@ -252,6 +272,28 @@ public class HomeServiceImpl implements HomeService {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("设置管理员失败");
+        }
+    }
+
+    /**
+     * @param homeId 家庭ID
+     * @param userId 用户ID
+     * @return
+     */
+    @Override
+    public ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId) {
+        HomeInfo homeInfo = homeMapper.selectById(homeId);
+        if (homeInfo == null) {
+            return ServiceResult.fail("家庭不存在");
+        }
+        if (!homeInfo.getAdminIds().contains(userId)) {
+            return ServiceResult.fail("用户不是管理员");
+        }
+        homeInfo.getAdminIds().remove(userId);
+        if (homeMapper.updateById(homeInfo) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.fail("删除管理员失败");
         }
     }
 }

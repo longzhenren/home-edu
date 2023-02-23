@@ -56,13 +56,8 @@ public class HomeController {
     }
 
     @Operation(summary = "创建家庭")
-    @PostMapping("/create")
-    @Parameters({
-            @Parameter(name = "name", description = "家庭名称", required = true),
-            @Parameter(name = "description", description = "家庭描述", required = true),
-            @Parameter(name = "userId", description = "创建者ID", required = true),
-            @Parameter(name = "avatarUrl", description = "家庭头像", required = true)
-    })
+    @PostMapping("/add")
+    @Parameters({@Parameter(name = "name", description = "家庭名称", required = true), @Parameter(name = "description", description = "家庭描述", required = true), @Parameter(name = "userId", description = "创建者ID", required = true), @Parameter(name = "avatarUrl", description = "家庭头像", required = true)})
     public ResponseWrapper<Long> createHome(String name, String description, Long userId, String avatarUrl) {
         ServiceResult<Long> res = homeService.createHome(name, description, userId, avatarUrl);
         if (res.isSuccess()) {
@@ -86,7 +81,7 @@ public class HomeController {
     }
 
     @Operation(summary = "删除家庭")
-    @PostMapping("/delete")
+    @PostMapping("/del")
     public ResponseWrapper<Void> deleteHome(Long homeId, Long userId) {
         ServiceResult<Void> res = homeService.deleteHome(homeId, userId);
         if (res.isSuccess()) {
@@ -98,7 +93,7 @@ public class HomeController {
 
     @Operation(summary = "家庭添加用户")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
-    @PostMapping("/update_user")
+    @PostMapping("/user/add")
     public ResponseWrapper<Void> updateHomeUser(Long homeId, Long userId) {
         ServiceResult<Void> res = homeService.updateHomeUser(homeId, userId);
         if (res.isSuccess()) {
@@ -110,7 +105,7 @@ public class HomeController {
 
     @Operation(summary = "家庭删除用户")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
-    @PostMapping("/delete_user")
+    @PostMapping("/user/del")
     public ResponseWrapper<Void> deleteHomeUser(Long homeId, Long userId) {
         ServiceResult<Void> res = homeService.deleteHomeUser(homeId, userId);
         if (res.isSuccess()) {
@@ -122,9 +117,21 @@ public class HomeController {
 
     @Operation(summary = "设置家庭管理员")
     @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
-    @PostMapping("/set_admin")
+    @PostMapping("/admin/add")
     public ResponseWrapper<Void> setHomeAdmin(Long homeId, Long userId) {
         ServiceResult<Void> res = homeService.setHomeAdmin(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "移除家庭管理员")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @PostMapping("/admin/rm")
+    public ResponseWrapper<Void> removeHomeAdmin(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.removeHomeAdmin(homeId, userId);
         if (res.isSuccess()) {
             return ResponseWrapper.status(true);
         } else {

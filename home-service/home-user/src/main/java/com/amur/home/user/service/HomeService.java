@@ -18,6 +18,8 @@ public interface HomeService {
 
     public ServiceResult<String> updateAvatar(MultipartFile file);
 
+    public ServiceResult<String> uploadPicture(MultipartFile file);
+
     public ServiceResult<Void> updateHome(HomeInfo homeInfo);
 
     public ServiceResult<Void> deleteHome(Long homeId, Long userId);
@@ -31,6 +33,8 @@ public interface HomeService {
     public ServiceResult<Void> deleteHomeUser(Long homeId, Long userId);
 
     public ServiceResult<Void> setHomeAdmin(Long homeId, Long userId);
+
+    public ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId);
 
 //    public boolean addHomeImage(AddHomeImageDto request);
 }

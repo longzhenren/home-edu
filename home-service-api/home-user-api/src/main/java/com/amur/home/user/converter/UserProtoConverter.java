@@ -17,7 +17,7 @@ public class UserProtoConverter {
         userInfo.setPhone(proto.getPhone());
         userInfo.setEmail(proto.getEmail());
         userInfo.setAvatarUrl(proto.getAvatarUrl());
-        userInfo.setHomeId(proto.getHomeId());
+        userInfo.setHomeId(proto.getId());
         userInfo.setSex(proto.getSex());
         userInfo.setAge(proto.getAge());
         userInfo.setCreateTime(toDate(proto.getCreateTime()));
@@ -33,7 +33,7 @@ public class UserProtoConverter {
         builder.setPhone(userInfo.getPhone() == null ? "" : userInfo.getPhone());
         builder.setEmail(userInfo.getEmail() == null ? "" : userInfo.getEmail());
         builder.setAvatarUrl(userInfo.getAvatarUrl() == null ? "" : userInfo.getAvatarUrl());
-        builder.setHomeId(userInfo.getHomeId() == null ? 0 : userInfo.getHomeId());
+        builder.setId(userInfo.getHomeId() == null ? 0 : userInfo.getHomeId());
         builder.setSex(userInfo.getSex() == null ? "" : userInfo.getSex());
         builder.setAge(userInfo.getAge() == null ? 0 : userInfo.getAge());
         builder.setCreateTime(toTimestamp(userInfo.getCreateTime() == null ? new Date() : userInfo.getCreateTime()));

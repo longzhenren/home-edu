@@ -1,7 +1,9 @@
 package com.amur.home.course.entity;
 
+import com.amur.home.course.handler.SetTypeHandler;
 import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.util.Date;
@@ -16,11 +18,11 @@ public class CourseInfo {
     private String description;
     private Long homeId;
     private String coverUrl;
-    @TableField(typeHandler = JacksonTypeHandler.class)
+    @TableField(typeHandler = SetTypeHandler.class)
     private Set<Long> teacherIds;
-    @TableField(typeHandler = JacksonTypeHandler.class)
+    @TableField(typeHandler = SetTypeHandler.class)
     private Set<Long> studentIds;  //  听课人员
-    @TableField(typeHandler = JacksonTypeHandler.class)
+    @TableField(typeHandler = SetTypeHandler.class)
     private Set<Long> issueIds;
     private String status;      //  课程状态
     private Date startTime;   //  开始时间
@@ -33,13 +35,17 @@ public class CourseInfo {
     private Double score;       //  评分
     private Long scoreCount;     //  评分人数
     @TableField(fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;
     @Version
     @TableField(fill = FieldFill.INSERT)
+    @JsonIgnore
     private Integer version;
     @TableLogic
     @TableField(fill = FieldFill.INSERT)
+    @JsonIgnore
     private Integer deleted;
 }

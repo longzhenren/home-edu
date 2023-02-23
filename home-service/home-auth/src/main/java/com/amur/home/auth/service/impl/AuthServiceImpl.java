@@ -28,9 +28,9 @@ public class AuthServiceImpl implements AuthService {
     private RedisUtils redisUtils;
 
     /**
-     * @param userName
-     * @param password
-     * @return
+     * @param userName 用户名
+     * @param password 密码
+     * @return 用户信息
      */
     @Override
     public ServiceResult<Map<String, Object>> login(String userName, String password) {
@@ -44,7 +44,7 @@ public class AuthServiceImpl implements AuthService {
             return ServiceResult.fail("密码不正确");
         }
         redisUtils.set("user_info:" + user.getId(), user);
-        redisUtils.set("user_auth:" + StpUtil.getLoginId(), userAuth);
+        redisUtils.set("user_auth:" + userAuth.getId(), userAuth);
         StpUtil.login(user.getId());
         Map<String, Object> map = new HashMap<>();
         map.put("token", StpUtil.getTokenInfo());
@@ -53,7 +53,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     * @return
+     * @return 用户信息
      */
     @Override
     public ServiceResult<Void> logout() {
@@ -91,8 +91,8 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     * @param id
-     * @return
+     * @param id 用户ID
+     * @return 用户信息
      */
     @Override
     public ServiceResult<UserAuth> getUserAuthById(Long id) {

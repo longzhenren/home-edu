@@ -85,7 +85,7 @@ CREATE TABLE `home_info`
     `member_ids`     json         DEFAULT NULL,
     `like_count`     bigint(20)   DEFAULT NULL,
     `fav_count`      bigint(20)   DEFAULT NULL,
-    `open`           bit(1)       DEFAULT NULL,
+    `open`           tinyint      DEFAULT NULL,
     `create_time`    datetime     DEFAULT NULL,
     `update_time`    datetime     DEFAULT NULL,
     `version`        int          DEFAULT NULL,
