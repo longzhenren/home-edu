@@ -1,6 +1,6 @@
 #!/bin/zsh
 cd ../
-export DOCKER_HOST=${DOCKER_HOST:-192.168.2.166}
+export DOCKER_HOST=${DOCKER_HOST:-192.168.5.137}
 export DOCKER_REGISTRY=${DOCKER_REGISTRY:-registry.cn-beijing.aliyuncs.com/amur}
 docker buildx create --use
 dirs=($(find . -name Dockerfile))

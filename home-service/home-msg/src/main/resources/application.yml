@@ -77,4 +77,4 @@ minio:
   endpoint: http://127.0.0.1:65531
   accessKey: minioadmin
   secretKey: minioadmin
-  bucketName: course
+  bucketName: msg

@@ -1,5 +1,11 @@
-//syntax = "proto3";
-//package com.amur.home.user.rpc;
+syntax = "proto3";
+package com.amur.home.user.rpc;
+import "ServiceResult.proto";
+
+option java_package = "com.amur.home.user.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "HomeServiceProto";
+
 //import "google/protobuf/empty.proto";
 //
 //service HomeService {
