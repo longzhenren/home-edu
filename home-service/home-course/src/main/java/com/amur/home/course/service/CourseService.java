@@ -82,4 +82,8 @@ public interface CourseService {
 
     ServiceResult<?> listUpdate(CourseList courseList);
 
+    ServiceResult<?> addLikeCourse(Long courseId, Long userId);
+
+    ServiceResult<?> delLikeCourse(Long courseId, Long userId);
+
 }

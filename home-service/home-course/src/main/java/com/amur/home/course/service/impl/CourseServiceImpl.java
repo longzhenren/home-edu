@@ -55,7 +55,7 @@ public class CourseServiceImpl implements CourseService {
      * @param startTime   开始时间
      * @param endTime     结束时间
      * @param coverUrl    封面图片
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl) {
@@ -82,7 +82,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param file 文件
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<String> courseAddCover(MultipartFile file) {
@@ -103,7 +103,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> courseDel(Long courseId) {
@@ -136,7 +136,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param homeId  家庭id
      * @param keyword 关键字
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<PageResult<CourseInfo>> courseSearch(Long homeId, String keyword, Integer pageNum, Integer pageSize) {
@@ -154,7 +154,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseInfo 课程信息
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> courseUpdate(CourseInfo courseInfo) {
@@ -167,7 +167,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<CourseInfo> courseInfo(Long courseId) {
@@ -181,15 +181,15 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param userId 用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<List<CourseInfo>> courseInfoByUserId(Long userId) {
         QueryWrapper<CourseInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId).orderByDesc("create_time");
-        List<CourseInfo> courseInfos = courseInfoMapper.selectList(queryWrapper);
-        if (courseInfos.size() > 0) {
-            return ServiceResult.success(courseInfos);
+        List<CourseInfo> courseInfoList = courseInfoMapper.selectList(queryWrapper);
+        if (courseInfoList.size() > 0) {
+            return ServiceResult.success(courseInfoList);
         } else {
             return ServiceResult.fail("没有搜索到相关课程");
         }
@@ -197,15 +197,15 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param homeId 家庭id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<List<CourseInfo>> courseInfoByHomeId(Long homeId) {
         QueryWrapper<CourseInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("home_id", homeId).orderByDesc("create_time");
-        List<CourseInfo> courseInfos = courseInfoMapper.selectList(queryWrapper);
-        if (courseInfos.size() > 0) {
-            return ServiceResult.success(courseInfos);
+        List<CourseInfo> courseInfoList = courseInfoMapper.selectList(queryWrapper);
+        if (courseInfoList.size() > 0) {
+            return ServiceResult.success(courseInfoList);
         } else {
             return ServiceResult.fail("没有搜索到相关课程");
         }
@@ -214,7 +214,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param courseId 课程id
      * @param rank     评分
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> rank(Long courseId, Double rank) {
@@ -238,7 +238,7 @@ public class CourseServiceImpl implements CourseService {
      * @param courseId 课程id
      * @param userId   用户id
      * @param comment  评论内容
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Long> commentAdd(Long courseId, Long userId, String comment) {
@@ -266,7 +266,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param courseId 课程id
      * @param userId   用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> commentDel(Long courseId, Long userId) {
@@ -286,7 +286,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> commentInfoList(Long courseId) {
@@ -303,7 +303,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param courseId 课程id
      * @param keyword  关键字
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> commentInfoList(Long courseId, String keyword) {
@@ -319,7 +319,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param userId 用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> commentInfoByUserId(Long userId) {
@@ -338,7 +338,7 @@ public class CourseServiceImpl implements CourseService {
      * @param inviterId  邀请人id
      * @param as         邀请身份
      * @param expireTime 过期时间
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> share(Long courseId, Long inviterId, Constants.InviteAs as, Date expireTime) {
@@ -358,7 +358,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param shareToken 分享token
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<CourseShare> shareInfo(String shareToken) {
@@ -373,7 +373,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param shareToken 分享token
      * @param userId     用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<CourseShare> joinByToken(String shareToken, Long userId) {
@@ -427,7 +427,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param userId 用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> shareInfoByUserId(Long userId) {
@@ -443,7 +443,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> shareInfoById(Long courseId) {
@@ -459,7 +459,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param shareToken 分享token
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> shareCancel(String shareToken) {
@@ -477,7 +477,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param courseId 课程id
      * @param userId   用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> addStudent(Long courseId, Long userId) {
@@ -499,7 +499,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param courseId 课程id
      * @param userId   用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> delStudent(Long courseId, Long userId) {
@@ -514,7 +514,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> listStudent(Long courseId) {
@@ -531,7 +531,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param courseId 课程id
      * @param userId   用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> addTeacher(Long courseId, Long userId) {
@@ -558,7 +558,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param courseId 课程id
      * @param userId   用户id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> delTeacher(Long courseId, Long userId) {
@@ -584,7 +584,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> listTeacher(Long courseId) {
@@ -609,7 +609,7 @@ public class CourseServiceImpl implements CourseService {
      * @param description  描述
      * @param open         是否公开
      * @param courseIdList 课程id列表
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> createList(Long homeId, String title, String description, boolean open, List<Long> courseIdList) {
@@ -633,7 +633,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> courseListInfo(Long courseId) {
@@ -647,7 +647,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param keyword 关键字
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> courseListSearch(String keyword) {
@@ -663,7 +663,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param homeId 家庭id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> courseListInfoByHomeId(Long homeId) {
@@ -679,7 +679,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param listId 课程列表id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> deleteList(Long listId) {
@@ -693,7 +693,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param listId   课程列表id
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> listAdd(Long listId, Long courseId) {
@@ -720,7 +720,7 @@ public class CourseServiceImpl implements CourseService {
     /**
      * @param listId   课程列表id
      * @param courseId 课程id
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> listRemove(Long listId, Long courseId) {
@@ -746,7 +746,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * @param courseList 课程列表
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<?> listUpdate(CourseList courseList) {
@@ -754,6 +754,44 @@ public class CourseServiceImpl implements CourseService {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("更新失败");
+        }
+    }
+
+    /**
+     * @param courseId 课程id
+     * @param userId   用户id
+     * @return 服务返回结果统一封装
+     */
+    @Override
+    public ServiceResult<?> addLikeCourse(Long courseId, Long userId) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.fail("课程不存在");
+        }
+        courseInfo.setFavCount(courseInfo.getFavCount() + 1);
+        if (courseInfoMapper.updateById(courseInfo) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.fail("点赞保存失败");
+        }
+    }
+
+    /**
+     * @param courseId 课程id
+     * @param userId   用户id
+     * @return 服务返回结果统一封装
+     */
+    @Override
+    public ServiceResult<?> delLikeCourse(Long courseId, Long userId) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.fail("课程不存在");
+        }
+        courseInfo.setFavCount(courseInfo.getFavCount() - 1);
+        if (courseInfoMapper.updateById(courseInfo) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.fail("点赞保存成功");
         }
     }
 }

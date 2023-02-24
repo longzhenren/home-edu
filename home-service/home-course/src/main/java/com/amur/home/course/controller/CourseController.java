@@ -478,25 +478,26 @@ public class CourseController {
         }
     }
 
-//
-//    @PostMapping("/like/add")
-//    @Operation(summary = "点赞课程")
-//    public ResponseWrapper<?> likeAdd() {
-//                if (res.isSuccess()) {
-//        return ResponseWrapper.data(res.getData());
-//        }else{
-//        return ResponseWrapper.fail(res.getMessage());
-//        }
-//    }
-//
-//    @PostMapping("/like/del")
-//    @Operation(summary = "取消点赞课程")
-//    public ResponseWrapper<?> likeDel() {
-//                if (res.isSuccess()) {
-//        return ResponseWrapper.data(res.getData());
-//        }else{
-//        return ResponseWrapper.fail(res.getMessage());
-//        }
-//    }
+    @PostMapping("/like/add")
+    @Operation(summary = "点赞课程")
+    public ResponseWrapper<?> likeAdd(Long courseId, Long userId) {
+        ServiceResult<?> res = courseService.addLikeCourse(courseId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/like/del")
+    @Operation(summary = "取消点赞课程")
+    public ResponseWrapper<?> likeDel(Long courseId, Long userId) {
+        ServiceResult<?> res = courseService.delLikeCourse(courseId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
 
 }
