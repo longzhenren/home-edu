@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package com.amur.home.course.rpc;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option java_package = "com.amur.home.course.rpc";
+option java_multiple_files = false;
+option java_outer_classname = "CourseWareServiceProto";
+
+service CourseWareService {
+  rpc Upload(UploadRequest) returns (UploadResponse) {}
+  rpc Download(DownloadRequest) returns (stream DownloadResponse) {}
+  rpc Preview(PreviewRequest) returns (PreviewResponse) {}
+}
+
+message File {
+  string filename = 1;
+  bytes content = 2;
+}
+
+message UploadRequest {
+  File file = 1;
+}
+
+message UploadResponse {
+  string fileUrl = 1;
+}
+
+message DownloadRequest {
+  string fileName = 1;
+}
+
+message DownloadResponse {
+  bytes fileContent = 1;
+}
+
+message PreviewRequest {
+  string fileName = 1;
+}
+
+message PreviewResponse {
+  string contentType = 1;
+  File file = 2;
+}
