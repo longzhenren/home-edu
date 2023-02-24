@@ -186,7 +186,7 @@ CREATE TABLE `course_share`
 
 CREATE TABLE `course_ware`
 (
-    `id`                    varchar(32) NOT NULL,
+    `id`                    bigint NOT NULL,
     `course_id`             bigint(20)   DEFAULT NULL,
     `file_name`             varchar(255) DEFAULT NULL,
     `description`           varchar(255) DEFAULT NULL,
@@ -198,6 +198,33 @@ CREATE TABLE `course_ware`
     `deleted`               tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_course_ware_course_id` (`course_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE `schedule`
+(
+    `id`             bigint NOT NULL,
+    `user_id`        bigint       DEFAULT NULL,
+    `create_user_id` bigint       DEFAULT NULL,
+    `title`          varchar(255) DEFAULT NULL,
+    `content`        varchar(255) DEFAULT NULL,
+    `location`       varchar(255) DEFAULT NULL,
+    `remark`         varchar(255) DEFAULT NULL,
+    `color`          varchar(255) DEFAULT NULL,
+    `all_day`        bit(1)       DEFAULT NULL,
+    `can_edit`       bit(1)       DEFAULT NULL,
+    `start_time`     datetime     DEFAULT NULL,
+    `end_time`       datetime     DEFAULT NULL,
+    `create_time`    datetime     DEFAULT NULL,
+    `update_time`    datetime     DEFAULT NULL,
+    `version`        int          DEFAULT NULL,
+    `deleted`        tinyint(1)   DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_user_id` (`user_id`),
+    KEY `idx_create_user_id` (`create_user_id`),
+    KEY `idx_start_time` (`start_time`),
+    KEY `idx_end_time` (`end_time`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;

@@ -151,7 +151,8 @@ public class Constants {
         COURSE_LIST("course_list"),
         COURSE_WARE("course_ware"),
         COURSE_JOIN("course_join"),
-        USER("user");
+        USER("user"),
+        SCHEDULE("schedule");
         private final String desc;
     }
 
