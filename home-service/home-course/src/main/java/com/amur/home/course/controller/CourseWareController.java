@@ -15,11 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 
 @Tag(name = "课程资料接口")
@@ -34,14 +36,17 @@ public class CourseWareController {
     private CourseFavService courseFavService;
 
     @PostMapping("/upload")
+    @Async
     @Operation(summary = "上传课件")
-    public ResponseEntity<Void> uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
+    @Parameters({@Parameter(name = "file", in = ParameterIn.QUERY, required = true, description = "课件文件")})
+    public CompletableFuture<ResponseEntity<Void>> uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
         String url = courseWareService.upload(file);
-        return ResponseEntity.created(new URI(url)).build();
+        return CompletableFuture.completedFuture(ResponseEntity.created(new URI(url)).build());
     }
 
     @GetMapping("/{fileName}")
     @Operation(summary = "下载课件")
+    @Parameters({@Parameter(name = "fileName", in = ParameterIn.QUERY, required = true, description = "课件文件名")})
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws Exception {
         Resource resource = courseWareService.download(fileName);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"").body(resource);
@@ -49,6 +54,7 @@ public class CourseWareController {
 
     @GetMapping("/{fileName}/preview")
     @Operation(summary = "预览课件")
+    @Parameters({@Parameter(name = "fileName", in = ParameterIn.QUERY, required = true, description = "课件文件名")})
     public ResponseEntity<Resource> previewFile(@PathVariable String fileName) throws Exception {
         Resource resource = courseWareService.preview(fileName);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + fileName + "\"").body(resource);
@@ -67,7 +73,7 @@ public class CourseWareController {
     }
 
     @GetMapping("/fav/list/info")
-    @Operation(summary = "查看收藏课程详情")
+    @Operation(summary = "查看收藏课件详情")
     @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID")})
     public ResponseWrapper<List<CourseWare>> courseWareFavListInfo(Long userId) {
         ServiceResult<List<CourseWare>> res = courseFavService.courseWareFavListInfo(userId);
@@ -79,7 +85,7 @@ public class CourseWareController {
     }
 
     @PostMapping("/fav/add")
-    @Operation(summary = "添加收藏课程")
+    @Operation(summary = "添加收藏课件")
     @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseWareId", in = ParameterIn.QUERY, required = true, description = "课件ID")})
     public ResponseWrapper<Void> courseWareFavAdd(Long userId, Long courseWareId) {
         ServiceResult<Void> res = courseFavService.courseWareFavAdd(userId, courseWareId);
@@ -92,7 +98,7 @@ public class CourseWareController {
 
 
     @PostMapping("/fav/cancel")
-    @Operation(summary = "取消收藏课程")
+    @Operation(summary = "取消收藏课件")
     @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseWareId", in = ParameterIn.QUERY, required = true, description = "课件ID")})
     public ResponseWrapper<Void> courseWareFavDel(Long userId, Long courseWareId) {
         ServiceResult<Void> res = courseFavService.courseWareFavDel(userId, courseWareId);

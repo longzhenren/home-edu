@@ -7,6 +7,7 @@ import com.amur.home.util.ServiceResult;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
+@Tag(name = "日程管理")
 @RestController("/schedule")
 public class ScheduleController {
     @Resource

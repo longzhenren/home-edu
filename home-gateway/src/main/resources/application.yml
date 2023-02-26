@@ -43,10 +43,14 @@ spring:
           uri: lb://home-rtc
           predicates:
             - Path=/home-rtc/**
-        - id: home-mgs
+        - id: home-msg
           uri: lb://home-msg
           predicates:
             - Path=/home-msg/**
+        - id: home-schedule
+          uri: lb://home-schedule
+          predicates:
+            - Path=/home-schedule/**
       #          filters:
       #            - StripPrefix=1
       discovery:
@@ -114,7 +118,11 @@ knife4j:
         url: /home-msg/v3/api-docs?group=default
         service-name: msg-service
         order: 7
+      - name: 日程备忘服务
+        url: /home-schedule/v3/api-docs?group=default
+        service-name: schedule-service
+        order: 8
       - name: 音视频服务
         url: /home-rtc/v3/api-docs?group=default
         service-name: rtc-service
-        order: 8
+        order: 9
