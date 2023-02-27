@@ -170,6 +170,37 @@ public final class UserServiceGrpc {
     return getGetUserByNameMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserIdRequest,
+      com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse> getCheckUserExistsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CheckUserExists",
+      requestType = com.amur.home.user.rpc.UserServiceProto.UserIdRequest.class,
+      responseType = com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserIdRequest,
+      com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse> getCheckUserExistsMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.UserServiceProto.UserIdRequest, com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse> getCheckUserExistsMethod;
+    if ((getCheckUserExistsMethod = UserServiceGrpc.getCheckUserExistsMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getCheckUserExistsMethod = UserServiceGrpc.getCheckUserExistsMethod) == null) {
+          UserServiceGrpc.getCheckUserExistsMethod = getCheckUserExistsMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.UserServiceProto.UserIdRequest, com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CheckUserExists"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.UserServiceProto.UserIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("CheckUserExists"))
+              .build();
+        }
+      }
+    }
+    return getCheckUserExistsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -253,6 +284,13 @@ public final class UserServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserByNameMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void checkUserExists(com.amur.home.user.rpc.UserServiceProto.UserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCheckUserExistsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -290,6 +328,13 @@ public final class UserServiceGrpc {
                 com.amur.home.user.rpc.UserServiceProto.UserNameRequest,
                 com.amur.home.user.rpc.UserServiceProto.UserInfoResponse>(
                   this, METHODID_GET_USER_BY_NAME)))
+          .addMethod(
+            getCheckUserExistsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.UserServiceProto.UserIdRequest,
+                com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse>(
+                  this, METHODID_CHECK_USER_EXISTS)))
           .build();
     }
   }
@@ -347,6 +392,14 @@ public final class UserServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetUserByNameMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void checkUserExists(com.amur.home.user.rpc.UserServiceProto.UserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCheckUserExistsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -396,6 +449,13 @@ public final class UserServiceGrpc {
     public com.amur.home.user.rpc.UserServiceProto.UserInfoResponse getUserByName(com.amur.home.user.rpc.UserServiceProto.UserNameRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetUserByNameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse checkUserExists(com.amur.home.user.rpc.UserServiceProto.UserIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCheckUserExistsMethod(), getCallOptions(), request);
     }
   }
 
@@ -452,6 +512,14 @@ public final class UserServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetUserByNameMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse> checkUserExists(
+        com.amur.home.user.rpc.UserServiceProto.UserIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCheckUserExistsMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_USER_INFO = 0;
@@ -459,6 +527,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_DELETE_USER = 2;
   private static final int METHODID_CREATE_USER = 3;
   private static final int METHODID_GET_USER_BY_NAME = 4;
+  private static final int METHODID_CHECK_USER_EXISTS = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -496,6 +565,10 @@ public final class UserServiceGrpc {
         case METHODID_GET_USER_BY_NAME:
           serviceImpl.getUserByName((com.amur.home.user.rpc.UserServiceProto.UserNameRequest) request,
               (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.UserInfoResponse>) responseObserver);
+          break;
+        case METHODID_CHECK_USER_EXISTS:
+          serviceImpl.checkUserExists((com.amur.home.user.rpc.UserServiceProto.UserIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -563,6 +636,7 @@ public final class UserServiceGrpc {
               .addMethod(getDeleteUserMethod())
               .addMethod(getCreateUserMethod())
               .addMethod(getGetUserByNameMethod())
+              .addMethod(getCheckUserExistsMethod())
               .build();
         }
       }

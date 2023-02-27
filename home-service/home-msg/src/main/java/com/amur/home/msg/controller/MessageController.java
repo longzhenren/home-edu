@@ -95,6 +95,31 @@ public class MessageController {
         }
     }
 
+    @Operation(summary = "聊天免打扰")
+    @PostMapping("/chat/notify/off")
+    @Parameters({@Parameter(name = "chatId", description = "聊天id"), @Parameter(name = "userId", description = "用户id")})
+    public ResponseWrapper<Void> notifyOff(String chatId, Long userId) {
+        ServiceResult<Void> res = messageService.notifyOff(chatId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "取消聊天免打扰")
+    @PostMapping("/chat/notify/on")
+    @Parameters({@Parameter(name = "chatId", description = "聊天id"), @Parameter(name = "userId", description = "用户id")})
+    public ResponseWrapper<Void> notifyOn(String chatId, Long userId) {
+        ServiceResult<Void> res = messageService.notifyOn(chatId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+
     @Operation(summary = "取消置顶聊天")
     @PostMapping("/chat/top/del")
     @Parameters({@Parameter(name = "chatId", description = "聊天id"), @Parameter(name = "userId", description = "用户id")})

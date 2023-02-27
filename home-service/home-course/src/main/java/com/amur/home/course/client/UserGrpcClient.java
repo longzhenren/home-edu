@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 @Slf4j
-public class CourseGrpcClient {
+public class UserGrpcClient {
     @GrpcClient("home-user")
     private FavServiceGrpc.FavServiceBlockingStub favServiceBlockingStub;
 
@@ -164,4 +164,5 @@ public class CourseGrpcClient {
             return ServiceResult.fail(response.getResult().getMessage());
         }
     }
+
 }

@@ -1,7 +1,7 @@
 package com.amur.home.user.service.impl;
 
 import com.amur.home.common.Constants;
-import com.amur.home.user.client.TinyIdClient;
+import com.amur.home.user.client.TinyIdGrpcClient;
 import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
@@ -36,7 +36,7 @@ public class HomeServiceImpl implements HomeService {
     private UserFavMapper userFavMapper;
 
     @Resource
-    private TinyIdClient tinyIdClient;
+    private TinyIdGrpcClient tinyIdGrpcClient;
 
     @Resource
     private MinioClient minioClient;
@@ -81,7 +81,7 @@ public class HomeServiceImpl implements HomeService {
         if (userInfo.getHomeId() != null && userInfo.getHomeId() > 0) {
             return ServiceResult.fail("用户已经加入家庭");
         }
-        ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.HOME_INFO.getDesc());
+        ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.HOME_INFO.getDesc());
         if (!res.isSuccess()) {
             return ServiceResult.fail("id生成失败");
         }

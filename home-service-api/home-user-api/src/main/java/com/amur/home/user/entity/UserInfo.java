@@ -1,5 +1,6 @@
 package com.amur.home.user.entity;
 
+import com.amur.home.common.Constants;
 import com.amur.home.common.Constants.UserRelativeType;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -42,4 +43,21 @@ public class UserInfo {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
+
+    public UserInfo(Long id, String username) {
+        this.age = 0;
+        this.avatarUrl = "";
+        this.createTime = new Date();
+        this.deleted = 0;
+        this.description = "";
+        this.email = "";
+        this.favCount = 0;
+        this.homeId = 0L;
+        this.id = id;
+        this.likeCount = 0;
+        this.name = username;
+        this.phone = "";
+        this.sex = "";
+        this.relativeType = Constants.UserRelativeType.NONE;
+    }
 }

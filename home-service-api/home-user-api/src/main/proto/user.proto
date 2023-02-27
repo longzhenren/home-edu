@@ -15,10 +15,16 @@ service UserService {
   rpc DeleteUser(UserIdRequest) returns (ServiceResult) {}
   rpc CreateUser(CreateUserRequest) returns (UserIdResponse) {}
   rpc GetUserByName(UserNameRequest) returns (UserInfoResponse) {}
+  rpc CheckUserExists(UserIdRequest) returns (CheckUserExistsResponse) {}
 }
 
 message UserIdRequest {
   int64 user_id = 1;
+}
+
+message CheckUserExistsResponse {
+  bool exists = 1;
+  ServiceResult result = 2;
 }
 
 message UserInfoRequest {

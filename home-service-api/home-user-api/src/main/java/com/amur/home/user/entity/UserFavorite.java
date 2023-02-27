@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
@@ -42,4 +43,13 @@ public class UserFavorite {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
+
+    public UserFavorite(Long id) {
+        this.userMap = Collections.emptyMap();
+        this.userIds = Collections.emptySet();
+        this.homeIds = Collections.emptySet();
+        this.courseIds = Collections.emptySet();
+        this.courseWareIds = Collections.emptySet();
+        this.courseListIds = Collections.emptySet();
+    }
 }

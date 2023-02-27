@@ -1,7 +1,7 @@
 package com.amur.home.schedule.service.impl;
 
 import com.amur.home.common.Constants;
-import com.amur.home.schedule.client.TinyIdClient;
+import com.amur.home.schedule.client.TinyIdGrpcClient;
 import com.amur.home.schedule.entity.Schedule;
 import com.amur.home.schedule.mapper.ScheduleMapper;
 import com.amur.home.schedule.service.ScheduleService;
@@ -21,7 +21,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     private ScheduleMapper scheduleMapper;
 
     @Resource
-    private TinyIdClient tinyIdClient;
+    private TinyIdGrpcClient tinyIdGrpcClient;
 
     @Override
     public ServiceResult<Long> addSchedule(Long createUserId, Long userId, String title, String content, Date startTime, Date endTime, String location, String remark, String color, Boolean allDay, Boolean canEdit) {
@@ -29,7 +29,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 //        if (StpUtil.getLoginId() != createUserId) {
 //            return ServiceResult.fail("参数非法:不匹配的创建者ID");
 //        }
-        schedule.setId(tinyIdClient.getNextId(Constants.TableName.SCHEDULE.getDesc()).getData());
+        schedule.setId(tinyIdGrpcClient.getNextId(Constants.TableName.SCHEDULE.getDesc()).getData());
         schedule.setCreateUserId(createUserId);
         schedule.setUserId(userId);
         schedule.setTitle(title);

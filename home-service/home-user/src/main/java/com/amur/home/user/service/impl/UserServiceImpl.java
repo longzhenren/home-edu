@@ -1,7 +1,7 @@
 package com.amur.home.user.service.impl;
 
 import com.amur.home.common.Constants;
-import com.amur.home.user.client.TinyIdClient;
+import com.amur.home.user.client.TinyIdGrpcClient;
 import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.mapper.UserFavMapper;
@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -34,7 +33,7 @@ public class UserServiceImpl implements UserService {
     private UserFavMapper userFavMapper;
 
     @Resource
-    private TinyIdClient tinyIdClient;
+    private TinyIdGrpcClient tinyIdGrpcClient;
 
     @Resource
     private MinioClient minioClient;
@@ -43,10 +42,10 @@ public class UserServiceImpl implements UserService {
     private String endpoint;
 
     /**
-     * 根据用户 ID 获取用户信息。
+     * 根据用户 ID 获取用户信息
      *
-     * @param userId 用户 ID。
-     * @return 用户实体对象。
+     * @param userId 用户 ID
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<UserInfo> getUserInfo(Long userId) {
@@ -59,10 +58,10 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 更新用户信息。
+     * 更新用户信息
      *
-     * @param userInfo 用户实体对象。
-     * @return 如果更新成功，返回 true；否则，返回 false。
+     * @param userInfo 用户实体对象
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> updateUser(UserInfo userInfo) {
@@ -76,8 +75,8 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * @param file
-     * @return
+     * @param file 用户头像文件
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<String> updateAvatar(MultipartFile file) {
@@ -98,10 +97,10 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 删除用户。
+     * 删除用户
      *
-     * @param userId 用户 ID。
-     * @return 如果删除成功，返回 true；否则，返回 false。
+     * @param userId 用户 ID
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> deleteUser(Long userId) {
@@ -115,38 +114,19 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 创建用户。
+     * 创建用户
      *
-     * @param userName 用户名。
-     * @return 新创建的用户的 ID。
+     * @param userName 用户名
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Long> createUser(String userName) {
-        ServiceResult<Long> res = tinyIdClient.getNextId(Constants.TableName.USER.getDesc());
+        ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.USER.getDesc());
         if (!res.isSuccess()) {
             return ServiceResult.fail("id生成失败");
         }
-        UserInfo userInfo = new UserInfo();
-        userInfo.setName(userName);
-        userInfo.setId(res.getData());
-        userInfo.setAge(0);
-        userInfo.setSex("");
-        userInfo.setAvatarUrl("");
-        userInfo.setEmail("");
-        userInfo.setPhone("");
-        userInfo.setDescription("");
-        userInfo.setHomeId(0L);
-        userInfo.setFavCount(0);
-        userInfo.setLikeCount(0);
-        userInfo.setRelativeType(Constants.UserRelativeType.NONE);
-        UserFavorite userFavorite = new UserFavorite();
-        userFavorite.setId(res.getData());
-        userFavorite.setUserMap(Collections.emptyMap());
-        userFavorite.setUserIds(Collections.emptySet());
-        userFavorite.setHomeIds(Collections.emptySet());
-        userFavorite.setCourseIds(Collections.emptySet());
-        userFavorite.setCourseWareIds(Collections.emptySet());
-        userFavorite.setCourseListIds(Collections.emptySet());
+        UserInfo userInfo = new UserInfo(res.getData(), userName);
+        UserFavorite userFavorite = new UserFavorite(res.getData());
         if (userInfoMapper.insert(userInfo) <= 0) {
             return ServiceResult.fail("创建用户失败");
         }
@@ -157,10 +137,10 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 根据用户名获取用户信息。
+     * 根据用户名获取用户信息
      *
-     * @param username 用户名。
-     * @return 用户实体对象。
+     * @param username 用户名
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<UserInfo> getUserByName(String username) {
@@ -177,7 +157,7 @@ public class UserServiceImpl implements UserService {
     /**
      * @param favId  被收藏的用户ID
      * @param userId 收藏的用户ID
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> favUser(Long favId, String nickName, Long userId) {
@@ -203,5 +183,14 @@ public class UserServiceImpl implements UserService {
         }
         return ServiceResult.success();
 
+    }
+
+    /**
+     * @param userId 用户ID
+     * @return 服务返回结果统一封装
+     */
+    @Override
+    public ServiceResult<Boolean> checkUserExists(long userId) {
+        return ServiceResult.success(userInfoMapper.selectById(userId) != null);
     }
 }

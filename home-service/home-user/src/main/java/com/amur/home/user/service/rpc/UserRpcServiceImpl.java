@@ -117,4 +117,16 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
+
+    /**
+     * @param request
+     * @param responseObserver
+     */
+    @Override
+    public void checkUserExists(UserServiceProto.UserIdRequest request, StreamObserver<UserServiceProto.CheckUserExistsResponse> responseObserver) {
+        ServiceResult<Boolean> res = userService.checkUserExists(request.getUserId());
+        ServiceResultProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
+        responseObserver.onNext(UserServiceProto.CheckUserExistsResponse.newBuilder().setResult(resProto).setExists(res.getData()).build());
+        responseObserver.onCompleted();
+    }
 }

@@ -1,4 +1,4 @@
-package com.amur.home.schedule.client;
+package com.amur.home.course.client;
 
 import com.amur.home.tinyid.rpc.IdServiceGrpc;
 import com.amur.home.tinyid.rpc.TinyId;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class TinyIdClient {
+public class TinyIdGrpcClient {
     @GrpcClient("home-tinyid")
     private IdServiceGrpc.IdServiceBlockingStub idServiceBlockingStub;
 
@@ -28,4 +28,5 @@ public class TinyIdClient {
             return ServiceResult.fail(e.getMessage());
         }
     }
+
 }

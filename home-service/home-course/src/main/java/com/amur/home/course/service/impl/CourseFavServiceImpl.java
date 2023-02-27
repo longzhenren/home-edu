@@ -1,6 +1,6 @@
 package com.amur.home.course.service.impl;
 
-import com.amur.home.course.client.CourseGrpcClient;
+import com.amur.home.course.client.UserGrpcClient;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseList;
 import com.amur.home.course.entity.CourseWare;
@@ -28,7 +28,7 @@ public class CourseFavServiceImpl implements CourseFavService {
     private CourseWareMapper courseWareMapper;
 
     @Resource
-    private CourseGrpcClient courseGrpcClient;
+    private UserGrpcClient userGrpcClient;
 
     /**
      * 获取收藏的课程id列表
@@ -38,7 +38,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<List<Long>> courseFavList(Long userId) {
-        return courseGrpcClient.getFavCourses(userId);
+        return userGrpcClient.getFavCourses(userId);
     }
 
     /**
@@ -49,7 +49,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<List<CourseInfo>> courseFavListInfo(Long userId) {
-        ServiceResult<List<Long>> res = courseGrpcClient.getFavCourses(userId);
+        ServiceResult<List<Long>> res = userGrpcClient.getFavCourses(userId);
         List<Long> courseIds = res.getData();
         List<CourseInfo> courseInfos = new ArrayList<>();
         if (courseIds != null && !courseIds.isEmpty()) {
@@ -69,7 +69,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseFavAdd(Long userId, Long courseId) {
-        return courseGrpcClient.addFavCourse(userId, courseId);
+        return userGrpcClient.addFavCourse(userId, courseId);
     }
 
     /**
@@ -81,7 +81,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseFavDel(Long userId, Long courseId) {
-        return courseGrpcClient.delFavCourse(userId, courseId);
+        return userGrpcClient.delFavCourse(userId, courseId);
     }
 
     /**
@@ -92,7 +92,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<List<Long>> courseListFavList(Long userId) {
-        return courseGrpcClient.getFavCourseLists(userId);
+        return userGrpcClient.getFavCourseLists(userId);
     }
 
     /**
@@ -103,7 +103,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<List<CourseList>> courseListFavListInfo(Long userId) {
-        ServiceResult<List<Long>> res = courseGrpcClient.getFavCourseLists(userId);
+        ServiceResult<List<Long>> res = userGrpcClient.getFavCourseLists(userId);
         List<Long> courseListIds = res.getData();
         List<CourseList> courseLists = new ArrayList<>();
         if (courseListIds != null && !courseListIds.isEmpty()) {
@@ -123,7 +123,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseListFavAdd(Long userId, Long courseListId) {
-        return courseGrpcClient.addFavCourseList(userId, courseListId);
+        return userGrpcClient.addFavCourseList(userId, courseListId);
     }
 
     /**
@@ -135,7 +135,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseListFavDel(Long userId, Long courseListId) {
-        return courseGrpcClient.delFavCourseList(userId, courseListId);
+        return userGrpcClient.delFavCourseList(userId, courseListId);
     }
 
     /**
@@ -146,7 +146,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<List<Long>> courseWareFavList(Long userId) {
-        return courseGrpcClient.getFavCourseWares(userId);
+        return userGrpcClient.getFavCourseWares(userId);
     }
 
     /**
@@ -157,7 +157,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<List<CourseWare>> courseWareFavListInfo(Long userId) {
-        ServiceResult<List<Long>> res = courseGrpcClient.getFavCourseWares(userId);
+        ServiceResult<List<Long>> res = userGrpcClient.getFavCourseWares(userId);
         List<Long> courseWareIds = res.getData();
         List<CourseWare> courseWares = new ArrayList<>();
         if (courseWareIds != null && !courseWareIds.isEmpty()) {
@@ -177,7 +177,7 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseWareFavAdd(Long userId, Long courseWareId) {
-        return courseGrpcClient.addFavCourseWare(userId, courseWareId);
+        return userGrpcClient.addFavCourseWare(userId, courseWareId);
     }
 
     /**
@@ -189,6 +189,6 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseWareFavDel(Long userId, Long courseWareId) {
-        return courseGrpcClient.delFavCourseWare(userId, courseWareId);
+        return userGrpcClient.delFavCourseWare(userId, courseWareId);
     }
 }

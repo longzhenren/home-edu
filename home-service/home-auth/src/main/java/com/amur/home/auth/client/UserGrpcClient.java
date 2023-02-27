@@ -44,4 +44,10 @@ public class UserGrpcClient {
             return ServiceResult.fail(resp.getMessage());
         }
     }
+
+    public boolean checkUserExists(Long userId) {
+        UserServiceProto.UserIdRequest request = UserServiceProto.UserIdRequest.newBuilder().setUserId(userId).build();
+        UserServiceProto.CheckUserExistsResponse response = userServiceBlockingStub.checkUserExists(request);
+        return response.getExists();
+    }
 }

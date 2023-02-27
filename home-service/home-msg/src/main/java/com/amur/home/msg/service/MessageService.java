@@ -51,4 +51,7 @@ public interface MessageService {
 
     ServiceResult<Void> chatTopAdd(String chatId, Long userId);
 
+    ServiceResult<Void> notifyOff(String chatId, Long userId);
+
+    ServiceResult<Void> notifyOn(String chatId, Long userId);
 }

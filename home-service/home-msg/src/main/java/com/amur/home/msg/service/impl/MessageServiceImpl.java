@@ -1,5 +1,6 @@
 package com.amur.home.msg.service.impl;
 
+import com.amur.home.msg.client.UserGrpcClient;
 import com.amur.home.msg.dto.ChatDetailDTO;
 import com.amur.home.msg.dto.ListChatDTO;
 import com.amur.home.msg.entity.Chat;
@@ -39,6 +40,8 @@ public class MessageServiceImpl implements MessageService {
     private ChatUserMapper chatUserMapper;
     @Resource
     private MinioClient minioClient;
+    @Resource
+    private UserGrpcClient userGrpcClient;
 
     @Value("${minio.bucketName}")
     private String bucketName;
@@ -54,6 +57,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> sendMsg(Long senderId, String message, String chatId) {
+        if (!userGrpcClient.checkUserExists(senderId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -84,6 +90,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> sendFile(Long senderId, MultipartFile file, String chatId) {
+        if (!userGrpcClient.checkUserExists(senderId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         String originalFileName = file.getOriginalFilename();
         String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
         String newFileName = "AmurMsg_" + UUID.randomUUID() + fileExtension;
@@ -111,6 +120,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<String> createChat(Long creatorId, String name) {
+        if (!userGrpcClient.checkUserExists(creatorId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = new Chat();
         chat.setId(UUID.randomUUID().toString());
         chat.setCreatorId(creatorId);
@@ -131,6 +143,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> addChatUser(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -155,6 +170,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> delChatUser(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -176,6 +194,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<ListChatDTO> listChats(Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         QueryWrapper<ChatUserRelation> curWrapper = new QueryWrapper<>();
         curWrapper.eq("user_id", userId);
         List<ChatUserRelation> chatUserRelations = chatUserMapper.selectList(curWrapper);
@@ -251,6 +272,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> leaveChat(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         QueryWrapper<ChatUserRelation> curWrapper = new QueryWrapper<>();
         curWrapper.eq("user_id", userId);
         List<ChatUserRelation> chatUserRelations = chatUserMapper.selectList(curWrapper);
@@ -270,6 +294,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> joinChat(String token, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         ChatInvite chatInvite = chatInviteMapper.selectById(token);
         if (chatInvite == null) {
             return ServiceResult.fail("邀请码不存在");
@@ -302,6 +329,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<String> inviteUser(String chatId, Long invitorId) {
+        if (!userGrpcClient.checkUserExists(invitorId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -329,6 +359,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> kickUser(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -356,6 +389,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> muteUserAdd(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -379,6 +415,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> muteUserDel(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -402,6 +441,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> transferChat(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -425,6 +467,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> searchMsg(Long userId, String keyword) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         QueryWrapper<Message> queryWrapper = new QueryWrapper<>();
         queryWrapper.like("message", keyword).orderByDesc("create_time");
         List<Message> msgList = messageMapper.selectList(queryWrapper);
@@ -442,6 +487,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> searchChat(Long userId, String keyword) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         QueryWrapper<Chat> queryWrapper = new QueryWrapper<>();
         queryWrapper.like("name", keyword).orderByDesc("create_time");
         List<Chat> chatList = chatMapper.selectList(queryWrapper);
@@ -460,6 +508,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<String> chatUserNickname(String chatId, Long userId, String nickname) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -483,6 +534,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> chatTopDel(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -506,6 +560,9 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public ServiceResult<Void> chatTopAdd(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
             return ServiceResult.fail("会话不存在");
@@ -519,6 +576,58 @@ public class MessageServiceImpl implements MessageService {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("置顶失败");
+        }
+    }
+
+    /**
+     * @param chatId 会话ID
+     * @param userId 用户ID
+     * @return 服务返回结果统一封装
+     */
+    @Override
+    public ServiceResult<Void> notifyOff(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
+        Chat chat = chatMapper.selectById(chatId);
+        if (chat == null) {
+            return ServiceResult.fail("会话不存在");
+        }
+        ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
+        if (cur == null) {
+            return ServiceResult.fail("用户不在会话中");
+        }
+        cur.setNotify(false);
+        if (chatUserMapper.updateById(cur) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.fail("开启免打扰失败");
+        }
+    }
+
+    /**
+     * @param chatId 会话ID
+     * @param userId 用户ID
+     * @return 服务返回结果统一封装
+     */
+    @Override
+    public ServiceResult<Void> notifyOn(String chatId, Long userId) {
+        if (!userGrpcClient.checkUserExists(userId)) {
+            return ServiceResult.fail("用户不存在");
+        }
+        Chat chat = chatMapper.selectById(chatId);
+        if (chat == null) {
+            return ServiceResult.fail("会话不存在");
+        }
+        ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
+        if (cur == null) {
+            return ServiceResult.fail("用户不在会话中");
+        }
+        cur.setNotify(true);
+        if (chatUserMapper.updateById(cur) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.fail("关闭免打扰失败");
         }
     }
 }

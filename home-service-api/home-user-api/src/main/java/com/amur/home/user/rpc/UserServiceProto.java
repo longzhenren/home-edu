@@ -692,6 +692,698 @@ public final class UserServiceProto {
 
   }
 
+  public interface CheckUserExistsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.CheckUserExistsResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool exists = 1;</code>
+     * @return The exists.
+     */
+    boolean getExists();
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.CheckUserExistsResponse}
+   */
+  public static final class CheckUserExistsResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.CheckUserExistsResponse)
+      CheckUserExistsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CheckUserExistsResponse.newBuilder() to construct.
+    private CheckUserExistsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CheckUserExistsResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CheckUserExistsResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CheckUserExistsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              exists_ = input.readBool();
+              break;
+            }
+            case 18: {
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.class, com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.Builder.class);
+    }
+
+    public static final int EXISTS_FIELD_NUMBER = 1;
+    private boolean exists_;
+    /**
+     * <code>bool exists = 1;</code>
+     * @return The exists.
+     */
+    @java.lang.Override
+    public boolean getExists() {
+      return exists_;
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 2;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (exists_ != false) {
+        output.writeBool(1, exists_);
+      }
+      if (result_ != null) {
+        output.writeMessage(2, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (exists_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, exists_);
+      }
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse other = (com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse) obj;
+
+      if (getExists()
+          != other.getExists()) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EXISTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getExists());
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.CheckUserExistsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.CheckUserExistsResponse)
+        com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.class, com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        exists_ = false;
+
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.UserServiceProto.internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse build() {
+        com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse buildPartial() {
+        com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse result = new com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse(this);
+        result.exists_ = exists_;
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse) {
+          return mergeFrom((com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse other) {
+        if (other == com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse.getDefaultInstance()) return this;
+        if (other.getExists() != false) {
+          setExists(other.getExists());
+        }
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean exists_ ;
+      /**
+       * <code>bool exists = 1;</code>
+       * @return The exists.
+       */
+      @java.lang.Override
+      public boolean getExists() {
+        return exists_;
+      }
+      /**
+       * <code>bool exists = 1;</code>
+       * @param value The exists to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExists(boolean value) {
+        
+        exists_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool exists = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExists() {
+        
+        exists_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.CheckUserExistsResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.CheckUserExistsResponse)
+    private static final com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse();
+    }
+
+    public static com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CheckUserExistsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<CheckUserExistsResponse>() {
+      @java.lang.Override
+      public CheckUserExistsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CheckUserExistsResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CheckUserExistsResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CheckUserExistsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.UserServiceProto.CheckUserExistsResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface UserInfoRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.UserInfoRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -8146,6 +8838,11 @@ public final class UserServiceProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_amur_home_user_rpc_UserIdRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_user_rpc_UserInfoRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8197,51 +8894,56 @@ public final class UserServiceProto {
       "\n\nuser.proto\022\026com.amur.home.user.rpc\032\037go" +
       "ogle/protobuf/timestamp.proto\032\023ServiceRe" +
       "sult.proto\" \n\rUserIdRequest\022\017\n\007user_id\030\001" +
-      " \001(\003\"F\n\017UserInfoRequest\0223\n\tuser_info\030\001 \001" +
-      "(\0132 .com.amur.home.user.rpc.UserInfo\"&\n\021" +
-      "CreateUserRequest\022\021\n\tuser_name\030\001 \001(\t\"~\n\020" +
-      "UserInfoResponse\0223\n\tuser_info\030\001 \001(\0132 .co" +
-      "m.amur.home.user.rpc.UserInfo\0225\n\006result\030" +
-      "\002 \001(\0132%.com.amur.home.user.rpc.ServiceRe" +
-      "sult\"$\n\017UserNameRequest\022\021\n\tuser_name\030\001 \001" +
-      "(\t\"X\n\016UserIdResponse\022\017\n\007user_id\030\001 \001(\003\0225\n" +
-      "\006result\030\002 \001(\0132%.com.amur.home.user.rpc.S" +
-      "erviceResult\"\250\002\n\010UserInfo\022\n\n\002id\030\001 \001(\003\022\014\n" +
-      "\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005phon" +
-      "e\030\004 \001(\t\022\r\n\005email\030\005 \001(\t\022\022\n\navatar_url\030\006 \001" +
-      "(\t\022\013\n\003sex\030\010 \001(\t\022\013\n\003age\030\t \001(\005\022?\n\rrelative" +
-      "_type\030\n \001(\0162(.com.amur.home.user.rpc.Use" +
-      "rRelativeType\022/\n\013create_time\030\013 \001(\0132\032.goo" +
-      "gle.protobuf.Timestamp\022/\n\013update_time\030\014 " +
-      "\001(\0132\032.google.protobuf.Timestamp\"\374\002\n\014User" +
-      "Favorite\022\n\n\002id\030\001 \001(\003\022\017\n\007user_id\030\002 \001(\003\022\020\n" +
-      "\010home_ids\030\003 \003(\003\022\022\n\ncourse_ids\030\004 \003(\003\022\027\n\017c" +
-      "ourse_ware_ids\030\005 \003(\003\022\027\n\017course_list_ids\030" +
-      "\006 \003(\003\022C\n\010user_map\030\007 \003(\01321.com.amur.home." +
-      "user.rpc.UserFavorite.UserMapEntry\022/\n\013cr" +
-      "eate_time\030\010 \001(\0132\032.google.protobuf.Timest" +
-      "amp\022/\n\013update_time\030\t \001(\0132\032.google.protob" +
-      "uf.Timestamp\022\017\n\007version\030\n \001(\005\022\017\n\007deleted" +
-      "\030\013 \001(\010\032.\n\014UserMapEntry\022\013\n\003key\030\001 \001(\003\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001*\234\001\n\020UserRelativeType\022\n\n\006F" +
-      "ATHER\020\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER" +
-      "\020\003\022\017\n\013GRANDFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007" +
-      "BROTHER\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT" +
-      "\020\t\022\t\n\005OTHER\020\n2\366\003\n\013UserService\022`\n\013GetUser" +
-      "Info\022%.com.amur.home.user.rpc.UserIdRequ" +
-      "est\032(.com.amur.home.user.rpc.UserInfoRes" +
-      "ponse\"\000\022^\n\nUpdateUser\022\'.com.amur.home.us" +
-      "er.rpc.UserInfoRequest\032%.com.amur.home.u" +
-      "ser.rpc.ServiceResult\"\000\022\\\n\nDeleteUser\022%." +
-      "com.amur.home.user.rpc.UserIdRequest\032%.c" +
-      "om.amur.home.user.rpc.ServiceResult\"\000\022a\n" +
-      "\nCreateUser\022).com.amur.home.user.rpc.Cre" +
-      "ateUserRequest\032&.com.amur.home.user.rpc." +
-      "UserIdResponse\"\000\022d\n\rGetUserByName\022\'.com." +
-      "amur.home.user.rpc.UserNameRequest\032(.com" +
-      ".amur.home.user.rpc.UserInfoResponse\"\000B," +
-      "\n\026com.amur.home.user.rpcB\020UserServicePro" +
-      "toP\000b\006proto3"
+      " \001(\003\"`\n\027CheckUserExistsResponse\022\016\n\006exist" +
+      "s\030\001 \001(\010\0225\n\006result\030\002 \001(\0132%.com.amur.home." +
+      "user.rpc.ServiceResult\"F\n\017UserInfoReques" +
+      "t\0223\n\tuser_info\030\001 \001(\0132 .com.amur.home.use" +
+      "r.rpc.UserInfo\"&\n\021CreateUserRequest\022\021\n\tu" +
+      "ser_name\030\001 \001(\t\"~\n\020UserInfoResponse\0223\n\tus" +
+      "er_info\030\001 \001(\0132 .com.amur.home.user.rpc.U" +
+      "serInfo\0225\n\006result\030\002 \001(\0132%.com.amur.home." +
+      "user.rpc.ServiceResult\"$\n\017UserNameReques" +
+      "t\022\021\n\tuser_name\030\001 \001(\t\"X\n\016UserIdResponse\022\017" +
+      "\n\007user_id\030\001 \001(\003\0225\n\006result\030\002 \001(\0132%.com.am" +
+      "ur.home.user.rpc.ServiceResult\"\250\002\n\010UserI" +
+      "nfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\023\n\013descrip" +
+      "tion\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\r\n\005email\030\005 \001(\t" +
+      "\022\022\n\navatar_url\030\006 \001(\t\022\013\n\003sex\030\010 \001(\t\022\013\n\003age" +
+      "\030\t \001(\005\022?\n\rrelative_type\030\n \001(\0162(.com.amur" +
+      ".home.user.rpc.UserRelativeType\022/\n\013creat" +
+      "e_time\030\013 \001(\0132\032.google.protobuf.Timestamp" +
+      "\022/\n\013update_time\030\014 \001(\0132\032.google.protobuf." +
+      "Timestamp\"\374\002\n\014UserFavorite\022\n\n\002id\030\001 \001(\003\022\017" +
+      "\n\007user_id\030\002 \001(\003\022\020\n\010home_ids\030\003 \003(\003\022\022\n\ncou" +
+      "rse_ids\030\004 \003(\003\022\027\n\017course_ware_ids\030\005 \003(\003\022\027" +
+      "\n\017course_list_ids\030\006 \003(\003\022C\n\010user_map\030\007 \003(" +
+      "\01321.com.amur.home.user.rpc.UserFavorite." +
+      "UserMapEntry\022/\n\013create_time\030\010 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022/\n\013update_time\030\t \001" +
+      "(\0132\032.google.protobuf.Timestamp\022\017\n\007versio" +
+      "n\030\n \001(\005\022\017\n\007deleted\030\013 \001(\010\032.\n\014UserMapEntry" +
+      "\022\013\n\003key\030\001 \001(\003\022\r\n\005value\030\002 \001(\t:\0028\001*\234\001\n\020Use" +
+      "rRelativeType\022\n\n\006FATHER\020\000\022\n\n\006MOTHER\020\001\022\007\n" +
+      "\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013GRANDFATHER\020\004\022\017\n" +
+      "\013GRANDMOTHER\020\005\022\013\n\007BROTHER\020\006\022\n\n\006SISTER\020\007\022" +
+      "\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005OTHER\020\n2\343\004\n\013User" +
+      "Service\022`\n\013GetUserInfo\022%.com.amur.home.u" +
+      "ser.rpc.UserIdRequest\032(.com.amur.home.us" +
+      "er.rpc.UserInfoResponse\"\000\022^\n\nUpdateUser\022" +
+      "\'.com.amur.home.user.rpc.UserInfoRequest" +
+      "\032%.com.amur.home.user.rpc.ServiceResult\"" +
+      "\000\022\\\n\nDeleteUser\022%.com.amur.home.user.rpc" +
+      ".UserIdRequest\032%.com.amur.home.user.rpc." +
+      "ServiceResult\"\000\022a\n\nCreateUser\022).com.amur" +
+      ".home.user.rpc.CreateUserRequest\032&.com.a" +
+      "mur.home.user.rpc.UserIdResponse\"\000\022d\n\rGe" +
+      "tUserByName\022\'.com.amur.home.user.rpc.Use" +
+      "rNameRequest\032(.com.amur.home.user.rpc.Us" +
+      "erInfoResponse\"\000\022k\n\017CheckUserExists\022%.co" +
+      "m.amur.home.user.rpc.UserIdRequest\032/.com" +
+      ".amur.home.user.rpc.CheckUserExistsRespo" +
+      "nse\"\000B,\n\026com.amur.home.user.rpcB\020UserSer" +
+      "viceProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8255,44 +8957,50 @@ public final class UserServiceProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserIdRequest_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_com_amur_home_user_rpc_UserInfoRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_CheckUserExistsResponse_descriptor,
+        new java.lang.String[] { "Exists", "Result", });
+    internal_static_com_amur_home_user_rpc_UserInfoRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_amur_home_user_rpc_UserInfoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfoRequest_descriptor,
         new java.lang.String[] { "UserInfo", });
     internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_amur_home_user_rpc_CreateUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_CreateUserRequest_descriptor,
         new java.lang.String[] { "UserName", });
     internal_static_com_amur_home_user_rpc_UserInfoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_amur_home_user_rpc_UserInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfoResponse_descriptor,
         new java.lang.String[] { "UserInfo", "Result", });
     internal_static_com_amur_home_user_rpc_UserNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_amur_home_user_rpc_UserNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserNameRequest_descriptor,
         new java.lang.String[] { "UserName", });
     internal_static_com_amur_home_user_rpc_UserIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_amur_home_user_rpc_UserIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserIdResponse_descriptor,
         new java.lang.String[] { "UserId", "Result", });
     internal_static_com_amur_home_user_rpc_UserInfo_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_amur_home_user_rpc_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfo_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "Phone", "Email", "AvatarUrl", "Sex", "Age", "RelativeType", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_user_rpc_UserFavorite_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_amur_home_user_rpc_UserFavorite_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserFavorite_descriptor,

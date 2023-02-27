@@ -20,4 +20,6 @@ public interface UserService {
     ServiceResult<UserInfo> getUserByName(String username);
 
     ServiceResult<Void> favUser(Long favId, String nickName, Long userId);
+
+    ServiceResult<Boolean> checkUserExists(long userId);
 }

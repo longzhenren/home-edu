@@ -1,4 +1,4 @@
-package com.amur.home.user.client;
+package com.amur.home.auth.client;
 
 import com.amur.home.tinyid.rpc.IdServiceGrpc;
 import com.amur.home.tinyid.rpc.TinyId;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class TinyIdClient {
+public class TinyIdGrpcClient {
     @GrpcClient("home-tinyid")
     private IdServiceGrpc.IdServiceBlockingStub idServiceBlockingStub;
 
