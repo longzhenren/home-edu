@@ -8,14 +8,13 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-@TableName(value = "msg_msg")
-public class Message {
+@TableName(value = "msg_chat")
+public class Chat {
     @TableId(type = IdType.ASSIGN_UUID)
-    String id;
-    String message;
-    String chatId;
-    Long senderId;
-    Boolean callBack;
+    private String id;
+    private String name;
+    private Long creatorId;
+    private String lastMessageId;
     @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
@@ -30,12 +29,4 @@ public class Message {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
-
-    public Message(String id, String message, String chatId, Long senderId) {
-        this.id = id;
-        this.message = message;
-        this.chatId = chatId;
-        this.senderId = senderId;
-        this.callBack = false;
-    }
 }

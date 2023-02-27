@@ -1,5 +1,6 @@
 package com.amur.home.msg.entity;
 
+
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,14 +9,14 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-@TableName(value = "msg_msg")
-public class Message {
-    @TableId(type = IdType.ASSIGN_UUID)
-    String id;
-    String message;
-    String chatId;
-    Long senderId;
-    Boolean callBack;
+@TableName(value = "msg_chat_invite")
+public class ChatInvite {
+    @TableId
+    private String id;
+    private String chatId;
+    private Long invitorId;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date expireTime;
     @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
@@ -30,12 +31,4 @@ public class Message {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
-
-    public Message(String id, String message, String chatId, Long senderId) {
-        this.id = id;
-        this.message = message;
-        this.chatId = chatId;
-        this.senderId = senderId;
-        this.callBack = false;
-    }
 }

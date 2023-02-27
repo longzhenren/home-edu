@@ -4,18 +4,22 @@ import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-@TableName(value = "msg_msg")
-public class Message {
+@TableName(value = "msg_chat_user")
+@NoArgsConstructor
+public class ChatUserRelation {
     @TableId(type = IdType.ASSIGN_UUID)
-    String id;
-    String message;
-    String chatId;
-    Long senderId;
-    Boolean callBack;
+    private String id;
+    private String nickname;
+    private Long userId;
+    private String chatId;
+    private Boolean notify;
+    private Boolean top;
+    private Boolean mute;
     @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
@@ -31,11 +35,13 @@ public class Message {
     @JsonIgnore
     private Integer deleted;
 
-    public Message(String id, String message, String chatId, Long senderId) {
+    public ChatUserRelation(String id, String chatId, Long userId) {
         this.id = id;
-        this.message = message;
         this.chatId = chatId;
-        this.senderId = senderId;
-        this.callBack = false;
+        this.userId = userId;
+        this.setNickname("用户" + userId);
+        this.setNotify(true);
+        this.setTop(false);
+        this.setMute(false);
     }
 }

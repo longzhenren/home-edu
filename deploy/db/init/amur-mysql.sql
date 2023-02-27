@@ -200,7 +200,7 @@ CREATE TABLE `course_ware`
     KEY `idx_course_ware_course_id` (`course_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_unicode_ci;
+  COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE `schedule`
 (
@@ -227,4 +227,59 @@ CREATE TABLE `schedule`
     KEY `idx_end_time` (`end_time`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_unicode_ci;
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `msg_chat_user`
+(
+    `id`         varchar(36) NOT NULL,
+    `nickName`   varchar(255) DEFAULT NULL,
+    `userId`     bigint(20)   DEFAULT NULL,
+    `chatId`     varchar(255) DEFAULT NULL,
+    `notify`     tinyint(1)   DEFAULT NULL,
+    `top`        tinyint(1)   DEFAULT NULL,
+    `createTime` datetime     DEFAULT NULL,
+    `updateTime` datetime     DEFAULT NULL,
+    `version`    int          DEFAULT NULL,
+    `deleted`    tinyint(1)   DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_user_id` (`userId`),
+    KEY `idx_chat_id` (`chatId`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `msg_chat`
+(
+    `id`            varchar(36) NOT NULL,
+    `name`          varchar(255) DEFAULT NULL,
+    `creatorId`     bigint(20)   DEFAULT NULL,
+    `lastMessageId` varchar(36)  DEFAULT NULL,
+    `createTime`    datetime     DEFAULT NULL,
+    `updateTime`    datetime     DEFAULT NULL,
+    `version`       int(11)      DEFAULT NULL,
+    `deleted`       int(1)       DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_creator_id` (`creatorId`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `msg_msg`
+(
+    `id`          varchar(32) NOT NULL,
+    `message`     varchar(255)         DEFAULT NULL,
+    `chat_id`     varchar(32)          DEFAULT NULL,
+    `sender_id`   bigint(20)           DEFAULT NULL,
+    `call_back`   tinyint(1)           DEFAULT NULL,
+    `create_time` datetime             DEFAULT NULL,
+    `update_time` datetime             DEFAULT NULL,
+    `version`     int(11)     NOT NULL DEFAULT '1',
+    `deleted`     tinyint(1)  NOT NULL DEFAULT '0',
+    PRIMARY KEY (`id`),
+    KEY `idx_chat_id` (`chat_id`) USING BTREE,
+    CONSTRAINT `fk_message_chat_id` FOREIGN KEY (`chat_id`) REFERENCES `msg_chat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+
