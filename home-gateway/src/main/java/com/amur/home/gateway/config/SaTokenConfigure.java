@@ -37,9 +37,11 @@ public class SaTokenConfigure {
                     // 登录校验 -- 拦截所有路由，并放行登录
                     SaRouter.match("/**", "/home-auth/login", r -> StpUtil.checkLogin());
                     // 权限认证 -- 不同模块, 校验不同权限
-//                    SaRouter.match("/home-user/**", r -> StpUtil.checkPermission("user"));
-//                    SaRouter.match("/home-sba/**", r -> StpUtil.checkPermissionOr("su", "sre"));
-//                    SaRouter.match("/home-sw/**", r -> StpUtil.checkPermissionOr("su", "sre"));
+                    SaRouter.match("/home-user/**", "/home-schedule/**", "/home-course/**", "/home-rtc/**", "/home-msg/**").check(r -> StpUtil.checkPermission("user"));
+                    SaRouter.match("/home-msg/announce/home/add", "/home-user/home/admin/**", "/home-user/home/del", "/home-user/home/user/add", "/home-user/home/user/del", "/home-course/share/token", "/home-course/course/del", "/home-course/course/add", "/home-course/stu/add", "/home-course/stu/del", "/home-course/teacher/add", "/home-course/teacher/del").check(r -> StpUtil.checkPermission("home_admin"));
+                    SaRouter.match("/home-user/user/del").check(r -> StpUtil.checkPermission("sys_admin"));
+                    SaRouter.match("/home-sba/**", r -> StpUtil.checkPermissionOr("su", "sre"));
+                    SaRouter.match("/home-sw/**", r -> StpUtil.checkPermissionOr("su", "sre"));
                 })
 //         异常处理方法：每次setAuth函数出现异常时进入
                 .setError(e -> ResponseWrapper.fail(e.getMessage()));
