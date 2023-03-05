@@ -17,7 +17,7 @@ public class UserProtoConverter {
         userInfo.setPhone(proto.getPhone());
         userInfo.setEmail(proto.getEmail());
         userInfo.setAvatarUrl(proto.getAvatarUrl());
-        userInfo.setHomeId(proto.getId());
+        userInfo.setHomeId(proto.getHomeId());
         userInfo.setSex(proto.getSex());
         userInfo.setAge(proto.getAge());
         userInfo.setCreateTime(toDate(proto.getCreateTime()));
@@ -29,15 +29,15 @@ public class UserProtoConverter {
         UserServiceProto.UserInfo.Builder builder = UserServiceProto.UserInfo.newBuilder();
         builder.setId(userInfo.getId());
         builder.setName(userInfo.getName());
-        builder.setDescription(userInfo.getDescription() == null ? "" : userInfo.getDescription());
-        builder.setPhone(userInfo.getPhone() == null ? "" : userInfo.getPhone());
-        builder.setEmail(userInfo.getEmail() == null ? "" : userInfo.getEmail());
-        builder.setAvatarUrl(userInfo.getAvatarUrl() == null ? "" : userInfo.getAvatarUrl());
-        builder.setHomeId(userInfo.getHomeId() == null ? 0 : userInfo.getHomeId());
-        builder.setSex(userInfo.getSex() == null ? "" : userInfo.getSex());
-        builder.setAge(userInfo.getAge() == null ? 0 : userInfo.getAge());
-        builder.setCreateTime(toTimestamp(userInfo.getCreateTime() == null ? new Date() : userInfo.getCreateTime()));
-        builder.setUpdateTime(toTimestamp(userInfo.getUpdateTime() == null ? new Date() : userInfo.getUpdateTime()));
+        builder.setDescription(userInfo.getDescription());
+        builder.setPhone(userInfo.getPhone());
+        builder.setEmail(userInfo.getEmail());
+        builder.setAvatarUrl(userInfo.getAvatarUrl());
+        builder.setHomeId(userInfo.getHomeId());
+        builder.setSex(userInfo.getSex());
+        builder.setAge(userInfo.getAge());
+        builder.setCreateTime(toTimestamp(userInfo.getCreateTime()));
+        builder.setUpdateTime(toTimestamp(userInfo.getUpdateTime()));
         return builder.build();
     }
 
