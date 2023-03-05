@@ -17,4 +17,11 @@ public interface AuthService {
 
     public ServiceResult<UserAuth> getUserAuthById(Long id);
 
+    ServiceResult<Void> addPermission(Long id, String permission);
+
+    ServiceResult<Void> removePermission(Long id, String permission);
+
+    ServiceResult<Void> addRole(Long id, String role);
+
+    ServiceResult<Void> removeRole(Long id, String role);
 }

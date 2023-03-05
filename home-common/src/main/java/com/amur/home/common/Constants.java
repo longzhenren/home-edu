@@ -156,4 +156,22 @@ public class Constants {
         private final String desc;
     }
 
+    @AllArgsConstructor
+    @Getter
+    public enum PermissionName {
+        USER("user"),
+        SU("su"),
+        HOME_ADMIN("home_admin"),
+        SYS_ADMIN("sys_admin"),
+        SRE("sre");
+        private final String name;
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public enum RoleName {
+        USER("user"),
+        HOME_ADMIN("home_admin");
+        private final String name;
+    }
 }

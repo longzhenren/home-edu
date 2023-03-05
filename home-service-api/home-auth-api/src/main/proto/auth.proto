@@ -3,6 +3,7 @@ syntax = "proto3";
 package com.amur.home.auth.rpc;
 
 import "google/protobuf/timestamp.proto";
+import "ServiceResult.proto";
 
 option java_package = "com.amur.home.auth.rpc";
 option java_multiple_files = false;
@@ -13,6 +14,10 @@ service AuthService {
   //  rpc Logout (LogoutRequest) returns (LogoutResponse){};
   //  rpc Register (RegisterRequest) returns (RegisterResponse){};
   rpc GetAuthById(GetAuthByIdRequest) returns (GetAuthByIdResponse){};
+  rpc AddPermission(AddPermissionRequest) returns (ServiceResult){};
+  rpc RemovePermission(RemovePermissionRequest) returns (ServiceResult){};
+  rpc AddRole(AddRoleRequest) returns (ServiceResult){};
+  rpc RemoveRole(RemoveRoleRequest) returns (ServiceResult){};
 }
 
 message GetAuthByIdRequest {
@@ -20,6 +25,27 @@ message GetAuthByIdRequest {
 }
 message GetAuthByIdResponse{
   UserAuth auth = 1;
+  ServiceResult result = 2;
+}
+
+message AddPermissionRequest {
+  int64 id = 1;
+  string permission = 2;
+}
+
+message RemovePermissionRequest{
+  int64 id = 1;
+  string permission = 2;
+}
+
+message AddRoleRequest {
+  int64 id = 1;
+  string role = 2;
+}
+
+message RemoveRoleRequest{
+  int64 id = 1;
+  string role = 2;
 }
 
 message UserAuth {

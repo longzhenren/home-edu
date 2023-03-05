@@ -2,6 +2,7 @@ package com.amur.home.user.service.impl;
 
 import com.amur.home.common.Constants;
 import com.amur.home.user.client.TinyIdGrpcClient;
+import com.amur.home.user.client.UserAuthGrpcClient;
 import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
@@ -39,6 +40,9 @@ public class HomeServiceImpl implements HomeService {
     private TinyIdGrpcClient tinyIdGrpcClient;
 
     @Resource
+    private UserAuthGrpcClient userAuthGrpcClient;
+
+    @Resource
     private MinioClient minioClient;
 
     @Value("${minio.endpoint}")
@@ -49,7 +53,7 @@ public class HomeServiceImpl implements HomeService {
      * 根据家庭ID获取家庭信息
      *
      * @param homeId 家庭ID
-     * @return 家庭信息
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<HomeInfo> getHomeInfo(Long homeId) {
@@ -64,7 +68,7 @@ public class HomeServiceImpl implements HomeService {
     /**
      * 获取家庭列表
      *
-     * @return 家庭列表
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<List<HomeInfo>> getHomeList() {
@@ -97,6 +101,12 @@ public class HomeServiceImpl implements HomeService {
         homeInfo.setLikeCount(0L);
         homeInfo.setFavCount(0L);
         homeInfo.setOpen(open != null && open);
+        if (!userAuthGrpcClient.addPermission(userId, Constants.PermissionName.HOME_ADMIN.getName()).isSuccess()) {
+            return ServiceResult.fail("添加权限失败");
+        }
+        if (!userAuthGrpcClient.addRole(userId, Constants.RoleName.HOME_ADMIN.getName()).isSuccess()) {
+            return ServiceResult.fail("添加角色失败");
+        }
         if (homeInfoMapper.insert(homeInfo) <= 0) {
             return ServiceResult.fail("创建家庭失败");
         }
@@ -111,7 +121,7 @@ public class HomeServiceImpl implements HomeService {
 
     /**
      * @param file 文件
-     * @return 文件URL
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<String> updateAvatar(MultipartFile file) {
@@ -157,7 +167,7 @@ public class HomeServiceImpl implements HomeService {
      * 更新家庭信息
      *
      * @param homeInfo 家庭信息
-     * @return 是否更新成功
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> updateHome(HomeInfo homeInfo) {
@@ -172,7 +182,7 @@ public class HomeServiceImpl implements HomeService {
      * 根据家庭ID删除家庭
      *
      * @param homeId 家庭ID
-     * @return 是否删除成功
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> deleteHome(Long homeId, Long userId) {
@@ -191,7 +201,7 @@ public class HomeServiceImpl implements HomeService {
 
     /**
      * @param keyword 关键字
-     * @return 家庭信息列表
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<List<HomeInfo>> searchHome(String keyword) {
@@ -209,7 +219,7 @@ public class HomeServiceImpl implements HomeService {
      * 根据家庭ID获取家庭用户列表
      *
      * @param homeId 家庭ID
-     * @return 家庭用户列表
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<List<UserInfo>> getHomeUserList(Long homeId) {
@@ -226,7 +236,7 @@ public class HomeServiceImpl implements HomeService {
      *
      * @param homeId 家庭ID
      * @param userId 用户ID
-     * @return 是否更新成功
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> updateHomeUser(Long homeId, Long userId) {
@@ -255,7 +265,7 @@ public class HomeServiceImpl implements HomeService {
      *
      * @param homeId 家庭ID
      * @param userId 用户ID
-     * @return 是否删除成功
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> deleteHomeUser(Long homeId, Long userId) {
@@ -284,13 +294,19 @@ public class HomeServiceImpl implements HomeService {
      *
      * @param homeId 家庭ID
      * @param userId 用户ID
-     * @return 是否设置成功
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> setHomeAdmin(Long homeId, Long userId) {
         HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
             return ServiceResult.fail("家庭不存在");
+        }
+        if (!userAuthGrpcClient.addPermission(userId, Constants.PermissionName.HOME_ADMIN.getName()).isSuccess()) {
+            return ServiceResult.fail("添加权限失败");
+        }
+        if (!userAuthGrpcClient.addRole(userId, Constants.RoleName.HOME_ADMIN.getName()).isSuccess()) {
+            return ServiceResult.fail("添加角色失败");
         }
         homeInfo.getAdminIds().add(userId);
         if (homeInfoMapper.updateById(homeInfo) > 0) {
@@ -303,7 +319,7 @@ public class HomeServiceImpl implements HomeService {
     /**
      * @param homeId 家庭ID
      * @param userId 用户ID
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId) {
@@ -313,6 +329,12 @@ public class HomeServiceImpl implements HomeService {
         }
         if (!homeInfo.getAdminIds().contains(userId)) {
             return ServiceResult.fail("用户不是管理员");
+        }
+        if (!userAuthGrpcClient.removePermission(userId, Constants.PermissionName.HOME_ADMIN.getName()).isSuccess()) {
+            return ServiceResult.fail("删除权限失败");
+        }
+        if (!userAuthGrpcClient.removeRole(userId, Constants.RoleName.HOME_ADMIN.getName()).isSuccess()) {
+            return ServiceResult.fail("删除角色失败");
         }
         homeInfo.getAdminIds().remove(userId);
         if (homeInfoMapper.updateById(homeInfo) > 0) {
@@ -325,7 +347,7 @@ public class HomeServiceImpl implements HomeService {
     /**
      * @param homeId 家庭ID
      * @param userId 用户ID
-     * @return
+     * @return 服务返回结果统一封装
      */
     @Override
     public ServiceResult<Void> favHome(Long homeId, Long userId) {

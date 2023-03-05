@@ -1,6 +1,5 @@
 package com.amur.home.user.controller;
 
-import cn.dev33.satoken.stp.StpUtil;
 import com.amur.home.common.Constants;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.service.UserService;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 
@@ -72,6 +72,17 @@ public class UserController {
             return ResponseWrapper.fail(res.getMessage());
         } else {
             return ResponseWrapper.status(res.isSuccess());
+        }
+    }
+
+    @Operation(summary = "上传头像")
+    @PostMapping("avatar")
+    public ResponseWrapper<String> updateAvatar(MultipartFile file) {
+        ServiceResult<String> res = userService.updateAvatar(file);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
+        } else {
+            return ResponseWrapper.data(res.getData());
         }
     }
 

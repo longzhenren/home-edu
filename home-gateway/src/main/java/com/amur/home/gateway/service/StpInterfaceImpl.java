@@ -25,7 +25,7 @@ public class StpInterfaceImpl implements StpInterface {
         // 返回此 loginId 拥有的权限列表
         UserAuth userAuth = null;
         if (redisUtils.exists("user_auth:" + loginId)) {
-            userAuth = (UserAuth) redisUtils.get("user:" + loginId);
+            userAuth = (UserAuth) redisUtils.get("user_auth:" + loginId);
         } else {
             userAuth = gatewayGrpcClient.getUserAuthById((Long) loginId);
             redisUtils.set("user_auth:" + loginId, userAuth);
@@ -39,7 +39,7 @@ public class StpInterfaceImpl implements StpInterface {
         // 返回此 loginId 拥有的角色列表
         UserAuth userAuth = null;
         if (redisUtils.exists("user_auth:" + loginId)) {
-            userAuth = (UserAuth) redisUtils.get("user:" + loginId);
+            userAuth = (UserAuth) redisUtils.get("user_auth:" + loginId);
         } else {
             userAuth = gatewayGrpcClient.getUserAuthById((Long) loginId);
             redisUtils.set("user_auth:" + loginId, userAuth);

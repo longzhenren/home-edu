@@ -3,6 +3,7 @@ package com.amur.home.gateway.config;
 import cn.dev33.satoken.reactor.filter.SaReactorFilter;
 import cn.dev33.satoken.router.SaRouter;
 import cn.dev33.satoken.stp.StpUtil;
+import com.amur.home.common.Constants;
 import com.amur.home.util.ResponseWrapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,11 +38,10 @@ public class SaTokenConfigure {
                     // 登录校验 -- 拦截所有路由，并放行登录
                     SaRouter.match("/**", "/home-auth/login", r -> StpUtil.checkLogin());
                     // 权限认证 -- 不同模块, 校验不同权限
-                    SaRouter.match("/home-user/**", "/home-schedule/**", "/home-course/**", "/home-rtc/**", "/home-msg/**").check(r -> StpUtil.checkPermission("user"));
-                    SaRouter.match("/home-msg/announce/home/add", "/home-user/home/admin/**", "/home-user/home/del", "/home-user/home/user/add", "/home-user/home/user/del", "/home-course/share/token", "/home-course/course/del", "/home-course/course/add", "/home-course/stu/add", "/home-course/stu/del", "/home-course/teacher/add", "/home-course/teacher/del").check(r -> StpUtil.checkPermission("home_admin"));
-                    SaRouter.match("/home-user/user/del").check(r -> StpUtil.checkPermission("sys_admin"));
-                    SaRouter.match("/home-sba/**", r -> StpUtil.checkPermissionOr("su", "sre"));
-                    SaRouter.match("/home-sw/**", r -> StpUtil.checkPermissionOr("su", "sre"));
+                    SaRouter.match("/home-user/**", "/home-schedule/**", "/home-course/**", "/home-rtc/**", "/home-msg/**").check(r -> StpUtil.checkPermission(Constants.PermissionName.USER.getName()));
+                    SaRouter.match("/home-msg/announce/home/add", "/home-user/home/admin/**", "/home-user/home/del", "/home-user/home/user/add", "/home-user/home/user/del", "/home-course/share/token", "/home-course/course/del", "/home-course/course/add", "/home-course/stu/add", "/home-course/stu/del", "/home-course/teacher/add", "/home-course/teacher/del").check(r -> StpUtil.checkPermission(Constants.PermissionName.HOME_ADMIN.getName()));
+                    SaRouter.match("/home-user/user/del").check(r -> StpUtil.checkPermission(Constants.PermissionName.SYS_ADMIN.getName()));
+                    SaRouter.match("/home-sba/**", "/home-sw/**").check(r -> StpUtil.checkPermissionOr(Constants.PermissionName.SU.getName(), Constants.PermissionName.SRE.getName()));
                 })
 //         异常处理方法：每次setAuth函数出现异常时进入
                 .setError(e -> ResponseWrapper.fail(e.getMessage()));
