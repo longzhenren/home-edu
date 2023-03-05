@@ -71,6 +71,19 @@ services:
       interval: 10s
       timeout: 10s
       retries: 10
+  rabbitMQ:
+    image: rabbitmq:3.11-management
+    container_name: rabbitMQ
+    hostname: rabbitMQ
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - amur
   home-auth:
     image: registry.cn-beijing.aliyuncs.com/amur/home-auth:latest
     container_name: home-auth

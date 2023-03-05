@@ -42,7 +42,7 @@ public class CourseServiceImpl implements CourseService {
     @Resource
     private TinyIdGrpcClient tinyIdGrpcClient;
 
-    @Value("${minio.bucket-name}")
+    @Value("${minio.bucketName}")
     private String bucketName;
 
     @Value("${minio.endpoint}")

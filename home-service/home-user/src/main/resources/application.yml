@@ -44,6 +44,12 @@ spring:
     multipart:
       max-file-size: 500MB
       max-request-size: 500MB
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
@@ -71,7 +77,7 @@ knife4j:
   setting:
     language: zh_cn
     enable-host: true
-    enable-host-text: 127.0.0.1/home-user #填写为网关地址,用于在网管聚合界面调试接口
+    enable-host-text: 127.0.0.1/home-user #填写为网关地址,用于在网关聚合界面调试接口
   basic:
     enable: false
     username: admin
@@ -127,4 +133,4 @@ minio:
   endpoint: http://127.0.0.1:65531
   accessKey: minioadmin
   secretKey: minioadmin
-  bucket-name: user
+  bucketName: user

@@ -3,15 +3,20 @@ package com.amur.home.msg.service;
 
 import com.amur.home.msg.dto.ChatDetailDTO;
 import com.amur.home.msg.dto.ListChatDTO;
+import com.amur.home.msg.entity.Message;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Service
 public interface MessageService {
     ServiceResult<Void> sendMsg(Long senderId, String message, String chatId);
 
     ServiceResult<Void> sendFile(Long senderId, MultipartFile file, String chatId);
+
+    ServiceResult<List<Message>> getChatMsg(Long userId, String chatId);
 
     ServiceResult<String> createChat(Long creatorId, String name);
 

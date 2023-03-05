@@ -16,6 +16,7 @@ public class ChatUserRelation {
     private String id;
     private String nickname;
     private Long userId;
+    private Long unread;
     private String chatId;
     private Boolean notify;
     private Boolean top;

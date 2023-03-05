@@ -67,7 +67,6 @@ public class UserControllerTest {
         userInfo.setId(123L);
         userInfo.setName("test");
 
-        when(userService.updateUser(any())).thenReturn(ServiceResult.success());
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/user/update")
                         .param("userInfo", userInfo.toString()))

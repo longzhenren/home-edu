@@ -1,17 +1,14 @@
-server:
-  port: 8702
 spring:
   application:
     name: home-msg
   cloud:
     nacos:
       discovery:
+        register-enabled: true # 启用注册,本地环境设置为false避免混乱
         server-addr: 127.0.0.1:8848
         username: nacos
         password: nacos
-        namespace: public
       config:
-        group: DEFAULT_GROUP
         server-addr: 127.0.0.1:8848
   config:
     import:
@@ -37,9 +34,23 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
       validation-timeout: 3000
-grpc:
-  server:
-    port: 9702
+  #  Springboot2.6+ 解决swagger启动报错
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  banner:
+    location: banner.txt
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
   global-config:
@@ -66,13 +77,54 @@ knife4j:
   setting:
     language: zh_cn
     enable-host: true
-    enable-host-text: 127.0.0.1/home-msg #填写为网关地址,用于在网管聚合界面调试接口
+    enable-host-text: 127.0.0.1/home-msg #填写为网关地址,用于在网关聚合界面调试接口
   basic:
     enable: false
     username: admin
     password: 123456
   # 开启生产环境屏蔽
   production: false
+
+server:
+  port: 8702
+
+grpc:
+  server:
+    port: 9702
+  client:
+    home-tinyid:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-tinyid'
+      negotiation-type: plaintext
+    home-user:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-user'
+      negotiation-type: plaintext
+#logging:
+#  level:
+#    root: DEBUG
+# sa-token配置，考虑到要支持前后端分离项目，我们关闭从 cookie 中读取 token，改为从 head 中读取 token
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: "Authorization"
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 86400
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  token-style: uuid # token风格
+  is-log: false # 是否输出操作日志
+  is-read-cookie: false # 是否从cookie中读取token
+  is-read-header: true # 是否从head中读取token
+  is-write-header: true
+  is-print: off #关闭控制台banner
+  tokenPrefix: "Bearer" # token前缀
+
 minio:
   endpoint: http://127.0.0.1:65531
   accessKey: minioadmin

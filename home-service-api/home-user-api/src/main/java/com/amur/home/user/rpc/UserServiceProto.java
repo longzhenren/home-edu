@@ -4728,6 +4728,12 @@ public final class UserServiceProto {
         getAvatarUrlBytes();
 
     /**
+     * <code>int64 home_id = 7;</code>
+     * @return The homeId.
+     */
+    long getHomeId();
+
+    /**
      * <code>string sex = 8;</code>
      * @return The sex.
      */
@@ -4871,6 +4877,11 @@ public final class UserServiceProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               avatarUrl_ = s;
+              break;
+            }
+            case 56: {
+
+              homeId_ = input.readInt64();
               break;
             }
             case 66: {
@@ -5149,6 +5160,17 @@ public final class UserServiceProto {
       }
     }
 
+    public static final int HOME_ID_FIELD_NUMBER = 7;
+    private long homeId_;
+    /**
+     * <code>int64 home_id = 7;</code>
+     * @return The homeId.
+     */
+    @java.lang.Override
+    public long getHomeId() {
+      return homeId_;
+    }
+
     public static final int SEX_FIELD_NUMBER = 8;
     private volatile java.lang.Object sex_;
     /**
@@ -5301,6 +5323,9 @@ public final class UserServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, avatarUrl_);
       }
+      if (homeId_ != 0L) {
+        output.writeInt64(7, homeId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sex_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sex_);
       }
@@ -5343,6 +5368,10 @@ public final class UserServiceProto {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(avatarUrl_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, avatarUrl_);
+      }
+      if (homeId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, homeId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sex_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sex_);
@@ -5390,6 +5419,8 @@ public final class UserServiceProto {
           .equals(other.getEmail())) return false;
       if (!getAvatarUrl()
           .equals(other.getAvatarUrl())) return false;
+      if (getHomeId()
+          != other.getHomeId()) return false;
       if (!getSex()
           .equals(other.getSex())) return false;
       if (getAge()
@@ -5429,6 +5460,9 @@ public final class UserServiceProto {
       hash = (53 * hash) + getEmail().hashCode();
       hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
       hash = (53 * hash) + getAvatarUrl().hashCode();
+      hash = (37 * hash) + HOME_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getHomeId());
       hash = (37 * hash) + SEX_FIELD_NUMBER;
       hash = (53 * hash) + getSex().hashCode();
       hash = (37 * hash) + AGE_FIELD_NUMBER;
@@ -5588,6 +5622,8 @@ public final class UserServiceProto {
 
         avatarUrl_ = "";
 
+        homeId_ = 0L;
+
         sex_ = "";
 
         age_ = 0;
@@ -5638,6 +5674,7 @@ public final class UserServiceProto {
         result.phone_ = phone_;
         result.email_ = email_;
         result.avatarUrl_ = avatarUrl_;
+        result.homeId_ = homeId_;
         result.sex_ = sex_;
         result.age_ = age_;
         result.relativeType_ = relativeType_;
@@ -5721,6 +5758,9 @@ public final class UserServiceProto {
         if (!other.getAvatarUrl().isEmpty()) {
           avatarUrl_ = other.avatarUrl_;
           onChanged();
+        }
+        if (other.getHomeId() != 0L) {
+          setHomeId(other.getHomeId());
         }
         if (!other.getSex().isEmpty()) {
           sex_ = other.sex_;
@@ -6174,6 +6214,37 @@ public final class UserServiceProto {
   checkByteStringIsUtf8(value);
         
         avatarUrl_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long homeId_ ;
+      /**
+       * <code>int64 home_id = 7;</code>
+       * @return The homeId.
+       */
+      @java.lang.Override
+      public long getHomeId() {
+        return homeId_;
+      }
+      /**
+       * <code>int64 home_id = 7;</code>
+       * @param value The homeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHomeId(long value) {
+        
+        homeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 home_id = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHomeId() {
+        
+        homeId_ = 0L;
         onChanged();
         return this;
       }
@@ -8905,45 +8976,45 @@ public final class UserServiceProto {
       "user.rpc.ServiceResult\"$\n\017UserNameReques" +
       "t\022\021\n\tuser_name\030\001 \001(\t\"X\n\016UserIdResponse\022\017" +
       "\n\007user_id\030\001 \001(\003\0225\n\006result\030\002 \001(\0132%.com.am" +
-      "ur.home.user.rpc.ServiceResult\"\250\002\n\010UserI" +
+      "ur.home.user.rpc.ServiceResult\"\271\002\n\010UserI" +
       "nfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\023\n\013descrip" +
       "tion\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\r\n\005email\030\005 \001(\t" +
-      "\022\022\n\navatar_url\030\006 \001(\t\022\013\n\003sex\030\010 \001(\t\022\013\n\003age" +
-      "\030\t \001(\005\022?\n\rrelative_type\030\n \001(\0162(.com.amur" +
-      ".home.user.rpc.UserRelativeType\022/\n\013creat" +
-      "e_time\030\013 \001(\0132\032.google.protobuf.Timestamp" +
-      "\022/\n\013update_time\030\014 \001(\0132\032.google.protobuf." +
-      "Timestamp\"\374\002\n\014UserFavorite\022\n\n\002id\030\001 \001(\003\022\017" +
-      "\n\007user_id\030\002 \001(\003\022\020\n\010home_ids\030\003 \003(\003\022\022\n\ncou" +
-      "rse_ids\030\004 \003(\003\022\027\n\017course_ware_ids\030\005 \003(\003\022\027" +
-      "\n\017course_list_ids\030\006 \003(\003\022C\n\010user_map\030\007 \003(" +
-      "\01321.com.amur.home.user.rpc.UserFavorite." +
-      "UserMapEntry\022/\n\013create_time\030\010 \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\022/\n\013update_time\030\t \001" +
-      "(\0132\032.google.protobuf.Timestamp\022\017\n\007versio" +
-      "n\030\n \001(\005\022\017\n\007deleted\030\013 \001(\010\032.\n\014UserMapEntry" +
-      "\022\013\n\003key\030\001 \001(\003\022\r\n\005value\030\002 \001(\t:\0028\001*\234\001\n\020Use" +
-      "rRelativeType\022\n\n\006FATHER\020\000\022\n\n\006MOTHER\020\001\022\007\n" +
-      "\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n\013GRANDFATHER\020\004\022\017\n" +
-      "\013GRANDMOTHER\020\005\022\013\n\007BROTHER\020\006\022\n\n\006SISTER\020\007\022" +
-      "\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n\005OTHER\020\n2\343\004\n\013User" +
-      "Service\022`\n\013GetUserInfo\022%.com.amur.home.u" +
-      "ser.rpc.UserIdRequest\032(.com.amur.home.us" +
-      "er.rpc.UserInfoResponse\"\000\022^\n\nUpdateUser\022" +
-      "\'.com.amur.home.user.rpc.UserInfoRequest" +
-      "\032%.com.amur.home.user.rpc.ServiceResult\"" +
-      "\000\022\\\n\nDeleteUser\022%.com.amur.home.user.rpc" +
-      ".UserIdRequest\032%.com.amur.home.user.rpc." +
-      "ServiceResult\"\000\022a\n\nCreateUser\022).com.amur" +
-      ".home.user.rpc.CreateUserRequest\032&.com.a" +
-      "mur.home.user.rpc.UserIdResponse\"\000\022d\n\rGe" +
-      "tUserByName\022\'.com.amur.home.user.rpc.Use" +
-      "rNameRequest\032(.com.amur.home.user.rpc.Us" +
-      "erInfoResponse\"\000\022k\n\017CheckUserExists\022%.co" +
-      "m.amur.home.user.rpc.UserIdRequest\032/.com" +
-      ".amur.home.user.rpc.CheckUserExistsRespo" +
-      "nse\"\000B,\n\026com.amur.home.user.rpcB\020UserSer" +
-      "viceProtoP\000b\006proto3"
+      "\022\022\n\navatar_url\030\006 \001(\t\022\017\n\007home_id\030\007 \001(\003\022\013\n" +
+      "\003sex\030\010 \001(\t\022\013\n\003age\030\t \001(\005\022?\n\rrelative_type" +
+      "\030\n \001(\0162(.com.amur.home.user.rpc.UserRela" +
+      "tiveType\022/\n\013create_time\030\013 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022/\n\013update_time\030\014 \001(\0132\032" +
+      ".google.protobuf.Timestamp\"\374\002\n\014UserFavor" +
+      "ite\022\n\n\002id\030\001 \001(\003\022\017\n\007user_id\030\002 \001(\003\022\020\n\010home" +
+      "_ids\030\003 \003(\003\022\022\n\ncourse_ids\030\004 \003(\003\022\027\n\017course" +
+      "_ware_ids\030\005 \003(\003\022\027\n\017course_list_ids\030\006 \003(\003" +
+      "\022C\n\010user_map\030\007 \003(\01321.com.amur.home.user." +
+      "rpc.UserFavorite.UserMapEntry\022/\n\013create_" +
+      "time\030\010 \001(\0132\032.google.protobuf.Timestamp\022/" +
+      "\n\013update_time\030\t \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\022\017\n\007version\030\n \001(\005\022\017\n\007deleted\030\013 \001(" +
+      "\010\032.\n\014UserMapEntry\022\013\n\003key\030\001 \001(\003\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001*\234\001\n\020UserRelativeType\022\n\n\006FATHER" +
+      "\020\000\022\n\n\006MOTHER\020\001\022\007\n\003SON\020\002\022\014\n\010DAUGHTER\020\003\022\017\n" +
+      "\013GRANDFATHER\020\004\022\017\n\013GRANDMOTHER\020\005\022\013\n\007BROTH" +
+      "ER\020\006\022\n\n\006SISTER\020\007\022\t\n\005UNCLE\020\010\022\010\n\004AUNT\020\t\022\t\n" +
+      "\005OTHER\020\n2\343\004\n\013UserService\022`\n\013GetUserInfo\022" +
+      "%.com.amur.home.user.rpc.UserIdRequest\032(" +
+      ".com.amur.home.user.rpc.UserInfoResponse" +
+      "\"\000\022^\n\nUpdateUser\022\'.com.amur.home.user.rp" +
+      "c.UserInfoRequest\032%.com.amur.home.user.r" +
+      "pc.ServiceResult\"\000\022\\\n\nDeleteUser\022%.com.a" +
+      "mur.home.user.rpc.UserIdRequest\032%.com.am" +
+      "ur.home.user.rpc.ServiceResult\"\000\022a\n\nCrea" +
+      "teUser\022).com.amur.home.user.rpc.CreateUs" +
+      "erRequest\032&.com.amur.home.user.rpc.UserI" +
+      "dResponse\"\000\022d\n\rGetUserByName\022\'.com.amur." +
+      "home.user.rpc.UserNameRequest\032(.com.amur" +
+      ".home.user.rpc.UserInfoResponse\"\000\022k\n\017Che" +
+      "ckUserExists\022%.com.amur.home.user.rpc.Us" +
+      "erIdRequest\032/.com.amur.home.user.rpc.Che" +
+      "ckUserExistsResponse\"\000B,\n\026com.amur.home." +
+      "user.rpcB\020UserServiceProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8998,7 +9069,7 @@ public final class UserServiceProto {
     internal_static_com_amur_home_user_rpc_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_UserInfo_descriptor,
-        new java.lang.String[] { "Id", "Name", "Description", "Phone", "Email", "AvatarUrl", "Sex", "Age", "RelativeType", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "Id", "Name", "Description", "Phone", "Email", "AvatarUrl", "HomeId", "Sex", "Age", "RelativeType", "CreateTime", "UpdateTime", });
     internal_static_com_amur_home_user_rpc_UserFavorite_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_com_amur_home_user_rpc_UserFavorite_fieldAccessorTable = new

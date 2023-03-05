@@ -1,6 +1,7 @@
 package com.amur.home.msg.service.impl;
 
 import com.amur.home.msg.client.UserGrpcClient;
+import com.amur.home.msg.config.RabbitMQConfig;
 import com.amur.home.msg.dto.ChatDetailDTO;
 import com.amur.home.msg.dto.ListChatDTO;
 import com.amur.home.msg.entity.Chat;
@@ -16,6 +17,7 @@ import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,6 +33,8 @@ import java.util.stream.Collectors;
 @Service
 public class MessageServiceImpl implements MessageService {
     @Resource
+    private RabbitTemplate rabbitTemplate;
+    @Resource
     private ChatMapper chatMapper;
     @Resource
     private MessageMapper messageMapper;
@@ -42,7 +46,6 @@ public class MessageServiceImpl implements MessageService {
     private MinioClient minioClient;
     @Resource
     private UserGrpcClient userGrpcClient;
-
     @Value("${minio.bucketName}")
     private String bucketName;
 
@@ -75,6 +78,15 @@ public class MessageServiceImpl implements MessageService {
         }
         Message msg = new Message(UUID.randomUUID().toString(), message, chatId, senderId);
         chat.setLastMessageId(msg.getId());
+        QueryWrapper<ChatUserRelation> wsQueryWrapper = new QueryWrapper<>();
+        wsQueryWrapper.eq("chat_id", chatId).ne("user_id", senderId);
+        List<ChatUserRelation> curList = chatUserMapper.selectList(wsQueryWrapper);
+        for (ChatUserRelation chatUserRelation : curList) {
+            chatUserRelation.setUnread(chatUserRelation.getUnread() + 1);
+            chatUserMapper.updateById(chatUserRelation);
+            Long userId = chatUserRelation.getUserId();
+            rabbitTemplate.convertAndSend(RabbitMQConfig.DIRECT_EXCHANGE, RabbitMQConfig.ROUTING_KEY, msg);
+        }
         if (messageMapper.insert(msg) > 0 && chatMapper.updateById(chat) > 0) {
             return ServiceResult.fail("发送失败");
         } else {
@@ -111,6 +123,24 @@ public class MessageServiceImpl implements MessageService {
         } catch (Exception e) {
             return ServiceResult.fail("文件上传失败");
         }
+    }
+
+    /**
+     * @param chatId
+     * @return
+     */
+    @Override
+    public ServiceResult<List<Message>> getChatMsg(Long userId, String chatId) {
+        QueryWrapper<Message> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("chat_id", chatId);
+        List<Message> messageList = messageMapper.selectList(queryWrapper);
+        if (messageList.size() == 0) {
+            return ServiceResult.fail("无消息");
+        }
+        ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
+        cur.setUnread(0L);
+        chatUserMapper.updateById(cur);
+        return ServiceResult.success(messageList);
     }
 
     /**

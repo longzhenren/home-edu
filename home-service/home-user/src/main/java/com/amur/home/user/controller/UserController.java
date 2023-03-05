@@ -1,5 +1,7 @@
 package com.amur.home.user.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
+import com.amur.home.common.Constants;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.service.UserService;
 import com.amur.home.util.ResponseWrapper;
@@ -41,8 +43,8 @@ public class UserController {
     @Operation(summary = "更新用户信息")
     @Parameters({@Parameter(name = "userInfo", description = "用户实体", required = true)})
     @PostMapping("/update")
-    public ResponseWrapper<Void> updateUser(UserInfo userInfo) {
-        ServiceResult<Void> res = userService.updateUser(userInfo);
+    public ResponseWrapper<Void> updateUser(Long userId, String description, String phone, String email, String avatarUrl, String sex, Integer age, Constants.UserRelativeType relativeType) {
+        ServiceResult<Void> res = userService.updateUser(userId, description, phone, email, avatarUrl, sex, age, relativeType);
         if (!res.isSuccess()) {
             return ResponseWrapper.fail(res.getMessage());
         } else {

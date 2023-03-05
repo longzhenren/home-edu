@@ -51,6 +51,10 @@ spring:
           uri: lb://home-schedule
           predicates:
             - Path=/home-schedule/**
+        - id: home-msg-ws
+          uri: lb:ws//home-msg
+          predicates:
+            - Path=/home-msg/ws
       #          filters:
       #            - StripPrefix=1
       discovery:
@@ -94,35 +98,35 @@ knife4j:
   gateway:
     enable: true
     routes:
+      - name: 分布式ID服务
+        url: /home-tinyid/v3/api-docs?group=default
+        service-name: id-service
+        order: 1
       - name: 用户服务
         url: /home-user/v3/api-docs?group=default
         service-name: user-service
         order: 2
-      - name: 分布式ID服务
-        url: /home-tinyid/v3/api-docs?group=default
-        service-name: id-service
-        order: 3
-      - name: 认证服务
-        url: /home-auth/v3/api-docs?group=default
-        service-name: auth-service
-        order: 4
-      - name: 监控服务
-        url: /home-sba/v3/api-docs?group=default
-        service-name: sba-service
-        order: 5
-      - name: 课程服务
-        url: /home-course/v3/api-docs?group=default
-        service-name: course-service
-        order: 6
       - name: 消息服务
         url: /home-msg/v3/api-docs?group=default
         service-name: msg-service
-        order: 7
-      - name: 日程备忘服务
-        url: /home-schedule/v3/api-docs?group=default
-        service-name: schedule-service
-        order: 8
+        order: 3
       - name: 音视频服务
         url: /home-rtc/v3/api-docs?group=default
         service-name: rtc-service
-        order: 9
+        order: 4
+      - name: 课程服务
+        url: /home-course/v3/api-docs?group=default
+        service-name: course-service
+        order: 5
+      - name: 认证服务
+        url: /home-auth/v3/api-docs?group=default
+        service-name: auth-service
+        order: 6
+      - name: 日程备忘服务
+        url: /home-schedule/v3/api-docs?group=default
+        service-name: schedule-service
+        order: 7
+      - name: 监控服务
+        url: /home-sba/v3/api-docs?group=default
+        service-name: sba-service
+        order: 8

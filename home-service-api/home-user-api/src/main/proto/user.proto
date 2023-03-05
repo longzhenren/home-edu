@@ -56,6 +56,7 @@ message UserInfo {
   string phone = 4;
   string email = 5;
   string avatar_url = 6;
+  int64 home_id = 7;
   string sex = 8;
   int32 age = 9;
   UserRelativeType relative_type = 10;

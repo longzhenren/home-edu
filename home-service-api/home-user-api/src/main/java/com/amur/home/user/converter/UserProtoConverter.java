@@ -33,7 +33,7 @@ public class UserProtoConverter {
         builder.setPhone(userInfo.getPhone() == null ? "" : userInfo.getPhone());
         builder.setEmail(userInfo.getEmail() == null ? "" : userInfo.getEmail());
         builder.setAvatarUrl(userInfo.getAvatarUrl() == null ? "" : userInfo.getAvatarUrl());
-        builder.setId(userInfo.getHomeId() == null ? 0 : userInfo.getHomeId());
+        builder.setHomeId(userInfo.getHomeId() == null ? 0 : userInfo.getHomeId());
         builder.setSex(userInfo.getSex() == null ? "" : userInfo.getSex());
         builder.setAge(userInfo.getAge() == null ? 0 : userInfo.getAge());
         builder.setCreateTime(toTimestamp(userInfo.getCreateTime() == null ? new Date() : userInfo.getCreateTime()));

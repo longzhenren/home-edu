@@ -1,5 +1,6 @@
 package com.amur.home.user.service.rpc;
 
+import com.amur.home.common.Constants;
 import com.amur.home.user.converter.ServiceResultProtoConverter;
 import com.amur.home.user.converter.UserProtoConverter;
 import com.amur.home.user.entity.UserInfo;
@@ -47,8 +48,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
     @Override
     public void updateUser(UserServiceProto.UserInfoRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         UserServiceProto.UserInfo userInfoProto = request.getUserInfo();
-        UserInfo userInfo = UserProtoConverter.toUserInfo(userInfoProto);
-        ServiceResult<Void> res = userService.updateUser(userInfo);
+        ServiceResult<Void> res = userService.updateUser(userInfoProto.getId(), userInfoProto.getDescription(), userInfoProto.getPhone(), userInfoProto.getEmail(), userInfoProto.getAvatarUrl(), userInfoProto.getSex(), userInfoProto.getAge(), Constants.UserRelativeType.valueOf(userInfoProto.getRelativeTypeValue()));
         if (!res.isSuccess()) {
             ServiceResultProto.ServiceResult resProto = ServiceResultProtoConverter.toServiceResultProto(res);
             responseObserver.onNext(resProto);

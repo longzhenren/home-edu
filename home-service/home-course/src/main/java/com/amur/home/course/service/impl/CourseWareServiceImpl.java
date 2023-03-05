@@ -28,7 +28,7 @@ public class CourseWareServiceImpl implements CourseWareService {
     @Autowired
     private CourseWareMapper courseWareMapper;
 
-    @Value("${minio.bucket-name}")
+    @Value("${minio.bucketName}")
     private String bucketName;
 
     @Value("${minio.endpoint}")

@@ -60,12 +60,45 @@ public class UserServiceImpl implements UserService {
     /**
      * 更新用户信息
      *
-     * @param userInfo 用户实体对象
+     * @param userId       用户 ID
+     * @param description  用户描述
+     * @param phone        手机号
+     * @param email        邮箱
+     * @param avatarUrl    头像地址
+     * @param sex          性别
+     * @param age          年龄
+     * @param relativeType 亲属类型
      * @return 服务返回结果统一封装
      */
     @Override
-    public ServiceResult<Void> updateUser(UserInfo userInfo) {
+    public ServiceResult<Void> updateUser(Long userId, String description, String phone, String email, String avatarUrl, String sex, Integer age, Constants.UserRelativeType relativeType) {
         ServiceResult<Void> result = new ServiceResult<>();
+        UserInfo userInfo = userInfoMapper.selectById(userId);
+        if (userInfo == null) {
+            result.setMessage("用户不存在");
+            return result;
+        }
+        if (description != null) {
+            userInfo.setDescription(description);
+        }
+        if (phone != null) {
+            userInfo.setPhone(phone);
+        }
+        if (email != null) {
+            userInfo.setEmail(email);
+        }
+        if (avatarUrl != null) {
+            userInfo.setAvatarUrl(avatarUrl);
+        }
+        if (sex != null) {
+            userInfo.setSex(sex);
+        }
+        if (age != null) {
+            userInfo.setAge(age);
+        }
+        if (relativeType != null) {
+            userInfo.setRelativeType(relativeType);
+        }
         if (userInfoMapper.updateById(userInfo) > 0) {
             result.setSuccess(true);
         } else {

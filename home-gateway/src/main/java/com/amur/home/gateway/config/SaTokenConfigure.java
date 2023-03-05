@@ -20,7 +20,7 @@ public class SaTokenConfigure {
         return new SaReactorFilter()
                 // 拦截地址
                 .addInclude("/**")    /* 拦截全部path */
-                .addExclude("/**")
+//                .addExclude("/**")
                 .addExclude("/home-sba/**")    /* 放行sba监控 */
                 .addExclude("/home-auth/login", "/home-auth/register", "/home-auth/captcha.jpg")    /* 放行登录注册 */
                 // 开放地址
