@@ -3894,36 +3894,48 @@ public final class AuthServiceProto {
     long getId();
 
     /**
-     * <code>string password = 2;</code>
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string password = 3;</code>
      * @return The password.
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 2;</code>
+     * <code>string password = 3;</code>
      * @return The bytes for password.
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
 
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @return A list containing the roles.
      */
     java.util.List<java.lang.String>
         getRolesList();
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @return The count of roles.
      */
     int getRolesCount();
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @param index The index of the element to return.
      * @return The roles at the given index.
      */
     java.lang.String getRoles(int index);
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @param index The index of the value to return.
      * @return The bytes of the roles at the given index.
      */
@@ -3931,24 +3943,24 @@ public final class AuthServiceProto {
         getRolesBytes(int index);
 
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @return A list containing the permissions.
      */
     java.util.List<java.lang.String>
         getPermissionsList();
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @return The count of permissions.
      */
     int getPermissionsCount();
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @param index The index of the element to return.
      * @return The permissions at the given index.
      */
     java.lang.String getPermissions(int index);
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @param index The index of the value to return.
      * @return The bytes of the permissions at the given index.
      */
@@ -3968,6 +3980,7 @@ public final class AuthServiceProto {
       super(builder);
     }
     private UserAuth() {
+      name_ = "";
       password_ = "";
       roles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -4012,10 +4025,16 @@ public final class AuthServiceProto {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              password_ = s;
+              name_ = s;
               break;
             }
             case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 roles_ = new com.google.protobuf.LazyStringArrayList();
@@ -4024,7 +4043,7 @@ public final class AuthServiceProto {
               roles_.add(s);
               break;
             }
-            case 34: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 permissions_ = new com.google.protobuf.LazyStringArrayList();
@@ -4082,10 +4101,48 @@ public final class AuthServiceProto {
       return id_;
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 2;
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 3;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 2;</code>
+     * <code>string password = 3;</code>
      * @return The password.
      */
     @java.lang.Override
@@ -4102,7 +4159,7 @@ public final class AuthServiceProto {
       }
     }
     /**
-     * <code>string password = 2;</code>
+     * <code>string password = 3;</code>
      * @return The bytes for password.
      */
     @java.lang.Override
@@ -4120,10 +4177,10 @@ public final class AuthServiceProto {
       }
     }
 
-    public static final int ROLES_FIELD_NUMBER = 3;
+    public static final int ROLES_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList roles_;
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @return A list containing the roles.
      */
     public com.google.protobuf.ProtocolStringList
@@ -4131,14 +4188,14 @@ public final class AuthServiceProto {
       return roles_;
     }
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @return The count of roles.
      */
     public int getRolesCount() {
       return roles_.size();
     }
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @param index The index of the element to return.
      * @return The roles at the given index.
      */
@@ -4146,7 +4203,7 @@ public final class AuthServiceProto {
       return roles_.get(index);
     }
     /**
-     * <code>repeated string roles = 3;</code>
+     * <code>repeated string roles = 4;</code>
      * @param index The index of the value to return.
      * @return The bytes of the roles at the given index.
      */
@@ -4155,10 +4212,10 @@ public final class AuthServiceProto {
       return roles_.getByteString(index);
     }
 
-    public static final int PERMISSIONS_FIELD_NUMBER = 4;
+    public static final int PERMISSIONS_FIELD_NUMBER = 5;
     private com.google.protobuf.LazyStringList permissions_;
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @return A list containing the permissions.
      */
     public com.google.protobuf.ProtocolStringList
@@ -4166,14 +4223,14 @@ public final class AuthServiceProto {
       return permissions_;
     }
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @return The count of permissions.
      */
     public int getPermissionsCount() {
       return permissions_.size();
     }
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @param index The index of the element to return.
      * @return The permissions at the given index.
      */
@@ -4181,7 +4238,7 @@ public final class AuthServiceProto {
       return permissions_.get(index);
     }
     /**
-     * <code>repeated string permissions = 4;</code>
+     * <code>repeated string permissions = 5;</code>
      * @param index The index of the value to return.
      * @return The bytes of the permissions at the given index.
      */
@@ -4207,14 +4264,17 @@ public final class AuthServiceProto {
       if (id_ != 0L) {
         output.writeInt64(1, id_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
       }
       for (int i = 0; i < roles_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, roles_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, roles_.getRaw(i));
       }
       for (int i = 0; i < permissions_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, permissions_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, permissions_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -4229,8 +4289,11 @@ public final class AuthServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, id_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
       }
       {
         int dataSize = 0;
@@ -4265,6 +4328,8 @@ public final class AuthServiceProto {
 
       if (getId()
           != other.getId()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
       if (!getPassword()
           .equals(other.getPassword())) return false;
       if (!getRolesList()
@@ -4285,6 +4350,8 @@ public final class AuthServiceProto {
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getId());
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
       if (getRolesCount() > 0) {
@@ -4430,6 +4497,8 @@ public final class AuthServiceProto {
         super.clear();
         id_ = 0L;
 
+        name_ = "";
+
         password_ = "";
 
         roles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -4464,6 +4533,7 @@ public final class AuthServiceProto {
         com.amur.home.auth.rpc.AuthServiceProto.UserAuth result = new com.amur.home.auth.rpc.AuthServiceProto.UserAuth(this);
         int from_bitField0_ = bitField0_;
         result.id_ = id_;
+        result.name_ = name_;
         result.password_ = password_;
         if (((bitField0_ & 0x00000001) != 0)) {
           roles_ = roles_.getUnmodifiableView();
@@ -4525,6 +4595,10 @@ public final class AuthServiceProto {
         if (other == com.amur.home.auth.rpc.AuthServiceProto.UserAuth.getDefaultInstance()) return this;
         if (other.getId() != 0L) {
           setId(other.getId());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
         }
         if (!other.getPassword().isEmpty()) {
           password_ = other.password_;
@@ -4611,9 +4685,85 @@ public final class AuthServiceProto {
         return this;
       }
 
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @return The password.
        */
       public java.lang.String getPassword() {
@@ -4629,7 +4779,7 @@ public final class AuthServiceProto {
         }
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @return The bytes for password.
        */
       public com.google.protobuf.ByteString
@@ -4646,7 +4796,7 @@ public final class AuthServiceProto {
         }
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @param value The password to set.
        * @return This builder for chaining.
        */
@@ -4661,7 +4811,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPassword() {
@@ -4671,7 +4821,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @param value The bytes for password to set.
        * @return This builder for chaining.
        */
@@ -4695,7 +4845,7 @@ public final class AuthServiceProto {
          }
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @return A list containing the roles.
        */
       public com.google.protobuf.ProtocolStringList
@@ -4703,14 +4853,14 @@ public final class AuthServiceProto {
         return roles_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @return The count of roles.
        */
       public int getRolesCount() {
         return roles_.size();
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @param index The index of the element to return.
        * @return The roles at the given index.
        */
@@ -4718,7 +4868,7 @@ public final class AuthServiceProto {
         return roles_.get(index);
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @param index The index of the value to return.
        * @return The bytes of the roles at the given index.
        */
@@ -4727,7 +4877,7 @@ public final class AuthServiceProto {
         return roles_.getByteString(index);
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @param index The index to set the value at.
        * @param value The roles to set.
        * @return This builder for chaining.
@@ -4743,7 +4893,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @param value The roles to add.
        * @return This builder for chaining.
        */
@@ -4758,7 +4908,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @param values The roles to add.
        * @return This builder for chaining.
        */
@@ -4771,7 +4921,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearRoles() {
@@ -4781,7 +4931,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string roles = 3;</code>
+       * <code>repeated string roles = 4;</code>
        * @param value The bytes of the roles to add.
        * @return This builder for chaining.
        */
@@ -4805,7 +4955,7 @@ public final class AuthServiceProto {
          }
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @return A list containing the permissions.
        */
       public com.google.protobuf.ProtocolStringList
@@ -4813,14 +4963,14 @@ public final class AuthServiceProto {
         return permissions_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @return The count of permissions.
        */
       public int getPermissionsCount() {
         return permissions_.size();
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @param index The index of the element to return.
        * @return The permissions at the given index.
        */
@@ -4828,7 +4978,7 @@ public final class AuthServiceProto {
         return permissions_.get(index);
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @param index The index of the value to return.
        * @return The bytes of the permissions at the given index.
        */
@@ -4837,7 +4987,7 @@ public final class AuthServiceProto {
         return permissions_.getByteString(index);
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @param index The index to set the value at.
        * @param value The permissions to set.
        * @return This builder for chaining.
@@ -4853,7 +5003,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @param value The permissions to add.
        * @return This builder for chaining.
        */
@@ -4868,7 +5018,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @param values The permissions to add.
        * @return This builder for chaining.
        */
@@ -4881,7 +5031,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearPermissions() {
@@ -4891,7 +5041,7 @@ public final class AuthServiceProto {
         return this;
       }
       /**
-       * <code>repeated string permissions = 4;</code>
+       * <code>repeated string permissions = 5;</code>
        * @param value The bytes of the permissions to add.
        * @return This builder for chaining.
        */
@@ -5014,23 +5164,24 @@ public final class AuthServiceProto {
       "issionRequest\022\n\n\002id\030\001 \001(\003\022\022\n\npermission\030" +
       "\002 \001(\t\"*\n\016AddRoleRequest\022\n\n\002id\030\001 \001(\003\022\014\n\004r" +
       "ole\030\002 \001(\t\"-\n\021RemoveRoleRequest\022\n\n\002id\030\001 \001" +
-      "(\003\022\014\n\004role\030\002 \001(\t\"L\n\010UserAuth\022\n\n\002id\030\001 \001(\003" +
-      "\022\020\n\010password\030\002 \001(\t\022\r\n\005roles\030\003 \003(\t\022\023\n\013per" +
-      "missions\030\004 \003(\t2\213\004\n\013AuthService\022h\n\013GetAut" +
-      "hById\022*.com.amur.home.auth.rpc.GetAuthBy" +
-      "IdRequest\032+.com.amur.home.auth.rpc.GetAu" +
-      "thByIdResponse\"\000\022f\n\rAddPermission\022,.com." +
-      "amur.home.auth.rpc.AddPermissionRequest\032" +
-      "%.com.amur.home.auth.rpc.ServiceResult\"\000" +
-      "\022l\n\020RemovePermission\022/.com.amur.home.aut" +
-      "h.rpc.RemovePermissionRequest\032%.com.amur" +
-      ".home.auth.rpc.ServiceResult\"\000\022Z\n\007AddRol" +
-      "e\022&.com.amur.home.auth.rpc.AddRoleReques" +
-      "t\032%.com.amur.home.auth.rpc.ServiceResult" +
-      "\"\000\022`\n\nRemoveRole\022).com.amur.home.auth.rp" +
-      "c.RemoveRoleRequest\032%.com.amur.home.auth" +
-      ".rpc.ServiceResult\"\000B,\n\026com.amur.home.au" +
-      "th.rpcB\020AuthServiceProtoP\000b\006proto3"
+      "(\003\022\014\n\004role\030\002 \001(\t\"Z\n\010UserAuth\022\n\n\002id\030\001 \001(\003" +
+      "\022\014\n\004name\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\r\n\005role" +
+      "s\030\004 \003(\t\022\023\n\013permissions\030\005 \003(\t2\213\004\n\013AuthSer" +
+      "vice\022h\n\013GetAuthById\022*.com.amur.home.auth" +
+      ".rpc.GetAuthByIdRequest\032+.com.amur.home." +
+      "auth.rpc.GetAuthByIdResponse\"\000\022f\n\rAddPer" +
+      "mission\022,.com.amur.home.auth.rpc.AddPerm" +
+      "issionRequest\032%.com.amur.home.auth.rpc.S" +
+      "erviceResult\"\000\022l\n\020RemovePermission\022/.com" +
+      ".amur.home.auth.rpc.RemovePermissionRequ" +
+      "est\032%.com.amur.home.auth.rpc.ServiceResu" +
+      "lt\"\000\022Z\n\007AddRole\022&.com.amur.home.auth.rpc" +
+      ".AddRoleRequest\032%.com.amur.home.auth.rpc" +
+      ".ServiceResult\"\000\022`\n\nRemoveRole\022).com.amu" +
+      "r.home.auth.rpc.RemoveRoleRequest\032%.com." +
+      "amur.home.auth.rpc.ServiceResult\"\000B,\n\026co" +
+      "m.amur.home.auth.rpcB\020AuthServiceProtoP\000" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5079,7 +5230,7 @@ public final class AuthServiceProto {
     internal_static_com_amur_home_auth_rpc_UserAuth_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_auth_rpc_UserAuth_descriptor,
-        new java.lang.String[] { "Id", "Password", "Roles", "Permissions", });
+        new java.lang.String[] { "Id", "Name", "Password", "Roles", "Permissions", });
     com.google.protobuf.TimestampProto.getDescriptor();
     com.amur.home.auth.rpc.ServiceResultProto.getDescriptor();
   }

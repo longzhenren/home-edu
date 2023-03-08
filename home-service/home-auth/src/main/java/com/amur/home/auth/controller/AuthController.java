@@ -76,6 +76,9 @@ public class AuthController {
             }
         }
         ServiceResult<Map<String, Object>> res = authService.login(username, password);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
+        }
         return ResponseWrapper.data(res.getData());
     }
 

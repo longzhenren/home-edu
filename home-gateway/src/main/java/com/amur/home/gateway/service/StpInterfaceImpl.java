@@ -27,7 +27,7 @@ public class StpInterfaceImpl implements StpInterface {
         if (redisUtils.exists("user_auth:" + loginId)) {
             userAuth = (UserAuth) redisUtils.get("user_auth:" + loginId);
         } else {
-            userAuth = gatewayGrpcClient.getUserAuthById((Long) loginId);
+            userAuth = gatewayGrpcClient.getUserAuthById(Long.parseLong((String) loginId));
             redisUtils.set("user_auth:" + loginId, userAuth);
         }
         List<String> list = new ArrayList<>(userAuth.getPermissions());
@@ -41,7 +41,7 @@ public class StpInterfaceImpl implements StpInterface {
         if (redisUtils.exists("user_auth:" + loginId)) {
             userAuth = (UserAuth) redisUtils.get("user_auth:" + loginId);
         } else {
-            userAuth = gatewayGrpcClient.getUserAuthById((Long) loginId);
+            userAuth = gatewayGrpcClient.getUserAuthById(Long.parseLong((String) loginId));
             redisUtils.set("user_auth:" + loginId, userAuth);
         }
         List<String> list = new ArrayList<>(userAuth.getRoles());

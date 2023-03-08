@@ -50,7 +50,8 @@ message RemoveRoleRequest{
 
 message UserAuth {
   int64 id = 1;
-  string password = 2;
-  repeated string roles = 3;
-  repeated string permissions = 4;
+  string name = 2;
+  string password = 3;
+  repeated string roles = 4;
+  repeated string permissions = 5;
 }
