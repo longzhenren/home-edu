@@ -78,6 +78,11 @@ grpc:
       keepAliveWithoutCalls: true
       address: 'discovery:///home-user'
       negotiation-type: plaintext
+    home-auth:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-auth'
+      negotiation-type: plaintext
 #debug: true
 # sa-token配置，考虑到要支持前后端分离项目，我们关闭从 cookie 中读取 token，改为从 head 中读取 token
 sa-token:
