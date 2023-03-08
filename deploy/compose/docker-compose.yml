@@ -69,7 +69,7 @@ services:
       - MYSQL_SERVICE_PORT=3306
       - MYSQL_SERVICE_USER=user
       - MYSQL_SERVICE_PASSWORD=password
-      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true
     ports:
       - "8848:8848"
       - "9848:9848"
@@ -106,7 +106,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     #      - SPRING_CLOUD_NACOS_CONFIG_NAMESPACE=public
@@ -137,7 +137,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     ports:
@@ -154,7 +154,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - DATASOURCE_TINYID_PRIMARY_URL=jdbc:mysql://db:3306/tinyid?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - DATASOURCE_TINYID_PRIMARY_URL=jdbc:mysql://db:3306/tinyid?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - DATASOURCE_TINYID_PRIMARY_USERNAME=root
       - DATASOURCE_TINYID_PRIMARY_PASSWORD=root
     ports:
@@ -178,7 +178,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     ports:
@@ -202,7 +202,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     ports:
@@ -226,7 +226,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     ports:
@@ -250,7 +250,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     ports:
@@ -274,7 +274,7 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
       - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     ports:

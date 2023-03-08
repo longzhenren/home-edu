@@ -24,7 +24,7 @@ spring:
     default-property-inclusion: non_null
   #  TODO:datasource临时测试用, 后续接入nacos-config
   datasource:
-    url: jdbc:mysql://localhost:3306/homeedu?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/homeedu?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
     driverClassName: com.mysql.cj.jdbc.Driver
     username: root
     password: root
