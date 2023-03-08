@@ -14,12 +14,14 @@ for dir in $dirs; do
   dir_name=${PWD##*/}
   if [[ $@ == "all" ]]; then
     echo "Building: $dir_name"
+    mvn clean package -Dmaven.test.skip=true
     docker buildx build -t $DOCKER_REGISTRY/$dir_name":latest" --push --platform linux/amd64,linux/arm64 .
     cd $pwd
     continue
   fi
   if [[ $@ == *"$dir_name"* ]] || [[ $dir_name == *"home-"* ]] && [[ $@ == *${dir_name#*home-}* ]]; then
     echo "Building: $dir_name"
+    mvn clean package -Dmaven.test.skip=true
     docker buildx build -t $DOCKER_REGISTRY/$dir_name":latest" --push --platform linux/amd64,linux/arm64 .
     cd $pwd
   fi
