@@ -22,7 +22,8 @@ public class LoggerAspect {
 
     // 切入点
     @Pointcut("execution(* com.amur.home.user.controller.*.*(..))")
-    public void controllerPointCut() {}
+    public void controllerPointCut() {
+    }
 
     // 前置通知
     @Before("controllerPointCut()")
@@ -34,14 +35,14 @@ public class LoggerAspect {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         // 记录请求内容
-        log.info("[{}][HTTP调用][{}]{} [req]{} -> {}",appName,request.getMethod(),request.getRequestURL().toString(),Arrays.toString(joinPoint.getArgs()),joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        log.info("[{}][HTTP调用][{}]{} [req]{} -> {}", appName, request.getMethod(), request.getRequestURL().toString(), Arrays.toString(joinPoint.getArgs()), joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
     }
 
     // 返回通知
     @AfterReturning(returning = "result", pointcut = "controllerPointCut()")
     public void doAfterReturning(Object result) {
         // 请求返回内容
-        log.info("[{}][HTTP返回][resp]{{}} [耗时]{}ms",appName,result,System.currentTimeMillis() - startTime.get());
+        log.info("[{}][HTTP返回][resp]{{}} [耗时]{}ms", appName, result, System.currentTimeMillis() - startTime.get());
         // 用完之后移除, 避免内存泄漏
         startTime.remove();
     }

@@ -9,11 +9,9 @@ import com.amur.home.user.mapper.UserInfoMapper;
 import com.amur.home.user.service.UserService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import io.minio.MinioClient;
-import io.minio.PutObjectArgs;
+import io.minio.*;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,9 +35,6 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private MinioClient minioClient;
-
-    @Value("${minio.endpoint}")
-    private String endpoint;
 
     /**
      * 根据用户 ID 获取用户信息
@@ -115,17 +110,30 @@ public class UserServiceImpl implements UserService {
     public ServiceResult<String> updateAvatar(MultipartFile file) {
         String originalFileName = file.getOriginalFilename();
         String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
+        String contentType = "";
+        if (!(fileExtension.equalsIgnoreCase(".jpg") || fileExtension.equalsIgnoreCase(".jpeg") || fileExtension.equalsIgnoreCase(".png") || fileExtension.equalsIgnoreCase(".gif"))) {
+            return ServiceResult.fail("仅支持jpg/png/gif格式图片");
+        }
         String uuid = UUID.randomUUID().toString();
         String newFileName = uuid + fileExtension;
-
-        String bucketName = "user-avatar";
+        String bucketName = "avatar";
         try {
             InputStream inputStream = file.getInputStream();
-            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
+            boolean isExist = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+            if (!isExist) {
+                minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
+            }
+            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).contentType(file.getContentType()).build());
+            minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(bucketName).config("{" + "  \"Version\": \"2012-10-17\"," + "  \"Statement\": [" + "    {" + "      \"Effect\": \"Allow\"," + "      \"Principal\": {" + "        \"AWS\": [\"*\"]" + "      }," + "      \"Action\": [\"s3:GetObject\"]," + "      \"Resource\": [\"arn:aws:s3:::" + bucketName + "/*\"]" + "    }" + "  ]" + "}").build());
         } catch (Exception e) {
-            return ServiceResult.fail("获取文件信息失败");
+            return ServiceResult.fail("文件上传失败" + e.getMessage());
         }
-        String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+//        try {
+//            String url = minioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().bucket("my-bucket").object("my-object").expiry(3600).build());
+//        } catch (Exception e) {
+//            return ServiceResult.fail("文件链接生成失败" + e.getMessage());
+//        }
+        String fileUrl = "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
     }
 

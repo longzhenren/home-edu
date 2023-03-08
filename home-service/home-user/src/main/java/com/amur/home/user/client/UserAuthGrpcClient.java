@@ -6,8 +6,12 @@ import com.amur.home.auth.rpc.AuthServiceGrpc;
 import com.amur.home.auth.rpc.AuthServiceProto;
 import com.amur.home.auth.rpc.ServiceResultProto;
 import com.amur.home.util.ServiceResult;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.stereotype.Component;
 
+@Component
+@Slf4j
 public class UserAuthGrpcClient {
     @GrpcClient("home-auth")
     private AuthServiceGrpc.AuthServiceBlockingStub authServiceBlockingStub;

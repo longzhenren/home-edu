@@ -9,6 +9,7 @@ import com.amur.home.auth.util.RedisUtils;
 import com.amur.home.common.Constants;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,15 +36,17 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     public ServiceResult<Map<String, Object>> login(String userName, String password) {
-        ServiceResult<UserInfo> res = userGrpcClient.getUserEntityByUserName(userName);
-        if (!res.isSuccess()) {
-            return ServiceResult.fail(res.getMessage());
+        QueryWrapper<UserAuth> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", userName);
+        UserAuth userAuth = authMapper.selectOne(queryWrapper);
+        if (userAuth == null) {
+            return ServiceResult.fail("用户不存在");
         }
-        UserInfo user = res.getData();
-        UserAuth userAuth = authMapper.selectById(user.getId());
         if (!new BCryptPasswordEncoder().matches(password, userAuth.getPassword())) {
             return ServiceResult.fail("密码不正确");
         }
+        ServiceResult<UserInfo> res = userGrpcClient.getUserEntityByUserId(userAuth.getId());
+        UserInfo user = res.getData();
         redisUtils.set("user_info:" + user.getId(), user);
         redisUtils.set("user_auth:" + userAuth.getId(), userAuth);
         StpUtil.login(user.getId());
@@ -71,8 +74,10 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     public ServiceResult<Long> register(String userName, String password) {
-        if (userGrpcClient.getUserEntityByUserName(userName).isSuccess()) {
-            return ServiceResult.fail("用户已存在");
+        QueryWrapper<UserAuth> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", userName);
+        if (authMapper.selectOne(queryWrapper) != null) {
+            return ServiceResult.fail("用户名已被使用");
         }
         ServiceResult<Long> res = userGrpcClient.createUser(userName);
         if (!res.isSuccess()) {

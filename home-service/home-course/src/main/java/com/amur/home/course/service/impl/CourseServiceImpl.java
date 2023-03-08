@@ -95,7 +95,7 @@ public class CourseServiceImpl implements CourseService {
             InputStream inputStream = file.getInputStream();
             minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
         } catch (Exception e) {
-            return ServiceResult.fail("获取文件信息失败");
+            return ServiceResult.fail("文件上传失败" + e.getMessage());
         }
         String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
@@ -745,11 +745,23 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * @param courseList 课程列表
+     * @param id          课程列表id
+     * @param title       标题
+     * @param description 描述
+     * @param coverUrl    封面url
+     * @param open        是否公开
      * @return 服务返回结果统一封装
      */
     @Override
-    public ServiceResult<?> listUpdate(CourseList courseList) {
+    public ServiceResult<?> listUpdate(Long id, String title, String description, String coverUrl, Boolean open) {
+        CourseList courseList = courseListMapper.selectById(id);
+        if (courseList == null) {
+            return ServiceResult.fail("课程列表不存在");
+        }
+        if (title != null) courseList.setTitle(title);
+        if (description != null) courseList.setDescription(description);
+        if (coverUrl != null) courseList.setCoverUrl(coverUrl);
+        if (open != null) courseList.setOpen(open);
         if (courseListMapper.updateById(courseList) > 0) {
             return ServiceResult.success();
         } else {

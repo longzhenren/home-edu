@@ -135,7 +135,7 @@ public class HomeServiceImpl implements HomeService {
             InputStream inputStream = file.getInputStream();
             minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
         } catch (Exception e) {
-            return ServiceResult.fail("获取文件信息失败");
+            return ServiceResult.fail("文件上传失败" + e.getMessage());
         }
         String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
@@ -157,7 +157,7 @@ public class HomeServiceImpl implements HomeService {
             InputStream inputStream = file.getInputStream();
             minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
         } catch (Exception e) {
-            return ServiceResult.fail("获取文件信息失败");
+            return ServiceResult.fail("文件上传失败" + e.getMessage());
         }
         String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
@@ -282,7 +282,7 @@ public class HomeServiceImpl implements HomeService {
         }
         homeInfo.getMemberIds().remove(userId);
         userInfo.setHomeId(0L);
-        if (homeInfoMapper.updateById(homeInfo) > 0) {
+        if (homeInfoMapper.updateById(homeInfo) > 0 && userInfoMapper.updateById(userInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("删除用户失败");

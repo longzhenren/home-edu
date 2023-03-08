@@ -42,6 +42,19 @@ services:
       interval: 30s
       timeout: 10s
       retries: 10
+  minio:
+    image: minio/minio
+    container_name: minio
+    volumes:
+      - /data/minio:/data
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    ports:
+      - "9000:9000"
+    command: server /data --console-address ":9000" --address ":9001"
+    networks:
+      - amur
   nacos:
     image: registry.cn-beijing.aliyuncs.com/amur/nacos:latest
     container_name: nacos
@@ -171,6 +184,102 @@ services:
     ports:
       - "8701:8701"
       - "9701:9701"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-schedule:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-schedule:latest
+    container_name: home-schedule
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    ports:
+      - "8706:8706"
+      - "9706:9706"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-course:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-course:latest
+    container_name: home-course
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    ports:
+      - "8704:8704"
+      - "9704:9704"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-msg:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-msg:latest
+    container_name: home-msg
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    ports:
+      - "8702:8702"
+      - "9702:9702"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-rtc:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-rtc:latest
+    container_name: home-rtc
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    ports:
+      - "8703:8703"
+      - "9703:9703"
     networks:
       - amur
     depends_on:

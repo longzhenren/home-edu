@@ -18,6 +18,8 @@ public class UserAuth implements Serializable {
     @TableId
     private Long id;
 
+    private String name;
+
     private String password;
 
     @TableField(typeHandler = JacksonTypeHandler.class)

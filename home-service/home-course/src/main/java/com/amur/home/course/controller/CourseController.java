@@ -419,9 +419,9 @@ public class CourseController {
 
     @PostMapping("/list/update")
     @Operation(summary = "修改课程集合信息")
-    @Parameters({@Parameter(name = "courseList", in = ParameterIn.QUERY, required = true, description = "课程集合")})
-    public ResponseWrapper<?> listUpdate(CourseList courseList) {
-        ServiceResult<?> res = courseService.listUpdate(courseList);
+    @Parameters({@Parameter(name = "id", in = ParameterIn.QUERY, required = true, description = "课程集合ID"), @Parameter(name = "title", in = ParameterIn.QUERY, required = true, description = "课程集合标题"), @Parameter(name = "description", in = ParameterIn.QUERY, required = true, description = "课程集合描述"), @Parameter(name = "coverUrl", in = ParameterIn.QUERY, required = true, description = "课程集合封面"), @Parameter(name = "open", in = ParameterIn.QUERY, required = true, description = "是否公开")})
+    public ResponseWrapper<?> listUpdate(Long id, String title, String description, String coverUrl, Boolean open) {
+        ServiceResult<?> res = courseService.listUpdate(id, title, description, coverUrl, open);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

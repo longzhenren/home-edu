@@ -27,6 +27,7 @@ CREATE TABLE `user_info`
 CREATE TABLE `user_auth`
 (
     `id`          bigint NOT NULL,
+    `name`        varchar(64)  DEFAULT NULL,
     `password`    varchar(128) DEFAULT NULL,
     `permissions` json         DEFAULT NULL,
     `roles`       json         DEFAULT NULL,

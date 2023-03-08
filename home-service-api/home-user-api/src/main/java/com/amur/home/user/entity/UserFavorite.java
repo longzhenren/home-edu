@@ -45,6 +45,7 @@ public class UserFavorite {
     private Integer deleted;
 
     public UserFavorite(Long id) {
+        this.id = id;
         this.userMap = Collections.emptyMap();
         this.userIds = Collections.emptySet();
         this.homeIds = Collections.emptySet();

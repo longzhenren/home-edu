@@ -80,10 +80,9 @@ public interface CourseService {
 
     ServiceResult<?> listRemove(Long listId, Long courseId);
 
-    ServiceResult<?> listUpdate(CourseList courseList);
-
     ServiceResult<?> addLikeCourse(Long courseId, Long userId);
 
     ServiceResult<?> delLikeCourse(Long courseId, Long userId);
 
+    ServiceResult<?> listUpdate(Long id, String title, String description, String coverUrl, Boolean open);
 }

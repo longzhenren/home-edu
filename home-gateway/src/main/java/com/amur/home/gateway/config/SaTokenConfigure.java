@@ -23,6 +23,7 @@ public class SaTokenConfigure {
                 .addInclude("/**")    /* 拦截全部path */
 //                .addExclude("/**")
                 .addExclude("/home-sba/**")    /* 放行sba监控 */
+                .addExclude("/home-oss/**")    /* 放行sba监控 */
                 .addExclude("/home-auth/login", "/home-auth/register", "/home-auth/captcha.jpg")    /* 放行登录注册 */
                 // 开放地址
                 .addExclude("/doc.html", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/v3/**", "/actuator/**", "/favicon.ico")

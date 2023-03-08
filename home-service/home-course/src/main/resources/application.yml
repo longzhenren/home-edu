@@ -118,7 +118,7 @@ tinyid:
   bizType: course
 
 minio:
-  endpoint: http://127.0.0.1:65531
+  endpoint: http://127.0.0.1:9001
   accessKey: minioadmin
   secretKey: minioadmin
   bucketName: course

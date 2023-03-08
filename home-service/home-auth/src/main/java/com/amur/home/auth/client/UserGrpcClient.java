@@ -25,6 +25,17 @@ public class UserGrpcClient {
         }
     }
 
+    public ServiceResult<UserInfo> getUserEntityByUserId(Long userId) {
+        UserServiceProto.UserIdRequest userIdRequest = UserServiceProto.UserIdRequest.newBuilder().setUserId(userId).build();
+        UserServiceProto.UserInfoResponse resp = userServiceBlockingStub.getUserInfo(userIdRequest);
+        if (resp.getResult().getSuccess()) {
+            UserServiceProto.UserInfo userInfoProto = resp.getUserInfo();
+            return ServiceResult.success(UserProtoConverter.toUserInfo(userInfoProto));
+        } else {
+            return ServiceResult.fail(resp.getResult().getMessage());
+        }
+    }
+
     public ServiceResult<Long> createUser(String userName) {
         UserServiceProto.CreateUserRequest createUserRequest = UserServiceProto.CreateUserRequest.newBuilder().setUserName(userName).build();
         UserServiceProto.UserIdResponse resp = userServiceBlockingStub.createUser(createUserRequest);
