@@ -36,7 +36,15 @@ public class CourseController {
 
     @PostMapping("/add")
     @Operation(summary = "添加课程")
-    @Parameters({@Parameter(name = "homeId", in = ParameterIn.QUERY, required = true, description = "家庭ID"), @Parameter(name = "name", in = ParameterIn.QUERY, required = true, description = "课程名称"), @Parameter(name = "description", in = ParameterIn.QUERY, required = true, description = "课程描述"), @Parameter(name = "startTime", in = ParameterIn.QUERY, required = true, description = "课程开始时间"), @Parameter(name = "endTime", in = ParameterIn.QUERY, required = true, description = "课程结束时间"), @Parameter(name = "cover", in = ParameterIn.QUERY, required = false, description = "封面图")})
+    @Parameters({
+            @Parameter(name = "homeId", in = ParameterIn.QUERY, required = true, description = "家庭ID"),
+            @Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"),
+            @Parameter(name = "name", in = ParameterIn.QUERY, required = true, description = "课程名称"),
+            @Parameter(name = "description", in = ParameterIn.QUERY, required = true, description = "课程描述"),
+            @Parameter(name = "startTime", in = ParameterIn.QUERY, required = true, description = "课程开始时间"),
+            @Parameter(name = "endTime", in = ParameterIn.QUERY, required = true, description = "课程结束时间"),
+            @Parameter(name = "coverUrl", in = ParameterIn.QUERY, required = true, description = "课程封面")
+    })
     public ResponseWrapper<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl) {
         ServiceResult<Long> res = courseService.courseAdd(homeId, userId, name, description, startTime, endTime, coverUrl);
         if (res.isSuccess()) {
