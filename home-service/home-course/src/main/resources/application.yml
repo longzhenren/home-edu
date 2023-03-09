@@ -63,6 +63,17 @@ mybatis-plus:
 grpc:
   server:
     port: 9704
+  client:
+    home-tinyid:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-tinyid'
+      negotiation-type: plaintext
+    home-schedule:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-schedule'
+      negotiation-type: plaintext
 
 
 # springdoc-openapi项目配置
@@ -113,9 +124,6 @@ sa-token:
   is-print: off #关闭控制台banner
   tokenPrefix: "Bearer" # token前缀
 
-tinyid:
-  token: 0f673adf80504e2eaa552f5d791b644c
-  bizType: course
 
 minio:
   endpoint: http://127.0.0.1:9001

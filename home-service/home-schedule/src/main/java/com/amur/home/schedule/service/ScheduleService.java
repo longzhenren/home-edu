@@ -20,4 +20,6 @@ public interface ScheduleService {
     ServiceResult<List<Schedule>> getScheduleInfoByUserId(Long userid);
 
     ServiceResult<List<Schedule>> getScheduleInfoByUserIdAndTime(Long userid, String keyword, Date startTime, Date endTime);
+
+    ServiceResult<Void> delScheduleByCourseId(Long courseId);
 }

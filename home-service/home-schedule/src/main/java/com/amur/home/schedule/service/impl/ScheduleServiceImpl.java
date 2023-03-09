@@ -123,4 +123,16 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         return ServiceResult.success(schedules);
     }
+
+    /**
+     * @param courseId 课程ID
+     * @return
+     */
+    @Override
+    public ServiceResult<Void> delScheduleByCourseId(Long courseId) {
+        QueryWrapper<Schedule> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("remark", courseId.toString());
+        scheduleMapper.delete(queryWrapper);
+        return ServiceResult.success();
+    }
 }

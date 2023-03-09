@@ -3,7 +3,6 @@ package com.amur.home.course.service;
 import com.amur.home.common.Constants;
 import com.amur.home.course.dto.PageResult;
 import com.amur.home.course.entity.CourseInfo;
-import com.amur.home.course.entity.CourseList;
 import com.amur.home.course.entity.CourseShare;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public interface CourseService {
 
     ServiceResult<PageResult<CourseInfo>> courseSearch(Long homeId, String keyword, Integer pageNum, Integer pageSize);
 
-    ServiceResult<Void> courseUpdate(CourseInfo courseInfo);
+    ServiceResult<Void> courseUpdate(Long courseId, String name, String description, String coverUrl, String status, Date startTime, Date endTime, Boolean open);
 
     ServiceResult<CourseInfo> courseInfo(Long courseId);
 

@@ -110,7 +110,6 @@ public class UserServiceImpl implements UserService {
     public ServiceResult<String> updateAvatar(MultipartFile file) {
         String originalFileName = file.getOriginalFilename();
         String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
-        String contentType = "";
         if (!(fileExtension.equalsIgnoreCase(".jpg") || fileExtension.equalsIgnoreCase(".jpeg") || fileExtension.equalsIgnoreCase(".png") || fileExtension.equalsIgnoreCase(".gif"))) {
             return ServiceResult.fail("仅支持jpg/png/gif格式图片");
         }

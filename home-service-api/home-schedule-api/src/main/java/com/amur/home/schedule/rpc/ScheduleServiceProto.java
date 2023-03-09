@@ -10947,6 +10947,2400 @@ public final class ScheduleServiceProto {
 
   }
 
+  public interface DelScheduleByCourseIdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.schedule.rpc.DelScheduleByCourseIdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 courseId = 1;</code>
+     * @return The courseId.
+     */
+    long getCourseId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.schedule.rpc.DelScheduleByCourseIdRequest}
+   */
+  public static final class DelScheduleByCourseIdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.schedule.rpc.DelScheduleByCourseIdRequest)
+      DelScheduleByCourseIdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelScheduleByCourseIdRequest.newBuilder() to construct.
+    private DelScheduleByCourseIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelScheduleByCourseIdRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DelScheduleByCourseIdRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelScheduleByCourseIdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              courseId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.class, com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.Builder.class);
+    }
+
+    public static final int COURSEID_FIELD_NUMBER = 1;
+    private long courseId_;
+    /**
+     * <code>int64 courseId = 1;</code>
+     * @return The courseId.
+     */
+    @java.lang.Override
+    public long getCourseId() {
+      return courseId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (courseId_ != 0L) {
+        output.writeInt64(1, courseId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (courseId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, courseId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest other = (com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest) obj;
+
+      if (getCourseId()
+          != other.getCourseId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COURSEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCourseId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.schedule.rpc.DelScheduleByCourseIdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.schedule.rpc.DelScheduleByCourseIdRequest)
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.class, com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        courseId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest getDefaultInstanceForType() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest build() {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest buildPartial() {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest result = new com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest(this);
+        result.courseId_ = courseId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest) {
+          return mergeFrom((com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest other) {
+        if (other == com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.getDefaultInstance()) return this;
+        if (other.getCourseId() != 0L) {
+          setCourseId(other.getCourseId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long courseId_ ;
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @return The courseId.
+       */
+      @java.lang.Override
+      public long getCourseId() {
+        return courseId_;
+      }
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @param value The courseId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCourseId(long value) {
+        
+        courseId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCourseId() {
+        
+        courseId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.schedule.rpc.DelScheduleByCourseIdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.schedule.rpc.DelScheduleByCourseIdRequest)
+    private static final com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest();
+    }
+
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelScheduleByCourseIdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DelScheduleByCourseIdRequest>() {
+      @java.lang.Override
+      public DelScheduleByCourseIdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelScheduleByCourseIdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelScheduleByCourseIdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelScheduleByCourseIdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UpdateScheduleByCourseIdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.schedule.rpc.UpdateScheduleByCourseIdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 courseId = 1;</code>
+     * @return The courseId.
+     */
+    long getCourseId();
+
+    /**
+     * <code>string title = 2;</code>
+     * @return The title.
+     */
+    java.lang.String getTitle();
+    /**
+     * <code>string title = 2;</code>
+     * @return The bytes for title.
+     */
+    com.google.protobuf.ByteString
+        getTitleBytes();
+
+    /**
+     * <code>string content = 3;</code>
+     * @return The content.
+     */
+    java.lang.String getContent();
+    /**
+     * <code>string content = 3;</code>
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 4;</code>
+     * @return Whether the startTime field is set.
+     */
+    boolean hasStartTime();
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 4;</code>
+     * @return The startTime.
+     */
+    com.google.protobuf.Timestamp getStartTime();
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 4;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 5;</code>
+     * @return Whether the endTime field is set.
+     */
+    boolean hasEndTime();
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 5;</code>
+     * @return The endTime.
+     */
+    com.google.protobuf.Timestamp getEndTime();
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 5;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
+
+    /**
+     * <code>string location = 6;</code>
+     * @return The location.
+     */
+    java.lang.String getLocation();
+    /**
+     * <code>string location = 6;</code>
+     * @return The bytes for location.
+     */
+    com.google.protobuf.ByteString
+        getLocationBytes();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.schedule.rpc.UpdateScheduleByCourseIdRequest}
+   */
+  public static final class UpdateScheduleByCourseIdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.schedule.rpc.UpdateScheduleByCourseIdRequest)
+      UpdateScheduleByCourseIdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UpdateScheduleByCourseIdRequest.newBuilder() to construct.
+    private UpdateScheduleByCourseIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UpdateScheduleByCourseIdRequest() {
+      title_ = "";
+      content_ = "";
+      location_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateScheduleByCourseIdRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UpdateScheduleByCourseIdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              courseId_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              title_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (startTime_ != null) {
+                subBuilder = startTime_.toBuilder();
+              }
+              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(startTime_);
+                startTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (endTime_ != null) {
+                subBuilder = endTime_.toBuilder();
+              }
+              endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(endTime_);
+                endTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              location_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.class, com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.Builder.class);
+    }
+
+    public static final int COURSEID_FIELD_NUMBER = 1;
+    private long courseId_;
+    /**
+     * <code>int64 courseId = 1;</code>
+     * @return The courseId.
+     */
+    @java.lang.Override
+    public long getCourseId() {
+      return courseId_;
+    }
+
+    public static final int TITLE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object title_;
+    /**
+     * <code>string title = 2;</code>
+     * @return The title.
+     */
+    @java.lang.Override
+    public java.lang.String getTitle() {
+      java.lang.Object ref = title_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        title_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string title = 2;</code>
+     * @return The bytes for title.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTitleBytes() {
+      java.lang.Object ref = title_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        title_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>string content = 3;</code>
+     * @return The content.
+     */
+    @java.lang.Override
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int START_TIME_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp startTime_;
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 4;</code>
+     * @return Whether the startTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasStartTime() {
+      return startTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 4;</code>
+     * @return The startTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getStartTime() {
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 4;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+      return getStartTime();
+    }
+
+    public static final int END_TIME_FIELD_NUMBER = 5;
+    private com.google.protobuf.Timestamp endTime_;
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 5;</code>
+     * @return Whether the endTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasEndTime() {
+      return endTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 5;</code>
+     * @return The endTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getEndTime() {
+      return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 5;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+      return getEndTime();
+    }
+
+    public static final int LOCATION_FIELD_NUMBER = 6;
+    private volatile java.lang.Object location_;
+    /**
+     * <code>string location = 6;</code>
+     * @return The location.
+     */
+    @java.lang.Override
+    public java.lang.String getLocation() {
+      java.lang.Object ref = location_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        location_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string location = 6;</code>
+     * @return The bytes for location.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLocationBytes() {
+      java.lang.Object ref = location_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        location_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (courseId_ != 0L) {
+        output.writeInt64(1, courseId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, title_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
+      }
+      if (startTime_ != null) {
+        output.writeMessage(4, getStartTime());
+      }
+      if (endTime_ != null) {
+        output.writeMessage(5, getEndTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, location_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (courseId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, courseId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, title_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
+      }
+      if (startTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getStartTime());
+      }
+      if (endTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getEndTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, location_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest other = (com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest) obj;
+
+      if (getCourseId()
+          != other.getCourseId()) return false;
+      if (!getTitle()
+          .equals(other.getTitle())) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (hasStartTime() != other.hasStartTime()) return false;
+      if (hasStartTime()) {
+        if (!getStartTime()
+            .equals(other.getStartTime())) return false;
+      }
+      if (hasEndTime() != other.hasEndTime()) return false;
+      if (hasEndTime()) {
+        if (!getEndTime()
+            .equals(other.getEndTime())) return false;
+      }
+      if (!getLocation()
+          .equals(other.getLocation())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COURSEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCourseId());
+      hash = (37 * hash) + TITLE_FIELD_NUMBER;
+      hash = (53 * hash) + getTitle().hashCode();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      if (hasStartTime()) {
+        hash = (37 * hash) + START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getStartTime().hashCode();
+      }
+      if (hasEndTime()) {
+        hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getEndTime().hashCode();
+      }
+      hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+      hash = (53 * hash) + getLocation().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.schedule.rpc.UpdateScheduleByCourseIdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.schedule.rpc.UpdateScheduleByCourseIdRequest)
+        com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.class, com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        courseId_ = 0L;
+
+        title_ = "";
+
+        content_ = "";
+
+        if (startTimeBuilder_ == null) {
+          startTime_ = null;
+        } else {
+          startTime_ = null;
+          startTimeBuilder_ = null;
+        }
+        if (endTimeBuilder_ == null) {
+          endTime_ = null;
+        } else {
+          endTime_ = null;
+          endTimeBuilder_ = null;
+        }
+        location_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest getDefaultInstanceForType() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest build() {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest buildPartial() {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest result = new com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest(this);
+        result.courseId_ = courseId_;
+        result.title_ = title_;
+        result.content_ = content_;
+        if (startTimeBuilder_ == null) {
+          result.startTime_ = startTime_;
+        } else {
+          result.startTime_ = startTimeBuilder_.build();
+        }
+        if (endTimeBuilder_ == null) {
+          result.endTime_ = endTime_;
+        } else {
+          result.endTime_ = endTimeBuilder_.build();
+        }
+        result.location_ = location_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest) {
+          return mergeFrom((com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest other) {
+        if (other == com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.getDefaultInstance()) return this;
+        if (other.getCourseId() != 0L) {
+          setCourseId(other.getCourseId());
+        }
+        if (!other.getTitle().isEmpty()) {
+          title_ = other.title_;
+          onChanged();
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (other.hasStartTime()) {
+          mergeStartTime(other.getStartTime());
+        }
+        if (other.hasEndTime()) {
+          mergeEndTime(other.getEndTime());
+        }
+        if (!other.getLocation().isEmpty()) {
+          location_ = other.location_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long courseId_ ;
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @return The courseId.
+       */
+      @java.lang.Override
+      public long getCourseId() {
+        return courseId_;
+      }
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @param value The courseId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCourseId(long value) {
+        
+        courseId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCourseId() {
+        
+        courseId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object title_ = "";
+      /**
+       * <code>string title = 2;</code>
+       * @return The title.
+       */
+      public java.lang.String getTitle() {
+        java.lang.Object ref = title_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          title_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string title = 2;</code>
+       * @return The bytes for title.
+       */
+      public com.google.protobuf.ByteString
+          getTitleBytes() {
+        java.lang.Object ref = title_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          title_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string title = 2;</code>
+       * @param value The title to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTitle(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        title_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string title = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTitle() {
+        
+        title_ = getDefaultInstance().getTitle();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string title = 2;</code>
+       * @param value The bytes for title to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        title_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>string content = 3;</code>
+       * @return The content.
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string content = 3;</code>
+       * @return The bytes for content.
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string content = 3;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 3;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp startTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       * @return Whether the startTime field is set.
+       */
+      public boolean hasStartTime() {
+        return startTimeBuilder_ != null || startTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       * @return The startTime.
+       */
+      public com.google.protobuf.Timestamp getStartTime() {
+        if (startTimeBuilder_ == null) {
+          return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+        } else {
+          return startTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       */
+      public Builder setStartTime(com.google.protobuf.Timestamp value) {
+        if (startTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          startTime_ = value;
+          onChanged();
+        } else {
+          startTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       */
+      public Builder setStartTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (startTimeBuilder_ == null) {
+          startTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          startTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       */
+      public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
+        if (startTimeBuilder_ == null) {
+          if (startTime_ != null) {
+            startTime_ =
+              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          } else {
+            startTime_ = value;
+          }
+          onChanged();
+        } else {
+          startTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       */
+      public Builder clearStartTime() {
+        if (startTimeBuilder_ == null) {
+          startTime_ = null;
+          onChanged();
+        } else {
+          startTime_ = null;
+          startTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
+        
+        onChanged();
+        return getStartTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+        if (startTimeBuilder_ != null) {
+          return startTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return startTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getStartTimeFieldBuilder() {
+        if (startTimeBuilder_ == null) {
+          startTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getStartTime(),
+                  getParentForChildren(),
+                  isClean());
+          startTime_ = null;
+        }
+        return startTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp endTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       * @return Whether the endTime field is set.
+       */
+      public boolean hasEndTime() {
+        return endTimeBuilder_ != null || endTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       * @return The endTime.
+       */
+      public com.google.protobuf.Timestamp getEndTime() {
+        if (endTimeBuilder_ == null) {
+          return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+        } else {
+          return endTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       */
+      public Builder setEndTime(com.google.protobuf.Timestamp value) {
+        if (endTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          endTime_ = value;
+          onChanged();
+        } else {
+          endTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       */
+      public Builder setEndTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (endTimeBuilder_ == null) {
+          endTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          endTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       */
+      public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
+        if (endTimeBuilder_ == null) {
+          if (endTime_ != null) {
+            endTime_ =
+              com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+          } else {
+            endTime_ = value;
+          }
+          onChanged();
+        } else {
+          endTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       */
+      public Builder clearEndTime() {
+        if (endTimeBuilder_ == null) {
+          endTime_ = null;
+          onChanged();
+        } else {
+          endTime_ = null;
+          endTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
+        
+        onChanged();
+        return getEndTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+        if (endTimeBuilder_ != null) {
+          return endTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return endTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getEndTimeFieldBuilder() {
+        if (endTimeBuilder_ == null) {
+          endTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getEndTime(),
+                  getParentForChildren(),
+                  isClean());
+          endTime_ = null;
+        }
+        return endTimeBuilder_;
+      }
+
+      private java.lang.Object location_ = "";
+      /**
+       * <code>string location = 6;</code>
+       * @return The location.
+       */
+      public java.lang.String getLocation() {
+        java.lang.Object ref = location_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          location_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string location = 6;</code>
+       * @return The bytes for location.
+       */
+      public com.google.protobuf.ByteString
+          getLocationBytes() {
+        java.lang.Object ref = location_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          location_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string location = 6;</code>
+       * @param value The location to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLocation(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        location_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string location = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLocation() {
+        
+        location_ = getDefaultInstance().getLocation();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string location = 6;</code>
+       * @param value The bytes for location to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLocationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        location_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.schedule.rpc.UpdateScheduleByCourseIdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.schedule.rpc.UpdateScheduleByCourseIdRequest)
+    private static final com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest();
+    }
+
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UpdateScheduleByCourseIdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UpdateScheduleByCourseIdRequest>() {
+      @java.lang.Override
+      public UpdateScheduleByCourseIdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UpdateScheduleByCourseIdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UpdateScheduleByCourseIdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UpdateScheduleByCourseIdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DelScheduleByCourseIdAndUserIdRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.schedule.rpc.DelScheduleByCourseIdAndUserIdRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 courseId = 1;</code>
+     * @return The courseId.
+     */
+    long getCourseId();
+
+    /**
+     * <code>int64 userId = 2;</code>
+     * @return The userId.
+     */
+    long getUserId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.schedule.rpc.DelScheduleByCourseIdAndUserIdRequest}
+   */
+  public static final class DelScheduleByCourseIdAndUserIdRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.schedule.rpc.DelScheduleByCourseIdAndUserIdRequest)
+      DelScheduleByCourseIdAndUserIdRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelScheduleByCourseIdAndUserIdRequest.newBuilder() to construct.
+    private DelScheduleByCourseIdAndUserIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelScheduleByCourseIdAndUserIdRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DelScheduleByCourseIdAndUserIdRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelScheduleByCourseIdAndUserIdRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              courseId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.class, com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.Builder.class);
+    }
+
+    public static final int COURSEID_FIELD_NUMBER = 1;
+    private long courseId_;
+    /**
+     * <code>int64 courseId = 1;</code>
+     * @return The courseId.
+     */
+    @java.lang.Override
+    public long getCourseId() {
+      return courseId_;
+    }
+
+    public static final int USERID_FIELD_NUMBER = 2;
+    private long userId_;
+    /**
+     * <code>int64 userId = 2;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (courseId_ != 0L) {
+        output.writeInt64(1, courseId_);
+      }
+      if (userId_ != 0L) {
+        output.writeInt64(2, userId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (courseId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, courseId_);
+      }
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, userId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest other = (com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest) obj;
+
+      if (getCourseId()
+          != other.getCourseId()) return false;
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COURSEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCourseId());
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.schedule.rpc.DelScheduleByCourseIdAndUserIdRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.schedule.rpc.DelScheduleByCourseIdAndUserIdRequest)
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.class, com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        courseId_ = 0L;
+
+        userId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest getDefaultInstanceForType() {
+        return com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest build() {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest buildPartial() {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest result = new com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest(this);
+        result.courseId_ = courseId_;
+        result.userId_ = userId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest) {
+          return mergeFrom((com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest other) {
+        if (other == com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.getDefaultInstance()) return this;
+        if (other.getCourseId() != 0L) {
+          setCourseId(other.getCourseId());
+        }
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long courseId_ ;
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @return The courseId.
+       */
+      @java.lang.Override
+      public long getCourseId() {
+        return courseId_;
+      }
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @param value The courseId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCourseId(long value) {
+        
+        courseId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 courseId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCourseId() {
+        
+        courseId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 2;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 2;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.schedule.rpc.DelScheduleByCourseIdAndUserIdRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.schedule.rpc.DelScheduleByCourseIdAndUserIdRequest)
+    private static final com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest();
+    }
+
+    public static com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelScheduleByCourseIdAndUserIdRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DelScheduleByCourseIdAndUserIdRequest>() {
+      @java.lang.Override
+      public DelScheduleByCourseIdAndUserIdRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelScheduleByCourseIdAndUserIdRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelScheduleByCourseIdAndUserIdRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelScheduleByCourseIdAndUserIdRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_schedule_rpc_Schedule_descriptor;
   private static final 
@@ -10997,6 +13391,21 @@ public final class ScheduleServiceProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_amur_home_schedule_rpc_AddScheduleResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11047,28 +13456,46 @@ public final class ScheduleServiceProto {
       "com.amur.home.schedule.rpc.ServiceResult" +
       "\"\\\n\023AddScheduleResponse\022\n\n\002id\030\001 \001(\003\0229\n\006r" +
       "esult\030\002 \001(\0132).com.amur.home.schedule.rpc" +
-      ".ServiceResult2\210\006\n\017ScheduleService\022n\n\013Ad" +
-      "dSchedule\022..com.amur.home.schedule.rpc.A" +
-      "ddScheduleRequest\032/.com.amur.home.schedu" +
-      "le.rpc.AddScheduleResponse\022h\n\013DelSchedul" +
-      "e\022..com.amur.home.schedule.rpc.DelSchedu" +
-      "leRequest\032).com.amur.home.schedule.rpc.S" +
-      "erviceResult\022n\n\016UpdateSchedule\0221.com.amu" +
-      "r.home.schedule.rpc.UpdateScheduleReques" +
-      "t\032).com.amur.home.schedule.rpc.ServiceRe" +
-      "sult\022\202\001\n\023GetScheduleInfoById\0226.com.amur." +
-      "home.schedule.rpc.GetScheduleInfoByIdReq" +
-      "uest\0323.com.amur.home.schedule.rpc.GetSch" +
-      "eduleInfoResponse\022\212\001\n\027GetScheduleInfoByU" +
-      "serId\022:.com.amur.home.schedule.rpc.GetSc" +
-      "heduleInfoByUserIdRequest\0323.com.amur.hom" +
-      "e.schedule.rpc.GetScheduleListResponse\022\230" +
-      "\001\n\036GetScheduleInfoByUserIdAndTime\022A.com." +
-      "amur.home.schedule.rpc.GetScheduleInfoBy" +
-      "UserIdAndTimeRequest\0323.com.amur.home.sch" +
-      "edule.rpc.GetScheduleListResponseB4\n\032com" +
-      ".amur.home.schedule.rpcB\024ScheduleService" +
-      "ProtoP\000b\006proto3"
+      ".ServiceResult\"0\n\034DelScheduleByCourseIdR" +
+      "equest\022\020\n\010courseId\030\001 \001(\003\"\303\001\n\037UpdateSched" +
+      "uleByCourseIdRequest\022\020\n\010courseId\030\001 \001(\003\022\r" +
+      "\n\005title\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\022.\n\nstart_" +
+      "time\030\004 \001(\0132\032.google.protobuf.Timestamp\022," +
+      "\n\010end_time\030\005 \001(\0132\032.google.protobuf.Times" +
+      "tamp\022\020\n\010location\030\006 \001(\t\"I\n%DelScheduleByC" +
+      "ourseIdAndUserIdRequest\022\020\n\010courseId\030\001 \001(" +
+      "\003\022\016\n\006userId\030\002 \001(\0032\234\t\n\017ScheduleService\022n\n" +
+      "\013AddSchedule\022..com.amur.home.schedule.rp" +
+      "c.AddScheduleRequest\032/.com.amur.home.sch" +
+      "edule.rpc.AddScheduleResponse\022h\n\013DelSche" +
+      "dule\022..com.amur.home.schedule.rpc.DelSch" +
+      "eduleRequest\032).com.amur.home.schedule.rp" +
+      "c.ServiceResult\022n\n\016UpdateSchedule\0221.com." +
+      "amur.home.schedule.rpc.UpdateScheduleReq" +
+      "uest\032).com.amur.home.schedule.rpc.Servic" +
+      "eResult\022\202\001\n\023GetScheduleInfoById\0226.com.am" +
+      "ur.home.schedule.rpc.GetScheduleInfoById" +
+      "Request\0323.com.amur.home.schedule.rpc.Get" +
+      "ScheduleInfoResponse\022\212\001\n\027GetScheduleInfo" +
+      "ByUserId\022:.com.amur.home.schedule.rpc.Ge" +
+      "tScheduleInfoByUserIdRequest\0323.com.amur." +
+      "home.schedule.rpc.GetScheduleListRespons" +
+      "e\022\230\001\n\036GetScheduleInfoByUserIdAndTime\022A.c" +
+      "om.amur.home.schedule.rpc.GetScheduleInf" +
+      "oByUserIdAndTimeRequest\0323.com.amur.home." +
+      "schedule.rpc.GetScheduleListResponse\022|\n\025" +
+      "DelScheduleByCourseId\0228.com.amur.home.sc" +
+      "hedule.rpc.DelScheduleByCourseIdRequest\032" +
+      ").com.amur.home.schedule.rpc.ServiceResu" +
+      "lt\022\202\001\n\030UpdateScheduleByCourseId\022;.com.am" +
+      "ur.home.schedule.rpc.UpdateScheduleByCou" +
+      "rseIdRequest\032).com.amur.home.schedule.rp" +
+      "c.ServiceResult\022\216\001\n\036DelScheduleByCourseI" +
+      "dAndUserId\022A.com.amur.home.schedule.rpc." +
+      "DelScheduleByCourseIdAndUserIdRequest\032)." +
+      "com.amur.home.schedule.rpc.ServiceResult" +
+      "B4\n\032com.amur.home.schedule.rpcB\024Schedule" +
+      "ServiceProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11136,6 +13563,24 @@ public final class ScheduleServiceProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_schedule_rpc_AddScheduleResponse_descriptor,
         new java.lang.String[] { "Id", "Result", });
+    internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdRequest_descriptor,
+        new java.lang.String[] { "CourseId", });
+    internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_schedule_rpc_UpdateScheduleByCourseIdRequest_descriptor,
+        new java.lang.String[] { "CourseId", "Title", "Content", "StartTime", "EndTime", "Location", });
+    internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_schedule_rpc_DelScheduleByCourseIdAndUserIdRequest_descriptor,
+        new java.lang.String[] { "CourseId", "UserId", });
     com.google.protobuf.TimestampProto.getDescriptor();
     com.amur.home.schedule.rpc.ServiceResultProto.getDescriptor();
   }

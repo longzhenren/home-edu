@@ -15,8 +15,7 @@ import com.amur.home.msg.mapper.MessageMapper;
 import com.amur.home.msg.service.MessageService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import io.minio.MinioClient;
-import io.minio.PutObjectArgs;
+import io.minio.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -46,8 +45,6 @@ public class MessageServiceImpl implements MessageService {
     private MinioClient minioClient;
     @Resource
     private UserGrpcClient userGrpcClient;
-    @Value("${minio.bucketName}")
-    private String bucketName;
 
     @Value("${minio.endpoint}")
     private String endpoint;
@@ -108,10 +105,16 @@ public class MessageServiceImpl implements MessageService {
         String originalFileName = file.getOriginalFilename();
         String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
         String newFileName = "AmurMsg_" + UUID.randomUUID() + fileExtension;
+        String bucketName = "msg_attachment";
         try {
             InputStream inputStream = file.getInputStream();
-            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
-            String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+            boolean isExist = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+            if (!isExist) {
+                minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
+            }
+            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).contentType(file.getContentType()).build());
+            minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(bucketName).config("{" + "  \"Version\": \"2012-10-17\"," + "  \"Statement\": [" + "    {" + "      \"Effect\": \"Allow\"," + "      \"Principal\": {" + "        \"AWS\": [\"*\"]" + "      }," + "      \"Action\": [\"s3:GetObject\"]," + "      \"Resource\": [\"arn:aws:s3:::" + bucketName + "/*\"]" + "    }" + "  ]" + "}").build());
+            String fileUrl = "/" + bucketName + "/" + newFileName;
             Message msg = new Message(UUID.randomUUID().toString(), fileUrl, chatId, senderId);
             Chat chat = chatMapper.selectById(chatId);
             chat.setLastMessageId(msg.getId());

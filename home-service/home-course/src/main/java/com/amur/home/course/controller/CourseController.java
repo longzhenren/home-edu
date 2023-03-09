@@ -141,9 +141,16 @@ public class CourseController {
 
     @PostMapping("/update")
     @Operation(summary = "修改课程")
-    @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID"), @Parameter(name = "name", in = ParameterIn.QUERY, required = true, description = "课程名称"), @Parameter(name = "description", in = ParameterIn.QUERY, required = true, description = "课程描述"), @Parameter(name = "startTime", in = ParameterIn.QUERY, required = true, description = "课程开始时间"), @Parameter(name = "endTime", in = ParameterIn.QUERY, required = true, description = "课程结束时间")})
-    public ResponseWrapper<Void> courseUpdate(CourseInfo courseInfo) {
-        ServiceResult<Void> res = courseService.courseUpdate(courseInfo);
+    @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID"),
+            @Parameter(name = "name", in = ParameterIn.QUERY, required = false, description = "课程名称"),
+            @Parameter(name = "description", in = ParameterIn.QUERY, required = false, description = "课程描述"),
+            @Parameter(name = "startTime", in = ParameterIn.QUERY, required = false, description = "课程开始时间"),
+            @Parameter(name = "endTime", in = ParameterIn.QUERY, required = false, description = "课程结束时间"),
+            @Parameter(name = "coverUrl", in = ParameterIn.QUERY, required = false, description = "封面链接"),
+            @Parameter(name = "status", in = ParameterIn.QUERY, required = false, description = "课程状态(没想好 暂时存啥都行)"),
+            @Parameter(name = "open", in = ParameterIn.QUERY, required = false, description = "是否对外开放")})
+    public ResponseWrapper<Void> courseUpdate(Long courseId, String name, String description, String coverUrl, String status, Date startTime, Date endTime, Boolean open) {
+        ServiceResult<Void> res = courseService.courseUpdate(courseId, name, description, coverUrl, status, startTime, endTime, open);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

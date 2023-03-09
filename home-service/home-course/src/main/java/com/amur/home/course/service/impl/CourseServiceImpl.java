@@ -1,6 +1,7 @@
 package com.amur.home.course.service.impl;
 
 import com.amur.home.common.Constants;
+import com.amur.home.course.client.ScheduleGrpcClient;
 import com.amur.home.course.client.TinyIdGrpcClient;
 import com.amur.home.course.dto.PageResult;
 import com.amur.home.course.entity.*;
@@ -10,8 +11,7 @@ import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import io.minio.MinioClient;
-import io.minio.PutObjectArgs;
+import io.minio.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,6 +41,9 @@ public class CourseServiceImpl implements CourseService {
 
     @Resource
     private TinyIdGrpcClient tinyIdGrpcClient;
+
+    @Resource
+    private ScheduleGrpcClient scheduleGrpcClient;
 
     @Value("${minio.bucketName}")
     private String bucketName;
@@ -73,6 +76,12 @@ public class CourseServiceImpl implements CourseService {
         courseInfo.setCoverUrl(coverUrl);
         Set<Long> teacherIds = Collections.singleton(userId);
         courseInfo.setTeacherIds(teacherIds);
+        String scheduleName = "[课程] " + name;
+        // 课程类用remark字段存储id,便于查找
+        ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, description, startTime, endTime, "", courseInfo.getId().toString(), "", false, false);
+        if (!schRes.isSuccess()) {
+            return ServiceResult.fail("日程添加失败 " + schRes.getMessage());
+        }
         if (courseInfoMapper.insert(courseInfo) > 0) {
             return ServiceResult.success(courseInfo.getId());
         } else {
@@ -88,16 +97,24 @@ public class CourseServiceImpl implements CourseService {
     public ServiceResult<String> courseAddCover(MultipartFile file) {
         String originalFileName = file.getOriginalFilename();
         String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
+        if (!(fileExtension.equalsIgnoreCase(".jpg") || fileExtension.equalsIgnoreCase(".jpeg") || fileExtension.equalsIgnoreCase(".png") || fileExtension.equalsIgnoreCase(".gif"))) {
+            return ServiceResult.fail("仅支持jpg/png/gif格式图片");
+        }
         String uuid = UUID.randomUUID().toString();
         String newFileName = uuid + fileExtension;
-
+        String bucketName = "course_cover";
         try {
             InputStream inputStream = file.getInputStream();
-            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).build());
+            boolean isExist = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+            if (!isExist) {
+                minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
+            }
+            minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).contentType(file.getContentType()).build());
+            minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(bucketName).config("{" + "  \"Version\": \"2012-10-17\"," + "  \"Statement\": [" + "    {" + "      \"Effect\": \"Allow\"," + "      \"Principal\": {" + "        \"AWS\": [\"*\"]" + "      }," + "      \"Action\": [\"s3:GetObject\"]," + "      \"Resource\": [\"arn:aws:s3:::" + bucketName + "/*\"]" + "    }" + "  ]" + "}").build());
         } catch (Exception e) {
             return ServiceResult.fail("文件上传失败" + e.getMessage());
         }
-        String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+        String fileUrl = "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
     }
 
@@ -120,6 +137,7 @@ public class CourseServiceImpl implements CourseService {
             courseList.setCourseIds(courseIds);
             courseListMapper.updateById(courseList);
         }
+        scheduleGrpcClient.deleteScheduleByCourseId(courseId);
         QueryWrapper<CourseShare> queryWrapperShare = new QueryWrapper<>();
         queryWrapperShare.eq("course_id", courseId);
         courseShareMapper.delete(queryWrapperShare);
@@ -153,11 +171,30 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * @param courseInfo 课程信息
+     * @param
      * @return 服务返回结果统一封装
      */
     @Override
-    public ServiceResult<Void> courseUpdate(CourseInfo courseInfo) {
+    public ServiceResult<Void> courseUpdate(Long courseId, String name, String description, String coverUrl, String status, Date startTime, Date endTime, Boolean open) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.fail("课程不存在");
+        }
+        String newName = name == null ? courseInfo.getName() : name;
+        String newDescription = description == null ? courseInfo.getDescription() : description;
+        String newCoverUrl = coverUrl == null ? courseInfo.getCoverUrl() : coverUrl;
+        String newStatus = status == null ? courseInfo.getStatus() : status;
+        Date newStartTime = startTime == null ? courseInfo.getStartTime() : startTime;
+        Date newEndTime = endTime == null ? courseInfo.getEndTime() : endTime;
+        Boolean newOpen = open == null ? courseInfo.isOpen() : open;
+        scheduleGrpcClient.updateScheduleByCourseId(courseId, "[课程 ]" + newName, newDescription, "", newStartTime, newEndTime);
+        courseInfo.setName(newName);
+        courseInfo.setOpen(newOpen);
+        courseInfo.setStatus(newStatus);
+        courseInfo.setDescription(newDescription);
+        courseInfo.setCoverUrl(newCoverUrl);
+        courseInfo.setStartTime(newStartTime);
+        courseInfo.setEndTime(newEndTime);
         if (courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {
@@ -388,6 +425,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseInfo == null) {
             return ServiceResult.fail("课程不存在");
         }
+        // 课程类用remark字段存储id,便于查找
         if (courseShare.getInviteAs().equals(Constants.InviteAs.AS_STUDENT)) {
             CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
             ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.COURSE_JOIN.getDesc());
@@ -403,6 +441,11 @@ public class CourseServiceImpl implements CourseService {
             }
             studentIds.add(userId);
             courseInfo.setStudentIds(studentIds);
+            String scheduleName = "[课程](参加) " + courseInfo.getName();
+            ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, courseInfo.getDescription(), courseInfo.getStartTime(), courseInfo.getEndTime(), "", courseInfo.getId().toString(), "", false, false);
+            if (!schRes.isSuccess()) {
+                return ServiceResult.fail("日程添加失败");
+            }
             if (courseInfoMapper.updateById(courseInfo) > 0 && courseJoinMapper.insert(courseJoinRelation) > 0) {
                 return ServiceResult.success(courseShare);
             } else {
@@ -415,6 +458,11 @@ public class CourseServiceImpl implements CourseService {
             }
             teacherIds.add(userId);
             courseInfo.setTeacherIds(teacherIds);
+            String scheduleName = "[课程](教授) " + courseInfo.getName();
+            ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, courseInfo.getDescription(), courseInfo.getStartTime(), courseInfo.getEndTime(), "", courseInfo.getId().toString(), "", false, false);
+            if (!schRes.isSuccess()) {
+                return ServiceResult.fail("日程添加失败");
+            }
             if (courseInfoMapper.updateById(courseInfo) > 0) {
                 return ServiceResult.success(courseShare);
             } else {
@@ -489,6 +537,13 @@ public class CourseServiceImpl implements CourseService {
         courseJoinRelation.setId(res.getData());
         courseJoinRelation.setCourseId(courseId);
         courseJoinRelation.setUserId(userId);
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        String scheduleName = "[课程](参加) " + courseInfo.getName();
+        // 课程类用remark字段存储id,便于查找
+        ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, courseInfo.getDescription(), courseInfo.getStartTime(), courseInfo.getEndTime(), "", courseInfo.getId().toString(), "", false, false);
+        if (!schRes.isSuccess()) {
+            return ServiceResult.fail("日程添加失败 " + schRes.getMessage());
+        }
         if (courseJoinMapper.insert(courseJoinRelation) > 0) {
             return ServiceResult.success();
         } else {
@@ -505,6 +560,7 @@ public class CourseServiceImpl implements CourseService {
     public ServiceResult<?> delStudent(Long courseId, Long userId) {
         QueryWrapper<CourseJoinRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("course_id", courseId).eq("user_id", userId);
+        scheduleGrpcClient.delScheduleByCourseIdAndUserId(courseId, userId);
         if (courseJoinMapper.delete(queryWrapper) > 0) {
             return ServiceResult.success();
         } else {
@@ -548,6 +604,12 @@ public class CourseServiceImpl implements CourseService {
         }
         teacherIdSet.add(userId);
         courseInfo.setTeacherIds(teacherIdSet);
+        String scheduleName = "[课程](教授) " + courseInfo.getName();
+        // 课程类用remark字段存储id,便于查找
+        ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, courseInfo.getDescription(), courseInfo.getStartTime(), courseInfo.getEndTime(), "", courseInfo.getId().toString(), "", false, false);
+        if (!schRes.isSuccess()) {
+            return ServiceResult.fail("日程添加失败 " + schRes.getMessage());
+        }
         if (courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {
@@ -575,6 +637,7 @@ public class CourseServiceImpl implements CourseService {
         }
         teacherIdSet.remove(userId);
         courseInfo.setTeacherIds(teacherIdSet);
+        scheduleGrpcClient.delScheduleByCourseIdAndUserId(courseId, userId);
         if (courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {

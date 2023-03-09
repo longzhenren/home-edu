@@ -201,6 +201,99 @@ public final class ScheduleServiceGrpc {
     return getGetScheduleInfoByUserIdAndTimeMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest,
+      com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getDelScheduleByCourseIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DelScheduleByCourseId",
+      requestType = com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.class,
+      responseType = com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest,
+      com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getDelScheduleByCourseIdMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest, com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getDelScheduleByCourseIdMethod;
+    if ((getDelScheduleByCourseIdMethod = ScheduleServiceGrpc.getDelScheduleByCourseIdMethod) == null) {
+      synchronized (ScheduleServiceGrpc.class) {
+        if ((getDelScheduleByCourseIdMethod = ScheduleServiceGrpc.getDelScheduleByCourseIdMethod) == null) {
+          ScheduleServiceGrpc.getDelScheduleByCourseIdMethod = getDelScheduleByCourseIdMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest, com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DelScheduleByCourseId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult.getDefaultInstance()))
+              .setSchemaDescriptor(new ScheduleServiceMethodDescriptorSupplier("DelScheduleByCourseId"))
+              .build();
+        }
+      }
+    }
+    return getDelScheduleByCourseIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest,
+      com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getUpdateScheduleByCourseIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateScheduleByCourseId",
+      requestType = com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.class,
+      responseType = com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest,
+      com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getUpdateScheduleByCourseIdMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest, com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getUpdateScheduleByCourseIdMethod;
+    if ((getUpdateScheduleByCourseIdMethod = ScheduleServiceGrpc.getUpdateScheduleByCourseIdMethod) == null) {
+      synchronized (ScheduleServiceGrpc.class) {
+        if ((getUpdateScheduleByCourseIdMethod = ScheduleServiceGrpc.getUpdateScheduleByCourseIdMethod) == null) {
+          ScheduleServiceGrpc.getUpdateScheduleByCourseIdMethod = getUpdateScheduleByCourseIdMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest, com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateScheduleByCourseId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult.getDefaultInstance()))
+              .setSchemaDescriptor(new ScheduleServiceMethodDescriptorSupplier("UpdateScheduleByCourseId"))
+              .build();
+        }
+      }
+    }
+    return getUpdateScheduleByCourseIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest,
+      com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getDelScheduleByCourseIdAndUserIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DelScheduleByCourseIdAndUserId",
+      requestType = com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.class,
+      responseType = com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest,
+      com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getDelScheduleByCourseIdAndUserIdMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest, com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> getDelScheduleByCourseIdAndUserIdMethod;
+    if ((getDelScheduleByCourseIdAndUserIdMethod = ScheduleServiceGrpc.getDelScheduleByCourseIdAndUserIdMethod) == null) {
+      synchronized (ScheduleServiceGrpc.class) {
+        if ((getDelScheduleByCourseIdAndUserIdMethod = ScheduleServiceGrpc.getDelScheduleByCourseIdAndUserIdMethod) == null) {
+          ScheduleServiceGrpc.getDelScheduleByCourseIdAndUserIdMethod = getDelScheduleByCourseIdAndUserIdMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest, com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DelScheduleByCourseIdAndUserId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult.getDefaultInstance()))
+              .setSchemaDescriptor(new ScheduleServiceMethodDescriptorSupplier("DelScheduleByCourseIdAndUserId"))
+              .build();
+        }
+      }
+    }
+    return getDelScheduleByCourseIdAndUserIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -291,6 +384,27 @@ public final class ScheduleServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetScheduleInfoByUserIdAndTimeMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void delScheduleByCourseId(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDelScheduleByCourseIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateScheduleByCourseId(com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateScheduleByCourseIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void delScheduleByCourseIdAndUserId(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDelScheduleByCourseIdAndUserIdMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -335,6 +449,27 @@ public final class ScheduleServiceGrpc {
                 com.amur.home.schedule.rpc.ScheduleServiceProto.GetScheduleInfoByUserIdAndTimeRequest,
                 com.amur.home.schedule.rpc.ScheduleServiceProto.GetScheduleListResponse>(
                   this, METHODID_GET_SCHEDULE_INFO_BY_USER_ID_AND_TIME)))
+          .addMethod(
+            getDelScheduleByCourseIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest,
+                com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>(
+                  this, METHODID_DEL_SCHEDULE_BY_COURSE_ID)))
+          .addMethod(
+            getUpdateScheduleByCourseIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest,
+                com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>(
+                  this, METHODID_UPDATE_SCHEDULE_BY_COURSE_ID)))
+          .addMethod(
+            getDelScheduleByCourseIdAndUserIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest,
+                com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>(
+                  this, METHODID_DEL_SCHEDULE_BY_COURSE_ID_AND_USER_ID)))
           .build();
     }
   }
@@ -400,6 +535,30 @@ public final class ScheduleServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetScheduleInfoByUserIdAndTimeMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void delScheduleByCourseId(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDelScheduleByCourseIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateScheduleByCourseId(com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateScheduleByCourseIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void delScheduleByCourseIdAndUserId(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDelScheduleByCourseIdAndUserIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -456,6 +615,27 @@ public final class ScheduleServiceGrpc {
     public com.amur.home.schedule.rpc.ScheduleServiceProto.GetScheduleListResponse getScheduleInfoByUserIdAndTime(com.amur.home.schedule.rpc.ScheduleServiceProto.GetScheduleInfoByUserIdAndTimeRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetScheduleInfoByUserIdAndTimeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult delScheduleByCourseId(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDelScheduleByCourseIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult updateScheduleByCourseId(com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateScheduleByCourseIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult delScheduleByCourseIdAndUserId(com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDelScheduleByCourseIdAndUserIdMethod(), getCallOptions(), request);
     }
   }
 
@@ -520,6 +700,30 @@ public final class ScheduleServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetScheduleInfoByUserIdAndTimeMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> delScheduleByCourseId(
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDelScheduleByCourseIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> updateScheduleByCourseId(
+        com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateScheduleByCourseIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult> delScheduleByCourseIdAndUserId(
+        com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDelScheduleByCourseIdAndUserIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ADD_SCHEDULE = 0;
@@ -528,6 +732,9 @@ public final class ScheduleServiceGrpc {
   private static final int METHODID_GET_SCHEDULE_INFO_BY_ID = 3;
   private static final int METHODID_GET_SCHEDULE_INFO_BY_USER_ID = 4;
   private static final int METHODID_GET_SCHEDULE_INFO_BY_USER_ID_AND_TIME = 5;
+  private static final int METHODID_DEL_SCHEDULE_BY_COURSE_ID = 6;
+  private static final int METHODID_UPDATE_SCHEDULE_BY_COURSE_ID = 7;
+  private static final int METHODID_DEL_SCHEDULE_BY_COURSE_ID_AND_USER_ID = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -569,6 +776,18 @@ public final class ScheduleServiceGrpc {
         case METHODID_GET_SCHEDULE_INFO_BY_USER_ID_AND_TIME:
           serviceImpl.getScheduleInfoByUserIdAndTime((com.amur.home.schedule.rpc.ScheduleServiceProto.GetScheduleInfoByUserIdAndTimeRequest) request,
               (io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ScheduleServiceProto.GetScheduleListResponse>) responseObserver);
+          break;
+        case METHODID_DEL_SCHEDULE_BY_COURSE_ID:
+          serviceImpl.delScheduleByCourseId((com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>) responseObserver);
+          break;
+        case METHODID_UPDATE_SCHEDULE_BY_COURSE_ID:
+          serviceImpl.updateScheduleByCourseId((com.amur.home.schedule.rpc.ScheduleServiceProto.UpdateScheduleByCourseIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>) responseObserver);
+          break;
+        case METHODID_DEL_SCHEDULE_BY_COURSE_ID_AND_USER_ID:
+          serviceImpl.delScheduleByCourseIdAndUserId((com.amur.home.schedule.rpc.ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.schedule.rpc.ServiceResultProto.ServiceResult>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -637,6 +856,9 @@ public final class ScheduleServiceGrpc {
               .addMethod(getGetScheduleInfoByIdMethod())
               .addMethod(getGetScheduleInfoByUserIdMethod())
               .addMethod(getGetScheduleInfoByUserIdAndTimeMethod())
+              .addMethod(getDelScheduleByCourseIdMethod())
+              .addMethod(getUpdateScheduleByCourseIdMethod())
+              .addMethod(getDelScheduleByCourseIdAndUserIdMethod())
               .build();
         }
       }
