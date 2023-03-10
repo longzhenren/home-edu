@@ -16,7 +16,7 @@ import java.net.UnknownHostException;
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @EnableAsync
 @EnableScheduling
-@EnableTransactionManagement
+
 @Slf4j
 public class HomeMsgApplication {
 

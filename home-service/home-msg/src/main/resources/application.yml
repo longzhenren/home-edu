@@ -130,3 +130,8 @@ minio:
   accessKey: minioadmin
   secretKey: minioadmin
   bucketName: msg
+
+seata:
+  grpc:
+    applicationId: home-msg
+    serviceGroup: my_test_tx_group

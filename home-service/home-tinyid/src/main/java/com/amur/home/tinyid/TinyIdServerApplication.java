@@ -18,7 +18,7 @@ import java.net.UnknownHostException;
 @EnableAsync
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @EnableScheduling
-@EnableTransactionManagement
+
 @Slf4j
 public class TinyIdServerApplication {
 

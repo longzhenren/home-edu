@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
 
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @Slf4j
-@EnableTransactionManagement
+
 public class HomeUserApplication {
 
     public static void main(String[] args) throws UnknownHostException {

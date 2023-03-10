@@ -22,7 +22,6 @@ import java.io.InputStream;
 import java.util.*;
 
 @Service
-@Transactional
 public class CourseServiceImpl implements CourseService {
     @Resource
     private CourseInfoMapper courseInfoMapper;

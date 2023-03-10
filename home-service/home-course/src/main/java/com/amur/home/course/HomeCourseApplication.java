@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @MapperScan("com.amur.home.course.mapper")
-@EnableTransactionManagement
+
 @EnableAsync
 @Slf4j
 public class HomeCourseApplication {

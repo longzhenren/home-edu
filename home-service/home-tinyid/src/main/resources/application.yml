@@ -65,3 +65,8 @@ knife4j:
     password: 123456
   # 开启生产环境屏蔽
   production: false
+
+seata:
+  grpc:
+    applicationId: home-tinyid
+    serviceGroup: my_test_tx_group

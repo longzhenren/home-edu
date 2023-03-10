@@ -125,3 +125,8 @@ sa-token:
 #tinyid:
 #  token: 0f673adf80504e2eaa552f5d791b644c
 #  bizType: home
+
+seata:
+  grpc:
+    applicationId: home-auth
+    serviceGroup: my_test_tx_group
