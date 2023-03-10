@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 
 import java.net.InetAddress;
@@ -15,6 +16,7 @@ import java.net.UnknownHostException;
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @EnableAsync
 @EnableScheduling
+@EnableTransactionManagement
 @Slf4j
 public class HomeMsgApplication {
 

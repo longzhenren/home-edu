@@ -90,11 +90,11 @@ grpc:
   server:
     port: 9705
   client:
-        home-tinyid:
-          enableKeepAlive: true
-          keepAliveWithoutCalls: true
-          address: 'discovery:///home-tinyid'
-          negotiation-type: plaintext
+    home-tinyid:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      address: 'discovery:///home-tinyid'
+      negotiation-type: plaintext
     home-user:
       enableKeepAlive: true
       keepAliveWithoutCalls: true

@@ -53,10 +53,11 @@ public class ScheduleRpcServiceImpl extends ScheduleServiceGrpc.ScheduleServiceI
 
         ServiceResult<Long> serviceResult = scheduleService.addSchedule(createUserId, userId, title, content, startTime, endTime, location, remark, color, allDay, canEdit);
         ScheduleServiceProto.AddScheduleResponse response;
+        ServiceResultProto.ServiceResult serviceResultProto = ServiceResultProtoConverter.toServiceResultProto(serviceResult);
         if (serviceResult.isSuccess()) {
-            response = ScheduleServiceProto.AddScheduleResponse.newBuilder().setId(serviceResult.getData()).build();
+            response = ScheduleServiceProto.AddScheduleResponse.newBuilder().setResult(serviceResultProto).setId(serviceResult.getData()).build();
         } else {
-            response = ScheduleServiceProto.AddScheduleResponse.newBuilder().setResult(ServiceResultProtoConverter.toServiceResultProto(serviceResult)).build();
+            response = ScheduleServiceProto.AddScheduleResponse.newBuilder().setResult(serviceResultProto).build();
         }
         responseObserver.onNext(response);
         responseObserver.onCompleted();

@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.minio.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import java.io.InputStream;
 import java.util.*;
 
 @Service
+@Transactional
 public class CourseServiceImpl implements CourseService {
     @Resource
     private CourseInfoMapper courseInfoMapper;
@@ -61,7 +63,7 @@ public class CourseServiceImpl implements CourseService {
      * @return 服务返回结果统一封装
      */
     @Override
-    public ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl) {
+    public ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl, Boolean open) {
         CourseInfo courseInfo = new CourseInfo();
         ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.COURSE_INFO.getDesc());
         if (!res.isSuccess()) {
@@ -74,8 +76,11 @@ public class CourseServiceImpl implements CourseService {
         courseInfo.setStartTime(startTime);
         courseInfo.setEndTime(endTime);
         courseInfo.setCoverUrl(coverUrl);
-        Set<Long> teacherIds = Collections.singleton(userId);
-        courseInfo.setTeacherIds(teacherIds);
+        courseInfo.setStudentIds(Collections.emptySet());
+        courseInfo.setIssueIds(Collections.emptySet());
+        courseInfo.setOpen(open);
+        courseInfo.setStatus("");
+        courseInfo.setTeacherIds(Collections.singleton(userId));
         String scheduleName = "[课程] " + name;
         // 课程类用remark字段存储id,便于查找
         ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, description, startTime, endTime, "", courseInfo.getId().toString(), "", false, false);
@@ -535,13 +540,20 @@ public class CourseServiceImpl implements CourseService {
         courseJoinRelation.setCourseId(courseId);
         courseJoinRelation.setUserId(userId);
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.fail("课程不存在");
+        }
+        if (courseInfo.getStudentIds().contains(userId)) {
+            return ServiceResult.fail("已加入");
+        }
+        courseInfo.getStudentIds().add(userId);
         String scheduleName = "[课程](参加) " + courseInfo.getName();
         // 课程类用remark字段存储id,便于查找
         ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, courseInfo.getDescription(), courseInfo.getStartTime(), courseInfo.getEndTime(), "", courseInfo.getId().toString(), "", false, false);
         if (!schRes.isSuccess()) {
             return ServiceResult.fail("日程添加失败 " + schRes.getMessage());
         }
-        if (courseJoinMapper.insert(courseJoinRelation) > 0) {
+        if (courseJoinMapper.insert(courseJoinRelation) > 0 && courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("添加失败");
@@ -558,7 +570,15 @@ public class CourseServiceImpl implements CourseService {
         QueryWrapper<CourseJoinRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("course_id", courseId).eq("user_id", userId);
         scheduleGrpcClient.delScheduleByCourseIdAndUserId(courseId, userId);
-        if (courseJoinMapper.delete(queryWrapper) > 0) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.fail("课程不存在");
+        }
+        if (!courseInfo.getStudentIds().contains(userId)) {
+            return ServiceResult.fail("未加入");
+        }
+        courseInfo.getStudentIds().remove(userId);
+        if (courseJoinMapper.delete(queryWrapper) > 0 && courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.fail("记录不存在或删除失败!");
@@ -570,14 +590,12 @@ public class CourseServiceImpl implements CourseService {
      * @return 服务返回结果统一封装
      */
     @Override
-    public ServiceResult<?> listStudent(Long courseId) {
-        QueryWrapper<CourseJoinRelation> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("course_id", courseId);
-        List<CourseJoinRelation> courseJoinRelations = courseJoinMapper.selectList(queryWrapper);
-        if (courseJoinRelations.size() > 0) {
-            return ServiceResult.success(courseJoinRelations);
+    public ServiceResult<Set<Long>> listStudent(Long courseId) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.fail("课程不存在");
         } else {
-            return ServiceResult.fail("没有搜索到相关记录");
+            return ServiceResult.success(courseInfo.getStudentIds());
         }
     }
 

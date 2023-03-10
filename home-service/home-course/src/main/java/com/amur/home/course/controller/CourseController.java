@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Tag(name = "课程信息接口")
 @Slf4j
@@ -43,10 +44,11 @@ public class CourseController {
             @Parameter(name = "description", in = ParameterIn.QUERY, required = true, description = "课程描述"),
             @Parameter(name = "startTime", in = ParameterIn.QUERY, required = true, description = "课程开始时间"),
             @Parameter(name = "endTime", in = ParameterIn.QUERY, required = true, description = "课程结束时间"),
-            @Parameter(name = "coverUrl", in = ParameterIn.QUERY, required = true, description = "课程封面")
+            @Parameter(name = "coverUrl", in = ParameterIn.QUERY, required = true, description = "课程封面"),
+            @Parameter(name = "open", in = ParameterIn.QUERY, required = true, description = "是否对外开放")
     })
-    public ResponseWrapper<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl) {
-        ServiceResult<Long> res = courseService.courseAdd(homeId, userId, name, description, startTime, endTime, coverUrl);
+    public ResponseWrapper<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl, Boolean open) {
+        ServiceResult<Long> res = courseService.courseAdd(homeId, userId, name, description, startTime, endTime, coverUrl, open);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {
@@ -303,8 +305,8 @@ public class CourseController {
     @GetMapping("/stu/list")
     @Operation(summary = "学生列表")
     @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
-    public ResponseWrapper<?> listStudent(Long courseId) {
-        ServiceResult<?> res = courseService.listStudent(courseId);
+    public ResponseWrapper<Set<Long>> listStudent(Long courseId) {
+        ServiceResult<Set<Long>> res = courseService.listStudent(courseId);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

@@ -10,10 +10,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public interface CourseService {
-    ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl);
+    ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl, Boolean open);
 
     ServiceResult<String> courseAddCover(MultipartFile cover);
 
@@ -57,7 +58,7 @@ public interface CourseService {
 
     ServiceResult<?> delStudent(Long courseId, Long userId);
 
-    ServiceResult<?> listStudent(Long courseId);
+    ServiceResult<Set<Long>> listStudent(Long courseId);
 
     ServiceResult<?> addTeacher(Long courseId, Long userId);
 

@@ -6,12 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @SpringBootApplication(scanBasePackages = {"com.amur.home"}, exclude = DataSourceAutoConfiguration.class)
-//@SpringBootApplication
 @Slf4j
 public class HomeGatewayApplication {
 
