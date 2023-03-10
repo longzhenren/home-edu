@@ -128,13 +128,10 @@ public class CourseServiceImpl implements CourseService {
         queryWrapperComment.eq("course_id", courseId);
         courseCommentMapper.delete(queryWrapperComment);
         QueryWrapper<CourseList> queryWrapperList = new QueryWrapper<>();
-        queryWrapperList.eq("course_id", courseId);
+        queryWrapperList.like("course_ids", courseId);
         List<CourseList> courseListList = courseListMapper.selectList(queryWrapperList);
         for (CourseList courseList : courseListList) {
-            Set<Long> courseIds = courseList.getCourseIds();
-            if (courseIds == null) continue;
-            courseIds.remove(courseId);
-            courseList.setCourseIds(courseIds);
+            courseList.getCourseIds().remove(courseId);
             courseListMapper.updateById(courseList);
         }
         scheduleGrpcClient.deleteScheduleByCourseId(courseId);

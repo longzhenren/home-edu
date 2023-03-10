@@ -76,9 +76,9 @@ public class ScheduleGrpcClient {
         }
     }
 
-    public ServiceResult<?> delScheduleByCourseIdAndUserId(Long courseId,Long userId){
+    public ServiceResult<?> delScheduleByCourseIdAndUserId(Long courseId, Long userId) {
         ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest request = ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest.newBuilder().setCourseId(courseId).setUserId(userId).build();
-        ServiceResultProto.ServiceResult response = scheduleServiceBlockingStub.updateScheduleByCourseId(request);
+        ServiceResultProto.ServiceResult response = scheduleServiceBlockingStub.delScheduleByCourseIdAndUserId(request);
         if (response.getSuccess()) {
             return ServiceResult.success();
         } else {
