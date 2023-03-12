@@ -187,7 +187,7 @@ CREATE TABLE `course_share`
 
 CREATE TABLE `course_ware`
 (
-    `id`                    bigint NOT NULL,
+    `id`                    varchar(128) NOT NULL,
     `course_id`             bigint(20)   DEFAULT NULL,
     `file_name`             varchar(255) DEFAULT NULL,
     `description`           varchar(255) DEFAULT NULL,

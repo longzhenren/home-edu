@@ -5,11 +5,14 @@ import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 @Data
+@NoArgsConstructor
 @TableName("course_ware")
 public class CourseWare {
     @TableId
@@ -34,4 +37,12 @@ public class CourseWare {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
+
+    public CourseWare(Long courseId, String fileName, String description, String fileUrl) {
+        this.id = UUID.randomUUID().toString();
+        this.courseId = courseId;
+        this.fileName = fileName;
+        this.fileUrl = fileUrl;
+        this.description = description;
+    }
 }

@@ -1,6 +1,6 @@
 package com.amur.home.course.controller;
 
-import com.amur.home.course.dto.PageResult;
+import com.amur.home.dto.PageResult;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseList;
 import com.amur.home.course.service.CourseFavService;

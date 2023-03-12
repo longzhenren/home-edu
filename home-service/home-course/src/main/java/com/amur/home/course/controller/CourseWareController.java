@@ -19,7 +19,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.net.URI;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -39,14 +38,18 @@ public class CourseWareController {
     @Async
     @Operation(summary = "上传课件")
     @Parameters({@Parameter(name = "file", in = ParameterIn.QUERY, required = true, description = "课件文件")})
-    public CompletableFuture<ResponseEntity<Void>> uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
-        String url = courseWareService.upload(file);
-        return CompletableFuture.completedFuture(ResponseEntity.created(new URI(url)).build());
+    public CompletableFuture<ResponseEntity<ResponseWrapper<String>>> uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
+        ServiceResult<String> res = courseWareService.upload(file);
+        if (res.isSuccess()) {
+            return CompletableFuture.completedFuture(ResponseEntity.ok(ResponseWrapper.data(res.getData())));
+        } else {
+            return CompletableFuture.completedFuture(ResponseEntity.ok(ResponseWrapper.fail(res.getMessage())));
+        }
     }
 
     @GetMapping("/{fileName}")
     @Operation(summary = "下载课件")
-    @Parameters({@Parameter(name = "fileName", in = ParameterIn.QUERY, required = true, description = "课件文件名")})
+    @Parameters({@Parameter(name = "fileName", in = ParameterIn.QUERY, required = true, description = "返回的课件文件名")})
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws Exception {
         Resource resource = courseWareService.download(fileName);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"").body(resource);
@@ -54,7 +57,7 @@ public class CourseWareController {
 
     @GetMapping("/{fileName}/preview")
     @Operation(summary = "预览课件")
-    @Parameters({@Parameter(name = "fileName", in = ParameterIn.QUERY, required = true, description = "课件文件名")})
+    @Parameters({@Parameter(name = "fileName", in = ParameterIn.QUERY, required = true, description = "返回的课件文件名")})
     public ResponseEntity<Resource> previewFile(@PathVariable String fileName) throws Exception {
         Resource resource = courseWareService.preview(fileName);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + fileName + "\"").body(resource);
@@ -102,6 +105,66 @@ public class CourseWareController {
     @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseWareId", in = ParameterIn.QUERY, required = true, description = "课件ID")})
     public ResponseWrapper<Void> courseWareFavDel(Long userId, Long courseWareId) {
         ServiceResult<Void> res = courseFavService.courseWareFavDel(userId, courseWareId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/add")
+    @Operation(summary = "添加课件")
+    @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID"), @Parameter(name = "courseWareName", in = ParameterIn.QUERY, required = true, description = "课件名称"), @Parameter(name = "courseWareUrl", in = ParameterIn.QUERY, required = true, description = "课件地址")})
+    public ResponseWrapper<Void> courseWareAdd(Long courseId, String courseWareName, String courseWareUrl, String description) {
+        ServiceResult<Void> res = courseWareService.courseWareAdd(courseId, courseWareName, courseWareUrl, description);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/del")
+    @Operation(summary = "删除课件")
+    @Parameters({@Parameter(name = "courseWareId", in = ParameterIn.QUERY, required = true, description = "课件ID")})
+    public ResponseWrapper<Void> courseWareDel(String courseWareId) {
+        ServiceResult<Void> res = courseWareService.courseWareDel(courseWareId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/rename")
+    @Operation(summary = "重命名课件")
+    @Parameters({@Parameter(name = "courseWareId", in = ParameterIn.QUERY, required = true, description = "课件ID"), @Parameter(name = "courseWareName", in = ParameterIn.QUERY, required = true, description = "课件名称")})
+    public ResponseWrapper<Void> courseWareRename(String courseWareId, String courseWareName) {
+        ServiceResult<Void> res = courseWareService.courseWareRename(courseWareId, courseWareName);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/desc")
+    @Operation(summary = "修改课件备注")
+    @Parameters({@Parameter(name = "courseWareId", in = ParameterIn.QUERY, required = true, description = "课件ID"), @Parameter(name = "courseWareName", in = ParameterIn.QUERY, required = true, description = "课件名称")})
+    public ResponseWrapper<Void> courseWareReDesc(String courseWareId, String description) {
+        ServiceResult<Void> res = courseWareService.courseWareReDesc(courseWareId, description);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @GetMapping("/list")
+    @Operation(summary = "查看课件列表")
+    @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
+    public ResponseWrapper<List<CourseWare>> courseWareList(Long courseId) {
+        ServiceResult<List<CourseWare>> res = courseWareService.courseWareList(courseId);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

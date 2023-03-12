@@ -3,10 +3,10 @@ package com.amur.home.course.service.impl;
 import com.amur.home.common.Constants;
 import com.amur.home.course.client.ScheduleGrpcClient;
 import com.amur.home.course.client.TinyIdGrpcClient;
-import com.amur.home.course.dto.PageResult;
 import com.amur.home.course.entity.*;
 import com.amur.home.course.mapper.*;
 import com.amur.home.course.service.CourseService;
+import com.amur.home.dto.PageResult;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -14,7 +14,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.minio.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -79,6 +78,8 @@ public class CourseServiceImpl implements CourseService {
         courseInfo.setIssueIds(Collections.emptySet());
         courseInfo.setOpen(open);
         courseInfo.setStatus("");
+        courseInfo.setFavCount(0L);
+        courseInfo.setScoreCount(0L);
         courseInfo.setTeacherIds(Collections.singleton(userId));
         String scheduleName = "[课程] " + name;
         // 课程类用remark字段存储id,便于查找
@@ -160,21 +161,22 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public ServiceResult<PageResult<CourseInfo>> courseSearch(Long homeId, String keyword, Integer pageNum, Integer pageSize) {
         QueryWrapper<CourseInfo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("home_id", homeId).like("name", keyword).or().like("description", keyword).orderByDesc("create_time");
+        if (homeId != null) {
+            queryWrapper.eq("home_id", homeId);
+        }
+        queryWrapper.like("name", keyword).or().like("description", keyword).orderByDesc("create_time");
         Page<CourseInfo> page = new Page<>(pageNum, pageSize);
         IPage<CourseInfo> coursePage = courseInfoMapper.selectPage(page, queryWrapper);
-        if (coursePage.getTotal() > 0) {
-            PageResult<CourseInfo> result = new PageResult<>(pageNum, pageSize, coursePage.getTotal(), coursePage.getPages(), coursePage.getRecords());
-            return ServiceResult.success(result);
-        } else {
+        if (coursePage.getTotal() == 0) {
             return ServiceResult.fail("没有搜索到相关课程");
         }
+        if (pageNum > coursePage.getPages()) {
+            return ServiceResult.fail("页数超出限制或当前页无课程");
+        }
+        PageResult<CourseInfo> result = new PageResult<>(pageNum, pageSize, coursePage.getTotal(), coursePage.getPages(), coursePage.getRecords());
+        return ServiceResult.success(result);
     }
 
-    /**
-     * @param
-     * @return 服务返回结果统一封装
-     */
     @Override
     public ServiceResult<Void> courseUpdate(Long courseId, String name, String description, String coverUrl, String status, Date startTime, Date endTime, Boolean open) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);

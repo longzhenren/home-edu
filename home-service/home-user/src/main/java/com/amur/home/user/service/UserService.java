@@ -1,6 +1,7 @@
 package com.amur.home.user.service;
 
 import com.amur.home.common.Constants;
+import com.amur.home.dto.PageResult;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
@@ -23,4 +24,6 @@ public interface UserService {
     ServiceResult<Void> favUser(Long favId, String nickName, Long userId);
 
     ServiceResult<Boolean> checkUserExists(long userId);
+
+    ServiceResult<PageResult<UserInfo>> searchUserInfo(Long homeId, String keyword,String email,String phone,Integer pageNum, Integer pageSize);
 }

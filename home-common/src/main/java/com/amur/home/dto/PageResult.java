@@ -1,4 +1,4 @@
-package com.amur.home.course.dto;
+package com.amur.home.dto;
 
 import lombok.Data;
 

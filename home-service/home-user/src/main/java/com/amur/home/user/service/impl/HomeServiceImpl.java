@@ -137,7 +137,7 @@ public class HomeServiceImpl implements HomeService {
         } catch (Exception e) {
             return ServiceResult.fail("文件上传失败" + e.getMessage());
         }
-        String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+        String fileUrl = "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
     }
 
@@ -159,7 +159,7 @@ public class HomeServiceImpl implements HomeService {
         } catch (Exception e) {
             return ServiceResult.fail("文件上传失败" + e.getMessage());
         }
-        String fileUrl = endpoint + "/" + bucketName + "/" + newFileName;
+        String fileUrl = "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
     }
 

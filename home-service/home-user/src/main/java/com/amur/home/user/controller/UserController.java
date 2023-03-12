@@ -1,6 +1,7 @@
 package com.amur.home.user.controller;
 
 import com.amur.home.common.Constants;
+import com.amur.home.dto.PageResult;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.service.UserService;
 import com.amur.home.util.ResponseWrapper;
@@ -41,7 +42,6 @@ public class UserController {
     }
 
     @Operation(summary = "更新用户信息")
-    @Parameters({@Parameter(name = "userInfo", description = "用户实体", required = true)})
     @PostMapping("/update")
     public ResponseWrapper<Void> updateUser(Long userId, String description, String phone, String email, String avatarUrl, String sex, Integer age, Constants.UserRelativeType relativeType) {
         ServiceResult<Void> res = userService.updateUser(userId, description, phone, email, avatarUrl, sex, age, relativeType);
@@ -66,6 +66,7 @@ public class UserController {
 
     @Operation(summary = "收藏用户")
     @PostMapping("fav")
+    @Parameters({@Parameter(name = "favId", description = "被收藏用户id", required = true), @Parameter(name = "nickName", description = "昵称", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
     public ResponseWrapper<Void> favUser(Long favId, String nickName, Long userId) {
         ServiceResult<Void> res = userService.favUser(favId, nickName, userId);
         if (!res.isSuccess()) {
@@ -77,6 +78,7 @@ public class UserController {
 
     @Operation(summary = "上传头像")
     @PostMapping("avatar")
+    @Parameters({@Parameter(name = "file", description = "文件", required = true)})
     public ResponseWrapper<String> updateAvatar(MultipartFile file) {
         ServiceResult<String> res = userService.updateAvatar(file);
         if (!res.isSuccess()) {
@@ -86,4 +88,15 @@ public class UserController {
         }
     }
 
+    @GetMapping("/search")
+    @Operation(summary = "搜索用户")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = false), @Parameter(name = "keyword", description = "关键字", required = false), @Parameter(name = "email", description = "邮箱", required = false), @Parameter(name = "phone", description = "手机号", required = false), @Parameter(name = "pageNum", description = "页码", required = true), @Parameter(name = "pageSize", description = "页大小", required = true)})
+    ResponseWrapper<PageResult<UserInfo>> searchUserInfo(Long homeId, String keyword, String email, String phone, Integer pageNum, Integer pageSize) {
+        ServiceResult<PageResult<UserInfo>> res = userService.searchUserInfo(homeId, keyword, email, phone, pageNum, pageSize);
+        if (!res.isSuccess()) {
+            return ResponseWrapper.fail(res.getMessage());
+        } else {
+            return ResponseWrapper.data(res.getData());
+        }
+    }
 }

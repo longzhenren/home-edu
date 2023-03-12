@@ -1,6 +1,7 @@
 package com.amur.home.user.service.impl;
 
 import com.amur.home.common.Constants;
+import com.amur.home.dto.PageResult;
 import com.amur.home.user.client.TinyIdGrpcClient;
 import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
@@ -9,6 +10,8 @@ import com.amur.home.user.mapper.UserInfoMapper;
 import com.amur.home.user.service.UserService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.minio.*;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -232,5 +235,38 @@ public class UserServiceImpl implements UserService {
     @Override
     public ServiceResult<Boolean> checkUserExists(long userId) {
         return ServiceResult.success(userInfoMapper.selectById(userId) != null);
+    }
+
+    /**
+     * @param homeId
+     * @param keyword
+     * @return
+     */
+    @Override
+    public ServiceResult<PageResult<UserInfo>> searchUserInfo(Long homeId, String keyword, String email, String phone, Integer pageNum, Integer pageSize) {
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        if (homeId != null) {
+            queryWrapper.eq("home_id", homeId);
+        }
+        if (keyword != null) {
+            queryWrapper.like("name", keyword);
+        }
+        if (email != null) {
+            queryWrapper.eq("email", email);
+        }
+        if (phone != null) {
+            queryWrapper.eq("phone", phone);
+        }
+        Page<UserInfo> page = new Page<>(pageNum, pageSize);
+        IPage<UserInfo> userPage = userInfoMapper.selectPage(page, queryWrapper);
+        if (userPage.getTotal() == 0) {
+            return ServiceResult.fail("没有搜索到相关课程");
+        }
+        if (pageNum > userPage.getPages()) {
+            return ServiceResult.fail("页数超出限制或当前页无课程");
+        }
+        PageResult<UserInfo> result = new PageResult<>(pageNum, pageSize, userPage.getTotal(), userPage.getPages(), userPage.getRecords());
+        return ServiceResult.success(result);
+
     }
 }

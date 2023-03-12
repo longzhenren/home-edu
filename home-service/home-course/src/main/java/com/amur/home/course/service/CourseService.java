@@ -1,7 +1,7 @@
 package com.amur.home.course.service;
 
 import com.amur.home.common.Constants;
-import com.amur.home.course.dto.PageResult;
+import com.amur.home.dto.PageResult;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseShare;
 import com.amur.home.util.ServiceResult;
