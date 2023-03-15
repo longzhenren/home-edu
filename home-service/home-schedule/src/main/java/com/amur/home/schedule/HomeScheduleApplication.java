@@ -1,5 +1,6 @@
 package com.amur.home.schedule;
 
+import io.seata.spring.annotation.datasource.EnableAutoDataSourceProxy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,7 @@ import java.net.UnknownHostException;
 
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @Slf4j
+@EnableAutoDataSourceProxy
 public class HomeScheduleApplication {
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext application = SpringApplication.run(HomeScheduleApplication.class, args);

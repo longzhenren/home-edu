@@ -7,14 +7,17 @@ import com.amur.home.schedule.mapper.ScheduleMapper;
 import com.amur.home.schedule.service.ScheduleService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class ScheduleServiceImpl implements ScheduleService {
 
     @Resource
@@ -24,10 +27,11 @@ public class ScheduleServiceImpl implements ScheduleService {
     private TinyIdGrpcClient tinyIdGrpcClient;
 
     @Override
+    @GlobalTransactional
     public ServiceResult<Long> addSchedule(Long createUserId, Long userId, String title, String content, Date startTime, Date endTime, String location, String remark, String color, Boolean allDay, Boolean canEdit) {
         Schedule schedule = new Schedule();
 //        if (StpUtil.getLoginId() != createUserId) {
-//            return ServiceResult.fail("参数非法:不匹配的创建者ID");
+//            return ServiceResult.ex("参数非法:不匹配的创建者ID");
 //        }
         schedule.setId(tinyIdGrpcClient.getNextId(Constants.TableName.SCHEDULE.getDesc()).getData());
         schedule.setCreateUserId(createUserId);
@@ -44,7 +48,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         if (scheduleMapper.insert(schedule) > 0) {
             return ServiceResult.success(schedule.getId());
         } else {
-            return ServiceResult.fail("添加日程失败");
+            return ServiceResult.ex("添加日程失败");
         }
     }
 
@@ -52,7 +56,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     public ServiceResult<Void> delSchedule(Long id) {
         int result = scheduleMapper.deleteById(id);
         if (result == 0) {
-            return ServiceResult.fail("删除日程失败");
+            return ServiceResult.ex("删除日程失败");
         }
         return ServiceResult.success();
     }
@@ -61,13 +65,13 @@ public class ScheduleServiceImpl implements ScheduleService {
     public ServiceResult<Void> updateSchedule(Long id, String title, String content, Date startTime, Date endTime, String location, String remark, String color, Boolean allDay) {
         Schedule schedule = scheduleMapper.selectById(id);
         if (schedule == null) {
-            return ServiceResult.fail("日程不存在");
+            return ServiceResult.ex("日程不存在");
         }
         if (!schedule.getCanEdit()) {
-            return ServiceResult.fail("日程不可编辑");
+            return ServiceResult.ex("日程不可编辑");
         }
 //        if (StpUtil.getLoginId() != schedule.getCreateUserId()) {
-//            return ServiceResult.fail("无权限编辑日程");
+//            return ServiceResult.ex("无权限编辑日程");
 //        }
         schedule.setTitle(title);
         schedule.setContent(content);
@@ -79,7 +83,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         schedule.setAllDay(allDay);
         int result = scheduleMapper.updateById(schedule);
         if (result == 0) {
-            return ServiceResult.fail("更新日程失败");
+            return ServiceResult.ex("更新日程失败");
         }
         return ServiceResult.success();
     }
@@ -88,7 +92,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     public ServiceResult<Schedule> getScheduleInfoById(Long id) {
         Schedule schedule = scheduleMapper.selectById(id);
         if (schedule == null) {
-            return ServiceResult.fail("日程不存在");
+            return ServiceResult.ex("日程不存在");
         }
         return ServiceResult.success(schedule);
     }
@@ -99,7 +103,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         queryWrapper.eq("user_id", userId).orderByDesc("start_time").orderByDesc("end_time");
         List<Schedule> schedules = scheduleMapper.selectList(queryWrapper);
         if (schedules == null || schedules.isEmpty()) {
-            return ServiceResult.fail("用户当前日程列表为空");
+            return ServiceResult.ex("用户当前日程列表为空");
         }
         return ServiceResult.success(schedules);
     }
@@ -119,7 +123,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         List<Schedule> schedules = scheduleMapper.selectList(queryWrapper);
         if (schedules == null || schedules.isEmpty()) {
-            return ServiceResult.fail("用户当前日程列表为空");
+            return ServiceResult.ex("用户当前日程列表为空");
         }
         return ServiceResult.success(schedules);
     }

@@ -4,6 +4,7 @@ import com.amur.home.msg.mq.RabbitMQService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.websocket.OnClose;
@@ -17,7 +18,6 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import static com.amur.home.msg.config.RabbitMQConfig.DIRECT_QUEUE;
 
 @Slf4j
-@Service
 @ServerEndpoint("/ws/{sid}")
 @RabbitListener(queues = DIRECT_QUEUE)
 public class WebSocketService {

@@ -129,4 +129,4 @@ sa-token:
 seata:
   grpc:
     applicationId: home-auth
-    serviceGroup: my_test_tx_group
+    serviceGroup: default_tx_group

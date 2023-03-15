@@ -69,4 +69,4 @@ knife4j:
 seata:
   grpc:
     applicationId: home-tinyid
-    serviceGroup: my_test_tx_group
+    serviceGroup: default_tx_group

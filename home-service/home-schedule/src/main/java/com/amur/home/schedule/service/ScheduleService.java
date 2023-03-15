@@ -3,6 +3,7 @@ package com.amur.home.schedule.service;
 import com.amur.home.schedule.entity.Schedule;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;

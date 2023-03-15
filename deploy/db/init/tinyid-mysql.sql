@@ -31,6 +31,22 @@ CREATE TABLE `tiny_id_token`
   AUTO_INCREMENT = 1
   DEFAULT CHARSET = utf8 COMMENT 'token信息表';
 
+CREATE TABLE `undo_log`
+(
+    `id`            bigint(20)   NOT NULL AUTO_INCREMENT,
+    `branch_id`     bigint(20)   NOT NULL,
+    `xid`           varchar(100) NOT NULL,
+    `context`       varchar(128) NOT NULL,
+    `rollback_info` longblob     NOT NULL,
+    `log_status`    int(11)      NOT NULL,
+    `log_created`   datetime     NOT NULL,
+    `log_modified`  datetime     NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `ux_undo_log` (`xid`, `branch_id`)
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  DEFAULT CHARSET = utf8;
+
 
 insert into `tiny_id_info` (id, biz_type, begin_id, max_id, step, delta, remainder, create_time, update_time, version)
 values (1, 'course_comment', 1, 1, 100, 1, 0, '2023-01-01 00:00:00', '2023-01-01 00:00:00', 1);

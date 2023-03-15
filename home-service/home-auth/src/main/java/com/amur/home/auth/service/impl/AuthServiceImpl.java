@@ -10,8 +10,10 @@ import com.amur.home.common.Constants;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Collections;
@@ -19,6 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@Transactional
 public class AuthServiceImpl implements AuthService {
     @Resource
     private UserGrpcClient userGrpcClient;
@@ -35,15 +38,16 @@ public class AuthServiceImpl implements AuthService {
      * @return 服务返回结果统一封装
      */
     @Override
+    @GlobalTransactional
     public ServiceResult<Map<String, Object>> login(String userName, String password) {
         QueryWrapper<UserAuth> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name", userName);
         UserAuth userAuth = authMapper.selectOne(queryWrapper);
         if (userAuth == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         if (!new BCryptPasswordEncoder().matches(password, userAuth.getPassword())) {
-            return ServiceResult.fail("密码不正确");
+            return ServiceResult.ex("密码不正确");
         }
         ServiceResult<UserInfo> res = userGrpcClient.getUserEntityByUserId(userAuth.getId());
         UserInfo user = res.getData();
@@ -73,19 +77,21 @@ public class AuthServiceImpl implements AuthService {
      * @return 服务返回结果统一封装
      */
     @Override
+    @GlobalTransactional
     public ServiceResult<Long> register(String userName, String password) {
         QueryWrapper<UserAuth> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name", userName);
         if (authMapper.selectOne(queryWrapper) != null) {
-            return ServiceResult.fail("用户名已被使用");
+            return ServiceResult.ex("用户名已被使用");
         }
         ServiceResult<Long> res = userGrpcClient.createUser(userName);
         if (!res.isSuccess()) {
-            return ServiceResult.fail(res.getMessage());
+            return ServiceResult.ex(res.getMessage());
         }
         Long userId = res.getData();
         UserAuth userAuth = new UserAuth();
         userAuth.setId(userId);
+        userAuth.setName(userName);
         userAuth.setPassword(new BCryptPasswordEncoder().encode(password));
         userAuth.setRoles(Collections.singleton(Constants.RoleName.USER.getName()));
         userAuth.setPermissions(Collections.singleton(Constants.PermissionName.USER.getName()));
@@ -93,7 +99,7 @@ public class AuthServiceImpl implements AuthService {
             return ServiceResult.success(userId);
         } else {
             userGrpcClient.deleteUser(userId);
-            return ServiceResult.fail("注册失败");
+            return ServiceResult.ex("注册失败");
         }
     }
 
@@ -105,7 +111,7 @@ public class AuthServiceImpl implements AuthService {
     public ServiceResult<UserAuth> getUserAuthById(Long id) {
         UserAuth userAuth = authMapper.selectById(id);
         if (userAuth == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         return ServiceResult.success(userAuth);
     }
@@ -119,16 +125,16 @@ public class AuthServiceImpl implements AuthService {
     public ServiceResult<Void> addPermission(Long id, String permission) {
         UserAuth userAuth = authMapper.selectById(id);
         if (userAuth == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         if (userAuth.getPermissions().contains(permission)) {
-            return ServiceResult.fail("用户已有该权限");
+            return ServiceResult.ex("用户已有该权限");
         }
         userAuth.getPermissions().add(permission);
         if (authMapper.updateById(userAuth) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("添加权限失败");
+            return ServiceResult.ex("添加权限失败");
         }
     }
 
@@ -141,16 +147,16 @@ public class AuthServiceImpl implements AuthService {
     public ServiceResult<Void> removePermission(Long id, String permission) {
         UserAuth userAuth = authMapper.selectById(id);
         if (userAuth == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         if (!userAuth.getPermissions().contains(permission)) {
-            return ServiceResult.fail("用户没有该权限");
+            return ServiceResult.ex("用户没有该权限");
         }
         userAuth.getPermissions().remove(permission);
         if (authMapper.updateById(userAuth) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("删除权限失败");
+            return ServiceResult.ex("删除权限失败");
         }
     }
 
@@ -163,16 +169,16 @@ public class AuthServiceImpl implements AuthService {
     public ServiceResult<Void> addRole(Long id, String role) {
         UserAuth userAuth = authMapper.selectById(id);
         if (userAuth == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         if (userAuth.getRoles().contains(role)) {
-            return ServiceResult.fail("用户已有该角色");
+            return ServiceResult.ex("用户已有该角色");
         }
         userAuth.getRoles().add(role);
         if (authMapper.updateById(userAuth) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("添加角色失败");
+            return ServiceResult.ex("添加角色失败");
         }
     }
 
@@ -185,16 +191,16 @@ public class AuthServiceImpl implements AuthService {
     public ServiceResult<Void> removeRole(Long id, String role) {
         UserAuth userAuth = authMapper.selectById(id);
         if (userAuth == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         if (!userAuth.getRoles().contains(role)) {
-            return ServiceResult.fail("用户没有该角色");
+            return ServiceResult.ex("用户没有该角色");
         }
         userAuth.getRoles().remove(role);
         if (authMapper.updateById(userAuth) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("删除角色失败");
+            return ServiceResult.ex("删除角色失败");
         }
     }
 }

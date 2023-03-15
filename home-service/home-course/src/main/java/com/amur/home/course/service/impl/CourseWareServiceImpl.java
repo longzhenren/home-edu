@@ -15,6 +15,7 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -23,6 +24,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class CourseWareServiceImpl implements CourseWareService {
     private final String bucketName = "courseware";
     @Autowired
@@ -51,7 +53,7 @@ public class CourseWareServiceImpl implements CourseWareService {
             }
             minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).contentType(file.getContentType()).build());
         } catch (Exception e) {
-            return ServiceResult.fail("保存失败");
+            return ServiceResult.ex("保存失败");
         }
         String fileUrl = "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
@@ -76,22 +78,22 @@ public class CourseWareServiceImpl implements CourseWareService {
         queryWrapper.eq("course_id", courseId);
         List<CourseWare> courseWares = courseWareMapper.selectList(queryWrapper);
         if (courseWares.size() < 1) {
-            return ServiceResult.fail("没有课件");
+            return ServiceResult.ex("没有课件");
         }
         return ServiceResult.success(courseWares);
     }
-    
+
     @Override
     public ServiceResult<Void> courseWareAdd(Long courseId, String fileName, String courseWareUrl, String description) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
-            return ServiceResult.fail("课程不存在");
+            return ServiceResult.ex("课程不存在");
         }
         CourseWare courseWare = new CourseWare(courseId, fileName, description, courseWareUrl);
         if (courseWareMapper.insert(courseWare) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("添加课件失败");
+            return ServiceResult.ex("添加课件失败");
         }
     }
 
@@ -104,13 +106,13 @@ public class CourseWareServiceImpl implements CourseWareService {
     public ServiceResult<Void> courseWareRename(String courseWareId, String courseWareName) {
         CourseWare courseWare = courseWareMapper.selectById(courseWareId);
         if (courseWare == null) {
-            return ServiceResult.fail("课件不存在");
+            return ServiceResult.ex("课件不存在");
         }
         courseWare.setFileName(courseWareName);
         if (courseWareMapper.updateById(courseWare) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("课件信息更新失败");
+            return ServiceResult.ex("课件信息更新失败");
         }
     }
 
@@ -123,13 +125,13 @@ public class CourseWareServiceImpl implements CourseWareService {
     public ServiceResult<Void> courseWareReDesc(String courseWareId, String description) {
         CourseWare courseWare = courseWareMapper.selectById(courseWareId);
         if (courseWare == null) {
-            return ServiceResult.fail("课件不存在");
+            return ServiceResult.ex("课件不存在");
         }
         courseWare.setDescription(description);
         if (courseWareMapper.updateById(courseWare) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("课件信息更新失败");
+            return ServiceResult.ex("课件信息更新失败");
         }
     }
 
@@ -141,12 +143,12 @@ public class CourseWareServiceImpl implements CourseWareService {
     public ServiceResult<Void> courseWareDel(String courseWareId) {
         CourseWare courseWare = courseWareMapper.selectById(courseWareId);
         if (courseWare == null) {
-            return ServiceResult.fail("课件不存在");
+            return ServiceResult.ex("课件不存在");
         }
         if (courseWareMapper.deleteById(courseWare) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("课件删除失败");
+            return ServiceResult.ex("课件删除失败");
         }
     }
 }

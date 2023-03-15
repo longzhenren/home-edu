@@ -1,5 +1,6 @@
 package com.amur.home.auth;
 
+import io.seata.spring.annotation.datasource.EnableAutoDataSourceProxy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +13,7 @@ import java.net.UnknownHostException;
 
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @Slf4j
-
+@EnableAutoDataSourceProxy
 public class HomeAuthApplication {
 
     public static void main(String[] args) throws UnknownHostException {

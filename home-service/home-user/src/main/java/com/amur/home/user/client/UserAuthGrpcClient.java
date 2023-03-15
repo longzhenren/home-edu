@@ -29,7 +29,7 @@ public class UserAuthGrpcClient {
         if (resp.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(resp.getMessage());
+            return ServiceResult.ex(resp.getMessage());
         }
     }
 
@@ -39,7 +39,7 @@ public class UserAuthGrpcClient {
         if (resp.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(resp.getMessage());
+            return ServiceResult.ex(resp.getMessage());
         }
     }
 
@@ -49,7 +49,7 @@ public class UserAuthGrpcClient {
         if (resp.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(resp.getMessage());
+            return ServiceResult.ex(resp.getMessage());
         }
     }
 
@@ -59,7 +59,7 @@ public class UserAuthGrpcClient {
         if (resp.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(resp.getMessage());
+            return ServiceResult.ex(resp.getMessage());
         }
     }
 

@@ -27,7 +27,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success(response.getCourseIdsList());
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -44,7 +44,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -61,7 +61,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -77,7 +77,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success(response.getCourseListIdsList());
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -94,7 +94,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -111,7 +111,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -127,7 +127,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success(response.getCourseWareIdsList());
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -144,7 +144,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -161,7 +161,7 @@ public class UserGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 

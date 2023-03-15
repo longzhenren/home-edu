@@ -43,6 +43,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         if (!res.isSuccess()) {
             responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(false).setMessage(res.getMessage()).build());
             responseObserver.onCompleted();
+            return;
         }
         responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(true).build());
         responseObserver.onCompleted();
@@ -58,6 +59,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         if (!res.isSuccess()) {
             responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(false).setMessage(res.getMessage()).build());
             responseObserver.onCompleted();
+            return;
         }
         responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(true).build());
         responseObserver.onCompleted();
@@ -73,6 +75,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         if (!res.isSuccess()) {
             responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(false).setMessage(res.getMessage()).build());
             responseObserver.onCompleted();
+            return;
         }
         responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(true).build());
         responseObserver.onCompleted();
@@ -88,9 +91,9 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         if (!res.isSuccess()) {
             responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(false).setMessage(res.getMessage()).build());
             responseObserver.onCompleted();
+            return;
         }
         responseObserver.onNext(ServiceResultProto.ServiceResult.newBuilder().setSuccess(true).build());
         responseObserver.onCompleted();
-        super.removeRole(request, responseObserver);
     }
 }

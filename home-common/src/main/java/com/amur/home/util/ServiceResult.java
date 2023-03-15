@@ -57,6 +57,10 @@ public class ServiceResult<T> implements Serializable {
         return new ServiceResult<>(true, message, data);
     }
 
+    public static <T> ServiceResult<T> ex(String message) {
+        throw new RuntimeException(message);
+    }
+
     public static <T> ServiceResult<T> success(T data) {
         return new ServiceResult<>(true, data);
     }

@@ -8,14 +8,17 @@ import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.mapper.UserFavMapper;
 import com.amur.home.user.mapper.UserInfoMapper;
 import com.amur.home.user.service.UserService;
+import com.amur.home.user.utils.RedisUtils;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.minio.*;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -24,6 +27,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Service
+@Transactional
 @Slf4j
 public class UserServiceImpl implements UserService {
     @Resource
@@ -39,6 +43,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     private MinioClient minioClient;
 
+    @Resource
+    private RedisUtils redisUtils;
+
     /**
      * 根据用户 ID 获取用户信息
      *
@@ -49,7 +56,7 @@ public class UserServiceImpl implements UserService {
     public ServiceResult<UserInfo> getUserInfo(Long userId) {
         UserInfo userInfo = userInfoMapper.selectById(userId);
         if (userInfo == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         } else {
             return ServiceResult.success(userInfo);
         }
@@ -100,8 +107,9 @@ public class UserServiceImpl implements UserService {
         if (userInfoMapper.updateById(userInfo) > 0) {
             result.setSuccess(true);
         } else {
-            result.setMessage("更新用户信息失败！");
+            return ServiceResult.ex("更新用户信息失败！");
         }
+        redisUtils.set("user_info:" + userId, userInfo);
         return result;
     }
 
@@ -114,7 +122,7 @@ public class UserServiceImpl implements UserService {
         String originalFileName = file.getOriginalFilename();
         String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
         if (!(fileExtension.equalsIgnoreCase(".jpg") || fileExtension.equalsIgnoreCase(".jpeg") || fileExtension.equalsIgnoreCase(".png") || fileExtension.equalsIgnoreCase(".gif"))) {
-            return ServiceResult.fail("仅支持jpg/png/gif格式图片");
+            return ServiceResult.ex("仅支持jpg/png/gif格式图片");
         }
         String uuid = UUID.randomUUID().toString();
         String newFileName = uuid + fileExtension;
@@ -128,12 +136,12 @@ public class UserServiceImpl implements UserService {
             minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(newFileName).stream(inputStream, inputStream.available(), -1).contentType(file.getContentType()).build());
             minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(bucketName).config("{" + "  \"Version\": \"2012-10-17\"," + "  \"Statement\": [" + "    {" + "      \"Effect\": \"Allow\"," + "      \"Principal\": {" + "        \"AWS\": [\"*\"]" + "      }," + "      \"Action\": [\"s3:GetObject\"]," + "      \"Resource\": [\"arn:aws:s3:::" + bucketName + "/*\"]" + "    }" + "  ]" + "}").build());
         } catch (Exception e) {
-            return ServiceResult.fail("文件上传失败" + e.getMessage());
+            return ServiceResult.ex("文件上传失败" + e.getMessage());
         }
 //        try {
 //            String url = minioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().bucket("my-bucket").object("my-object").expiry(3600).build());
 //        } catch (Exception e) {
-//            return ServiceResult.fail("文件链接生成失败" + e.getMessage());
+//            return ServiceResult.ex("文件链接生成失败" + e.getMessage());
 //        }
         String fileUrl = "/" + bucketName + "/" + newFileName;
         return ServiceResult.success(fileUrl);
@@ -148,10 +156,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public ServiceResult<Void> deleteUser(Long userId) {
         if (userInfoMapper.deleteById(userId) <= 0) {
-            return ServiceResult.fail("删除用户失败");
+            return ServiceResult.ex("删除用户失败");
         }
         if (userFavMapper.deleteById(userId) <= 0) {
-            return ServiceResult.fail("删除用户失败");
+            return ServiceResult.ex("删除用户失败");
         }
         return ServiceResult.success();
     }
@@ -163,18 +171,19 @@ public class UserServiceImpl implements UserService {
      * @return 服务返回结果统一封装
      */
     @Override
+    @GlobalTransactional
     public ServiceResult<Long> createUser(String userName) {
         ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.USER.getDesc());
         if (!res.isSuccess()) {
-            return ServiceResult.fail("id生成失败");
+            return ServiceResult.ex("id生成失败");
         }
         UserInfo userInfo = new UserInfo(res.getData(), userName);
         UserFavorite userFavorite = new UserFavorite(res.getData());
         if (userInfoMapper.insert(userInfo) <= 0) {
-            return ServiceResult.fail("创建用户失败");
+            return ServiceResult.ex("创建用户失败");
         }
         if (userFavMapper.insert(userFavorite) <= 0) {
-            return ServiceResult.fail("创建用户失败");
+            return ServiceResult.ex("创建用户失败");
         }
         return ServiceResult.success(userInfo.getId());
     }
@@ -191,7 +200,7 @@ public class UserServiceImpl implements UserService {
         queryWrapper.eq("name", username);
         UserInfo userInfo = userInfoMapper.selectOne(queryWrapper);
         if (userInfo == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         } else {
             return ServiceResult.success(userInfo);
         }
@@ -206,23 +215,23 @@ public class UserServiceImpl implements UserService {
     public ServiceResult<Void> favUser(Long favId, String nickName, Long userId) {
         UserInfo userInfo = userInfoMapper.selectById(favId);
         if (userInfo == null) {
-            return ServiceResult.fail("被收藏的用户不存在");
+            return ServiceResult.ex("被收藏的用户不存在");
         }
         UserFavorite userFavorite = userFavMapper.selectById(userId);
         if (userFavorite == null) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         if (userFavorite.getUserIds().contains(favId)) {
-            return ServiceResult.fail("已经收藏过该用户");
+            return ServiceResult.ex("已经收藏过该用户");
         }
         userInfo.setFavCount(userInfo.getFavCount() + 1);
         userFavorite.getUserIds().add(favId);
         userFavorite.getUserMap().put(favId, nickName);
         if (userInfoMapper.updateById(userInfo) <= 0) {
-            return ServiceResult.fail("收藏失败");
+            return ServiceResult.ex("收藏失败");
         }
         if (userFavMapper.insert(userFavorite) <= 0) {
-            return ServiceResult.fail("收藏失败");
+            return ServiceResult.ex("收藏失败");
         }
         return ServiceResult.success();
 
@@ -260,10 +269,10 @@ public class UserServiceImpl implements UserService {
         Page<UserInfo> page = new Page<>(pageNum, pageSize);
         IPage<UserInfo> userPage = userInfoMapper.selectPage(page, queryWrapper);
         if (userPage.getTotal() == 0) {
-            return ServiceResult.fail("没有搜索到相关课程");
+            return ServiceResult.ex("没有搜索到相关课程");
         }
         if (pageNum > userPage.getPages()) {
-            return ServiceResult.fail("页数超出限制或当前页无课程");
+            return ServiceResult.ex("页数超出限制或当前页无课程");
         }
         PageResult<UserInfo> result = new PageResult<>(pageNum, pageSize, userPage.getTotal(), userPage.getPages(), userPage.getRecords());
         return ServiceResult.success(result);

@@ -129,4 +129,4 @@ minio:
 seata:
   grpc:
     applicationId: home-schedule
-    serviceGroup: my_test_tx_group
+    serviceGroup: default_tx_group

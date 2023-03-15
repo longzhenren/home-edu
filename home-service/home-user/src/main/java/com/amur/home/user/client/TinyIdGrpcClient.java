@@ -22,10 +22,10 @@ public class TinyIdGrpcClient {
             if (resp.getCode() == 0) {
                 return ServiceResult.success(resp.getData().getId(0));
             } else {
-                return ServiceResult.fail(resp.getMessage());
+                return ServiceResult.ex(resp.getMessage());
             }
         } catch (Exception e) {
-            return ServiceResult.fail(e.getMessage());
+            return ServiceResult.ex(e.getMessage());
         }
     }
 }

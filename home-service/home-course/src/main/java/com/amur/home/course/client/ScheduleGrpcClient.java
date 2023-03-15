@@ -32,7 +32,7 @@ public class ScheduleGrpcClient {
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getResult().getMessage());
+            return ServiceResult.ex(response.getResult().getMessage());
         }
     }
 
@@ -42,7 +42,7 @@ public class ScheduleGrpcClient {
         if (response.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getMessage());
+            return ServiceResult.ex(response.getMessage());
         }
     }
 
@@ -52,7 +52,7 @@ public class ScheduleGrpcClient {
         if (response.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getMessage());
+            return ServiceResult.ex(response.getMessage());
         }
     }
 
@@ -62,7 +62,7 @@ public class ScheduleGrpcClient {
         if (response.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getMessage());
+            return ServiceResult.ex(response.getMessage());
         }
     }
 
@@ -72,7 +72,7 @@ public class ScheduleGrpcClient {
         if (response.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getMessage());
+            return ServiceResult.ex(response.getMessage());
         }
     }
 
@@ -82,7 +82,7 @@ public class ScheduleGrpcClient {
         if (response.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(response.getMessage());
+            return ServiceResult.ex(response.getMessage());
         }
     }
 }

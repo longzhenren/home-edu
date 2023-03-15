@@ -21,7 +21,7 @@ public class UserGrpcClient {
             UserServiceProto.UserInfo userInfoProto = resp.getUserInfo();
             return ServiceResult.success(UserProtoConverter.toUserInfo(userInfoProto));
         } else {
-            return ServiceResult.fail(resp.getResult().getMessage());
+            return ServiceResult.ex(resp.getResult().getMessage());
         }
     }
 
@@ -32,7 +32,7 @@ public class UserGrpcClient {
             UserServiceProto.UserInfo userInfoProto = resp.getUserInfo();
             return ServiceResult.success(UserProtoConverter.toUserInfo(userInfoProto));
         } else {
-            return ServiceResult.fail(resp.getResult().getMessage());
+            return ServiceResult.ex(resp.getResult().getMessage());
         }
     }
 
@@ -42,7 +42,7 @@ public class UserGrpcClient {
         if (resp.getResult().getSuccess()) {
             return ServiceResult.success(resp.getUserId());
         } else {
-            return ServiceResult.fail(resp.getResult().getMessage());
+            return ServiceResult.ex(resp.getResult().getMessage());
         }
     }
 
@@ -52,7 +52,7 @@ public class UserGrpcClient {
         if (resp.getSuccess()) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail(resp.getMessage());
+            return ServiceResult.ex(resp.getMessage());
         }
     }
 

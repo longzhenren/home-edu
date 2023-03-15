@@ -139,4 +139,4 @@ minio:
 seata:
   grpc:
     applicationId: home-user
-    serviceGroup: my_test_tx_group
+    serviceGroup: default_tx_group

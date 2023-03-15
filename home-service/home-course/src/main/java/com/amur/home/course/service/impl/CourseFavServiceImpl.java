@@ -11,12 +11,14 @@ import com.amur.home.course.service.CourseFavService;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class CourseFavServiceImpl implements CourseFavService {
     @Resource
     private CourseInfoMapper courseInfoMapper;

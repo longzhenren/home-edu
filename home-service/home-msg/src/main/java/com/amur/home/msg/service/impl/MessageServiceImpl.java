@@ -19,6 +19,7 @@ import io.minio.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -30,6 +31,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class MessageServiceImpl implements MessageService {
     @Resource
     private RabbitTemplate rabbitTemplate;
@@ -58,20 +60,20 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> sendMsg(Long senderId, String message, String chatId) {
         if (!userGrpcClient.checkUserExists(senderId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         QueryWrapper<ChatUserRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("chat_id", chatId).eq("user_id", senderId);
         if (chatUserMapper.selectCount(queryWrapper) == 0) {
-            return ServiceResult.fail("用户不在该会话中");
+            return ServiceResult.ex("用户不在该会话中");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(queryWrapper);
         if (cur.getMute()) {
-            return ServiceResult.fail("用户已被禁言");
+            return ServiceResult.ex("用户已被禁言");
         }
         Message msg = new Message(UUID.randomUUID().toString(), message, chatId, senderId);
         chat.setLastMessageId(msg.getId());
@@ -85,7 +87,7 @@ public class MessageServiceImpl implements MessageService {
             rabbitTemplate.convertAndSend(RabbitMQConfig.DIRECT_EXCHANGE, RabbitMQConfig.ROUTING_KEY, msg);
         }
         if (messageMapper.insert(msg) > 0 && chatMapper.updateById(chat) > 0) {
-            return ServiceResult.fail("发送失败");
+            return ServiceResult.ex("发送失败");
         } else {
             return ServiceResult.success();
         }
@@ -100,7 +102,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> sendFile(Long senderId, MultipartFile file, String chatId) {
         if (!userGrpcClient.checkUserExists(senderId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         String originalFileName = file.getOriginalFilename();
         String fileExtension = Objects.requireNonNull(originalFileName).substring(originalFileName.lastIndexOf("."));
@@ -121,10 +123,10 @@ public class MessageServiceImpl implements MessageService {
             if (chatMapper.updateById(chat) > 0 && messageMapper.insert(msg) > 0) {
                 return ServiceResult.success();
             } else {
-                return ServiceResult.fail("发送失败");
+                return ServiceResult.ex("发送失败");
             }
         } catch (Exception e) {
-            return ServiceResult.fail("文件上传失败");
+            return ServiceResult.ex("文件上传失败");
         }
     }
 
@@ -138,7 +140,7 @@ public class MessageServiceImpl implements MessageService {
         queryWrapper.eq("chat_id", chatId);
         List<Message> messageList = messageMapper.selectList(queryWrapper);
         if (messageList.size() == 0) {
-            return ServiceResult.fail("无消息");
+            return ServiceResult.ex("无消息");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         cur.setUnread(0L);
@@ -154,7 +156,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<String> createChat(Long creatorId, String name) {
         if (!userGrpcClient.checkUserExists(creatorId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = new Chat();
         chat.setId(UUID.randomUUID().toString());
@@ -165,7 +167,7 @@ public class MessageServiceImpl implements MessageService {
         if (chatMapper.insert(chat) > 0 && chatUserMapper.insert(cur) > 0) {
             return ServiceResult.success(chat.getId());
         } else {
-            return ServiceResult.fail("创建失败");
+            return ServiceResult.ex("创建失败");
         }
     }
 
@@ -177,22 +179,22 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> addChatUser(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         QueryWrapper<ChatUserRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("chat_id", chatId).eq("user_id", userId);
         if (chatUserMapper.selectCount(queryWrapper) > 0) {
-            return ServiceResult.fail("用户已在会话中");
+            return ServiceResult.ex("用户已在会话中");
         }
         ChatUserRelation cur = new ChatUserRelation(UUID.randomUUID().toString(), chatId, userId);
         if (chatMapper.updateById(chat) > 0 && chatUserMapper.insert(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("添加失败");
+            return ServiceResult.ex("添加失败");
         }
     }
 
@@ -204,20 +206,20 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> delChatUser(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         if (chatUserMapper.deleteById(cur.getId()) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("删除失败");
+            return ServiceResult.ex("删除失败");
         }
     }
 
@@ -228,7 +230,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<ListChatDTO> listChats(Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         QueryWrapper<ChatUserRelation> curWrapper = new QueryWrapper<>();
         curWrapper.eq("user_id", userId);
@@ -273,12 +275,12 @@ public class MessageServiceImpl implements MessageService {
     public ServiceResult<Void> deleteChat(String chatId) {
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         if (chatMapper.deleteById(chatId) > 0 && chatUserMapper.delete(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId)) > 0 && messageMapper.delete(new QueryWrapper<Message>().eq("chat_id", chatId)) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("删除失败");
+            return ServiceResult.ex("删除失败");
         }
     }
 
@@ -290,12 +292,12 @@ public class MessageServiceImpl implements MessageService {
     public ServiceResult<Void> clearChat(String chatId) {
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         if (messageMapper.delete(new QueryWrapper<Message>().eq("chat_id", chatId)) >= 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("清空失败");
+            return ServiceResult.ex("清空失败");
         }
     }
 
@@ -306,18 +308,18 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> leaveChat(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         QueryWrapper<ChatUserRelation> curWrapper = new QueryWrapper<>();
         curWrapper.eq("user_id", userId);
         List<ChatUserRelation> chatUserRelations = chatUserMapper.selectList(curWrapper);
         if (chatUserRelations.size() == 1) {
-            return ServiceResult.fail("无法退出，会话中至少需要一名成员");
+            return ServiceResult.ex("无法退出，会话中至少需要一名成员");
         }
         if (chatUserMapper.delete(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId)) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("退出失败");
+            return ServiceResult.ex("退出失败");
         }
     }
 
@@ -328,22 +330,22 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> joinChat(String token, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         ChatInvite chatInvite = chatInviteMapper.selectById(token);
         if (chatInvite == null) {
-            return ServiceResult.fail("邀请码不存在");
+            return ServiceResult.ex("邀请码不存在");
         }
         if (chatInvite.getExpireTime().before(new Date())) {
-            return ServiceResult.fail("邀请码已过期");
+            return ServiceResult.ex("邀请码已过期");
         }
         Chat chat = chatMapper.selectById(chatInvite.getChatId());
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatInvite.getChatId()).eq("user_id", userId));
         if (cur != null) {
-            return ServiceResult.fail("用户已在会话中");
+            return ServiceResult.ex("用户已在会话中");
         }
         ChatUserRelation chatUserRelation = new ChatUserRelation();
         chatUserRelation.setChatId(chatInvite.getChatId());
@@ -351,7 +353,7 @@ public class MessageServiceImpl implements MessageService {
         if (chatUserMapper.insert(chatUserRelation) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("加入失败");
+            return ServiceResult.ex("加入失败");
         }
     }
 
@@ -363,15 +365,15 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<String> inviteUser(String chatId, Long invitorId) {
         if (!userGrpcClient.checkUserExists(invitorId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", invitorId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         String token = UUID.randomUUID().toString();
         ChatInvite chatInvite = new ChatInvite();
@@ -381,7 +383,7 @@ public class MessageServiceImpl implements MessageService {
         if (chatInviteMapper.insert(chatInvite) > 0) {
             return ServiceResult.success(token);
         } else {
-            return ServiceResult.fail("邀请失败");
+            return ServiceResult.ex("邀请失败");
         }
     }
 
@@ -393,25 +395,25 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> kickUser(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         if (chat.getCreatorId().equals(userId)) {
-            return ServiceResult.fail("无法踢出会话创建人");
+            return ServiceResult.ex("无法踢出会话创建人");
         }
         QueryWrapper<ChatUserRelation> curWrapper = new QueryWrapper<>();
         curWrapper.eq("user_id", userId);
         List<ChatUserRelation> chatUserRelations = chatUserMapper.selectList(curWrapper);
         if (chatUserRelations.size() == 1) {
-            return ServiceResult.fail("无法踢出，会话中至少需要一名成员");
+            return ServiceResult.ex("无法踢出，会话中至少需要一名成员");
         }
         if (chatUserMapper.delete(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId)) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("踢出失败");
+            return ServiceResult.ex("踢出失败");
         }
     }
 
@@ -423,21 +425,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> muteUserAdd(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         cur.setMute(true);
         if (chatUserMapper.updateById(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("禁言失败");
+            return ServiceResult.ex("禁言失败");
         }
     }
 
@@ -449,21 +451,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> muteUserDel(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         cur.setMute(false);
         if (chatUserMapper.updateById(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("解除禁言失败");
+            return ServiceResult.ex("解除禁言失败");
         }
     }
 
@@ -475,21 +477,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> transferChat(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         chat.setCreatorId(userId);
         if (chatMapper.updateById(chat) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("转让失败");
+            return ServiceResult.ex("转让失败");
         }
     }
 
@@ -501,7 +503,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> searchMsg(Long userId, String keyword) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         QueryWrapper<Message> queryWrapper = new QueryWrapper<>();
         queryWrapper.like("message", keyword).orderByDesc("create_time");
@@ -509,7 +511,7 @@ public class MessageServiceImpl implements MessageService {
         if (msgList.size() > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("未找到相关消息");
+            return ServiceResult.ex("未找到相关消息");
         }
     }
 
@@ -521,7 +523,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> searchChat(Long userId, String keyword) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         QueryWrapper<Chat> queryWrapper = new QueryWrapper<>();
         queryWrapper.like("name", keyword).orderByDesc("create_time");
@@ -529,7 +531,7 @@ public class MessageServiceImpl implements MessageService {
         if (chatList.size() > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("未找到相关会话");
+            return ServiceResult.ex("未找到相关会话");
         }
     }
 
@@ -542,21 +544,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<String> chatUserNickname(String chatId, Long userId, String nickname) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         cur.setNickname(nickname);
         if (chatUserMapper.updateById(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("修改失败");
+            return ServiceResult.ex("修改失败");
         }
     }
 
@@ -568,21 +570,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> chatTopDel(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         cur.setTop(false);
         if (chatUserMapper.updateById(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("取消置顶失败");
+            return ServiceResult.ex("取消置顶失败");
         }
     }
 
@@ -594,21 +596,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> chatTopAdd(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         cur.setTop(true);
         if (chatUserMapper.updateById(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("置顶失败");
+            return ServiceResult.ex("置顶失败");
         }
     }
 
@@ -620,21 +622,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> notifyOff(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         cur.setNotify(false);
         if (chatUserMapper.updateById(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("开启免打扰失败");
+            return ServiceResult.ex("开启免打扰失败");
         }
     }
 
@@ -646,21 +648,21 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public ServiceResult<Void> notifyOn(String chatId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId)) {
-            return ServiceResult.fail("用户不存在");
+            return ServiceResult.ex("用户不存在");
         }
         Chat chat = chatMapper.selectById(chatId);
         if (chat == null) {
-            return ServiceResult.fail("会话不存在");
+            return ServiceResult.ex("会话不存在");
         }
         ChatUserRelation cur = chatUserMapper.selectOne(new QueryWrapper<ChatUserRelation>().eq("chat_id", chatId).eq("user_id", userId));
         if (cur == null) {
-            return ServiceResult.fail("用户不在会话中");
+            return ServiceResult.ex("用户不在会话中");
         }
         cur.setNotify(true);
         if (chatUserMapper.updateById(cur) > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.fail("关闭免打扰失败");
+            return ServiceResult.ex("关闭免打扰失败");
         }
     }
 }

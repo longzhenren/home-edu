@@ -4,6 +4,7 @@ import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

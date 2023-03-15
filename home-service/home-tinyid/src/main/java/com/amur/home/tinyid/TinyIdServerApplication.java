@@ -1,5 +1,6 @@
 package com.amur.home.tinyid;
 
+import io.seata.spring.annotation.datasource.EnableAutoDataSourceProxy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +19,7 @@ import java.net.UnknownHostException;
 @EnableAsync
 @SpringBootApplication(scanBasePackages = {"com.amur.home"})
 @EnableScheduling
-
+@EnableAutoDataSourceProxy
 @Slf4j
 public class TinyIdServerApplication {
 
