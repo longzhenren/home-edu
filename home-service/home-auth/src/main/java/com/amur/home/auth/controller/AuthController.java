@@ -1,6 +1,7 @@
 package com.amur.home.auth.controller;
 
 import com.amur.home.auth.service.AuthService;
+import com.amur.home.auth.util.RedisUtils;
 import com.amur.home.util.ResponseWrapper;
 import com.amur.home.util.ServiceResult;
 import com.google.code.kaptcha.Constants;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.util.Map;
+import java.util.UUID;
 
 @Tag(name = "登录模块")
 @RestController
@@ -31,6 +33,9 @@ public class AuthController {
 
     @Resource
     private AuthService authService;
+
+    @Resource
+    private RedisUtils redisUtils;
 
     /**
      * 获取验证码
@@ -46,8 +51,11 @@ public class AuthController {
         response.setContentType("image/jpeg");
         String text = producer.createText();
         BufferedImage image = producer.createImage(text);
-        request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, text);
+//        request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, text);
         ServletOutputStream out = response.getOutputStream();
+        String sessionKey = UUID.randomUUID().toString();
+        response.addHeader(Constants.KAPTCHA_SESSION_KEY, sessionKey);
+        redisUtils.set(Constants.KAPTCHA_SESSION_KEY + ":" + sessionKey, text, 10 * 60L);
         ImageIO.write(image, "jpg", out);
         out.close();
     }
@@ -65,9 +73,9 @@ public class AuthController {
     @Parameters(value = {@Parameter(name = "username", description = "用户名"), @Parameter(name = "password", description = "密码"), @Parameter(name = "captcha", description = "验证码")})
     @PostMapping(value = "/login")
     public ResponseWrapper<Map<String, Object>> login(String username, String password, String captcha, HttpServletRequest request) {
-        //从session中获取之前保存的验证码，跟前台传过来的验证码进行匹配
         if (captcha != null) {
-            Object savedCaptcha = request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+            String sessionKey = request.getHeader(Constants.KAPTCHA_SESSION_KEY);
+            String savedCaptcha = (String) redisUtils.get(Constants.KAPTCHA_SESSION_KEY + ":" + sessionKey);
             if (savedCaptcha == null) {
                 return ResponseWrapper.fail("验证码已失效");
             }
@@ -90,9 +98,9 @@ public class AuthController {
 
     @PostMapping(value = "/register")
     public ResponseWrapper<?> register(String username, String password, String captcha, HttpServletRequest request) {
-        //从session中获取之前保存的验证码，跟前台传过来的验证码进行匹配
         if (captcha != null) {
-            Object savedCaptcha = request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+            String sessionKey = request.getHeader(Constants.KAPTCHA_SESSION_KEY);
+            String savedCaptcha = (String) redisUtils.get(Constants.KAPTCHA_SESSION_KEY + ":" + sessionKey);
             if (savedCaptcha == null) {
                 return ResponseWrapper.fail("验证码已失效");
             }

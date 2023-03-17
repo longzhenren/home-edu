@@ -1,5 +1,6 @@
-package com.amur.home.user.utils;
+package com.amur.home.schedule.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Component
+@Slf4j
 public class RedisUtils {
 
     private static double size = Math.pow(2, 32);
@@ -23,6 +25,7 @@ public class RedisUtils {
      * @return
      */
     public boolean setBit(String key, long offset, boolean isShow) {
+        log.info("setBit key:{}, offset:{}, isShow:{}", key, offset, isShow);
         boolean result = false;
         try {
             ValueOperations<String, Object> operations = redisTemplate.opsForValue();
@@ -42,6 +45,7 @@ public class RedisUtils {
      * @return
      */
     public boolean getBit(String key, long offset) {
+        log.info("getBit key:{}, offset:{}", key, offset);
         boolean result = false;
         try {
             ValueOperations<String, Object> operations = redisTemplate.opsForValue();
@@ -61,6 +65,7 @@ public class RedisUtils {
      * @return
      */
     public boolean set(final String key, Object value) {
+        log.info("set key:{}, value:{}", key, value);
         boolean result = false;
         try {
             ValueOperations<String, Object> operations = redisTemplate.opsForValue();
@@ -81,6 +86,7 @@ public class RedisUtils {
      * @return
      */
     public boolean set(final String key, Object value, Long expireTime) {
+        log.info("set key:{}, value:{}, expireTime:{}", key, value, expireTime);
         boolean result = false;
         try {
             ValueOperations<String, Object> operations = redisTemplate.opsForValue();
@@ -99,6 +105,7 @@ public class RedisUtils {
      * @param keys
      */
     public void remove(final String... keys) {
+        log.info("remove keys:{}", (Object) keys);
         for (String key : keys) {
             remove(key);
         }
@@ -111,6 +118,7 @@ public class RedisUtils {
      * @param key
      */
     public void remove(final String key) {
+        log.info("remove key:{}", key);
         if (exists(key)) {
             redisTemplate.delete(key);
         }
@@ -123,6 +131,7 @@ public class RedisUtils {
      * @return
      */
     public boolean exists(final String key) {
+        log.info("test exists key:{}", key);
         return redisTemplate.hasKey(key);
     }
 
@@ -136,6 +145,7 @@ public class RedisUtils {
         Object result = null;
         ValueOperations<String, Object> operations = redisTemplate.opsForValue();
         result = operations.get(key);
+        log.info("get key:{}, result:{}", key, result);
         return result;
     }
 
@@ -147,6 +157,7 @@ public class RedisUtils {
      * @param value
      */
     public void hmSet(String key, Object hashKey, Object value) {
+        log.info("哈希添加 key:{}, hashKey:{}, value:{}", key, hashKey, value);
         HashOperations<String, Object, Object> hash = redisTemplate.opsForHash();
         hash.put(key, hashKey, value);
     }
@@ -159,6 +170,7 @@ public class RedisUtils {
      * @return
      */
     public Object hmGet(String key, Object hashKey) {
+        log.info("哈希获取数据 key:{}, hashKey:{}", key, hashKey);
         HashOperations<String, Object, Object> hash = redisTemplate.opsForHash();
         return hash.get(key, hashKey);
     }
@@ -170,6 +182,7 @@ public class RedisUtils {
      * @param v
      */
     public void lPush(String k, Object v) {
+        log.info("列表添加 k:{}, v:{}", k, v);
         ListOperations<String, Object> list = redisTemplate.opsForList();
         list.rightPush(k, v);
     }
@@ -183,6 +196,7 @@ public class RedisUtils {
      * @return
      */
     public List<Object> lRange(String k, long l, long l1) {
+        log.info("列表获取 k:{}, l:{}, l1:{}", k, l, l1);
         ListOperations<String, Object> list = redisTemplate.opsForList();
         return list.range(k, l, l1);
     }
@@ -245,7 +259,6 @@ public class RedisUtils {
 
     //第一次加载的时候将数据加载到redis中
     public boolean getDataToRedis(String name) {
-
         double index = Math.abs(name.hashCode() % size);
         long indexLong = new Double(index).longValue();
         return getBit("availableUsers", indexLong);

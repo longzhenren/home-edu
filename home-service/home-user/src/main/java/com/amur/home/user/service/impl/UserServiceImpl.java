@@ -8,7 +8,7 @@ import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.mapper.UserFavMapper;
 import com.amur.home.user.mapper.UserInfoMapper;
 import com.amur.home.user.service.UserService;
-import com.amur.home.user.utils.RedisUtils;
+import com.amur.home.user.util.RedisUtils;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;

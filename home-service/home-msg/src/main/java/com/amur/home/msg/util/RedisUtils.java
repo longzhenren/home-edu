@@ -1,4 +1,4 @@
-package com.amur.home.auth.util;
+package com.amur.home.msg.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.*;

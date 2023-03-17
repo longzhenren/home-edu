@@ -349,7 +349,7 @@ services:
     image: registry.cn-beijing.aliyuncs.com/amur/skywalking-ui:latest
     container_name: skywalking-ui
     ports:
-      - "8888:8888"
+      - "8808:8808"
     networks:
       - skywalking
     environment:
