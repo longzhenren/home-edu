@@ -11,13 +11,5 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/announcement")
 public class AnnouncementController {
-    @Resource
-    private SimpMessagingTemplate messagingTemplate;
-
-    public void sendAnnouncement(String payload) {
-        messagingTemplate.convertAndSend("/topic/announcement", payload);
-    }
-
-
 
 }
