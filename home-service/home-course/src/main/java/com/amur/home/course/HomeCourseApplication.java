@@ -22,13 +22,7 @@ public class HomeCourseApplication {
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext application = SpringApplication.run(HomeCourseApplication.class, args);
         Environment env = application.getEnvironment();
-        log.info("\n----------------------------------------------------------\n\t" +
-                        "Local: \t\thttp://localhost:{}\n\t" +
-                        "Remote: \thttp://{}:{}\n" +
-                        "----------------------------------------------------------",
-                env.getProperty("server.port"),
-                InetAddress.getLocalHost().getHostAddress(),
-                env.getProperty("server.port"));
+        log.info("\n----------------------------------------------------------\n\t" + "Local: \t\thttp://localhost:{}\n\t" + "Remote: \thttp://{}:{}\n" + "----------------------------------------------------------", env.getProperty("server.port"), InetAddress.getLocalHost().getHostAddress(), env.getProperty("server.port"));
     }
 
 }

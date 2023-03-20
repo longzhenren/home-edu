@@ -2,6 +2,8 @@ package com.amur.home.course.client;
 
 import com.amur.home.user.rpc.FavServiceGrpc;
 import com.amur.home.user.rpc.FavServiceProto;
+import com.amur.home.user.rpc.UserServiceGrpc;
+import com.amur.home.user.rpc.UserServiceProto;
 import com.amur.home.util.ServiceResult;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
@@ -14,6 +16,9 @@ import java.util.List;
 public class UserGrpcClient {
     @GrpcClient("home-user")
     private FavServiceGrpc.FavServiceBlockingStub favServiceBlockingStub;
+
+    @GrpcClient("home-user")
+    private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
 
     /**
      * 获取收藏的课程id列表
@@ -160,6 +165,16 @@ public class UserGrpcClient {
         FavServiceProto.DelFavCourseWareResponse response = favServiceBlockingStub.delFavCourseWare(request);
         if (response.getResult().getSuccess()) {
             return ServiceResult.success();
+        } else {
+            return ServiceResult.ex(response.getResult().getMessage());
+        }
+    }
+
+    public ServiceResult<Boolean> checkUserExists(Long userId) {
+        UserServiceProto.UserIdRequest request = UserServiceProto.UserIdRequest.newBuilder().setUserId(userId).build();
+        UserServiceProto.CheckUserExistsResponse response = userServiceBlockingStub.checkUserExists(request);
+        if (response.getResult().getSuccess()) {
+            return ServiceResult.success(response.getExists());
         } else {
             return ServiceResult.ex(response.getResult().getMessage());
         }

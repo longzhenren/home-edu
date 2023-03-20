@@ -11,6 +11,8 @@ import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.seata.spring.annotation.GlobalTransactional;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,6 +80,7 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     @GlobalTransactional
+//    @CacheEvict(value = "user_auth", key = "#result.data")
     public ServiceResult<Long> register(String userName, String password) {
         QueryWrapper<UserAuth> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name", userName);
@@ -108,6 +111,7 @@ public class AuthServiceImpl implements AuthService {
      * @return 服务返回结果统一封装
      */
     @Override
+//    @Cacheable(value = "user_auth", key = "#id")
     public ServiceResult<UserAuth> getUserAuthById(Long id) {
         UserAuth userAuth = authMapper.selectById(id);
         if (userAuth == null) {

@@ -3,6 +3,7 @@ package com.amur.home.course.service.impl;
 import com.amur.home.common.Constants;
 import com.amur.home.course.client.ScheduleGrpcClient;
 import com.amur.home.course.client.TinyIdGrpcClient;
+import com.amur.home.course.client.UserGrpcClient;
 import com.amur.home.course.entity.*;
 import com.amur.home.course.mapper.*;
 import com.amur.home.course.service.CourseService;
@@ -48,6 +49,9 @@ public class CourseServiceImpl implements CourseService {
     @Resource
     private ScheduleGrpcClient scheduleGrpcClient;
 
+    @Resource
+    private UserGrpcClient userGrpcClient;
+
     @Value("${minio.bucketName}")
     private String bucketName;
 
@@ -83,7 +87,10 @@ public class CourseServiceImpl implements CourseService {
         courseInfo.setOpen(open);
         courseInfo.setStatus("");
         courseInfo.setFavCount(0L);
+        courseInfo.setLikeCount(0L);
         courseInfo.setScoreCount(0L);
+        courseInfo.setCommentCount(0L);
+        courseInfo.setScore(0.0);
         courseInfo.setTeacherIds(Collections.singleton(userId));
         String scheduleName = "[课程] " + name;
         // 课程类用remark字段存储id,便于查找
@@ -541,11 +548,14 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @GlobalTransactional
     public ServiceResult<?> addStudent(Long courseId, Long userId) {
-        CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
+        if (!userGrpcClient.checkUserExists(userId).getData()) {
+            return ServiceResult.ex("用户不存在");
+        }
         ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.COURSE_JOIN.getDesc());
         if (!res.isSuccess()) {
             return ServiceResult.ex("id生成失败");
         }
+        CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
         courseJoinRelation.setId(res.getData());
         courseJoinRelation.setCourseId(courseId);
         courseJoinRelation.setUserId(userId);
