@@ -1,9 +1,10 @@
 package com.amur.home.course.service;
 
 import com.amur.home.common.Constants;
-import com.amur.home.dto.PageResult;
+import com.amur.home.course.dto.UserCourseInterDTO;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseShare;
+import com.amur.home.dto.PageResult;
 import com.amur.home.util.ServiceResult;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -85,4 +86,10 @@ public interface CourseService {
     ServiceResult<?> delLikeCourse(Long courseId, Long userId);
 
     ServiceResult<?> listUpdate(Long id, String title, String description, String coverUrl, Boolean open);
+
+    ServiceResult<UserCourseInterDTO> userCourseRelation(Long userId, Long courseId);
+
+    ServiceResult<?> addCourseScore(Long userId, Long courseId, Double score);
+
+    ServiceResult<?> delCourseScore(Long userId, Long courseId);
 }

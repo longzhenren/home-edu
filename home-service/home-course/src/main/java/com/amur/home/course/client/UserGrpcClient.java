@@ -1,9 +1,6 @@
 package com.amur.home.course.client;
 
-import com.amur.home.user.rpc.FavServiceGrpc;
-import com.amur.home.user.rpc.FavServiceProto;
-import com.amur.home.user.rpc.UserServiceGrpc;
-import com.amur.home.user.rpc.UserServiceProto;
+import com.amur.home.user.rpc.*;
 import com.amur.home.util.ServiceResult;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
@@ -19,6 +16,9 @@ public class UserGrpcClient {
 
     @GrpcClient("home-user")
     private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
+
+    @GrpcClient("home-user")
+    private LikeServiceGrpc.LikeServiceBlockingStub likeServiceBlockingStub;
 
     /**
      * 获取收藏的课程id列表
@@ -180,4 +180,63 @@ public class UserGrpcClient {
         }
     }
 
+    public ServiceResult<List<Long>> getUserLikeCourses(Long userId) {
+        LikeServiceProto.GetLikeCoursesRequest request = LikeServiceProto.GetLikeCoursesRequest.newBuilder().setUserId(userId).build();
+        LikeServiceProto.GetLikeCoursesResponse response = likeServiceBlockingStub.getLikeCourses(request);
+        if (response.getResult().getSuccess()) {
+            return ServiceResult.success(response.getCourseIdsList());
+        } else {
+            return ServiceResult.ex(response.getResult().getMessage());
+        }
+    }
+
+    public ServiceResult<Boolean> addUserLikeCourse(Long userId, Long courseId) {
+        LikeServiceProto.AddLikeCourseRequest request = LikeServiceProto.AddLikeCourseRequest.newBuilder().setUserId(userId).setCourseId(courseId).build();
+        LikeServiceProto.AddLikeCourseResponse response = likeServiceBlockingStub.addLikeCourse(request);
+        if (response.getResult().getSuccess()) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.ex(response.getResult().getMessage());
+        }
+    }
+
+    public ServiceResult<Boolean> delUserLikeCourse(Long userId, Long courseId) {
+        LikeServiceProto.DelLikeCourseRequest request = LikeServiceProto.DelLikeCourseRequest.newBuilder().setUserId(userId).setCourseId(courseId).build();
+        LikeServiceProto.DelLikeCourseResponse response = likeServiceBlockingStub.delLikeCourse(request);
+        if (response.getResult().getSuccess()) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.ex(response.getResult().getMessage());
+        }
+    }
+
+    public ServiceResult<List<Long>> getUserLikeCourseLists(Long userId) {
+        LikeServiceProto.GetLikeCourseListsRequest request = LikeServiceProto.GetLikeCourseListsRequest.newBuilder().setUserId(userId).build();
+        LikeServiceProto.GetLikeCourseListsResponse response = likeServiceBlockingStub.getLikeCourseLists(request);
+        if (response.getResult().getSuccess()) {
+            return ServiceResult.success(response.getCourseListIdsList());
+        } else {
+            return ServiceResult.ex(response.getResult().getMessage());
+        }
+    }
+
+    public ServiceResult<Boolean> addUserLikeCourseList(Long userId, Long courseListId) {
+        LikeServiceProto.AddLikeCourseListRequest request = LikeServiceProto.AddLikeCourseListRequest.newBuilder().setUserId(userId).setCourseListId(courseListId).build();
+        LikeServiceProto.AddLikeCourseListResponse response = likeServiceBlockingStub.addLikeCourseList(request);
+        if (response.getResult().getSuccess()) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.ex(response.getResult().getMessage());
+        }
+    }
+
+    public ServiceResult<Boolean> delUserLikeCourseList(Long userId, Long courseListId) {
+        LikeServiceProto.DelLikeCourseListRequest request = LikeServiceProto.DelLikeCourseListRequest.newBuilder().setUserId(userId).setCourseListId(courseListId).build();
+        LikeServiceProto.DelLikeCourseListResponse response = likeServiceBlockingStub.delLikeCourseList(request);
+        if (response.getResult().getSuccess()) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.ex(response.getResult().getMessage());
+        }
+    }
 }

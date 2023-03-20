@@ -50,6 +50,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-jdbc-core-spring-boot-starter &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>-->
+<!--            <version>${shardingsphere.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>shardingsphere-transaction-base-seata-at</artifactId>-->
+<!--            <version>${shardingsphere.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>net.devh</groupId>
             <artifactId>grpc-spring-boot-starter</artifactId>

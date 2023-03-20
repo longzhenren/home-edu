@@ -4,6 +4,7 @@ import com.amur.home.common.Constants;
 import com.amur.home.course.client.ScheduleGrpcClient;
 import com.amur.home.course.client.TinyIdGrpcClient;
 import com.amur.home.course.client.UserGrpcClient;
+import com.amur.home.course.dto.UserCourseInterDTO;
 import com.amur.home.course.entity.*;
 import com.amur.home.course.mapper.*;
 import com.amur.home.course.service.CourseService;
@@ -41,6 +42,9 @@ public class CourseServiceImpl implements CourseService {
     private CourseShareMapper courseShareMapper;
 
     @Resource
+    private CourseScoreMapper courseScoreMapper;
+
+    @Resource
     private MinioClient minioClient;
 
     @Resource
@@ -68,7 +72,7 @@ public class CourseServiceImpl implements CourseService {
      * @return 服务返回结果统一封装
      */
     @Override
-    @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Long> courseAdd(Long homeId, Long userId, String name, String description, Date startTime, Date endTime, String coverUrl, Boolean open) {
         CourseInfo courseInfo = new CourseInfo();
         ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.COURSE_INFO.getDesc());
@@ -140,6 +144,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Void> courseDel(Long courseId) {
         QueryWrapper<CourseComment> queryWrapperComment = new QueryWrapper<>();
         queryWrapperComment.eq("course_id", courseId);
@@ -191,6 +196,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Void> courseUpdate(Long courseId, String name, String description, String coverUrl, String status, Date startTime, Date endTime, Boolean open) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
@@ -295,6 +301,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Long> commentAdd(Long courseId, Long userId, String comment) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
@@ -431,6 +438,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<CourseShare> joinByToken(String shareToken, Long userId) {
         CourseShare courseShare = courseShareMapper.selectById(shareToken);
         if (courseShare == null) {
@@ -547,6 +555,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<?> addStudent(Long courseId, Long userId) {
         if (!userGrpcClient.checkUserExists(userId).getData()) {
             return ServiceResult.ex("用户不存在");
@@ -587,6 +596,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<?> delStudent(Long courseId, Long userId) {
         QueryWrapper<CourseJoinRelation> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("course_id", courseId).eq("user_id", userId);
@@ -627,6 +637,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<?> addTeacher(Long courseId, Long userId) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
@@ -661,6 +672,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<?> delTeacher(Long courseId, Long userId) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
@@ -714,6 +726,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<?> createList(Long homeId, String title, String description, boolean open, List<Long> courseIdList) {
         CourseList courseList = new CourseList();
         ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.COURSE_LIST.getDesc());
@@ -872,15 +885,86 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
+     * @param userId
+     * @param courseId
+     * @return
+     */
+    @Override
+    public ServiceResult<UserCourseInterDTO> userCourseRelation(Long userId, Long courseId) {
+        List<Long> userLikeCourseIds = userGrpcClient.getUserLikeCourses(userId).getData();
+        List<Long> userFavCourseIds = userGrpcClient.getFavCourses(userId).getData();
+        CourseJoinRelation courseJoinRelation = courseJoinMapper.selectOne(new QueryWrapper<CourseJoinRelation>().eq("user_id", userId).eq("course_id", courseId));
+        CourseScore courseScore = courseScoreMapper.selectOne(new QueryWrapper<CourseScore>().eq("user_id", userId).eq("course_id", courseId));
+        CourseComment courseComment = courseCommentMapper.selectOne(new QueryWrapper<CourseComment>().eq("user_id", userId).eq("course_id", courseId));
+        UserCourseInterDTO userCourseInterDTO = new UserCourseInterDTO(userFavCourseIds.contains(courseId), courseJoinRelation != null, userLikeCourseIds.contains(courseId), courseScore != null, courseComment != null, courseScore != null ? courseScore.getScore() : 0.0);
+        return ServiceResult.success(userCourseInterDTO);
+    }
+
+    /**
+     * @param userId
+     * @param courseId
+     * @param score
+     * @return
+     */
+    @Override
+    public ServiceResult<?> addCourseScore(Long userId, Long courseId, Double score) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.ex("课程不存在");
+        }
+        CourseScore courseScore = courseScoreMapper.selectOne(new QueryWrapper<CourseScore>().eq("user_id", userId).eq("course_id", courseId));
+        if (courseScore == null) {
+            courseInfo.setScore((courseInfo.getScore() * courseInfo.getScoreCount() + score) / (courseInfo.getScoreCount() + 1));
+            courseScore = new CourseScore();
+            courseScore.setUserId(userId);
+            courseScore.setCourseId(courseId);
+            courseScore.setScore(score);
+            courseScoreMapper.insert(courseScore);
+        } else {
+            courseInfo.setScore((courseInfo.getScore() * courseInfo.getScoreCount() - courseScore.getScore() + score) / courseInfo.getScoreCount());
+            courseScore.setScore(score);
+            courseScoreMapper.updateById(courseScore);
+        }
+        return ServiceResult.success();
+    }
+
+    /**
+     * @param userId
+     * @param courseId
+     * @return
+     */
+    @Override
+    public ServiceResult<?> delCourseScore(Long userId, Long courseId) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.ex("课程不存在");
+        }
+        CourseScore courseScore = courseScoreMapper.selectOne(new QueryWrapper<CourseScore>().eq("user_id", userId).eq("course_id", courseId));
+        if (courseScore == null) {
+            return ServiceResult.ex("该用户未评分");
+        } else {
+            courseInfo.setScore((courseInfo.getScore() * courseInfo.getScoreCount() - courseScore.getScore()) / (courseInfo.getScoreCount() - 1));
+            courseScoreMapper.deleteById(courseScore.getId());
+        }
+        return ServiceResult.success();
+    }
+
+
+    /**
      * @param courseId 课程id
      * @param userId   用户id
      * @return 服务返回结果统一封装
      */
     @Override
+    @GlobalTransactional
     public ServiceResult<?> addLikeCourse(Long courseId, Long userId) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
             return ServiceResult.ex("课程不存在");
+        }
+        ServiceResult<Boolean> res = userGrpcClient.addUserLikeCourse(userId, courseId);
+        if (!res.isSuccess()) {
+            return ServiceResult.ex(res.getMessage());
         }
         courseInfo.setFavCount(courseInfo.getFavCount() + 1);
         if (courseInfoMapper.updateById(courseInfo) > 0) {
@@ -896,10 +980,15 @@ public class CourseServiceImpl implements CourseService {
      * @return 服务返回结果统一封装
      */
     @Override
+    @GlobalTransactional
     public ServiceResult<?> delLikeCourse(Long courseId, Long userId) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
             return ServiceResult.ex("课程不存在");
+        }
+        ServiceResult<Boolean> res = userGrpcClient.delUserLikeCourse(userId, courseId);
+        if (!res.isSuccess()) {
+            return ServiceResult.ex(res.getMessage());
         }
         courseInfo.setFavCount(courseInfo.getFavCount() - 1);
         if (courseInfoMapper.updateById(courseInfo) > 0) {

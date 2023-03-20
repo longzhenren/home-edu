@@ -28,6 +28,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Long> addSchedule(Long createUserId, Long userId, String title, String content, Date startTime, Date endTime, String location, String remark, String color, Boolean allDay, Boolean canEdit) {
         Schedule schedule = new Schedule();
 //        if (StpUtil.getLoginId() != createUserId) {

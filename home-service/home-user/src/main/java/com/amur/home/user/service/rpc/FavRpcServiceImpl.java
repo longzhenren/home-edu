@@ -17,10 +17,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
     @Resource
     private UserFavMapper userFavMapper;
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void getFavCourses(FavServiceProto.GetFavCoursesRequest request, StreamObserver<FavServiceProto.GetFavCoursesResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -37,10 +34,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void addFavCourse(FavServiceProto.AddFavCourseRequest request, StreamObserver<FavServiceProto.AddFavCourseResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -68,10 +62,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void delFavCourse(FavServiceProto.DelFavCourseRequest request, StreamObserver<FavServiceProto.DelFavCourseResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -99,10 +90,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void getFavCourseLists(FavServiceProto.GetFavCourseListsRequest request, StreamObserver<FavServiceProto.GetFavCourseListsResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -119,10 +107,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void addFavCourseList(FavServiceProto.AddFavCourseListRequest request, StreamObserver<FavServiceProto.AddFavCourseListResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -150,10 +135,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void delFavCourseList(FavServiceProto.DelFavCourseListRequest request, StreamObserver<FavServiceProto.DelFavCourseListResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -181,10 +163,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void getFavCourseWares(FavServiceProto.GetFavCourseWaresRequest request, StreamObserver<FavServiceProto.GetFavCourseWaresResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -201,10 +180,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void addFavCourseWare(FavServiceProto.AddFavCourseWareRequest request, StreamObserver<FavServiceProto.AddFavCourseWareResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());
@@ -232,10 +208,7 @@ public class FavRpcServiceImpl extends FavServiceGrpc.FavServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void delFavCourseWare(FavServiceProto.DelFavCourseWareRequest request, StreamObserver<FavServiceProto.DelFavCourseWareResponse> responseObserver) {
         UserFavorite userFavorite = userFavMapper.selectById(request.getUserId());

@@ -220,10 +220,7 @@ public class CourseRpcServiceImpl extends CourseServiceGrpc.CourseServiceImplBas
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void favCourse(CourseServiceProto.FavCourseRequest request, StreamObserver<CourseServiceProto.FavCourseResponse> responseObserver) {
         CourseInfo course = courseInfoMapper.selectById(request.getCourseId());
@@ -239,83 +236,56 @@ public class CourseRpcServiceImpl extends CourseServiceGrpc.CourseServiceImplBas
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void joinCourseByShareToken(CourseServiceProto.JoinCourseByShareTokenRequest request, StreamObserver<CourseServiceProto.JoinCourseByShareTokenResponse> responseObserver) {
         super.joinCourseByShareToken(request, responseObserver);
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void generateShareToken(CourseServiceProto.GenerateShareTokenRequest request, StreamObserver<CourseServiceProto.GenerateShareTokenResponse> responseObserver) {
         super.generateShareToken(request, responseObserver);
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void getShareInfo(CourseServiceProto.GetShareInfoRequest request, StreamObserver<CourseServiceProto.GetShareInfoResponse> responseObserver) {
         super.getShareInfo(request, responseObserver);
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void deleteShareToken(CourseServiceProto.DeleteShareTokenRequest request, StreamObserver<CourseServiceProto.DeleteShareTokenResponse> responseObserver) {
         super.deleteShareToken(request, responseObserver);
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void hasJoined(CourseServiceProto.HasJoinedRequest request, StreamObserver<CourseServiceProto.HasJoinedResponse> responseObserver) {
         super.hasJoined(request, responseObserver);
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void listShareInfoByUserId(CourseServiceProto.ListShareInfoByUserIdRequest request, StreamObserver<CourseServiceProto.ListShareInfoByUserIdResponse> responseObserver) {
         super.listShareInfoByUserId(request, responseObserver);
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void cancelShareToken(CourseServiceProto.CancelShareTokenRequest request, StreamObserver<CourseServiceProto.CancelShareTokenResponse> responseObserver) {
         super.cancelShareToken(request, responseObserver);
     }
 
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void listCourseByUserId(CourseServiceProto.ListCourseByUserIdRequest request, StreamObserver<CourseServiceProto.ListCourseByUserIdResponse> responseObserver) {
         super.listCourseByUserId(request, responseObserver);
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void listCourseByListId(CourseServiceProto.ListCourseByListIdRequest request, StreamObserver<CourseServiceProto.ListCourseByListIdResponse> responseObserver) {
         super.listCourseByListId(request, responseObserver);

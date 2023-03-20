@@ -144,10 +144,7 @@ public class ScheduleRpcServiceImpl extends ScheduleServiceGrpc.ScheduleServiceI
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void delScheduleByCourseId(ScheduleServiceProto.DelScheduleByCourseIdRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         scheduleService.delScheduleByCourseId(request.getCourseId());
@@ -156,10 +153,7 @@ public class ScheduleRpcServiceImpl extends ScheduleServiceGrpc.ScheduleServiceI
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void updateScheduleByCourseId(ScheduleServiceProto.UpdateScheduleByCourseIdRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         QueryWrapper<Schedule> queryWrapper = new QueryWrapper<>();
@@ -179,10 +173,7 @@ public class ScheduleRpcServiceImpl extends ScheduleServiceGrpc.ScheduleServiceI
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void delScheduleByCourseIdAndUserId(ScheduleServiceProto.DelScheduleByCourseIdAndUserIdRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         QueryWrapper<Schedule> queryWrapper = new QueryWrapper<>();

@@ -2,7 +2,7 @@ package com.amur.home.gateway.service;
 
 import cn.dev33.satoken.stp.StpInterface;
 import com.amur.home.auth.entity.UserAuth;
-import com.amur.home.gateway.client.GatewayGrpcClient;
+import com.amur.home.gateway.client.AuthGrpcClient;
 import com.amur.home.gateway.utils.RedisUtils;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ public class StpInterfaceImpl implements StpInterface {
     @Resource
     private RedisUtils redisUtils;
     @Resource
-    private GatewayGrpcClient gatewayGrpcClient;
+    private AuthGrpcClient authGrpcClient;
 
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
@@ -27,7 +27,7 @@ public class StpInterfaceImpl implements StpInterface {
         if (redisUtils.exists("user_auth:" + loginId)) {
             userAuth = (UserAuth) redisUtils.get("user_auth:" + loginId);
         } else {
-            userAuth = gatewayGrpcClient.getUserAuthById(Long.parseLong((String) loginId));
+            userAuth = authGrpcClient.getUserAuthById(Long.parseLong((String) loginId));
             redisUtils.set("user_auth:" + loginId, userAuth);
         }
         List<String> list = new ArrayList<>(userAuth.getPermissions());
@@ -41,7 +41,7 @@ public class StpInterfaceImpl implements StpInterface {
         if (redisUtils.exists("user_auth:" + loginId)) {
             userAuth = (UserAuth) redisUtils.get("user_auth:" + loginId);
         } else {
-            userAuth = gatewayGrpcClient.getUserAuthById(Long.parseLong((String) loginId));
+            userAuth = authGrpcClient.getUserAuthById(Long.parseLong((String) loginId));
             redisUtils.set("user_auth:" + loginId, userAuth);
         }
         List<String> list = new ArrayList<>(userAuth.getRoles());

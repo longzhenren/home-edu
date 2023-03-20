@@ -58,6 +58,23 @@ CREATE TABLE `user_fav`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
+CREATE TABLE `user_like`
+(
+    `id`              bigint NOT NULL,
+    `user_ids`        json       DEFAULT NULL,
+    `home_ids`        json       DEFAULT NULL,
+    `course_ids`      json       DEFAULT NULL,
+    `course_ware_ids` json       DEFAULT NULL,
+    `course_list_ids` json       DEFAULT NULL,
+    `create_time`     datetime   DEFAULT NULL,
+    `update_time`     datetime   DEFAULT NULL,
+    `version`         int    NOT NULL,
+    `deleted`         tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `home_info`
 (
     `id`             bigint NOT NULL,
@@ -68,8 +85,8 @@ CREATE TABLE `home_info`
     `admin_ids`      json         DEFAULT NULL,
     `create_user_id` bigint       DEFAULT NULL,
     `member_ids`     json         DEFAULT NULL,
-    `like_count`     bigint(20)   DEFAULT NULL,
-    `fav_count`      bigint(20)   DEFAULT NULL,
+    `like_count`     bigint       DEFAULT NULL,
+    `fav_count`      bigint       DEFAULT NULL,
     `open`           tinyint      DEFAULT NULL,
     `create_time`    datetime     DEFAULT NULL,
     `update_time`    datetime     DEFAULT NULL,
@@ -91,7 +108,7 @@ CREATE TABLE `course_comment`
     `reply`         varchar(255) DEFAULT NULL,
     `reply_user_id` varchar(255) DEFAULT NULL,
     `reply_time`    varchar(255) DEFAULT NULL,
-    `like_count`    bigint(20)   DEFAULT NULL,
+    `like_count`    bigint       DEFAULT NULL,
     `score`         double       DEFAULT NULL,
     `create_time`   datetime     DEFAULT NULL,
     `update_time`   datetime     DEFAULT NULL,
@@ -103,6 +120,24 @@ CREATE TABLE `course_comment`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `course_score`
+(
+    `id`          bigint NOT NULL,
+    `course_id`   bigint     DEFAULT NULL,
+    `user_id`     bigint     DEFAULT NULL,
+    `score`       double     DEFAULT NULL,
+    `create_time` datetime   DEFAULT NULL,
+    `update_time` datetime   DEFAULT NULL,
+    `version`     int        DEFAULT NULL,
+    `deleted`     tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_course_score_user_id` (`user_id`),
+    KEY `idx_course_score_course_id` (`course_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `course_info`
 (
     `id`            bigint NOT NULL,
@@ -188,7 +223,7 @@ CREATE TABLE `course_share`
 CREATE TABLE `course_ware`
 (
     `id`                    varchar(128) NOT NULL,
-    `course_id`             bigint(20)   DEFAULT NULL,
+    `course_id`             bigint       DEFAULT NULL,
     `file_name`             varchar(255) DEFAULT NULL,
     `description`           varchar(255) DEFAULT NULL,
     `file_url`              varchar(255) DEFAULT NULL,
@@ -232,16 +267,16 @@ CREATE TABLE `schedule`
 
 CREATE TABLE `msg_chat_user`
 (
-    `id`         varchar(36) NOT NULL,
-    `nickName`   varchar(255) DEFAULT NULL,
-    `userId`     bigint(20)   DEFAULT NULL,
-    `chatId`     varchar(255) DEFAULT NULL,
-    `notify`     tinyint(1)   DEFAULT NULL,
-    `top`        tinyint(1)   DEFAULT NULL,
-    `createTime` datetime     DEFAULT NULL,
-    `updateTime` datetime     DEFAULT NULL,
-    `version`    int          DEFAULT NULL,
-    `deleted`    tinyint(1)   DEFAULT NULL,
+    `id`          varchar(36) NOT NULL,
+    `nickName`    varchar(255) DEFAULT NULL,
+    `userId`      bigint       DEFAULT NULL,
+    `chatId`      varchar(255) DEFAULT NULL,
+    `notify`      tinyint(1)   DEFAULT NULL,
+    `top`         tinyint(1)   DEFAULT NULL,
+    `create_time` datetime     DEFAULT NULL,
+    `update_time` datetime     DEFAULT NULL,
+    `version`     int          DEFAULT NULL,
+    `deleted`     tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_user_id` (`userId`),
     KEY `idx_chat_id` (`chatId`)
@@ -253,12 +288,12 @@ CREATE TABLE `msg_chat`
 (
     `id`            varchar(36) NOT NULL,
     `name`          varchar(255) DEFAULT NULL,
-    `creatorId`     bigint(20)   DEFAULT NULL,
+    `creatorId`     bigint       DEFAULT NULL,
     `lastMessageId` varchar(36)  DEFAULT NULL,
-    `createTime`    datetime     DEFAULT NULL,
-    `updateTime`    datetime     DEFAULT NULL,
-    `version`       int(11)      DEFAULT NULL,
-    `deleted`       int(1)       DEFAULT NULL,
+    `create_time`   datetime     DEFAULT NULL,
+    `update_time`   datetime     DEFAULT NULL,
+    `version`       int          DEFAULT NULL,
+    `deleted`       tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
     KEY `idx_creator_id` (`creatorId`)
 ) ENGINE = InnoDB
@@ -268,17 +303,70 @@ CREATE TABLE `msg_chat`
 CREATE TABLE `msg_msg`
 (
     `id`          varchar(32) NOT NULL,
-    `message`     varchar(255)         DEFAULT NULL,
-    `chat_id`     varchar(32)          DEFAULT NULL,
-    `sender_id`   bigint(20)           DEFAULT NULL,
-    `call_back`   tinyint(1)           DEFAULT NULL,
-    `create_time` datetime             DEFAULT NULL,
-    `update_time` datetime             DEFAULT NULL,
-    `version`     int(11)     NOT NULL DEFAULT '1',
-    `deleted`     tinyint(1)  NOT NULL DEFAULT '0',
+    `message`     varchar(255) DEFAULT NULL,
+    `chat_id`     varchar(32)  DEFAULT NULL,
+    `sender_id`   bigint       DEFAULT NULL,
+    `call_back`   tinyint(1)   DEFAULT NULL,
+    `create_time` datetime     DEFAULT NULL,
+    `update_time` datetime     DEFAULT NULL,
+    `version`     int          DEFAULT NULL,
+    `deleted`     tinyint(1)   DEFAULT NULL,
     PRIMARY KEY (`id`),
-    KEY `idx_chat_id` (`chat_id`) USING BTREE,
-    CONSTRAINT `fk_message_chat_id` FOREIGN KEY (`chat_id`) REFERENCES `msg_chat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+    KEY `idx_chat_id` (`chat_id`) USING BTREE
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `issue_info`
+(
+    `id`            bigint NOT NULL,
+    `home_id`       bigint       DEFAULT NULL,
+    `user_id`       bigint       DEFAULT NULL,
+    `title`         varchar(255) DEFAULT NULL,
+    `content`       text         DEFAULT NULL,
+    `reply_count`   bigint       DEFAULT NULL,
+    `like_count`    bigint       DEFAULT NULL,
+    `comment_count` bigint       DEFAULT NULL,
+    `view_count`    bigint       DEFAULT NULL,
+    `status`        bigint       DEFAULT NULL,
+    `create_time`   datetime     DEFAULT NULL,
+    `update_time`   datetime     DEFAULT NULL,
+    `version`       int          DEFAULT NULL,
+    `deleted`       tinyint(1)   DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `msg_sys`
+(
+    `id`          bigint NOT NULL,
+    `title`       varchar(255) DEFAULT NULL,
+    `message`     text         DEFAULT NULL,
+    `user_ids`    json         DEFAULT NULL,
+    `send_time`   DATETIME     DEFAULT NULL,
+    `create_time` datetime     DEFAULT NULL,
+    `update_time` datetime     DEFAULT NULL,
+    `version`     int          DEFAULT NULL,
+    `deleted`     tinyint(1)   DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `msg_home`
+(
+    `id`          bigint NOT NULL,
+    `home_id`     bigint NOT NULL,
+    `title`       varchar(255) DEFAULT NULL,
+    `message`     text         DEFAULT NULL,
+    `user_ids`    json         DEFAULT NULL,
+    `send_time`   DATETIME     DEFAULT NULL,
+    `create_time` datetime     DEFAULT NULL,
+    `update_time` datetime     DEFAULT NULL,
+    `version`     int          DEFAULT NULL,
+    `deleted`     tinyint(1)   DEFAULT NULL,
+    PRIMARY KEY (id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;

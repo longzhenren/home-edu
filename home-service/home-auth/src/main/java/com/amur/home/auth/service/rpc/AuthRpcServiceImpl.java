@@ -17,10 +17,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
     @Resource
     private AuthService authService;
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void getAuthById(AuthServiceProto.GetAuthByIdRequest request, StreamObserver<AuthServiceProto.GetAuthByIdResponse> responseObserver) {
         ServiceResult<UserAuth> res = authService.getUserAuthById(request.getId());
@@ -33,10 +30,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void addPermission(AuthServiceProto.AddPermissionRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         ServiceResult<Void> res = authService.addPermission(request.getId(), request.getPermission());
@@ -49,10 +43,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void removePermission(AuthServiceProto.RemovePermissionRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         ServiceResult<Void> res = authService.removePermission(request.getId(), request.getPermission());
@@ -65,10 +56,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void addRole(AuthServiceProto.AddRoleRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         ServiceResult<Void> res = authService.addRole(request.getId(), request.getRole());
@@ -81,10 +69,7 @@ public class AuthRpcServiceImpl extends AuthServiceGrpc.AuthServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void removeRole(AuthServiceProto.RemoveRoleRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         ServiceResult<Void> res = authService.removeRole(request.getId(), request.getRole());

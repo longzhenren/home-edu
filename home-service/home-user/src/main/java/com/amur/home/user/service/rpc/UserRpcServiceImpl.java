@@ -22,10 +22,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
     @Resource
     private UserServiceImpl userService;
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void getUserInfo(UserServiceProto.UserIdRequest request, StreamObserver<UserServiceProto.UserInfoResponse> responseObserver) {
         ServiceResult<UserInfo> res = userService.getUserInfo(request.getUserId());
@@ -41,10 +38,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void updateUser(UserServiceProto.UserInfoRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         UserServiceProto.UserInfo userInfoProto = request.getUserInfo();
@@ -60,10 +54,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void deleteUser(UserServiceProto.UserIdRequest request, StreamObserver<ServiceResultProto.ServiceResult> responseObserver) {
         ServiceResult<Void> res = userService.deleteUser(request.getUserId());
@@ -78,10 +69,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void createUser(UserServiceProto.CreateUserRequest request, StreamObserver<UserServiceProto.UserIdResponse> responseObserver) {
         ServiceResult<Long> res = userService.createUser(request.getUserName());
@@ -97,10 +85,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void getUserByName(UserServiceProto.UserNameRequest request, StreamObserver<UserServiceProto.UserInfoResponse> responseObserver) {
         ServiceResult<UserInfo> res = userService.getUserByName(request.getUserName());
@@ -118,10 +103,7 @@ public class UserRpcServiceImpl extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void checkUserExists(UserServiceProto.UserIdRequest request, StreamObserver<UserServiceProto.CheckUserExistsResponse> responseObserver) {
         ServiceResult<Boolean> res = userService.checkUserExists(request.getUserId());

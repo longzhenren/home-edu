@@ -28,10 +28,7 @@ public class TinyIdGrpcServiceImpl extends IdServiceGrpc.IdServiceImplBase {
     @Value("${batch.size.max}")
     private Integer batchSizeMax;
 
-    /**
-     * @param request
-     * @param responseObserver
-     */
+
     @Override
     public void genId(GenIdReq request, StreamObserver<Resp> responseObserver) {
         Resp resp = Resp.newBuilder().build();

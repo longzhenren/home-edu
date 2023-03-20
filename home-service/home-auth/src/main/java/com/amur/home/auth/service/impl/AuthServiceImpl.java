@@ -11,8 +11,6 @@ import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.seata.spring.annotation.GlobalTransactional;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +39,7 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Map<String, Object>> login(String userName, String password) {
         QueryWrapper<UserAuth> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name", userName);
@@ -80,6 +79,7 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
 //    @CacheEvict(value = "user_auth", key = "#result.data")
     public ServiceResult<Long> register(String userName, String password) {
         QueryWrapper<UserAuth> queryWrapper = new QueryWrapper<>();
@@ -99,6 +99,7 @@ public class AuthServiceImpl implements AuthService {
         userAuth.setRoles(Collections.singleton(Constants.RoleName.USER.getName()));
         userAuth.setPermissions(Collections.singleton(Constants.PermissionName.USER.getName()));
         if (authMapper.insert(userAuth) > 0) {
+            redisUtils.set("user_auth:" + userAuth.getId(), userAuth);
             return ServiceResult.success(userId);
         } else {
             userGrpcClient.deleteUser(userId);
@@ -113,6 +114,9 @@ public class AuthServiceImpl implements AuthService {
     @Override
 //    @Cacheable(value = "user_auth", key = "#id")
     public ServiceResult<UserAuth> getUserAuthById(Long id) {
+        if (redisUtils.exists("user_auth:" + id)) {
+            return ServiceResult.success((UserAuth) redisUtils.get("user_auth:" + id));
+        }
         UserAuth userAuth = authMapper.selectById(id);
         if (userAuth == null) {
             return ServiceResult.ex("用户不存在");
@@ -136,6 +140,7 @@ public class AuthServiceImpl implements AuthService {
         }
         userAuth.getPermissions().add(permission);
         if (authMapper.updateById(userAuth) > 0) {
+            redisUtils.set("user_auth:" + id, userAuth);
             return ServiceResult.success();
         } else {
             return ServiceResult.ex("添加权限失败");
@@ -158,6 +163,7 @@ public class AuthServiceImpl implements AuthService {
         }
         userAuth.getPermissions().remove(permission);
         if (authMapper.updateById(userAuth) > 0) {
+            redisUtils.set("user_auth:" + id, userAuth);
             return ServiceResult.success();
         } else {
             return ServiceResult.ex("删除权限失败");
@@ -180,6 +186,7 @@ public class AuthServiceImpl implements AuthService {
         }
         userAuth.getRoles().add(role);
         if (authMapper.updateById(userAuth) > 0) {
+            redisUtils.set("user_auth:" + id, userAuth);
             return ServiceResult.success();
         } else {
             return ServiceResult.ex("添加角色失败");
@@ -202,6 +209,7 @@ public class AuthServiceImpl implements AuthService {
         }
         userAuth.getRoles().remove(role);
         if (authMapper.updateById(userAuth) > 0) {
+            redisUtils.set("user_auth:" + id, userAuth);
             return ServiceResult.success();
         } else {
             return ServiceResult.ex("删除角色失败");

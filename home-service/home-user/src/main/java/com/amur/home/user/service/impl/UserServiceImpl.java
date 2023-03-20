@@ -5,8 +5,10 @@ import com.amur.home.dto.PageResult;
 import com.amur.home.user.client.TinyIdGrpcClient;
 import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
+import com.amur.home.user.entity.UserLike;
 import com.amur.home.user.mapper.UserFavMapper;
 import com.amur.home.user.mapper.UserInfoMapper;
+import com.amur.home.user.mapper.UserLikeMapper;
 import com.amur.home.user.service.UserService;
 import com.amur.home.user.util.RedisUtils;
 import com.amur.home.util.ServiceResult;
@@ -38,6 +40,9 @@ public class UserServiceImpl implements UserService {
     private UserFavMapper userFavMapper;
 
     @Resource
+    private UserLikeMapper userLikeMapper;
+
+    @Resource
     private TinyIdGrpcClient tinyIdGrpcClient;
 
     @Resource
@@ -54,6 +59,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public ServiceResult<UserInfo> getUserInfo(Long userId) {
+        if (redisUtils.exists("user_info:" + userId)) {
+            return ServiceResult.success((UserInfo) redisUtils.get("user_info:" + userId));
+        }
         UserInfo userInfo = userInfoMapper.selectById(userId);
         if (userInfo == null) {
             return ServiceResult.ex("用户不存在");
@@ -161,6 +169,7 @@ public class UserServiceImpl implements UserService {
         if (userFavMapper.deleteById(userId) <= 0) {
             return ServiceResult.ex("删除用户失败");
         }
+        redisUtils.remove("user_info:" + userId);
         return ServiceResult.success();
     }
 
@@ -172,6 +181,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Long> createUser(String userName) {
         ServiceResult<Long> res = tinyIdGrpcClient.getNextId(Constants.TableName.USER.getDesc());
         if (!res.isSuccess()) {
@@ -179,12 +189,17 @@ public class UserServiceImpl implements UserService {
         }
         UserInfo userInfo = new UserInfo(res.getData(), userName);
         UserFavorite userFavorite = new UserFavorite(res.getData());
+        UserLike userLike = new UserLike(res.getData());
         if (userInfoMapper.insert(userInfo) <= 0) {
             return ServiceResult.ex("创建用户失败");
         }
         if (userFavMapper.insert(userFavorite) <= 0) {
             return ServiceResult.ex("创建用户失败");
         }
+        if (userLikeMapper.insert(userLike) <= 0) {
+            return ServiceResult.ex("创建用户失败");
+        }
+        redisUtils.set("user_info:" + userInfo.getId(), userInfo);
         return ServiceResult.success(userInfo.getId());
     }
 

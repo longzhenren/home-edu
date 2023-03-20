@@ -81,6 +81,7 @@ public class HomeServiceImpl implements HomeService {
 
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Long> createHome(String name, String description, Long userId, String avatarUrl, Boolean open) {
         UserInfo userInfo = userInfoMapper.selectById(userId);
         if (userInfo == null) {
@@ -302,6 +303,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Void> setHomeAdmin(Long homeId, Long userId) {
         HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
@@ -328,6 +330,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     @GlobalTransactional
+    //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId) {
         HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {

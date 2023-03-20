@@ -1,10 +1,11 @@
 package com.amur.home.course.controller;
 
-import com.amur.home.dto.PageResult;
+import com.amur.home.course.dto.UserCourseInterDTO;
 import com.amur.home.course.entity.CourseInfo;
 import com.amur.home.course.entity.CourseList;
 import com.amur.home.course.service.CourseFavService;
 import com.amur.home.course.service.CourseService;
+import com.amur.home.dto.PageResult;
 import com.amur.home.util.ResponseWrapper;
 import com.amur.home.util.ServiceResult;
 import io.swagger.v3.oas.annotations.Operation;
@@ -510,6 +511,42 @@ public class CourseController {
     @Operation(summary = "取消点赞课程")
     public ResponseWrapper<?> likeDel(Long courseId, Long userId) {
         ServiceResult<?> res = courseService.delLikeCourse(courseId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @GetMapping("/user/int")
+    @Operation(summary = "查看用户课程关系")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
+    public ResponseWrapper<UserCourseInterDTO> userCourseRelation(Long userId, Long courseId) {
+        ServiceResult<UserCourseInterDTO> res = courseService.userCourseRelation(userId, courseId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/score/add")
+    @Operation(summary = "添加或更新课程评分")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID"), @Parameter(name = "score", in = ParameterIn.QUERY, required = true, description = "评分")})
+    public ResponseWrapper<?> scoreAdd(Long userId, Long courseId, Double score) {
+        ServiceResult<?> res = courseService.addCourseScore(userId, courseId, score);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @PostMapping("/score/del")
+    @Operation(summary = "删除课程评分")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
+    public ResponseWrapper<?> scoreAdd(Long userId, Long courseId) {
+        ServiceResult<?> res = courseService.delCourseScore(userId, courseId);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

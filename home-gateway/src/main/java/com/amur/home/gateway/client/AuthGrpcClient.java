@@ -12,7 +12,7 @@ import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GatewayGrpcClient {
+public class AuthGrpcClient {
     @GrpcClient("home-user")
     private UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub;
 
