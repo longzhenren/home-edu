@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -58,7 +59,7 @@ public class ScheduleController {
     }
 
     @Operation(summary = "日程详细")
-    @PostMapping("/info/id")
+    @GetMapping("/info/id")
     @Parameters({@Parameter(name = "id", description = "日程id", required = true)})
     public ResponseWrapper<Schedule> getScheduleInfoById(Long id) {
         ServiceResult<Schedule> res = scheduleService.getScheduleInfoById(id);
@@ -70,10 +71,10 @@ public class ScheduleController {
     }
 
     @Operation(summary = "查询用户日程")
-    @PostMapping("/info/user")
+    @GetMapping("/info/user")
     @Parameters({@Parameter(name = "userid", description = "用户id", required = true)})
-    public ResponseWrapper<List<Schedule>> getScheduleInfoByUserId(Long userid) {
-        ServiceResult<List<Schedule>> res = scheduleService.getScheduleInfoByUserId(userid);
+    public ResponseWrapper<List<Schedule>> getScheduleInfoByUserId(Long userId) {
+        ServiceResult<List<Schedule>> res = scheduleService.getScheduleInfoByUserId(userId);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {
@@ -82,10 +83,10 @@ public class ScheduleController {
     }
 
     @Operation(summary = "查询指定时间范围内的用户日程")
-    @PostMapping("/info/user/time")
+    @GetMapping("/info/user/time")
     @Parameters({@Parameter(name = "userid", description = "用户id", required = true), @Parameter(name = "keyword", description = "关键字", required = true), @Parameter(name = "startTime", description = "开始时间", required = true), @Parameter(name = "endTime", description = "结束时间", required = true)})
-    public ResponseWrapper<List<Schedule>> getScheduleInfoByUserIdAndTime(Long userid, String keyword, Date startTime, Date endTime) {
-        ServiceResult<List<Schedule>> res = scheduleService.getScheduleInfoByUserIdAndTime(userid, keyword, startTime, endTime);
+    public ResponseWrapper<List<Schedule>> getScheduleInfoByUserIdAndTime(Long userId, String keyword, Date startTime, Date endTime) {
+        ServiceResult<List<Schedule>> res = scheduleService.getScheduleInfoByUserIdAndTime(userId, keyword, startTime, endTime);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

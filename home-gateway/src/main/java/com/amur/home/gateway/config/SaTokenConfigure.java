@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * [Sa-Token 权限认证] 配置类
  *
- * @author kong
+ * @author longzhenren
  */
 @Configuration
 public class SaTokenConfigure {
