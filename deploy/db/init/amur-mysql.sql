@@ -359,6 +359,7 @@ CREATE TABLE `msg_home`
     `id`          bigint NOT NULL,
     `home_id`     bigint NOT NULL,
     `title`       varchar(255) DEFAULT NULL,
+    `sender_id`   bigint       DEFAULT NULL,
     `message`     text         DEFAULT NULL,
     `user_ids`    json         DEFAULT NULL,
     `send_time`   DATETIME     DEFAULT NULL,

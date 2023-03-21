@@ -152,7 +152,9 @@ public class Constants {
         COURSE_WARE("course_ware"),
         COURSE_JOIN("course_join"),
         USER("user"),
-        SCHEDULE("schedule");
+        SCHEDULE("schedule"),
+        MSG_SYS("msg_sys"),
+        MSG_HOME("msg_home");
         private final String desc;
     }
 

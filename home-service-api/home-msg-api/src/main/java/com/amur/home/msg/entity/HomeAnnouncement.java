@@ -16,6 +16,7 @@ public class HomeAnnouncement {
     @TableId
     private Long id;
     private Long homeId;
+    private Long senderId;
     private String title;
     private String message;
     @TableField(typeHandler = SetTypeHandler.class)
@@ -36,4 +37,14 @@ public class HomeAnnouncement {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
+
+    public HomeAnnouncement(Long id, Long homeId, Long senderId, String title, String message, Set<Long> userIds, Date sendTime) {
+        this.id = id;
+        this.homeId = homeId;
+        this.senderId = senderId;
+        this.title = title;
+        this.message = message;
+        this.userIds = userIds;
+        this.sendTime = sendTime;
+    }
 }

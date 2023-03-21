@@ -150,7 +150,7 @@ public class CourseServiceImpl implements CourseService {
         queryWrapperComment.eq("course_id", courseId);
         courseCommentMapper.delete(queryWrapperComment);
         QueryWrapper<CourseList> queryWrapperList = new QueryWrapper<>();
-        queryWrapperList.like("course_ids", courseId);
+        queryWrapperList.like("course_ids", "," + courseId + ",");
         List<CourseList> courseListList = courseListMapper.selectList(queryWrapperList);
         for (CourseList courseList : courseListList) {
             courseList.getCourseIds().remove(courseId);

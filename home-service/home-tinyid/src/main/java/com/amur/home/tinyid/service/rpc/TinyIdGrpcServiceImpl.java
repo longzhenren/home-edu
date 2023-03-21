@@ -9,6 +9,7 @@ import com.amur.home.tinyid.rpc.TinyId.GenIdResp;
 import com.amur.home.tinyid.rpc.TinyId.Resp;
 import com.amur.home.tinyid.service.TinyIdTokenService;
 import io.grpc.stub.StreamObserver;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class TinyIdGrpcServiceImpl extends IdServiceGrpc.IdServiceImplBase {
 
 
     @Override
+    @GlobalTransactional
     public void genId(GenIdReq request, StreamObserver<Resp> responseObserver) {
         Resp resp = Resp.newBuilder().build();
         String bizType = request.getBizType();

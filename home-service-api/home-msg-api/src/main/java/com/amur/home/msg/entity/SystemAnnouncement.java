@@ -35,4 +35,12 @@ public class SystemAnnouncement {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
+
+    public SystemAnnouncement(Long id, String title, String message, Set<Long> userIds, Date sendTime) {
+        this.id = id;
+        this.title = title;
+        this.message = message;
+        this.userIds = userIds;
+        this.sendTime = sendTime;
+    }
 }

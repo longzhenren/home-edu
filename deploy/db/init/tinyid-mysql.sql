@@ -66,6 +66,10 @@ insert into `tiny_id_info` (id, biz_type, begin_id, max_id, step, delta, remaind
 values (8, 'user', 1, 1, 100, 1, 0, '2023-01-01 00:00:00', '2023-01-01 00:00:00', 1);
 insert into `tiny_id_info` (id, biz_type, begin_id, max_id, step, delta, remainder, create_time, update_time, version)
 values (9, 'schedule', 1, 1, 100, 1, 0, '2023-01-01 00:00:00', '2023-01-01 00:00:00', 1);
+insert into `tiny_id_info` (id, biz_type, begin_id, max_id, step, delta, remainder, create_time, update_time, version)
+values (10, 'msg_sys', 1, 1, 100, 1, 0, '2023-01-01 00:00:00', '2023-01-01 00:00:00', 1);
+insert into `tiny_id_info` (id, biz_type, begin_id, max_id, step, delta, remainder, create_time, update_time, version)
+values (11, 'msg_home', 1, 1, 100, 1, 0, '2023-01-01 00:00:00', '2023-01-01 00:00:00', 1);
 
 insert into `tiny_id_token` (id, token, biz_type, remark, create_time, update_time)
 values (1, '0f673adf80504e2eaa552f5d791b644c', 'course_comment', '1', '2023-01-01 00:00:00', '2023-01-01 00:00:00');
@@ -85,3 +89,7 @@ insert into `tiny_id_token` (id, token, biz_type, remark, create_time, update_ti
 values (8, '0f673adf80504e2eaa552f5d791b644c', 'user', '1', '2023-01-01 00:00:00', '2023-01-01 00:00:00');
 insert into `tiny_id_token` (id, token, biz_type, remark, create_time, update_time)
 values (9, '0f673adf80504e2eaa552f5d791b644c', 'schedule', '1', '2023-01-01 00:00:00', '2023-01-01 00:00:00');
+insert into `tiny_id_token` (id, token, biz_type, remark, create_time, update_time)
+values (10, '0f673adf80504e2eaa552f5d791b644c', 'msg_sys', '1', '2023-01-01 00:00:00', '2023-01-01 00:00:00');
+insert into `tiny_id_token` (id, token, biz_type, remark, create_time, update_time)
+values (11, '0f673adf80504e2eaa552f5d791b644c', 'msg_home', '1', '2023-01-01 00:00:00', '2023-01-01 00:00:00');
