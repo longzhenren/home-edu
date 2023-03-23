@@ -17,7 +17,6 @@ service AnnouncementService {
   rpc DeleteAnnouncement (DeleteAnnouncementRequest) returns (DeleteAnnouncementResponse);
 }
 
-
 message SystemAnnouncement {
   int64 id = 1;
   string title = 2;
