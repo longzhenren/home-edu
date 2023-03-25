@@ -18,6 +18,17 @@ spring:
         group: DEFAULT_GROUP
         server-addr: 127.0.0.1:8848
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            #是否允许cookie跨域  true允许
+            allowCredentials: true
+            #允许跨域的url * 则允许全部
+            allowedOriginPatterns: '*'
+            # 允许跨域的方法 * 则全部
+            allowedMethods: '*'
+            # 跨域预检时间
+            maxAge: 180
       routes:
         - id: home-oss
           uri: http://127.0.0.1:9001

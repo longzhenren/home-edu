@@ -92,9 +92,7 @@ CREATE TABLE `home_info`
     `update_time`    datetime     DEFAULT NULL,
     `version`        int          DEFAULT NULL,
     `deleted`        tinyint(1)   DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    KEY `idx_create_time` (`create_time`),
-    KEY `idx_update_time` (`update_time`)
+    PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
