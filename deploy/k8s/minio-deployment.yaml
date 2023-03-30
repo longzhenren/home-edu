@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: minio-claim0
   labels:
-    io.kompose.service: minio-claim0
+    com.amur.service: minio-claim0
 spec:
   capacity:
     storage: 100Gi
@@ -19,7 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: minio-claim0
   labels:
-    io.kompose.service: minio-claim0
+    com.amur.service: minio-claim0
 spec:
   accessModes:
     - ReadWriteOnce
@@ -31,29 +31,23 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: minio
+    com.amur.service: minio
   name: minio
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: minio
+      com.amur.service: minio
   strategy:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.28.0 (HEAD)
       creationTimestamp: null
       labels:
-        io.kompose.network/compose-amur: "true"
-        io.kompose.service: minio
+        com.amur.network/compose-amur: "true"
+        com.amur.service: minio
     spec:
       imagePullSecrets:
         - name: aliyun
@@ -88,12 +82,9 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: minio
+    com.amur.service: minio
   name: minio
 spec:
   type: NodePort
@@ -102,6 +93,6 @@ spec:
       port: 9000
       targetPort: 9000
   selector:
-    io.kompose.service: minio
+    com.amur.service: minio
 status:
   loadBalancer: {}

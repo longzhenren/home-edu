@@ -8,10 +8,10 @@ spec:
     - from:
         - podSelector:
             matchLabels:
-              io.kompose.network/compose-amur: "true"
+              com.amur.network/compose-amur: "true"
   podSelector:
     matchLabels:
-      io.kompose.network/compose-amur: "true"
+      com.amur.network/compose-amur: "true"
 
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -23,10 +23,10 @@ spec:
     - from:
         - podSelector:
             matchLabels:
-              io.kompose.network/compose-default: "true"
+              com.amur.network/compose-default: "true"
   podSelector:
     matchLabels:
-      io.kompose.network/compose-default: "true"
+      com.amur.network/compose-default: "true"
 
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -38,8 +38,8 @@ spec:
     - from:
         - podSelector:
             matchLabels:
-              io.kompose.network/compose-skywalking: "true"
+              com.amur.network/compose-skywalking: "true"
   podSelector:
     matchLabels:
-      io.kompose.network/compose-skywalking: "true"
+      com.amur.network/compose-skywalking: "true"
 

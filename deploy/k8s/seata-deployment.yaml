@@ -1,28 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: seata
+    com.amur.service: seata
   name: seata
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: seata
+      com.amur.service: seata
   strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.28.0 (HEAD)
       creationTimestamp: null
       labels:
-        io.kompose.network/compose-amur: "true"
-        io.kompose.service: seata
+        com.amur.network/compose-amur: "true"
+        com.amur.service: seata
     spec:
       imagePullSecrets:
         - name: aliyun
@@ -46,12 +40,9 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: seata
+    com.amur.service: seata
   name: seata
 spec:
   type: NodePort
@@ -63,6 +54,6 @@ spec:
       port: 7091
       targetPort: 7091
   selector:
-    io.kompose.service: seata
+    com.amur.service: seata
 status:
   loadBalancer: {}

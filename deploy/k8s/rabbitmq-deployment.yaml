@@ -1,28 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: rabbitmq
+    com.amur.service: rabbitmq
   name: rabbitmq
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: rabbitmq
+      com.amur.service: rabbitmq
   strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.28.0 (HEAD)
       creationTimestamp: null
       labels:
-        io.kompose.network/compose-amur: "true"
-        io.kompose.service: rabbitmq
+        com.amur.network/compose-amur: "true"
+        com.amur.service: rabbitmq
     spec:
       imagePullSecrets:
         - name: aliyun
@@ -45,12 +39,9 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: rabbitmq
+    com.amur.service: rabbitmq
   name: rabbitmq
 spec:
   type: NodePort
@@ -62,6 +53,6 @@ spec:
       port: 15672
       targetPort: 15672
   selector:
-    io.kompose.service: rabbitmq
+    com.amur.service: rabbitmq
 status:
   loadBalancer: {}

@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: db-claim0
+    com.amur.service: db-claim0
   name: db-claim0
 spec:
     accessModes:
@@ -20,7 +20,7 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: db-claim0
+    com.amur.service: db-claim0
   name: db-claim0
 spec:
   accessModes:
@@ -33,29 +33,23 @@ status: {}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: db
+    com.amur.service: db
   name: db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: db
+      com.amur.service: db
   strategy:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.28.0 (HEAD)
       creationTimestamp: null
       labels:
-        io.kompose.network/compose-amur: "true"
-        io.kompose.service: db
+        com.amur.network/compose-amur: "true"
+        com.amur.service: db
     spec:
       imagePullSecrets:
         - name: aliyun
@@ -98,12 +92,9 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: db
+    com.amur.service: db
   name: db
 spec:
   type: NodePort
@@ -112,6 +103,6 @@ spec:
       port: 3306
       targetPort: 3306
   selector:
-    io.kompose.service: db
+    com.amur.service: db
 status:
   loadBalancer: {}

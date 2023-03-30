@@ -1,13 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.network/compose-skywalking: "true"
-    io.kompose.service: ui
+    com.amur.network/compose-skywalking: "true"
+    com.amur.service: ui
   name: ui
 spec:
   containers:
@@ -27,12 +24,9 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: ui
+    com.amur.service: ui
   name: ui
 spec:
   type: NodePort
@@ -41,6 +35,6 @@ spec:
       port: 8808
       targetPort: 8808
   selector:
-    io.kompose.service: ui
+    com.amur.service: ui
 status:
   loadBalancer: {}
