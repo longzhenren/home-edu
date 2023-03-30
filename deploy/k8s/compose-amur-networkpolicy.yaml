@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  creationTimestamp: null
+  name: compose-amur
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              io.kompose.network/compose-amur: "true"
+  podSelector:
+    matchLabels:
+      io.kompose.network/compose-amur: "true"
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  creationTimestamp: null
+  name: compose-default
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              io.kompose.network/compose-default: "true"
+  podSelector:
+    matchLabels:
+      io.kompose.network/compose-default: "true"
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  creationTimestamp: null
+  name: compose-skywalking
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              io.kompose.network/compose-skywalking: "true"
+  podSelector:
+    matchLabels:
+      io.kompose.network/compose-skywalking: "true"
+

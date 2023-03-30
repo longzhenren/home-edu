@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: nacos
+  name: nacos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: nacos
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.28.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/compose-amur: "true"
+        io.kompose.service: nacos
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: MODE
+              value: standalone
+            - name: MYSQL_SERVICE_DB_NAME
+              value: nacos
+            - name: MYSQL_SERVICE_DB_PARAM
+              value: characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true
+            - name: MYSQL_SERVICE_HOST
+              value: db
+            - name: MYSQL_SERVICE_PASSWORD
+              value: password
+            - name: MYSQL_SERVICE_PORT
+              value: "3306"
+            - name: MYSQL_SERVICE_USER
+              value: user
+            - name: PREFER_HOST_MODE
+              value: hostname
+            - name: SPRING_DATASOURCE_PLATFORM
+              value: mysql
+          image: registry.cn-beijing.aliyuncs.com/amur/nacos:latest
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - http://127.0.0.1:8848/nacos/actuator/health
+            failureThreshold: 10
+            periodSeconds: 10
+            timeoutSeconds: 10
+          name: nacos
+          ports:
+            - containerPort: 8848
+            - containerPort: 9848
+            - containerPort: 9555
+          resources: {}
+      hostname: nacos
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: nacos
+  name: nacos
+spec:
+  ports:
+    - name: "8848"
+      port: 8848
+      targetPort: 8848
+    - name: "9848"
+      port: 9848
+      targetPort: 9848
+    - name: "9555"
+      port: 9555
+      targetPort: 9555
+  selector:
+    io.kompose.service: nacos
+status:
+  loadBalancer: {}
