@@ -58,9 +58,11 @@ spec:
     - name: "8080"
       port: 8080
       targetPort: 8080
+      # nodePort: 8080
     - name: "9090"
       port: 9090
       targetPort: 9090
+      # nodePort: 9090
   selector:
     com.amur.service: home-gateway
 status:

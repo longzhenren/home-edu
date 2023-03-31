@@ -58,9 +58,11 @@ spec:
     - name: "8705"
       port: 8705
       targetPort: 8705
+       # nodePort: 8705
     - name: "9705"
       port: 9705
       targetPort: 9705
+       # nodePort: 9705
   selector:
     com.amur.service: home-auth
 status:

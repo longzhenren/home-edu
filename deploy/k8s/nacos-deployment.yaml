@@ -67,16 +67,20 @@ metadata:
     com.amur.service: nacos
   name: nacos
 spec:
+  type: NodePort
   ports:
     - name: "8848"
       port: 8848
       targetPort: 8848
+      # nodePort: 8848
     - name: "9848"
       port: 9848
       targetPort: 9848
+      # nodePort: 9848
     - name: "9555"
       port: 9555
       targetPort: 9555
+      # nodePort: 9555
   selector:
     com.amur.service: nacos
 status:
