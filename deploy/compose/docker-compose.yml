@@ -98,7 +98,8 @@ services:
     networks:
       - amur
   seata:
-    image: seataio/seata-server:1.6.0
+#    image: seataio/seata-server:1.6.0
+    image: registry.cn-beijing.aliyuncs.com/amur/seata:latest
     hostname: seata-server
     ports:
       - "8091:8091"
@@ -120,6 +121,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-auth
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     #      - SPRING_CLOUD_NACOS_CONFIG_NAMESPACE=public
     #      - NACOS_CONFIG_FILE_EXTENSION=yml
     #      - NACOS_CONFIG_DATA_ID=home-auth
@@ -151,6 +154,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-gateway
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     ports:
       - "8080:8080"
       - "9090:9090"
@@ -168,6 +173,8 @@ services:
       - DATASOURCE_TINYID_PRIMARY_URL=jdbc:mysql://db:3306/tinyid?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - DATASOURCE_TINYID_PRIMARY_USERNAME=root
       - DATASOURCE_TINYID_PRIMARY_PASSWORD=root
+      - SW_AGENT_NAME=home-tinyid
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     ports:
       - "8700:8700"
       - "9700:9700"
@@ -192,6 +199,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-user
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     ports:
       - "8701:8701"
       - "9701:9701"
@@ -216,6 +225,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-schedule
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     ports:
       - "8706:8706"
       - "9706:9706"
@@ -240,6 +251,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-course
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     ports:
       - "8704:8704"
       - "9704:9704"
@@ -264,6 +277,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-msg
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     ports:
       - "8702:8702"
       - "9702:9702"
@@ -288,6 +303,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-rtc
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
     ports:
       - "8703:8703"
       - "9703:9703"
@@ -336,7 +353,8 @@ services:
       - "12800:12800"
     networks:
       - skywalking
-    restart: on-failure
+      - amur
+    restart: unless-stopped
     environment:
       - SW_STORAGE=elasticsearch
       - SW_STORAGE_ES_CLUSTER_NODES="es7:9200"
@@ -357,7 +375,7 @@ services:
       - TZ=Asia/Shanghai
     depends_on:
       - oap
-    restart: on-failure
+    restart: unless-stopped
     links:
       - oap
 

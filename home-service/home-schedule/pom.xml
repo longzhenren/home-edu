@@ -49,7 +49,7 @@
                 </executions>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <mainClass>com.amur.home.user.HomeUserApplication</mainClass>
+                    <mainClass>com.amur.home.schedule.HomeScheduleApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
