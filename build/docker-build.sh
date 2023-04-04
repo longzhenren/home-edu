@@ -28,7 +28,8 @@ for dir in $dirs; do
       echo "Maven Building: $dir_name"
       mvn clean package -Dmaven.test.skip=true
     fi
-    docker buildx build -t $DOCKER_REGISTRY/$dir_name":latest" --push --platform linux/amd64,linux/arm64 .
+#    docker buildx build -t $DOCKER_REGISTRY/$dir_name":latest" --push --platform linux/amd64,linux/arm64 .
+    docker buildx build -t $DOCKER_REGISTRY/$dir_name":latest" --push --platform linux/amd64 .
     cd $pwd
   fi
   cd $pwd

@@ -104,7 +104,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         queryWrapper.eq("user_id", userId).orderByDesc("start_time").orderByDesc("end_time");
         List<Schedule> schedules = scheduleMapper.selectList(queryWrapper);
         if (schedules == null || schedules.isEmpty()) {
-            return ServiceResult.ex("用户当前日程列表为空");
+            return ServiceResult.success("用户当前日程列表为空");
         }
         return ServiceResult.success(schedules);
     }
@@ -124,7 +124,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         List<Schedule> schedules = scheduleMapper.selectList(queryWrapper);
         if (schedules == null || schedules.isEmpty()) {
-            return ServiceResult.ex("用户当前日程列表为空");
+            return ServiceResult.success("用户当前日程列表为空");
         }
         return ServiceResult.success(schedules);
     }

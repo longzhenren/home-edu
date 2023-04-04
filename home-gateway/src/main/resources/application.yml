@@ -1,22 +1,22 @@
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 spring:
   application:
     name: home-gateway
   banner:
     location: banner.txt
   redis:
-    port: 6379
-    host: 127.0.0.1
+    port: ${REDIS_PORT:6379}
+    host: ${REDIS_HOST:127.0.0.1}
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
-        username: nacos
-        password: nacos
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
       config:
         group: DEFAULT_GROUP
-        server-addr: 127.0.0.1:8848
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
     gateway:
       globalcors:
         cors-configurations:
@@ -34,42 +34,102 @@ spring:
           uri: http://127.0.0.1:9001
           predicates:
             - Path=/home-oss/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-user
           uri: lb://home-user
           predicates:
             - Path=/home-user/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-tinyid
           uri: lb://home-tinyid
           predicates:
             - Path=/home-tinyid/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-sba
           uri: lb://home-sba
           predicates:
             - Path=/home-sba/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-auth
           uri: lb://home-auth
           predicates:
             - Path=/home-auth/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-course
           uri: lb://home-course
           predicates:
             - Path=/home-course/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-trc
           uri: lb://home-rtc
           predicates:
             - Path=/home-rtc/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-msg
           uri: lb://home-msg
           predicates:
             - Path=/home-msg/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-schedule
           uri: lb://home-schedule
           predicates:
             - Path=/home-schedule/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-msg-ws
           uri: lb:ws//home-msg
           predicates:
             - Path=/home-msg/ws
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
       #          filters:
       #            - StripPrefix=1
       discovery:
@@ -82,7 +142,7 @@ spring:
       - optional:nacos:home-gateway.yml
 grpc:
   server:
-    port: 9080
+    port: ${GRPC_PORT:9080}
   client:
     home-user:
       enableKeepAlive: true
@@ -116,7 +176,7 @@ sa-token:
   tokenPrefix: "Bearer" # token前缀
 knife4j:
   gateway:
-    enable: true
+    enable: ${KNIFE4J_ENABLE:true}
     routes:
       - name: 分布式ID服务
         url: /home-tinyid/v3/api-docs?group=default

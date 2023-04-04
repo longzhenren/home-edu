@@ -52,6 +52,7 @@ services:
       MINIO_SECRET_KEY: minioadmin
     ports:
       - "9000:9000"
+      - "9001:9001"
     command: server /data --console-address ":9000" --address ":9001"
     networks:
       - amur
@@ -107,6 +108,10 @@ services:
     environment:
       - SEATA_PORT=8091
       - STORE_MODE=file
+      - SEATA_REGISTRY_TYPE=nacos
+      - SEATA_REGISTRY_NACOS_SERVER_ADDR=nacos:8848
+      - SEATA_REGISTRY_NACOS_USERNAME=nacos
+      - SEATA_REGISTRY_NACOS_PASSWORD=nacos
     networks:
       - amur
   home-auth:

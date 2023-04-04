@@ -1,6 +1,8 @@
 package com.amur.home.course.exception;
 
-import com.amur.home.util.ServiceResult;
+import com.amur.home.util.ResponseWrapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,7 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public ServiceResult<?> handleException(Exception e) {
-        return ServiceResult.fail(e.getMessage());
+    public ResponseEntity<ResponseWrapper<Object>> handleException(Exception e) {
+        HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+        return ResponseEntity.status(httpStatus).body(ResponseWrapper.fail(httpStatus.value(), e.getMessage()));
     }
 }

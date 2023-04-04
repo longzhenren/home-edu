@@ -284,7 +284,7 @@ public class UserServiceImpl implements UserService {
         Page<UserInfo> page = new Page<>(pageNum, pageSize);
         IPage<UserInfo> userPage = userInfoMapper.selectPage(page, queryWrapper);
         if (userPage.getTotal() == 0) {
-            return ServiceResult.ex("没有搜索到相关课程");
+            return ServiceResult.success("没有搜索到相关课程");
         }
         if (pageNum > userPage.getPages()) {
             return ServiceResult.ex("页数超出限制或当前页无课程");

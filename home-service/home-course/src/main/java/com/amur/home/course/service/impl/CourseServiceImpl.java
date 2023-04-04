@@ -185,7 +185,7 @@ public class CourseServiceImpl implements CourseService {
         Page<CourseInfo> page = new Page<>(pageNum, pageSize);
         IPage<CourseInfo> coursePage = courseInfoMapper.selectPage(page, queryWrapper);
         if (coursePage.getTotal() == 0) {
-            return ServiceResult.ex("没有搜索到相关课程");
+            return ServiceResult.success("没有搜索到相关课程");
         }
         if (pageNum > coursePage.getPages()) {
             return ServiceResult.ex("页数超出限制或当前页无课程");
@@ -250,7 +250,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseInfoList.size() > 0) {
             return ServiceResult.success(courseInfoList);
         } else {
-            return ServiceResult.ex("没有搜索到相关课程");
+            return ServiceResult.success("没有搜索到相关课程");
         }
     }
 
@@ -266,7 +266,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseInfoList.size() > 0) {
             return ServiceResult.success(courseInfoList);
         } else {
-            return ServiceResult.ex("没有搜索到相关课程");
+            return ServiceResult.success("没有搜索到相关课程");
         }
     }
 
@@ -357,7 +357,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseComments.size() > 0) {
             return ServiceResult.success(courseComments);
         } else {
-            return ServiceResult.ex("没有搜索到相关评论");
+            return ServiceResult.success("没有搜索到相关评论");
         }
     }
 
@@ -374,7 +374,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseComments.size() > 0) {
             return ServiceResult.success(courseComments);
         } else {
-            return ServiceResult.ex("没有搜索到相关评论");
+            return ServiceResult.success("没有搜索到相关评论");
         }
     }
 
@@ -390,7 +390,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseComments.size() > 0) {
             return ServiceResult.success(courseComments);
         } else {
-            return ServiceResult.ex("没有搜索到相关评论");
+            return ServiceResult.success("没有搜索到相关评论");
         }
     }
 
@@ -427,7 +427,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseShare != null) {
             return ServiceResult.success(courseShare);
         } else {
-            return ServiceResult.ex("没有搜索到相关分享");
+            return ServiceResult.success("没有搜索到相关分享");
         }
     }
 
@@ -511,7 +511,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseShares.size() > 0) {
             return ServiceResult.success(courseShares);
         } else {
-            return ServiceResult.ex("没有搜索到相关分享");
+            return ServiceResult.success("没有搜索到相关分享");
         }
     }
 
@@ -527,7 +527,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseShares.size() > 0) {
             return ServiceResult.success(courseShares);
         } else {
-            return ServiceResult.ex("没有搜索到相关分享");
+            return ServiceResult.success("没有搜索到相关分享");
         }
     }
 
@@ -712,7 +712,7 @@ public class CourseServiceImpl implements CourseService {
         if (teacherIdSet.size() > 0) {
             return ServiceResult.success(teacherIdSet);
         } else {
-            return ServiceResult.ex("没有搜索到相关记录");
+            return ServiceResult.success("没有搜索到相关记录");
         }
     }
 
@@ -756,7 +756,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseList != null) {
             return ServiceResult.success(courseList);
         } else {
-            return ServiceResult.ex("没有搜索到相关记录");
+            return ServiceResult.success("没有搜索到相关记录");
         }
     }
 
@@ -772,7 +772,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseLists.size() > 0) {
             return ServiceResult.success(courseLists);
         } else {
-            return ServiceResult.ex("没有搜索到相关记录");
+            return ServiceResult.success("没有搜索到相关记录");
         }
     }
 
@@ -788,7 +788,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseLists.size() > 0) {
             return ServiceResult.success(courseLists);
         } else {
-            return ServiceResult.ex("没有搜索到相关记录");
+            return ServiceResult.success("没有搜索到相关记录");
         }
     }
 
