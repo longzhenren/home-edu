@@ -90,7 +90,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 //        queryWrapper.apply("FIND_IN_SET({0}, user_ids)", userId);
         IPage<HomeAnnouncement> announcementPage = homeAnnouncementMapper.selectPage(new Page<>(page, size), queryWrapper);
         if (announcementPage.getTotal() == 0) {
-            return ServiceResult.success("没有搜索到相关公告");
+            return ServiceResult.successMsg("没有搜索到相关公告");
         }
         if (page > announcementPage.getPages()) {
             return ServiceResult.ex("页数超出限制或当前页无公告");
@@ -112,7 +112,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         queryWrapper.le("send_time", new Date());
         IPage<HomeAnnouncement> announcementPage = homeAnnouncementMapper.selectPage(new Page<>(page, size), queryWrapper);
         if (announcementPage.getTotal() == 0) {
-            return ServiceResult.success("没有搜索到相关公告");
+            return ServiceResult.successMsg("没有搜索到相关公告");
         }
         if (page > announcementPage.getPages()) {
             return ServiceResult.ex("页数超出限制或当前页无公告");
@@ -134,7 +134,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         queryWrapper.le("send_time", new Date());
         IPage<SystemAnnouncement> announcementPage = systemAnnouncementMapper.selectPage(new Page<>(page, size), queryWrapper);
         if (announcementPage.getTotal() == 0) {
-            return ServiceResult.success("没有搜索到相关公告");
+            return ServiceResult.successMsg("没有搜索到相关公告");
         }
         if (page > announcementPage.getPages()) {
             return ServiceResult.ex("页数超出限制或当前页无公告");

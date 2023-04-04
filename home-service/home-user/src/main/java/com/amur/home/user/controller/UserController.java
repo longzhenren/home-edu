@@ -65,7 +65,7 @@ public class UserController {
     }
 
     @Operation(summary = "收藏用户")
-    @PostMapping("fav")
+    @PostMapping("/fav")
     @Parameters({@Parameter(name = "favId", description = "被收藏用户id", required = true), @Parameter(name = "nickName", description = "昵称", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
     public ResponseWrapper<Void> favUser(Long favId, String nickName, Long userId) {
         ServiceResult<Void> res = userService.favUser(favId, nickName, userId);
@@ -77,7 +77,7 @@ public class UserController {
     }
 
     @Operation(summary = "上传头像")
-    @PostMapping("avatar")
+    @PostMapping("/avatar")
     @Parameters({@Parameter(name = "file", description = "文件", required = true)})
     public ResponseWrapper<String> updateAvatar(MultipartFile file) {
         ServiceResult<String> res = userService.updateAvatar(file);

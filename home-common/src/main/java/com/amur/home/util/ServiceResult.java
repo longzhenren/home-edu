@@ -53,7 +53,7 @@ public class ServiceResult<T> implements Serializable {
         return new ServiceResult<>(success, message, data);
     }
 
-    public static <T> ServiceResult<T> success(String message) {
+    public static <T> ServiceResult<T> successMsg(String message) {
         return new ServiceResult<>(true, message, null);
     }
 
