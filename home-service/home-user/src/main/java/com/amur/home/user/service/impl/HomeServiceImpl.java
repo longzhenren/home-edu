@@ -216,7 +216,7 @@ public class HomeServiceImpl implements HomeService {
         if (homeInfoList.size() > 0) {
             return ServiceResult.success(homeInfoList);
         } else {
-            return ServiceResult.success("没有搜索到相关家庭");
+            return ServiceResult.successMsg("没有搜索到相关家庭");
         }
     }
 

@@ -185,7 +185,7 @@ public class CourseServiceImpl implements CourseService {
         Page<CourseInfo> page = new Page<>(pageNum, pageSize);
         IPage<CourseInfo> coursePage = courseInfoMapper.selectPage(page, queryWrapper);
         if (coursePage.getTotal() == 0) {
-            return ServiceResult.success("没有搜索到相关课程");
+            return ServiceResult.successMsg("没有搜索到相关课程");
         }
         if (pageNum > coursePage.getPages()) {
             return ServiceResult.ex("页数超出限制或当前页无课程");
@@ -250,7 +250,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseInfoList.size() > 0) {
             return ServiceResult.success(courseInfoList);
         } else {
-            return ServiceResult.success("没有搜索到相关课程");
+            return ServiceResult.successMsg("没有搜索到相关课程");
         }
     }
 
@@ -266,7 +266,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseInfoList.size() > 0) {
             return ServiceResult.success(courseInfoList);
         } else {
-            return ServiceResult.success("没有搜索到相关课程");
+            return ServiceResult.successMsg("没有搜索到相关课程");
         }
     }
 
@@ -427,7 +427,7 @@ public class CourseServiceImpl implements CourseService {
         if (courseShare != null) {
             return ServiceResult.success(courseShare);
         } else {
-            return ServiceResult.success("没有搜索到相关分享");
+            return ServiceResult.successMsg("没有搜索到相关分享");
         }
     }
 

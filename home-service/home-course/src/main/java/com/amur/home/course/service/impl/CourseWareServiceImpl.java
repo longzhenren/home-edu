@@ -78,7 +78,7 @@ public class CourseWareServiceImpl implements CourseWareService {
         queryWrapper.eq("course_id", courseId);
         List<CourseWare> courseWares = courseWareMapper.selectList(queryWrapper);
         if (courseWares.size() < 1) {
-            return ServiceResult.success("没有课件");
+            return ServiceResult.successMsg("没有课件");
         }
         return ServiceResult.success(courseWares);
     }
