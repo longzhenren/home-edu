@@ -511,7 +511,7 @@ public class MessageServiceImpl implements MessageService {
         if (msgList.size() > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.success("未找到相关消息");
+            return ServiceResult.successMsg("未找到相关消息");
         }
     }
 
@@ -531,7 +531,7 @@ public class MessageServiceImpl implements MessageService {
         if (chatList.size() > 0) {
             return ServiceResult.success();
         } else {
-            return ServiceResult.success("未找到相关会话");
+            return ServiceResult.successMsg("未找到相关会话");
         }
     }
 
