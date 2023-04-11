@@ -11,6 +11,7 @@
         <module>home-ops</module>
         <module>home-common</module>
         <module>home-gateway</module>
+        <module>home-discovery</module>
     </modules>
     <packaging>pom</packaging>
 
