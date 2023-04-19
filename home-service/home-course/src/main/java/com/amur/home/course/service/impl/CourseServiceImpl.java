@@ -94,7 +94,7 @@ public class CourseServiceImpl implements CourseService {
         courseJoinRelation.setIsStudent(false);
         courseJoinMapper.insert(courseJoinRelation);
 
-        courseInfo.setId(res.getData());
+        courseInfo.setId(courseId);
         courseInfo.setHomeId(homeId);
         courseInfo.setName(name);
         courseInfo.setDescription(description);
@@ -667,6 +667,7 @@ public class CourseServiceImpl implements CourseService {
     public ServiceResult<?> addTeacher(Long courseId, Long userId) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
+        courseJoinRelation.setId(tinyIdGrpcClient.getNextId(Constants.TableName.COURSE_JOIN.getDesc()).getData());
         courseJoinRelation.setCourseId(courseId);
         courseJoinRelation.setUserId(userId);
         courseJoinRelation.setIsStudent(false);
@@ -1010,9 +1011,9 @@ public class CourseServiceImpl implements CourseService {
         for (CourseJoinRelation courseJoinRelation : joinRelationList) {
             courseIds.add(courseJoinRelation.getCourseId());
         }
-//        if (courseIds.size() == 0)
-//            return ServiceResult.success(new ArrayList<>());
-        List<CourseInfo> courseInfos = courseInfoMapper.selectList(new QueryWrapper<CourseInfo>().in("id", courseIds).gt("end_time", now).lt("start_time", now));
+        if (courseIds.size() == 0)
+            return ServiceResult.success(new ArrayList<>());
+        List<CourseInfo> courseInfos = courseInfoMapper.selectList(new QueryWrapper<CourseInfo>().in("id", courseIds).ge("end_time", now).le("start_time", now));
         return ServiceResult.success(courseInfos);
     }
 
