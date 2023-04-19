@@ -6,9 +6,13 @@ import com.amur.home.user.rpc.LikeServiceGrpc;
 import com.amur.home.user.rpc.LikeServiceProto;
 import com.amur.home.user.rpc.ServiceResultProto;
 import io.grpc.stub.StreamObserver;
+import lombok.extern.slf4j.Slf4j;
+import net.devh.boot.grpc.server.service.GrpcService;
 
 import javax.annotation.Resource;
 
+@GrpcService
+@Slf4j
 public class LikeServiceImpl extends LikeServiceGrpc.LikeServiceImplBase {
     @Resource
     private UserLikeMapper userLikeMapper;

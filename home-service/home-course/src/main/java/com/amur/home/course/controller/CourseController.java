@@ -97,7 +97,10 @@ public class CourseController {
 
     @PostMapping("/fav/add")
     @Operation(summary = "添加收藏课程")
-    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
+    @Parameters({
+            @Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"),
+            @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")
+    })
     public ResponseWrapper<Void> courseFavAdd(Long userId, Long courseId) {
         ServiceResult<Void> res = courseFavService.courseFavAdd(userId, courseId);
         if (res.isSuccess()) {
@@ -325,6 +328,18 @@ public class CourseController {
     @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID")})
     public ResponseWrapper<?> scoreAdd(Long userId, Long courseId) {
         ServiceResult<?> res = courseService.delCourseScore(userId, courseId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @GetMapping("/now")
+    @Operation(summary = "获取当前课程")
+    @Parameters({@Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID")})
+    public ResponseWrapper<List<CourseInfo>> getNowCourse(Long userId) {
+        ServiceResult<List<CourseInfo>> res = courseService.getNowCourse(userId);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

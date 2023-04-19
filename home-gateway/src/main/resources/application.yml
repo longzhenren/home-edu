@@ -32,6 +32,22 @@ spring:
       default-filters:
         - DedupeResponseHeader=Vary Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
       routes:
+        - id: nacos
+          uri: http://127.0.0.1:8848
+          predicates:
+            - Path=/nacos/**
+        - id: seata
+          uri: http://127.0.0.1:7091
+          predicates:
+            - Path=/seata/**
+        - id: minio
+          uri: http://127.0.0.1:9000
+          predicates:
+            - Path=/minio/**
+        - id: sw
+          uri: http://127.0.0.1:8808
+          predicates:
+            - Path=/sw/**
         - id: home-oss
           uri: http://127.0.0.1:9001
           predicates:

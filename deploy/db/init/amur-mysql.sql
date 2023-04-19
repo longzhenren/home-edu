@@ -24,6 +24,16 @@ CREATE TABLE `user_info`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
+CREATE TABLE `user_unity`
+(
+    `id`       bigint NOT NULL,
+    `model_id` bigint DEFAULT NULL,
+    `text`     text   DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_auth`
 (
     `id`          bigint NOT NULL,
@@ -170,6 +180,10 @@ CREATE TABLE `course_join`
     `id`          bigint NOT NULL AUTO_INCREMENT,
     `user_id`     bigint     DEFAULT NULL,
     `course_id`   bigint     DEFAULT NULL,
+    `is_teacher`  bit(1)     DEFAULT NULL,
+    `is_student`  bit(1)     DEFAULT NULL,
+    `is_other`    bit(1)     DEFAULT NULL,
+    `is_creator`  bit(1)     DEFAULT NULL,
     `create_time` datetime   DEFAULT NULL,
     `update_time` datetime   DEFAULT NULL,
     `version`     int        DEFAULT NULL,

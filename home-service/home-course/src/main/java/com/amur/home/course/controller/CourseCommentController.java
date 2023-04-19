@@ -26,8 +26,8 @@ public class CourseCommentController {
     @PostMapping("/comment/add")
     @Operation(summary = "添加课程评价")
     @Parameters({@Parameter(name = "courseId", in = ParameterIn.QUERY, required = true, description = "课程ID"), @Parameter(name = "userId", in = ParameterIn.QUERY, required = true, description = "用户ID"), @Parameter(name = "comment", in = ParameterIn.QUERY, required = true, description = "评价")})
-    public ResponseWrapper<?> commentAdd(Long courseId, Long userId, String comment) {
-        ServiceResult<?> res = courseService.commentAdd(courseId, userId, comment);
+    public ResponseWrapper<?> commentAdd(Long courseId, Long userId, String comment, Double score) {
+        ServiceResult<?> res = courseService.commentAdd(courseId, userId, comment, score);
         if (res.isSuccess()) {
             return ResponseWrapper.data(res.getData());
         } else {

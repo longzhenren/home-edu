@@ -79,6 +79,21 @@ public class CourseServiceImpl implements CourseService {
         if (!res.isSuccess()) {
             return ServiceResult.ex("id生成失败");
         }
+        Long courseId = res.getData();
+        res = tinyIdGrpcClient.getNextId(Constants.TableName.COURSE_JOIN.getDesc());
+        if (!res.isSuccess()) {
+            return ServiceResult.ex("id生成失败");
+        }
+        Long joinId = res.getData();
+        CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
+        courseJoinRelation.setId(joinId);
+        courseJoinRelation.setUserId(userId);
+        courseJoinRelation.setCourseId(courseId);
+        courseJoinRelation.setIsCreator(true);
+        courseJoinRelation.setIsTeacher(true);
+        courseJoinRelation.setIsStudent(false);
+        courseJoinMapper.insert(courseJoinRelation);
+
         courseInfo.setId(res.getData());
         courseInfo.setHomeId(homeId);
         courseInfo.setName(name);
@@ -88,6 +103,7 @@ public class CourseServiceImpl implements CourseService {
         courseInfo.setCoverUrl(coverUrl);
         courseInfo.setStudentIds(Collections.emptySet());
         courseInfo.setIssueIds(Collections.emptySet());
+        courseInfo.setTeacherIds(Collections.singleton(userId));
         courseInfo.setOpen(open);
         courseInfo.setStatus("");
         courseInfo.setFavCount(0L);
@@ -95,7 +111,6 @@ public class CourseServiceImpl implements CourseService {
         courseInfo.setScoreCount(0L);
         courseInfo.setCommentCount(0L);
         courseInfo.setScore(0.0);
-        courseInfo.setTeacherIds(Collections.singleton(userId));
         String scheduleName = "[课程] " + name;
         // 课程类用remark字段存储id,便于查找
         ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, description, startTime, endTime, "", courseInfo.getId().toString(), "", false, false);
@@ -244,9 +259,12 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public ServiceResult<List<CourseInfo>> courseInfoByUserId(Long userId) {
-        QueryWrapper<CourseInfo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("user_id", userId).orderByDesc("create_time");
-        List<CourseInfo> courseInfoList = courseInfoMapper.selectList(queryWrapper);
+        List<CourseJoinRelation> courseRelationList = courseJoinMapper.selectList(new QueryWrapper<CourseJoinRelation>().eq("user_id", userId));
+        List<CourseInfo> courseInfoList = new ArrayList<>();
+        for (CourseJoinRelation courseJoinRelation : courseRelationList) {
+            CourseInfo courseInfo = courseInfoMapper.selectById(courseJoinRelation.getCourseId());
+            courseInfoList.add(courseInfo);
+        }
         if (courseInfoList.size() > 0) {
             return ServiceResult.success(courseInfoList);
         } else {
@@ -301,8 +319,9 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     @GlobalTransactional
+    @Transactional
     //@ShardingTransactionType(TransactionType.BASE)
-    public ServiceResult<Long> commentAdd(Long courseId, Long userId, String comment) {
+    public ServiceResult<Long> commentAdd(Long courseId, Long userId, String comment, Double score) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
             return ServiceResult.ex("课程不存在");
@@ -316,6 +335,7 @@ public class CourseServiceImpl implements CourseService {
         courseComment.setCourseId(courseId);
         courseComment.setUserId(userId);
         courseComment.setContent(comment);
+        courseComment.setScore(score);
         courseInfo.setCommentCount(courseInfo.getCommentCount() + 1);
         if (courseCommentMapper.insert(courseComment) > 0 && courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success(courseComment.getId());
@@ -564,10 +584,6 @@ public class CourseServiceImpl implements CourseService {
         if (!res.isSuccess()) {
             return ServiceResult.ex("id生成失败");
         }
-        CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
-        courseJoinRelation.setId(res.getData());
-        courseJoinRelation.setCourseId(courseId);
-        courseJoinRelation.setUserId(userId);
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
             return ServiceResult.ex("课程不存在");
@@ -575,7 +591,17 @@ public class CourseServiceImpl implements CourseService {
         if (courseInfo.getStudentIds().contains(userId)) {
             return ServiceResult.ex("已加入");
         }
+        CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
+        courseJoinRelation.setId(res.getData());
+        courseJoinRelation.setCourseId(courseId);
+        courseJoinRelation.setUserId(userId);
+        courseJoinRelation.setIsStudent(true);
+        courseJoinRelation.setIsTeacher(false);
+        courseJoinRelation.setIsCreator(false);
         courseInfo.getStudentIds().add(userId);
+//        if (courseJoinMapper.exists(new QueryWrapper<CourseJoinRelation>().eq("user_id", userId).eq("is_student", true))) {
+//            return ServiceResult.ex("用户已经作为学生加入课程");
+//        }
         String scheduleName = "[课程](参加) " + courseInfo.getName();
         // 课程类用remark字段存储id,便于查找
         ServiceResult<?> schRes = scheduleGrpcClient.addSchedule(userId, userId, scheduleName, courseInfo.getDescription(), courseInfo.getStartTime(), courseInfo.getEndTime(), "", courseInfo.getId().toString(), "", false, false);
@@ -599,7 +625,7 @@ public class CourseServiceImpl implements CourseService {
     //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<?> delStudent(Long courseId, Long userId) {
         QueryWrapper<CourseJoinRelation> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("course_id", courseId).eq("user_id", userId);
+        queryWrapper.eq("course_id", courseId).eq("user_id", userId).eq("is_student", true);
         scheduleGrpcClient.delScheduleByCourseIdAndUserId(courseId, userId);
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
         if (courseInfo == null) {
@@ -640,6 +666,12 @@ public class CourseServiceImpl implements CourseService {
     //@ShardingTransactionType(TransactionType.BASE)
     public ServiceResult<?> addTeacher(Long courseId, Long userId) {
         CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        CourseJoinRelation courseJoinRelation = new CourseJoinRelation();
+        courseJoinRelation.setCourseId(courseId);
+        courseJoinRelation.setUserId(userId);
+        courseJoinRelation.setIsStudent(false);
+        courseJoinRelation.setIsTeacher(true);
+        courseJoinRelation.setIsCreator(false);
         if (courseInfo == null) {
             return ServiceResult.ex("课程不存在");
         }
@@ -658,7 +690,7 @@ public class CourseServiceImpl implements CourseService {
         if (!schRes.isSuccess()) {
             return ServiceResult.ex("日程添加失败 " + schRes.getMessage());
         }
-        if (courseInfoMapper.updateById(courseInfo) > 0) {
+        if (courseJoinMapper.insert(courseJoinRelation) > 0 && courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.ex("添加失败");
@@ -688,7 +720,9 @@ public class CourseServiceImpl implements CourseService {
         teacherIdSet.remove(userId);
         courseInfo.setTeacherIds(teacherIdSet);
         scheduleGrpcClient.delScheduleByCourseIdAndUserId(courseId, userId);
-        if (courseInfoMapper.updateById(courseInfo) > 0) {
+        QueryWrapper<CourseJoinRelation> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id", courseId).eq("user_id", userId).eq("is_teacher", true);
+        if (courseJoinMapper.delete(queryWrapper) > 0 && courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.ex("删除失败");
@@ -893,10 +927,21 @@ public class CourseServiceImpl implements CourseService {
     public ServiceResult<UserCourseInterDTO> userCourseRelation(Long userId, Long courseId) {
         List<Long> userLikeCourseIds = userGrpcClient.getUserLikeCourses(userId).getData();
         List<Long> userFavCourseIds = userGrpcClient.getFavCourses(userId).getData();
-        CourseJoinRelation courseJoinRelation = courseJoinMapper.selectOne(new QueryWrapper<CourseJoinRelation>().eq("user_id", userId).eq("course_id", courseId));
         CourseScore courseScore = courseScoreMapper.selectOne(new QueryWrapper<CourseScore>().eq("user_id", userId).eq("course_id", courseId));
-        CourseComment courseComment = courseCommentMapper.selectOne(new QueryWrapper<CourseComment>().eq("user_id", userId).eq("course_id", courseId));
-        UserCourseInterDTO userCourseInterDTO = new UserCourseInterDTO(userFavCourseIds.contains(courseId), courseJoinRelation != null, userLikeCourseIds.contains(courseId), courseScore != null, courseComment != null, courseScore != null ? courseScore.getScore() : 0.0);
+        List<CourseComment> courseComment = courseCommentMapper.selectList(new QueryWrapper<CourseComment>().eq("user_id", userId).eq("course_id", courseId));
+        UserCourseInterDTO userCourseInterDTO = new UserCourseInterDTO(userFavCourseIds.contains(courseId), false, false, false, userLikeCourseIds.contains(courseId), courseScore != null, courseComment != null, courseScore != null ? courseScore.getScore() : 0.0);
+        List<CourseJoinRelation> courseJoinRelations = courseJoinMapper.selectList(new QueryWrapper<CourseJoinRelation>().eq("user_id", userId).eq("course_id", courseId));
+        for (CourseJoinRelation courseJoinRelation : courseJoinRelations) {
+            if (courseJoinRelation.getIsTeacher()) {
+                userCourseInterDTO.setIsTeacher(true);
+            }
+            if (courseJoinRelation.getIsStudent()) {
+                userCourseInterDTO.setIsStudent(true);
+            }
+            if (courseJoinRelation.getIsCreator()) {
+                userCourseInterDTO.setIsCreator(true);
+            }
+        }
         return ServiceResult.success(userCourseInterDTO);
     }
 
@@ -915,13 +960,17 @@ public class CourseServiceImpl implements CourseService {
         CourseScore courseScore = courseScoreMapper.selectOne(new QueryWrapper<CourseScore>().eq("user_id", userId).eq("course_id", courseId));
         if (courseScore == null) {
             courseInfo.setScore((courseInfo.getScore() * courseInfo.getScoreCount() + score) / (courseInfo.getScoreCount() + 1));
+            courseInfo.setScoreCount(courseInfo.getScoreCount() + 1);
+            courseInfoMapper.updateById(courseInfo);
             courseScore = new CourseScore();
+            courseScore.setId(tinyIdGrpcClient.getNextId("course_score").getData());
             courseScore.setUserId(userId);
             courseScore.setCourseId(courseId);
             courseScore.setScore(score);
             courseScoreMapper.insert(courseScore);
         } else {
             courseInfo.setScore((courseInfo.getScore() * courseInfo.getScoreCount() - courseScore.getScore() + score) / courseInfo.getScoreCount());
+            courseInfoMapper.updateById(courseInfo);
             courseScore.setScore(score);
             courseScoreMapper.updateById(courseScore);
         }
@@ -949,6 +998,24 @@ public class CourseServiceImpl implements CourseService {
         return ServiceResult.success();
     }
 
+    /**
+     * @param userId 用户id
+     * @return 服务返回结果统一封装
+     */
+    @Override
+    public ServiceResult<List<CourseInfo>> getNowCourse(Long userId) {
+        Date now = new Date();
+        List<CourseJoinRelation> joinRelationList = courseJoinMapper.selectList(new QueryWrapper<CourseJoinRelation>().eq("user_id", userId));
+        List<Long> courseIds = new ArrayList<>();
+        for (CourseJoinRelation courseJoinRelation : joinRelationList) {
+            courseIds.add(courseJoinRelation.getCourseId());
+        }
+//        if (courseIds.size() == 0)
+//            return ServiceResult.success(new ArrayList<>());
+        List<CourseInfo> courseInfos = courseInfoMapper.selectList(new QueryWrapper<CourseInfo>().in("id", courseIds).gt("end_time", now).lt("start_time", now));
+        return ServiceResult.success(courseInfos);
+    }
+
 
     /**
      * @param courseId 课程id
@@ -966,7 +1033,7 @@ public class CourseServiceImpl implements CourseService {
         if (!res.isSuccess()) {
             return ServiceResult.ex(res.getMessage());
         }
-        courseInfo.setFavCount(courseInfo.getFavCount() + 1);
+        courseInfo.setLikeCount(courseInfo.getLikeCount() + 1);
         if (courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {
@@ -990,7 +1057,7 @@ public class CourseServiceImpl implements CourseService {
         if (!res.isSuccess()) {
             return ServiceResult.ex(res.getMessage());
         }
-        courseInfo.setFavCount(courseInfo.getFavCount() - 1);
+        courseInfo.setLikeCount(courseInfo.getLikeCount() - 1);
         if (courseInfoMapper.updateById(courseInfo) > 0) {
             return ServiceResult.success();
         } else {

@@ -6,12 +6,16 @@ import com.amur.home.user.client.UserAuthGrpcClient;
 import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
+import com.amur.home.user.entity.UserLike;
 import com.amur.home.user.mapper.HomeInfoMapper;
 import com.amur.home.user.mapper.UserFavMapper;
 import com.amur.home.user.mapper.UserInfoMapper;
+import com.amur.home.user.mapper.UserLikeMapper;
 import com.amur.home.user.service.HomeService;
+import com.amur.home.util.QueryUtil;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
 import io.seata.spring.annotation.GlobalTransactional;
@@ -38,6 +42,9 @@ public class HomeServiceImpl implements HomeService {
 
     @Resource
     private UserFavMapper userFavMapper;
+
+    @Resource
+    private UserLikeMapper userLikeMapper;
 
     @Resource
     private TinyIdGrpcClient tinyIdGrpcClient;
@@ -359,6 +366,7 @@ public class HomeServiceImpl implements HomeService {
      * @return 服务返回结果统一封装
      */
     @Override
+    @GlobalTransactional
     public ServiceResult<Void> favHome(Long homeId, Long userId) {
         HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
         if (homeInfo == null) {
@@ -373,12 +381,167 @@ public class HomeServiceImpl implements HomeService {
         }
         homeInfo.setFavCount(homeInfo.getFavCount() + 1);
         userFavorite.getHomeIds().add(homeId);
-        if (homeInfoMapper.updateById(homeInfo) > 0 && userFavMapper.insert(userFavorite) > 0) {
+        if (homeInfoMapper.updateById(homeInfo) > 0 && userFavMapper.updateById(userFavorite) > 0) {
             return ServiceResult.success();
         } else {
             return ServiceResult.ex("收藏失败");
         }
     }
 
+    /**
+     * @param homeId
+     * @param userId
+     * @return
+     */
+    @Override
+    @GlobalTransactional
+    public ServiceResult<Void> unfavHome(Long homeId, Long userId) {
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
+        if (homeInfo == null) {
+            return ServiceResult.ex("家庭不存在");
+        }
+        UserFavorite userFavorite = userFavMapper.selectById(userId);
+        if (userFavorite == null) {
+            return ServiceResult.ex("用户不存在");
+        }
+        if (!userFavorite.getHomeIds().contains(homeId)) {
+            return ServiceResult.ex("未收藏该家庭");
+        }
+        homeInfo.setFavCount(homeInfo.getFavCount() - 1);
+        userFavorite.getHomeIds().remove(homeId);
+        if (homeInfoMapper.updateById(homeInfo) > 0 && userFavMapper.updateById(userFavorite) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.ex("取消收藏失败");
+        }
+    }
 
+    @Override
+    public ServiceResult<List<HomeInfo>> getFavHome(Long userId) {
+        UserFavorite userFavorite = userFavMapper.selectById(userId);
+        if (userFavorite == null) {
+            return ServiceResult.ex("用户不存在");
+        }
+        List<HomeInfo> homeInfos = new ArrayList<>();
+        for (Long homeId : userFavorite.getHomeIds()) {
+            homeInfos.add(homeInfoMapper.selectById(homeId));
+        }
+        return ServiceResult.success(homeInfos);
+    }
+
+    /**
+     * @param params
+     * @param sortField
+     * @param sortOrder
+     * @param pageNumber
+     * @param pageSize
+     * @return
+     */
+    @Override
+    public ServiceResult<Page<HomeInfo>> queryHomeInfo(Map<String, Map<String, Object>> params, String sortField, String sortOrder, Integer pageNumber, Integer pageSize) {
+        QueryWrapper<HomeInfo> queryWrapper = QueryUtil.buildQueryWrapper(params, sortField, sortOrder);
+        Page<HomeInfo> page = new Page<>(pageNumber, pageSize);
+        return ServiceResult.success(homeInfoMapper.selectPage(page, queryWrapper));
+    }
+
+    /**
+     * @param homeId
+     * @return
+     */
+    @Override
+    public ServiceResult<List<UserInfo>> getHomeUser(Long homeId) {
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
+        if (homeInfo == null) {
+            return ServiceResult.ex("家庭不存在");
+        }
+        List<UserInfo> userInfos = new ArrayList<>();
+        for (Long userId : homeInfo.getMemberIds()) {
+            userInfos.add(userInfoMapper.selectById(userId));
+        }
+        return ServiceResult.success(userInfos);
+    }
+
+    /**
+     * @param homeId
+     * @param userId
+     * @return
+     */
+    @Override
+    public ServiceResult<Boolean> isLikeHome(Long homeId, Long userId) {
+        UserLike userLike = userLikeMapper.selectById(userId);
+        if (userLike == null) {
+            return ServiceResult.ex("用户不存在");
+        }
+        return ServiceResult.success(userLike.getHomeIds().contains(homeId));
+    }
+
+    /**
+     * @param homeId
+     * @param userId
+     * @return
+     */
+    @Override
+    public ServiceResult<Boolean> isFavHome(Long homeId, Long userId) {
+        UserLike userLike = userLikeMapper.selectById(userId);
+        if (userLike == null) {
+            return ServiceResult.ex("用户不存在");
+        }
+        return ServiceResult.success(userLike.getHomeIds().contains(homeId));
+    }
+
+    /**
+     * @param homeId
+     * @param userId
+     * @return
+     */
+    @Override
+    @GlobalTransactional
+    public ServiceResult<Void> unlikeHome(Long homeId, Long userId) {
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
+        if (homeInfo == null) {
+            return ServiceResult.ex("家庭不存在");
+        }
+        UserLike userLike = userLikeMapper.selectById(userId);
+        if (userLike == null) {
+            return ServiceResult.ex("用户不存在");
+        }
+        if (!userLike.getHomeIds().contains(homeId)) {
+            return ServiceResult.ex("未点赞该家庭");
+        }
+        homeInfo.setLikeCount(homeInfo.getLikeCount() - 1);
+        userLike.getHomeIds().remove(homeId);
+        if (homeInfoMapper.updateById(homeInfo) > 0 && userLikeMapper.updateById(userLike) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.ex("取消点赞失败");
+        }
+    }
+
+    /**
+     * @param homeId
+     * @param userId
+     * @return
+     */
+    @Override
+    @GlobalTransactional
+    public ServiceResult<Void> likeHome(Long homeId, Long userId) {
+        HomeInfo homeInfo = homeInfoMapper.selectById(homeId);
+        if (homeInfo == null) {
+            return ServiceResult.ex("家庭不存在");
+        }
+        UserLike userLike = userLikeMapper.selectById(userId);
+        if (userLike == null) {
+            return ServiceResult.ex("用户不存在");
+        }
+        if (userLike.getHomeIds().contains(homeId)) {
+            return ServiceResult.ex("已经点赞过该家庭");
+        }
+        homeInfo.setLikeCount(homeInfo.getLikeCount() + 1);
+        userLike.getHomeIds().add(homeId);
+        if (homeInfoMapper.updateById(homeInfo) > 0 && userLikeMapper.updateById(userLike) > 0) {
+            return ServiceResult.success();
+        } else {
+            return ServiceResult.ex("点赞失败");
+        }
+    }
 }

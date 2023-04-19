@@ -90,7 +90,13 @@ public class UserController {
 
     @GetMapping("/search")
     @Operation(summary = "搜索用户")
-    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = false), @Parameter(name = "keyword", description = "关键字", required = false), @Parameter(name = "email", description = "邮箱", required = false), @Parameter(name = "phone", description = "手机号", required = false), @Parameter(name = "pageNum", description = "页码", required = true), @Parameter(name = "pageSize", description = "页大小", required = true)})
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = false),
+            @Parameter(name = "keyword", description = "关键字", required = false),
+            @Parameter(name = "email", description = "邮箱", required = false),
+            @Parameter(name = "phone", description = "手机号", required = false),
+            @Parameter(name = "pageNum", description = "页码", required = true),
+            @Parameter(name = "pageSize", description = "页大小", required = true)
+    })
     ResponseWrapper<PageResult<UserInfo>> searchUserInfo(Long homeId, String keyword, String email, String phone, Integer pageNum, Integer pageSize) {
         ServiceResult<PageResult<UserInfo>> res = userService.searchUserInfo(homeId, keyword, email, phone, pageNum, pageSize);
         if (!res.isSuccess()) {

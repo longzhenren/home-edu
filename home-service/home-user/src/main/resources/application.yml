@@ -140,3 +140,10 @@ seata:
   grpc:
     applicationId: home-user
     serviceGroup: default_tx_group
+
+
+graphql:
+  servlet:
+    enabled: true
+    mapping: /graphql
+    cors-enabled: true

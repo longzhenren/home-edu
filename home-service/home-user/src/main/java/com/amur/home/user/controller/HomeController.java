@@ -1,6 +1,7 @@
 package com.amur.home.user.controller;
 
 import com.amur.home.user.entity.HomeInfo;
+import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.service.impl.HomeServiceImpl;
 import com.amur.home.util.ResponseWrapper;
 import com.amur.home.util.ServiceResult;
@@ -149,6 +150,90 @@ public class HomeController {
     @PostMapping("/fav")
     public ResponseWrapper<Void> favHome(Long homeId, Long userId) {
         ServiceResult<Void> res = homeService.favHome(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "取消收藏家庭")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @PostMapping("/fav/del")
+    public ResponseWrapper<Void> unfavHome(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.unfavHome(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "获取用户收藏家庭")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @GetMapping("/fav/get")
+    public ResponseWrapper<List<HomeInfo>> getFavHome(Long userId) {
+        ServiceResult<List<HomeInfo>> res = homeService.getFavHome(userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "获取家庭成员")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true)})
+    @GetMapping("/user/list")
+    public ResponseWrapper<List<UserInfo>> getHomeUser(Long homeId) {
+        ServiceResult<List<UserInfo>> res = homeService.getHomeUser(homeId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "是否收藏过家庭")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @GetMapping("/fav/is")
+    public ResponseWrapper<Boolean> isFavHome(Long homeId, Long userId) {
+        ServiceResult<Boolean> res = homeService.isFavHome(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "是否点赞过家庭")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @GetMapping("/like/is")
+    public ResponseWrapper<Boolean> isLikeHome(Long homeId, Long userId) {
+        ServiceResult<Boolean> res = homeService.isLikeHome(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.data(res.getData());
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "点赞家庭")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @PostMapping("/like")
+    public ResponseWrapper<Void> likeHome(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.likeHome(homeId, userId);
+        if (res.isSuccess()) {
+            return ResponseWrapper.status(true);
+        } else {
+            return ResponseWrapper.fail(res.getMessage());
+        }
+    }
+
+    @Operation(summary = "取消点赞家庭")
+    @Parameters({@Parameter(name = "homeId", description = "家庭id", required = true), @Parameter(name = "userId", description = "用户id", required = true)})
+    @PostMapping("/like/del")
+    public ResponseWrapper<Void> unlikeHome(Long homeId, Long userId) {
+        ServiceResult<Void> res = homeService.unlikeHome(homeId, userId);
         if (res.isSuccess()) {
             return ResponseWrapper.status(true);
         } else {

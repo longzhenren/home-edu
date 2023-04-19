@@ -33,7 +33,7 @@ public interface CourseService {
 
     ServiceResult<?> rank(Long courseId, Double rank);
 
-    ServiceResult<?> commentAdd(Long courseId, Long userId, String comment);
+    ServiceResult<?> commentAdd(Long courseId, Long userId, String comment, Double score);
 
     ServiceResult<?> commentDel(Long courseId, Long userId);
 
@@ -92,4 +92,6 @@ public interface CourseService {
     ServiceResult<?> addCourseScore(Long userId, Long courseId, Double score);
 
     ServiceResult<?> delCourseScore(Long userId, Long courseId);
+
+    ServiceResult<List<CourseInfo>> getNowCourse(Long userId);
 }

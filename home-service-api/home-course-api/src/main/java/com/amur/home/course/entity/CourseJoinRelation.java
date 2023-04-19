@@ -14,6 +14,10 @@ public class CourseJoinRelation {
     private Long id;
     private Long userId;
     private Long courseId;
+    private Boolean isTeacher;
+    private Boolean isStudent;
+    private Boolean isOther;
+    private Boolean isCreator;
     @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;

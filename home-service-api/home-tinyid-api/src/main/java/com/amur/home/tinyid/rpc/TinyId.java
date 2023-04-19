@@ -4,2316 +4,2517 @@
 package com.amur.home.tinyid.rpc;
 
 public final class TinyId {
-  private TinyId() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface GenIdReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.amur.home.tinyid.rpc.GenIdReq)
-      com.google.protobuf.MessageOrBuilder {
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\014tinyId.proto\022\030com.amur.home.tinyid.rpc" +
+                        "\"=\n\010GenIdReq\022\017\n\007bizType\030\001 \001(\t\022\021\n\tbatchSi" +
+                        "ze\030\002 \001(\005\022\r\n\005token\030\003 \001(\t\"\027\n\tGenIdResp\022\n\n\002" +
+                        "id\030\001 \003(\003\"X\n\004Resp\022\014\n\004code\030\001 \001(\005\022\017\n\007messag" +
+                        "e\030\002 \001(\t\0221\n\004data\030\003 \001(\0132#.com.amur.home.ti" +
+                        "nyid.rpc.GenIdResp2Z\n\tIdService\022M\n\005GenId" +
+                        "\022\".com.amur.home.tinyid.rpc.GenIdReq\032\036.c" +
+                        "om.amur.home.tinyid.rpc.Resp\"\000b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor,
+                new java.lang.String[]{"BizType", "BatchSize", "Token",});
+        internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor =
+                getDescriptor().getMessageTypes().get(1);
+        internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor,
+                new java.lang.String[]{"Id",});
+        internal_static_com_amur_home_tinyid_rpc_Resp_descriptor =
+                getDescriptor().getMessageTypes().get(2);
+        internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_amur_home_tinyid_rpc_Resp_descriptor,
+                new java.lang.String[]{"Code", "Message", "Data",});
+    }
 
-    /**
-     * <code>string bizType = 1;</code>
-     * @return The bizType.
-     */
-    java.lang.String getBizType();
-    /**
-     * <code>string bizType = 1;</code>
-     * @return The bytes for bizType.
-     */
-    com.google.protobuf.ByteString
+    private TinyId() {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    public interface GenIdReqOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.amur.home.tinyid.rpc.GenIdReq)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string bizType = 1;</code>
+         *
+         * @return The bizType.
+         */
+        java.lang.String getBizType();
+
+        /**
+         * <code>string bizType = 1;</code>
+         *
+         * @return The bytes for bizType.
+         */
+        com.google.protobuf.ByteString
         getBizTypeBytes();
 
-    /**
-     * <code>int32 batchSize = 2;</code>
-     * @return The batchSize.
-     */
-    int getBatchSize();
+        /**
+         * <code>int32 batchSize = 2;</code>
+         *
+         * @return The batchSize.
+         */
+        int getBatchSize();
 
-    /**
-     * <code>string token = 3;</code>
-     * @return The token.
-     */
-    java.lang.String getToken();
-    /**
-     * <code>string token = 3;</code>
-     * @return The bytes for token.
-     */
-    com.google.protobuf.ByteString
+        /**
+         * <code>string token = 3;</code>
+         *
+         * @return The token.
+         */
+        java.lang.String getToken();
+
+        /**
+         * <code>string token = 3;</code>
+         *
+         * @return The bytes for token.
+         */
+        com.google.protobuf.ByteString
         getTokenBytes();
-  }
-  /**
-   * Protobuf type {@code com.amur.home.tinyid.rpc.GenIdReq}
-   */
-  public static final class GenIdReq extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.amur.home.tinyid.rpc.GenIdReq)
-      GenIdReqOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use GenIdReq.newBuilder() to construct.
-    private GenIdReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private GenIdReq() {
-      bizType_ = "";
-      token_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new GenIdReq();
+    public interface GenIdRespOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.amur.home.tinyid.rpc.GenIdResp)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>repeated int64 id = 1;</code>
+         *
+         * @return A list containing the id.
+         */
+        java.util.List<java.lang.Long> getIdList();
+
+        /**
+         * <code>repeated int64 id = 1;</code>
+         *
+         * @return The count of id.
+         */
+        int getIdCount();
+
+        /**
+         * <code>repeated int64 id = 1;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The id at the given index.
+         */
+        long getId(int index);
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GenIdReq(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+    public interface RespOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.amur.home.tinyid.rpc.Resp)
+            com.google.protobuf.MessageOrBuilder {
 
-              bizType_ = s;
-              break;
-            }
-            case 16: {
+        /**
+         * <code>int32 code = 1;</code>
+         *
+         * @return The code.
+         */
+        int getCode();
 
-              batchSize_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+        /**
+         * <code>string message = 2;</code>
+         *
+         * @return The message.
+         */
+        java.lang.String getMessage();
 
-              token_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
+        /**
+         * <code>string message = 2;</code>
+         *
+         * @return The bytes for message.
+         */
+        com.google.protobuf.ByteString
+        getMessageBytes();
+
+        /**
+         * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+         *
+         * @return Whether the data field is set.
+         */
+        boolean hasData();
+
+        /**
+         * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+         *
+         * @return The data.
+         */
+        com.amur.home.tinyid.rpc.TinyId.GenIdResp getData();
+
+        /**
+         * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+         */
+        com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder getDataOrBuilder();
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.amur.home.tinyid.rpc.TinyId.GenIdReq.class, com.amur.home.tinyid.rpc.TinyId.GenIdReq.Builder.class);
-    }
-
-    public static final int BIZTYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object bizType_;
-    /**
-     * <code>string bizType = 1;</code>
-     * @return The bizType.
-     */
-    @java.lang.Override
-    public java.lang.String getBizType() {
-      java.lang.Object ref = bizType_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        bizType_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string bizType = 1;</code>
-     * @return The bytes for bizType.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getBizTypeBytes() {
-      java.lang.Object ref = bizType_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        bizType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int BATCHSIZE_FIELD_NUMBER = 2;
-    private int batchSize_;
-    /**
-     * <code>int32 batchSize = 2;</code>
-     * @return The batchSize.
-     */
-    @java.lang.Override
-    public int getBatchSize() {
-      return batchSize_;
-    }
-
-    public static final int TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object token_;
-    /**
-     * <code>string token = 3;</code>
-     * @return The token.
-     */
-    @java.lang.Override
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        token_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string token = 3;</code>
-     * @return The bytes for token.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizType_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, bizType_);
-      }
-      if (batchSize_ != 0) {
-        output.writeInt32(2, batchSize_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizType_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, bizType_);
-      }
-      if (batchSize_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, batchSize_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.amur.home.tinyid.rpc.TinyId.GenIdReq)) {
-        return super.equals(obj);
-      }
-      com.amur.home.tinyid.rpc.TinyId.GenIdReq other = (com.amur.home.tinyid.rpc.TinyId.GenIdReq) obj;
-
-      if (!getBizType()
-          .equals(other.getBizType())) return false;
-      if (getBatchSize()
-          != other.getBatchSize()) return false;
-      if (!getToken()
-          .equals(other.getToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + BIZTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getBizType().hashCode();
-      hash = (37 * hash) + BATCHSIZE_FIELD_NUMBER;
-      hash = (53 * hash) + getBatchSize();
-      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.amur.home.tinyid.rpc.TinyId.GenIdReq prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code com.amur.home.tinyid.rpc.GenIdReq}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.amur.home.tinyid.rpc.GenIdReq)
-        com.amur.home.tinyid.rpc.TinyId.GenIdReqOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.amur.home.tinyid.rpc.TinyId.GenIdReq.class, com.amur.home.tinyid.rpc.TinyId.GenIdReq.Builder.class);
-      }
-
-      // Construct using com.amur.home.tinyid.rpc.TinyId.GenIdReq.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        bizType_ = "";
-
-        batchSize_ = 0;
-
-        token_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.GenIdReq getDefaultInstanceForType() {
-        return com.amur.home.tinyid.rpc.TinyId.GenIdReq.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.GenIdReq build() {
-        com.amur.home.tinyid.rpc.TinyId.GenIdReq result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.GenIdReq buildPartial() {
-        com.amur.home.tinyid.rpc.TinyId.GenIdReq result = new com.amur.home.tinyid.rpc.TinyId.GenIdReq(this);
-        result.bizType_ = bizType_;
-        result.batchSize_ = batchSize_;
-        result.token_ = token_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.tinyid.rpc.TinyId.GenIdReq) {
-          return mergeFrom((com.amur.home.tinyid.rpc.TinyId.GenIdReq)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.amur.home.tinyid.rpc.TinyId.GenIdReq other) {
-        if (other == com.amur.home.tinyid.rpc.TinyId.GenIdReq.getDefaultInstance()) return this;
-        if (!other.getBizType().isEmpty()) {
-          bizType_ = other.bizType_;
-          onChanged();
-        }
-        if (other.getBatchSize() != 0) {
-          setBatchSize(other.getBatchSize());
-        }
-        if (!other.getToken().isEmpty()) {
-          token_ = other.token_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.amur.home.tinyid.rpc.TinyId.GenIdReq parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.tinyid.rpc.TinyId.GenIdReq) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object bizType_ = "";
-      /**
-       * <code>string bizType = 1;</code>
-       * @return The bizType.
-       */
-      public java.lang.String getBizType() {
-        java.lang.Object ref = bizType_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          bizType_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string bizType = 1;</code>
-       * @return The bytes for bizType.
-       */
-      public com.google.protobuf.ByteString
-          getBizTypeBytes() {
-        java.lang.Object ref = bizType_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          bizType_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string bizType = 1;</code>
-       * @param value The bizType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBizType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        bizType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string bizType = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearBizType() {
-        
-        bizType_ = getDefaultInstance().getBizType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string bizType = 1;</code>
-       * @param value The bytes for bizType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBizTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        bizType_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int batchSize_ ;
-      /**
-       * <code>int32 batchSize = 2;</code>
-       * @return The batchSize.
-       */
-      @java.lang.Override
-      public int getBatchSize() {
-        return batchSize_;
-      }
-      /**
-       * <code>int32 batchSize = 2;</code>
-       * @param value The batchSize to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBatchSize(int value) {
-        
-        batchSize_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 batchSize = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearBatchSize() {
-        
-        batchSize_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object token_ = "";
-      /**
-       * <code>string token = 3;</code>
-       * @return The token.
-       */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          token_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string token = 3;</code>
-       * @return The bytes for token.
-       */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          token_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string token = 3;</code>
-       * @param value The token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearToken() {
-        
-        token_ = getDefaultInstance().getToken();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 3;</code>
-       * @param value The bytes for token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.amur.home.tinyid.rpc.GenIdReq)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.amur.home.tinyid.rpc.GenIdReq)
-    private static final com.amur.home.tinyid.rpc.TinyId.GenIdReq DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.amur.home.tinyid.rpc.TinyId.GenIdReq();
-    }
-
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdReq getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<GenIdReq>
-        PARSER = new com.google.protobuf.AbstractParser<GenIdReq>() {
-      @java.lang.Override
-      public GenIdReq parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenIdReq(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<GenIdReq> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GenIdReq> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.amur.home.tinyid.rpc.TinyId.GenIdReq getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface GenIdRespOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.amur.home.tinyid.rpc.GenIdResp)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>repeated int64 id = 1;</code>
-     * @return A list containing the id.
-     */
-    java.util.List<java.lang.Long> getIdList();
-    /**
-     * <code>repeated int64 id = 1;</code>
-     * @return The count of id.
-     */
-    int getIdCount();
-    /**
-     * <code>repeated int64 id = 1;</code>
-     * @param index The index of the element to return.
-     * @return The id at the given index.
-     */
-    long getId(int index);
-  }
-  /**
-   * Protobuf type {@code com.amur.home.tinyid.rpc.GenIdResp}
-   */
-  public static final class GenIdResp extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.amur.home.tinyid.rpc.GenIdResp)
-      GenIdRespOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use GenIdResp.newBuilder() to construct.
-    private GenIdResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private GenIdResp() {
-      id_ = emptyLongList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new GenIdResp();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GenIdResp(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                id_ = newLongList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              id_.addLong(input.readInt64());
-              break;
+    public static final class GenIdReq extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.amur.home.tinyid.rpc.GenIdReq)
+            GenIdReqOrBuilder {
+        public static final int BIZTYPE_FIELD_NUMBER = 1;
+        public static final int BATCHSIZE_FIELD_NUMBER = 2;
+        public static final int TOKEN_FIELD_NUMBER = 3;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:com.amur.home.tinyid.rpc.GenIdReq)
+        private static final com.amur.home.tinyid.rpc.TinyId.GenIdReq DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<GenIdReq>
+                PARSER = new com.google.protobuf.AbstractParser<GenIdReq>() {
+            @java.lang.Override
+            public GenIdReq parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new GenIdReq(input, extensionRegistry);
             }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                id_ = newLongList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                id_.addLong(input.readInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
+        };
+
+        static {
+            DEFAULT_INSTANCE = new com.amur.home.tinyid.rpc.TinyId.GenIdReq();
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          id_.makeImmutable(); // C
+
+        private volatile java.lang.Object bizType_;
+        private int batchSize_;
+        private volatile java.lang.Object token_;
+        private byte memoizedIsInitialized = -1;
+
+        // Use GenIdReq.newBuilder() to construct.
+        private GenIdReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+        private GenIdReq() {
+            bizType_ = "";
+            token_ = "";
+        }
+
+        private GenIdReq(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 10: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            bizType_ = s;
+                            break;
+                        }
+                        case 16: {
+
+                            batchSize_ = input.readInt32();
+                            break;
+                        }
+                        case 26: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            token_ = s;
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
-    }
+            return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
+        }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.amur.home.tinyid.rpc.TinyId.GenIdReq prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdReq getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<GenIdReq> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new GenIdReq();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.amur.home.tinyid.rpc.TinyId.GenIdResp.class, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder.class);
-    }
-
-    public static final int ID_FIELD_NUMBER = 1;
-    private com.google.protobuf.Internal.LongList id_;
-    /**
-     * <code>repeated int64 id = 1;</code>
-     * @return A list containing the id.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Long>
-        getIdList() {
-      return id_;
-    }
-    /**
-     * <code>repeated int64 id = 1;</code>
-     * @return The count of id.
-     */
-    public int getIdCount() {
-      return id_.size();
-    }
-    /**
-     * <code>repeated int64 id = 1;</code>
-     * @param index The index of the element to return.
-     * @return The id at the given index.
-     */
-    public long getId(int index) {
-      return id_.getLong(index);
-    }
-    private int idMemoizedSerializedSize = -1;
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (getIdList().size() > 0) {
-        output.writeUInt32NoTag(10);
-        output.writeUInt32NoTag(idMemoizedSerializedSize);
-      }
-      for (int i = 0; i < id_.size(); i++) {
-        output.writeInt64NoTag(id_.getLong(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < id_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt64SizeNoTag(id_.getLong(i));
+            return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.amur.home.tinyid.rpc.TinyId.GenIdReq.class, com.amur.home.tinyid.rpc.TinyId.GenIdReq.Builder.class);
         }
-        size += dataSize;
-        if (!getIdList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
+
+        /**
+         * <code>string bizType = 1;</code>
+         *
+         * @return The bizType.
+         */
+        @java.lang.Override
+        public java.lang.String getBizType() {
+            java.lang.Object ref = bizType_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                bizType_ = s;
+                return s;
+            }
         }
-        idMemoizedSerializedSize = dataSize;
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
+
+        /**
+         * <code>string bizType = 1;</code>
+         *
+         * @return The bytes for bizType.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getBizTypeBytes() {
+            java.lang.Object ref = bizType_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                bizType_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>int32 batchSize = 2;</code>
+         *
+         * @return The batchSize.
+         */
+        @java.lang.Override
+        public int getBatchSize() {
+            return batchSize_;
+        }
+
+        /**
+         * <code>string token = 3;</code>
+         *
+         * @return The token.
+         */
+        @java.lang.Override
+        public java.lang.String getToken() {
+            java.lang.Object ref = token_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                token_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string token = 3;</code>
+         *
+         * @return The bytes for token.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getTokenBytes() {
+            java.lang.Object ref = token_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                token_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizType_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, bizType_);
+            }
+            if (batchSize_ != 0) {
+                output.writeInt32(2, batchSize_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bizType_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, bizType_);
+            }
+            if (batchSize_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(2, batchSize_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.amur.home.tinyid.rpc.TinyId.GenIdReq)) {
+                return super.equals(obj);
+            }
+            com.amur.home.tinyid.rpc.TinyId.GenIdReq other = (com.amur.home.tinyid.rpc.TinyId.GenIdReq) obj;
+
+            if (!getBizType()
+                    .equals(other.getBizType())) return false;
+            if (getBatchSize()
+                    != other.getBatchSize()) return false;
+            if (!getToken()
+                    .equals(other.getToken())) return false;
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + BIZTYPE_FIELD_NUMBER;
+            hash = (53 * hash) + getBizType().hashCode();
+            hash = (37 * hash) + BATCHSIZE_FIELD_NUMBER;
+            hash = (53 * hash) + getBatchSize();
+            hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+            hash = (53 * hash) + getToken().hashCode();
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<GenIdReq> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.amur.home.tinyid.rpc.TinyId.GenIdReq getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code com.amur.home.tinyid.rpc.GenIdReq}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.amur.home.tinyid.rpc.GenIdReq)
+                com.amur.home.tinyid.rpc.TinyId.GenIdReqOrBuilder {
+            private java.lang.Object bizType_ = "";
+            private int batchSize_;
+            private java.lang.Object token_ = "";
+
+            // Construct using com.amur.home.tinyid.rpc.TinyId.GenIdReq.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.amur.home.tinyid.rpc.TinyId.GenIdReq.class, com.amur.home.tinyid.rpc.TinyId.GenIdReq.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                bizType_ = "";
+
+                batchSize_ = 0;
+
+                token_ = "";
+
+                return this;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.GenIdReq getDefaultInstanceForType() {
+                return com.amur.home.tinyid.rpc.TinyId.GenIdReq.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.GenIdReq build() {
+                com.amur.home.tinyid.rpc.TinyId.GenIdReq result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.GenIdReq buildPartial() {
+                com.amur.home.tinyid.rpc.TinyId.GenIdReq result = new com.amur.home.tinyid.rpc.TinyId.GenIdReq(this);
+                result.bizType_ = bizType_;
+                result.batchSize_ = batchSize_;
+                result.token_ = token_;
+                onBuilt();
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.amur.home.tinyid.rpc.TinyId.GenIdReq) {
+                    return mergeFrom((com.amur.home.tinyid.rpc.TinyId.GenIdReq) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.amur.home.tinyid.rpc.TinyId.GenIdReq other) {
+                if (other == com.amur.home.tinyid.rpc.TinyId.GenIdReq.getDefaultInstance()) return this;
+                if (!other.getBizType().isEmpty()) {
+                    bizType_ = other.bizType_;
+                    onChanged();
+                }
+                if (other.getBatchSize() != 0) {
+                    setBatchSize(other.getBatchSize());
+                }
+                if (!other.getToken().isEmpty()) {
+                    token_ = other.token_;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                com.amur.home.tinyid.rpc.TinyId.GenIdReq parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.amur.home.tinyid.rpc.TinyId.GenIdReq) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            /**
+             * <code>string bizType = 1;</code>
+             *
+             * @return The bizType.
+             */
+            public java.lang.String getBizType() {
+                java.lang.Object ref = bizType_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    bizType_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string bizType = 1;</code>
+             *
+             * @param value The bizType to set.
+             * @return This builder for chaining.
+             */
+            public Builder setBizType(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                bizType_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string bizType = 1;</code>
+             *
+             * @return The bytes for bizType.
+             */
+            public com.google.protobuf.ByteString
+            getBizTypeBytes() {
+                java.lang.Object ref = bizType_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    bizType_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string bizType = 1;</code>
+             *
+             * @param value The bytes for bizType to set.
+             * @return This builder for chaining.
+             */
+            public Builder setBizTypeBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                bizType_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string bizType = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearBizType() {
+
+                bizType_ = getDefaultInstance().getBizType();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>int32 batchSize = 2;</code>
+             *
+             * @return The batchSize.
+             */
+            @java.lang.Override
+            public int getBatchSize() {
+                return batchSize_;
+            }
+
+            /**
+             * <code>int32 batchSize = 2;</code>
+             *
+             * @param value The batchSize to set.
+             * @return This builder for chaining.
+             */
+            public Builder setBatchSize(int value) {
+
+                batchSize_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>int32 batchSize = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearBatchSize() {
+
+                batchSize_ = 0;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string token = 3;</code>
+             *
+             * @return The token.
+             */
+            public java.lang.String getToken() {
+                java.lang.Object ref = token_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    token_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string token = 3;</code>
+             *
+             * @param value The token to set.
+             * @return This builder for chaining.
+             */
+            public Builder setToken(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                token_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string token = 3;</code>
+             *
+             * @return The bytes for token.
+             */
+            public com.google.protobuf.ByteString
+            getTokenBytes() {
+                java.lang.Object ref = token_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    token_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string token = 3;</code>
+             *
+             * @param value The bytes for token to set.
+             * @return This builder for chaining.
+             */
+            public Builder setTokenBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                token_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string token = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearToken() {
+
+                token_ = getDefaultInstance().getToken();
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:com.amur.home.tinyid.rpc.GenIdReq)
+        }
+
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.amur.home.tinyid.rpc.TinyId.GenIdResp)) {
-        return super.equals(obj);
-      }
-      com.amur.home.tinyid.rpc.TinyId.GenIdResp other = (com.amur.home.tinyid.rpc.TinyId.GenIdResp) obj;
-
-      if (!getIdList()
-          .equals(other.getIdList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getIdCount() > 0) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getIdList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.amur.home.tinyid.rpc.TinyId.GenIdResp prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code com.amur.home.tinyid.rpc.GenIdResp}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.amur.home.tinyid.rpc.GenIdResp)
-        com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.amur.home.tinyid.rpc.TinyId.GenIdResp.class, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder.class);
-      }
-
-      // Construct using com.amur.home.tinyid.rpc.TinyId.GenIdResp.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        id_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.GenIdResp getDefaultInstanceForType() {
-        return com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.GenIdResp build() {
-        com.amur.home.tinyid.rpc.TinyId.GenIdResp result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.GenIdResp buildPartial() {
-        com.amur.home.tinyid.rpc.TinyId.GenIdResp result = new com.amur.home.tinyid.rpc.TinyId.GenIdResp(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          id_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.id_ = id_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.tinyid.rpc.TinyId.GenIdResp) {
-          return mergeFrom((com.amur.home.tinyid.rpc.TinyId.GenIdResp)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.amur.home.tinyid.rpc.TinyId.GenIdResp other) {
-        if (other == com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance()) return this;
-        if (!other.id_.isEmpty()) {
-          if (id_.isEmpty()) {
-            id_ = other.id_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureIdIsMutable();
-            id_.addAll(other.id_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.amur.home.tinyid.rpc.TinyId.GenIdResp parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.tinyid.rpc.TinyId.GenIdResp) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.Internal.LongList id_ = emptyLongList();
-      private void ensureIdIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          id_ = mutableCopy(id_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated int64 id = 1;</code>
-       * @return A list containing the id.
-       */
-      public java.util.List<java.lang.Long>
-          getIdList() {
-        return ((bitField0_ & 0x00000001) != 0) ?
-                 java.util.Collections.unmodifiableList(id_) : id_;
-      }
-      /**
-       * <code>repeated int64 id = 1;</code>
-       * @return The count of id.
-       */
-      public int getIdCount() {
-        return id_.size();
-      }
-      /**
-       * <code>repeated int64 id = 1;</code>
-       * @param index The index of the element to return.
-       * @return The id at the given index.
-       */
-      public long getId(int index) {
-        return id_.getLong(index);
-      }
-      /**
-       * <code>repeated int64 id = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(
-          int index, long value) {
-        ensureIdIsMutable();
-        id_.setLong(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int64 id = 1;</code>
-       * @param value The id to add.
-       * @return This builder for chaining.
-       */
-      public Builder addId(long value) {
-        ensureIdIsMutable();
-        id_.addLong(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int64 id = 1;</code>
-       * @param values The id to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllId(
-          java.lang.Iterable<? extends java.lang.Long> values) {
-        ensureIdIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, id_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int64 id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearId() {
-        id_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.amur.home.tinyid.rpc.GenIdResp)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.amur.home.tinyid.rpc.GenIdResp)
-    private static final com.amur.home.tinyid.rpc.TinyId.GenIdResp DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.amur.home.tinyid.rpc.TinyId.GenIdResp();
-    }
-
-    public static com.amur.home.tinyid.rpc.TinyId.GenIdResp getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<GenIdResp>
-        PARSER = new com.google.protobuf.AbstractParser<GenIdResp>() {
-      @java.lang.Override
-      public GenIdResp parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenIdResp(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<GenIdResp> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GenIdResp> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.amur.home.tinyid.rpc.TinyId.GenIdResp getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface RespOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.amur.home.tinyid.rpc.Resp)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 code = 1;</code>
-     * @return The code.
-     */
-    int getCode();
-
-    /**
-     * <code>string message = 2;</code>
-     * @return The message.
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
-
-    /**
-     * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-     * @return Whether the data field is set.
-     */
-    boolean hasData();
-    /**
-     * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-     * @return The data.
-     */
-    com.amur.home.tinyid.rpc.TinyId.GenIdResp getData();
-    /**
-     * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-     */
-    com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder getDataOrBuilder();
-  }
-  /**
-   * Protobuf type {@code com.amur.home.tinyid.rpc.Resp}
-   */
-  public static final class Resp extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.amur.home.tinyid.rpc.Resp)
-      RespOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Resp.newBuilder() to construct.
-    private Resp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Resp() {
-      message_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Resp();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Resp(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              code_ = input.readInt32();
-              break;
+    public static final class GenIdResp extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.amur.home.tinyid.rpc.GenIdResp)
+            GenIdRespOrBuilder {
+        public static final int ID_FIELD_NUMBER = 1;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:com.amur.home.tinyid.rpc.GenIdResp)
+        private static final com.amur.home.tinyid.rpc.TinyId.GenIdResp DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<GenIdResp>
+                PARSER = new com.google.protobuf.AbstractParser<GenIdResp>() {
+            @java.lang.Override
+            public GenIdResp parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new GenIdResp(input, extensionRegistry);
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+        };
 
-              message_ = s;
-              break;
-            }
-            case 26: {
-              com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder subBuilder = null;
-              if (data_ != null) {
-                subBuilder = data_.toBuilder();
-              }
-              data_ = input.readMessage(com.amur.home.tinyid.rpc.TinyId.GenIdResp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(data_);
-                data_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
+        static {
+            DEFAULT_INSTANCE = new com.amur.home.tinyid.rpc.TinyId.GenIdResp();
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+        private com.google.protobuf.Internal.LongList id_;
+        private int idMemoizedSerializedSize = -1;
+        private byte memoizedIsInitialized = -1;
+
+        // Use GenIdResp.newBuilder() to construct.
+        private GenIdResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+        }
+
+        private GenIdResp() {
+            id_ = emptyLongList();
+        }
+
+        private GenIdResp(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 8: {
+                            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                                id_ = newLongList();
+                                mutable_bitField0_ |= 0x00000001;
+                            }
+                            id_.addLong(input.readInt64());
+                            break;
+                        }
+                        case 10: {
+                            int length = input.readRawVarint32();
+                            int limit = input.pushLimit(length);
+                            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                                id_ = newLongList();
+                                mutable_bitField0_ |= 0x00000001;
+                            }
+                            while (input.getBytesUntilLimit() > 0) {
+                                id_.addLong(input.readInt64());
+                            }
+                            input.popLimit(limit);
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                if (((mutable_bitField0_ & 0x00000001) != 0)) {
+                    id_.makeImmutable(); // C
+                }
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
-    }
+            return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
+        }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.amur.home.tinyid.rpc.TinyId.GenIdResp prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.GenIdResp getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<GenIdResp> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new GenIdResp();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.amur.home.tinyid.rpc.TinyId.Resp.class, com.amur.home.tinyid.rpc.TinyId.Resp.Builder.class);
+            return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.amur.home.tinyid.rpc.TinyId.GenIdResp.class, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder.class);
+        }
+
+        /**
+         * <code>repeated int64 id = 1;</code>
+         *
+         * @return A list containing the id.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.Long>
+        getIdList() {
+            return id_;
+        }
+
+        /**
+         * <code>repeated int64 id = 1;</code>
+         *
+         * @return The count of id.
+         */
+        public int getIdCount() {
+            return id_.size();
+        }
+
+        /**
+         * <code>repeated int64 id = 1;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The id at the given index.
+         */
+        public long getId(int index) {
+            return id_.getLong(index);
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            getSerializedSize();
+            if (getIdList().size() > 0) {
+                output.writeUInt32NoTag(10);
+                output.writeUInt32NoTag(idMemoizedSerializedSize);
+            }
+            for (int i = 0; i < id_.size(); i++) {
+                output.writeInt64NoTag(id_.getLong(i));
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            {
+                int dataSize = 0;
+                for (int i = 0; i < id_.size(); i++) {
+                    dataSize += com.google.protobuf.CodedOutputStream
+                            .computeInt64SizeNoTag(id_.getLong(i));
+                }
+                size += dataSize;
+                if (!getIdList().isEmpty()) {
+                    size += 1;
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeInt32SizeNoTag(dataSize);
+                }
+                idMemoizedSerializedSize = dataSize;
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.amur.home.tinyid.rpc.TinyId.GenIdResp)) {
+                return super.equals(obj);
+            }
+            com.amur.home.tinyid.rpc.TinyId.GenIdResp other = (com.amur.home.tinyid.rpc.TinyId.GenIdResp) obj;
+
+            if (!getIdList()
+                    .equals(other.getIdList())) return false;
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            if (getIdCount() > 0) {
+                hash = (37 * hash) + ID_FIELD_NUMBER;
+                hash = (53 * hash) + getIdList().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<GenIdResp> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.amur.home.tinyid.rpc.TinyId.GenIdResp getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code com.amur.home.tinyid.rpc.GenIdResp}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.amur.home.tinyid.rpc.GenIdResp)
+                com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder {
+            private int bitField0_;
+            private com.google.protobuf.Internal.LongList id_ = emptyLongList();
+
+            // Construct using com.amur.home.tinyid.rpc.TinyId.GenIdResp.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.amur.home.tinyid.rpc.TinyId.GenIdResp.class, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                id_ = emptyLongList();
+                bitField0_ = (bitField0_ & ~0x00000001);
+                return this;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.GenIdResp getDefaultInstanceForType() {
+                return com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.GenIdResp build() {
+                com.amur.home.tinyid.rpc.TinyId.GenIdResp result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.GenIdResp buildPartial() {
+                com.amur.home.tinyid.rpc.TinyId.GenIdResp result = new com.amur.home.tinyid.rpc.TinyId.GenIdResp(this);
+                int from_bitField0_ = bitField0_;
+                if (((bitField0_ & 0x00000001) != 0)) {
+                    id_.makeImmutable();
+                    bitField0_ = (bitField0_ & ~0x00000001);
+                }
+                result.id_ = id_;
+                onBuilt();
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.amur.home.tinyid.rpc.TinyId.GenIdResp) {
+                    return mergeFrom((com.amur.home.tinyid.rpc.TinyId.GenIdResp) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.amur.home.tinyid.rpc.TinyId.GenIdResp other) {
+                if (other == com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance()) return this;
+                if (!other.id_.isEmpty()) {
+                    if (id_.isEmpty()) {
+                        id_ = other.id_;
+                        bitField0_ = (bitField0_ & ~0x00000001);
+                    } else {
+                        ensureIdIsMutable();
+                        id_.addAll(other.id_);
+                    }
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                com.amur.home.tinyid.rpc.TinyId.GenIdResp parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.amur.home.tinyid.rpc.TinyId.GenIdResp) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private void ensureIdIsMutable() {
+                if (!((bitField0_ & 0x00000001) != 0)) {
+                    id_ = mutableCopy(id_);
+                    bitField0_ |= 0x00000001;
+                }
+            }
+
+            /**
+             * <code>repeated int64 id = 1;</code>
+             *
+             * @return A list containing the id.
+             */
+            public java.util.List<java.lang.Long>
+            getIdList() {
+                return ((bitField0_ & 0x00000001) != 0) ?
+                        java.util.Collections.unmodifiableList(id_) : id_;
+            }
+
+            /**
+             * <code>repeated int64 id = 1;</code>
+             *
+             * @return The count of id.
+             */
+            public int getIdCount() {
+                return id_.size();
+            }
+
+            /**
+             * <code>repeated int64 id = 1;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The id at the given index.
+             */
+            public long getId(int index) {
+                return id_.getLong(index);
+            }
+
+            /**
+             * <code>repeated int64 id = 1;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The id to set.
+             * @return This builder for chaining.
+             */
+            public Builder setId(
+                    int index, long value) {
+                ensureIdIsMutable();
+                id_.setLong(index, value);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>repeated int64 id = 1;</code>
+             *
+             * @param value The id to add.
+             * @return This builder for chaining.
+             */
+            public Builder addId(long value) {
+                ensureIdIsMutable();
+                id_.addLong(value);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>repeated int64 id = 1;</code>
+             *
+             * @param values The id to add.
+             * @return This builder for chaining.
+             */
+            public Builder addAllId(
+                    java.lang.Iterable<? extends java.lang.Long> values) {
+                ensureIdIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                        values, id_);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>repeated int64 id = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearId() {
+                id_ = emptyLongList();
+                bitField0_ = (bitField0_ & ~0x00000001);
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:com.amur.home.tinyid.rpc.GenIdResp)
+        }
+
     }
 
-    public static final int CODE_FIELD_NUMBER = 1;
-    private int code_;
-    /**
-     * <code>int32 code = 1;</code>
-     * @return The code.
-     */
-    @java.lang.Override
-    public int getCode() {
-      return code_;
-    }
-
-    public static final int MESSAGE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object message_;
-    /**
-     * <code>string message = 2;</code>
-     * @return The message.
-     */
-    @java.lang.Override
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int DATA_FIELD_NUMBER = 3;
-    private com.amur.home.tinyid.rpc.TinyId.GenIdResp data_;
-    /**
-     * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-     * @return Whether the data field is set.
-     */
-    @java.lang.Override
-    public boolean hasData() {
-      return data_ != null;
-    }
-    /**
-     * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-     * @return The data.
-     */
-    @java.lang.Override
-    public com.amur.home.tinyid.rpc.TinyId.GenIdResp getData() {
-      return data_ == null ? com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance() : data_;
-    }
-    /**
-     * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-     */
-    @java.lang.Override
-    public com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder getDataOrBuilder() {
-      return getData();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (code_ != 0) {
-        output.writeInt32(1, code_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
-      }
-      if (data_ != null) {
-        output.writeMessage(3, getData());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (code_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, code_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
-      }
-      if (data_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getData());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.amur.home.tinyid.rpc.TinyId.Resp)) {
-        return super.equals(obj);
-      }
-      com.amur.home.tinyid.rpc.TinyId.Resp other = (com.amur.home.tinyid.rpc.TinyId.Resp) obj;
-
-      if (getCode()
-          != other.getCode()) return false;
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-      if (hasData() != other.hasData()) return false;
-      if (hasData()) {
-        if (!getData()
-            .equals(other.getData())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CODE_FIELD_NUMBER;
-      hash = (53 * hash) + getCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      if (hasData()) {
-        hash = (37 * hash) + DATA_FIELD_NUMBER;
-        hash = (53 * hash) + getData().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.amur.home.tinyid.rpc.TinyId.Resp prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code com.amur.home.tinyid.rpc.Resp}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.amur.home.tinyid.rpc.Resp)
-        com.amur.home.tinyid.rpc.TinyId.RespOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
-      }
+    public static final class Resp extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.amur.home.tinyid.rpc.Resp)
+            RespOrBuilder {
+        public static final int CODE_FIELD_NUMBER = 1;
+        public static final int MESSAGE_FIELD_NUMBER = 2;
+        public static final int DATA_FIELD_NUMBER = 3;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:com.amur.home.tinyid.rpc.Resp)
+        private static final com.amur.home.tinyid.rpc.TinyId.Resp DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<Resp>
+                PARSER = new com.google.protobuf.AbstractParser<Resp>() {
+            @java.lang.Override
+            public Resp parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Resp(input, extensionRegistry);
+            }
+        };
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.amur.home.tinyid.rpc.TinyId.Resp.class, com.amur.home.tinyid.rpc.TinyId.Resp.Builder.class);
-      }
-
-      // Construct using com.amur.home.tinyid.rpc.TinyId.Resp.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        code_ = 0;
-
-        message_ = "";
-
-        if (dataBuilder_ == null) {
-          data_ = null;
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.Resp getDefaultInstanceForType() {
-        return com.amur.home.tinyid.rpc.TinyId.Resp.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.Resp build() {
-        com.amur.home.tinyid.rpc.TinyId.Resp result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.amur.home.tinyid.rpc.TinyId.Resp buildPartial() {
-        com.amur.home.tinyid.rpc.TinyId.Resp result = new com.amur.home.tinyid.rpc.TinyId.Resp(this);
-        result.code_ = code_;
-        result.message_ = message_;
-        if (dataBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = dataBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.amur.home.tinyid.rpc.TinyId.Resp) {
-          return mergeFrom((com.amur.home.tinyid.rpc.TinyId.Resp)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.amur.home.tinyid.rpc.TinyId.Resp other) {
-        if (other == com.amur.home.tinyid.rpc.TinyId.Resp.getDefaultInstance()) return this;
-        if (other.getCode() != 0) {
-          setCode(other.getCode());
-        }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          onChanged();
-        }
-        if (other.hasData()) {
-          mergeData(other.getData());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.amur.home.tinyid.rpc.TinyId.Resp parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.amur.home.tinyid.rpc.TinyId.Resp) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int code_ ;
-      /**
-       * <code>int32 code = 1;</code>
-       * @return The code.
-       */
-      @java.lang.Override
-      public int getCode() {
-        return code_;
-      }
-      /**
-       * <code>int32 code = 1;</code>
-       * @param value The code to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCode(int value) {
-        
-        code_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 code = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCode() {
-        
-        code_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object message_ = "";
-      /**
-       * <code>string message = 2;</code>
-       * @return The message.
-       */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @return The bytes for message.
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        message_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        
-        message_ = getDefaultInstance().getMessage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The bytes for message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        message_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.amur.home.tinyid.rpc.TinyId.GenIdResp data_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.tinyid.rpc.TinyId.GenIdResp, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder, com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder> dataBuilder_;
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       * @return Whether the data field is set.
-       */
-      public boolean hasData() {
-        return dataBuilder_ != null || data_ != null;
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       * @return The data.
-       */
-      public com.amur.home.tinyid.rpc.TinyId.GenIdResp getData() {
-        if (dataBuilder_ == null) {
-          return data_ == null ? com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance() : data_;
-        } else {
-          return dataBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       */
-      public Builder setData(com.amur.home.tinyid.rpc.TinyId.GenIdResp value) {
-        if (dataBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          data_ = value;
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(value);
+        static {
+            DEFAULT_INSTANCE = new com.amur.home.tinyid.rpc.TinyId.Resp();
         }
 
-        return this;
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       */
-      public Builder setData(
-          com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder builderForValue) {
-        if (dataBuilder_ == null) {
-          data_ = builderForValue.build();
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(builderForValue.build());
+        private int code_;
+        private volatile java.lang.Object message_;
+        private com.amur.home.tinyid.rpc.TinyId.GenIdResp data_;
+        private byte memoizedIsInitialized = -1;
+
+        // Use Resp.newBuilder() to construct.
+        private Resp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
 
-        return this;
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       */
-      public Builder mergeData(com.amur.home.tinyid.rpc.TinyId.GenIdResp value) {
-        if (dataBuilder_ == null) {
-          if (data_ != null) {
-            data_ =
-              com.amur.home.tinyid.rpc.TinyId.GenIdResp.newBuilder(data_).mergeFrom(value).buildPartial();
-          } else {
-            data_ = value;
-          }
-          onChanged();
-        } else {
-          dataBuilder_.mergeFrom(value);
+        private Resp() {
+            message_ = "";
         }
 
-        return this;
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       */
-      public Builder clearData() {
-        if (dataBuilder_ == null) {
-          data_ = null;
-          onChanged();
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
+        private Resp(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 8: {
+
+                            code_ = input.readInt32();
+                            break;
+                        }
+                        case 18: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            message_ = s;
+                            break;
+                        }
+                        case 26: {
+                            com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder subBuilder = null;
+                            if (data_ != null) {
+                                subBuilder = data_.toBuilder();
+                            }
+                            data_ = input.readMessage(com.amur.home.tinyid.rpc.TinyId.GenIdResp.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom(data_);
+                                data_ = subBuilder.buildPartial();
+                            }
+
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
         }
 
-        return this;
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       */
-      public com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder getDataBuilder() {
-        
-        onChanged();
-        return getDataFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       */
-      public com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder getDataOrBuilder() {
-        if (dataBuilder_ != null) {
-          return dataBuilder_.getMessageOrBuilder();
-        } else {
-          return data_ == null ?
-              com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance() : data_;
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
         }
-      }
-      /**
-       * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.amur.home.tinyid.rpc.TinyId.GenIdResp, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder, com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder> 
-          getDataFieldBuilder() {
-        if (dataBuilder_ == null) {
-          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.amur.home.tinyid.rpc.TinyId.GenIdResp, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder, com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder>(
-                  getData(),
-                  getParentForChildren(),
-                  isClean());
-          data_ = null;
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
         }
-        return dataBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
 
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.amur.home.tinyid.rpc.TinyId.Resp prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static com.amur.home.tinyid.rpc.TinyId.Resp getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<Resp> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new Resp();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.amur.home.tinyid.rpc.TinyId.Resp.class, com.amur.home.tinyid.rpc.TinyId.Resp.Builder.class);
+        }
+
+        /**
+         * <code>int32 code = 1;</code>
+         *
+         * @return The code.
+         */
+        @java.lang.Override
+        public int getCode() {
+            return code_;
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         *
+         * @return The message.
+         */
+        @java.lang.Override
+        public java.lang.String getMessage() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                message_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         *
+         * @return The bytes for message.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getMessageBytes() {
+            java.lang.Object ref = message_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                message_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+         *
+         * @return Whether the data field is set.
+         */
+        @java.lang.Override
+        public boolean hasData() {
+            return data_ != null;
+        }
+
+        /**
+         * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+         *
+         * @return The data.
+         */
+        @java.lang.Override
+        public com.amur.home.tinyid.rpc.TinyId.GenIdResp getData() {
+            return data_ == null ? com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance() : data_;
+        }
+
+        /**
+         * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+         */
+        @java.lang.Override
+        public com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder getDataOrBuilder() {
+            return getData();
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (code_ != 0) {
+                output.writeInt32(1, code_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+            }
+            if (data_ != null) {
+                output.writeMessage(3, getData());
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (code_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(1, code_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+            }
+            if (data_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(3, getData());
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.amur.home.tinyid.rpc.TinyId.Resp)) {
+                return super.equals(obj);
+            }
+            com.amur.home.tinyid.rpc.TinyId.Resp other = (com.amur.home.tinyid.rpc.TinyId.Resp) obj;
+
+            if (getCode()
+                    != other.getCode()) return false;
+            if (!getMessage()
+                    .equals(other.getMessage())) return false;
+            if (hasData() != other.hasData()) return false;
+            if (hasData()) {
+                if (!getData()
+                        .equals(other.getData())) return false;
+            }
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + CODE_FIELD_NUMBER;
+            hash = (53 * hash) + getCode();
+            hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+            hash = (53 * hash) + getMessage().hashCode();
+            if (hasData()) {
+                hash = (37 * hash) + DATA_FIELD_NUMBER;
+                hash = (53 * hash) + getData().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Resp> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.amur.home.tinyid.rpc.TinyId.Resp getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code com.amur.home.tinyid.rpc.Resp}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.amur.home.tinyid.rpc.Resp)
+                com.amur.home.tinyid.rpc.TinyId.RespOrBuilder {
+            private int code_;
+            private java.lang.Object message_ = "";
+            private com.amur.home.tinyid.rpc.TinyId.GenIdResp data_;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.amur.home.tinyid.rpc.TinyId.GenIdResp, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder, com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder> dataBuilder_;
+
+            // Construct using com.amur.home.tinyid.rpc.TinyId.Resp.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.amur.home.tinyid.rpc.TinyId.Resp.class, com.amur.home.tinyid.rpc.TinyId.Resp.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                code_ = 0;
+
+                message_ = "";
+
+                if (dataBuilder_ == null) {
+                    data_ = null;
+                } else {
+                    data_ = null;
+                    dataBuilder_ = null;
+                }
+                return this;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.amur.home.tinyid.rpc.TinyId.internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.Resp getDefaultInstanceForType() {
+                return com.amur.home.tinyid.rpc.TinyId.Resp.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.Resp build() {
+                com.amur.home.tinyid.rpc.TinyId.Resp result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public com.amur.home.tinyid.rpc.TinyId.Resp buildPartial() {
+                com.amur.home.tinyid.rpc.TinyId.Resp result = new com.amur.home.tinyid.rpc.TinyId.Resp(this);
+                result.code_ = code_;
+                result.message_ = message_;
+                if (dataBuilder_ == null) {
+                    result.data_ = data_;
+                } else {
+                    result.data_ = dataBuilder_.build();
+                }
+                onBuilt();
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.amur.home.tinyid.rpc.TinyId.Resp) {
+                    return mergeFrom((com.amur.home.tinyid.rpc.TinyId.Resp) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.amur.home.tinyid.rpc.TinyId.Resp other) {
+                if (other == com.amur.home.tinyid.rpc.TinyId.Resp.getDefaultInstance()) return this;
+                if (other.getCode() != 0) {
+                    setCode(other.getCode());
+                }
+                if (!other.getMessage().isEmpty()) {
+                    message_ = other.message_;
+                    onChanged();
+                }
+                if (other.hasData()) {
+                    mergeData(other.getData());
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                com.amur.home.tinyid.rpc.TinyId.Resp parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.amur.home.tinyid.rpc.TinyId.Resp) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            /**
+             * <code>int32 code = 1;</code>
+             *
+             * @return The code.
+             */
+            @java.lang.Override
+            public int getCode() {
+                return code_;
+            }
+
+            /**
+             * <code>int32 code = 1;</code>
+             *
+             * @param value The code to set.
+             * @return This builder for chaining.
+             */
+            public Builder setCode(int value) {
+
+                code_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>int32 code = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearCode() {
+
+                code_ = 0;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @return The message.
+             */
+            public java.lang.String getMessage() {
+                java.lang.Object ref = message_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    message_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @param value The message to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMessage(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                message_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @return The bytes for message.
+             */
+            public com.google.protobuf.ByteString
+            getMessageBytes() {
+                java.lang.Object ref = message_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    message_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @param value The bytes for message to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMessageBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                message_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string message = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearMessage() {
+
+                message_ = getDefaultInstance().getMessage();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             *
+             * @return Whether the data field is set.
+             */
+            public boolean hasData() {
+                return dataBuilder_ != null || data_ != null;
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             *
+             * @return The data.
+             */
+            public com.amur.home.tinyid.rpc.TinyId.GenIdResp getData() {
+                if (dataBuilder_ == null) {
+                    return data_ == null ? com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance() : data_;
+                } else {
+                    return dataBuilder_.getMessage();
+                }
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             */
+            public Builder setData(com.amur.home.tinyid.rpc.TinyId.GenIdResp value) {
+                if (dataBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    data_ = value;
+                    onChanged();
+                } else {
+                    dataBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             */
+            public Builder setData(
+                    com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder builderForValue) {
+                if (dataBuilder_ == null) {
+                    data_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    dataBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             */
+            public Builder mergeData(com.amur.home.tinyid.rpc.TinyId.GenIdResp value) {
+                if (dataBuilder_ == null) {
+                    if (data_ != null) {
+                        data_ =
+                                com.amur.home.tinyid.rpc.TinyId.GenIdResp.newBuilder(data_).mergeFrom(value).buildPartial();
+                    } else {
+                        data_ = value;
+                    }
+                    onChanged();
+                } else {
+                    dataBuilder_.mergeFrom(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             */
+            public Builder clearData() {
+                if (dataBuilder_ == null) {
+                    data_ = null;
+                    onChanged();
+                } else {
+                    data_ = null;
+                    dataBuilder_ = null;
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             */
+            public com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder getDataBuilder() {
+
+                onChanged();
+                return getDataFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             */
+            public com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder getDataOrBuilder() {
+                if (dataBuilder_ != null) {
+                    return dataBuilder_.getMessageOrBuilder();
+                } else {
+                    return data_ == null ?
+                            com.amur.home.tinyid.rpc.TinyId.GenIdResp.getDefaultInstance() : data_;
+                }
+            }
+
+            /**
+             * <code>.com.amur.home.tinyid.rpc.GenIdResp data = 3;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.amur.home.tinyid.rpc.TinyId.GenIdResp, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder, com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder>
+            getDataFieldBuilder() {
+                if (dataBuilder_ == null) {
+                    dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.amur.home.tinyid.rpc.TinyId.GenIdResp, com.amur.home.tinyid.rpc.TinyId.GenIdResp.Builder, com.amur.home.tinyid.rpc.TinyId.GenIdRespOrBuilder>(
+                            getData(),
+                            getParentForChildren(),
+                            isClean());
+                    data_ = null;
+                }
+                return dataBuilder_;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:com.amur.home.tinyid.rpc.Resp)
+            // @@protoc_insertion_point(builder_scope:com.amur.home.tinyid.rpc.Resp)
+        }
+
     }
 
-    // @@protoc_insertion_point(class_scope:com.amur.home.tinyid.rpc.Resp)
-    private static final com.amur.home.tinyid.rpc.TinyId.Resp DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.amur.home.tinyid.rpc.TinyId.Resp();
-    }
-
-    public static com.amur.home.tinyid.rpc.TinyId.Resp getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Resp>
-        PARSER = new com.google.protobuf.AbstractParser<Resp>() {
-      @java.lang.Override
-      public Resp parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Resp(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Resp> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Resp> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.amur.home.tinyid.rpc.TinyId.Resp getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_amur_home_tinyid_rpc_Resp_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable;
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\014tinyId.proto\022\030com.amur.home.tinyid.rpc" +
-      "\"=\n\010GenIdReq\022\017\n\007bizType\030\001 \001(\t\022\021\n\tbatchSi" +
-      "ze\030\002 \001(\005\022\r\n\005token\030\003 \001(\t\"\027\n\tGenIdResp\022\n\n\002" +
-      "id\030\001 \003(\003\"X\n\004Resp\022\014\n\004code\030\001 \001(\005\022\017\n\007messag" +
-      "e\030\002 \001(\t\0221\n\004data\030\003 \001(\0132#.com.amur.home.ti" +
-      "nyid.rpc.GenIdResp2Z\n\tIdService\022M\n\005GenId" +
-      "\022\".com.amur.home.tinyid.rpc.GenIdReq\032\036.c" +
-      "om.amur.home.tinyid.rpc.Resp\"\000b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_com_amur_home_tinyid_rpc_GenIdReq_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_home_tinyid_rpc_GenIdReq_descriptor,
-        new java.lang.String[] { "BizType", "BatchSize", "Token", });
-    internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_com_amur_home_tinyid_rpc_GenIdResp_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_home_tinyid_rpc_GenIdResp_descriptor,
-        new java.lang.String[] { "Id", });
-    internal_static_com_amur_home_tinyid_rpc_Resp_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_com_amur_home_tinyid_rpc_Resp_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_amur_home_tinyid_rpc_Resp_descriptor,
-        new java.lang.String[] { "Code", "Message", "Data", });
-  }
-
-  // @@protoc_insertion_point(outer_class_scope)
+    // @@protoc_insertion_point(outer_class_scope)
 }

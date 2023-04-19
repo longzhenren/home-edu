@@ -38,9 +38,10 @@ public class SaTokenConfigure {
                     SaRouter.match("/**", "/home-auth/login", r -> StpUtil.checkLogin());
                     // 权限认证 -- 不同模块, 校验不同权限
                     SaRouter.match("/home-user/**", "/home-schedule/**", "/home-course/**", "/home-rtc/**", "/home-msg/**").check(r -> StpUtil.checkPermission(Constants.PermissionName.USER.getName()));
-                    SaRouter.match("/home-msg/announce/home/add", "/home-user/home/admin/**", "/home-user/home/del", "/home-user/home/user/add", "/home-user/home/user/del", "/home-course/share/token", "/home-course/course/del", "/home-course/course/add", "/home-course/stu/add", "/home-course/stu/del", "/home-course/teacher/add", "/home-course/teacher/del").check(r -> StpUtil.checkPermission(Constants.PermissionName.HOME_ADMIN.getName()));
+                    SaRouter.match("/home-msg/announce/home/add", "/home-user/home/admin/**", "/home-user/home/del", "/home-user/home/user/del", "/home-course/share/token", "/home-course/course/del", "/home-course/course/add", "/home-course/stu/add", "/home-course/stu/del", "/home-course/teacher/add", "/home-course/teacher/del").check(r -> StpUtil.checkPermission(Constants.PermissionName.HOME_ADMIN.getName()));
                     SaRouter.match("/home-user/user/del").check(r -> StpUtil.checkPermission(Constants.PermissionName.SYS_ADMIN.getName()));
                     SaRouter.match("/home-sba/**", "/home-sw/**").check(r -> StpUtil.checkPermissionOr(Constants.PermissionName.SU.getName(), Constants.PermissionName.SRE.getName()));
+                    SaRouter.match("/home-user/admin/**", "/home-tinyid/admin/**", "/home-course/admin/**", "/home-auth/admin/**", "/home-msg/admin/**", "/home-rtc/admin/**").check(r -> StpUtil.checkPermissionOr(Constants.PermissionName.SU.getName(),Constants.PermissionName.SYS_ADMIN.getName()));
                 })
 //         异常处理方法：每次setAuth函数出现异常时进入
                 .setError(e -> ResponseWrapper.fail(e.getMessage()));

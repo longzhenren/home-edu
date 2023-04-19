@@ -71,6 +71,14 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseFavAdd(Long userId, Long courseId) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.ex("课程不存在");
+        }
+        courseInfo.setFavCount(courseInfo.getFavCount() + 1);
+        if (courseInfoMapper.updateById(courseInfo) <= 0) {
+            return ServiceResult.ex("更新课程收藏数失败");
+        }
         return userGrpcClient.addFavCourse(userId, courseId);
     }
 
@@ -83,6 +91,14 @@ public class CourseFavServiceImpl implements CourseFavService {
      */
     @Override
     public ServiceResult<Void> courseFavDel(Long userId, Long courseId) {
+        CourseInfo courseInfo = courseInfoMapper.selectById(courseId);
+        if (courseInfo == null) {
+            return ServiceResult.ex("课程不存在");
+        }
+        courseInfo.setFavCount(courseInfo.getFavCount() - 1);
+        if (courseInfoMapper.updateById(courseInfo) <= 0) {
+            return ServiceResult.ex("更新课程收藏数失败");
+        }
         return userGrpcClient.delFavCourse(userId, courseId);
     }
 

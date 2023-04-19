@@ -6,15 +6,18 @@ import com.amur.home.user.client.TinyIdGrpcClient;
 import com.amur.home.user.entity.UserFavorite;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.user.entity.UserLike;
+import com.amur.home.user.entity.UserUnity;
 import com.amur.home.user.mapper.UserFavMapper;
 import com.amur.home.user.mapper.UserInfoMapper;
 import com.amur.home.user.mapper.UserLikeMapper;
+import com.amur.home.user.mapper.UserUnityMapper;
 import com.amur.home.user.service.UserService;
 import com.amur.home.user.util.RedisUtils;
 import com.amur.home.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.minio.*;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.Setter;
@@ -31,7 +34,7 @@ import java.util.UUID;
 @Service
 @Transactional
 @Slf4j
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserService {
     @Resource
     @Setter
     private UserInfoMapper userInfoMapper;
@@ -41,6 +44,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserLikeMapper userLikeMapper;
+
+    @Resource
+    private UserUnityMapper userUnityMapper;
 
     @Resource
     private TinyIdGrpcClient tinyIdGrpcClient;
@@ -190,6 +196,7 @@ public class UserServiceImpl implements UserService {
         UserInfo userInfo = new UserInfo(res.getData(), userName);
         UserFavorite userFavorite = new UserFavorite(res.getData());
         UserLike userLike = new UserLike(res.getData());
+        UserUnity userUnity = new UserUnity(res.getData());
         if (userInfoMapper.insert(userInfo) <= 0) {
             return ServiceResult.ex("创建用户失败");
         }
@@ -197,6 +204,9 @@ public class UserServiceImpl implements UserService {
             return ServiceResult.ex("创建用户失败");
         }
         if (userLikeMapper.insert(userLike) <= 0) {
+            return ServiceResult.ex("创建用户失败");
+        }
+        if (userUnityMapper.insert(userUnity) <= 0) {
             return ServiceResult.ex("创建用户失败");
         }
         redisUtils.set("user_info:" + userInfo.getId(), userInfo);
@@ -284,13 +294,12 @@ public class UserServiceImpl implements UserService {
         Page<UserInfo> page = new Page<>(pageNum, pageSize);
         IPage<UserInfo> userPage = userInfoMapper.selectPage(page, queryWrapper);
         if (userPage.getTotal() == 0) {
-            return ServiceResult.successMsg("没有搜索到相关课程");
+            return ServiceResult.successMsg("没有搜索到相关用户");
         }
         if (pageNum > userPage.getPages()) {
-            return ServiceResult.ex("页数超出限制或当前页无课程");
+            return ServiceResult.ex("页数超出限制或当前页无数据");
         }
         PageResult<UserInfo> result = new PageResult<>(pageNum, pageSize, userPage.getTotal(), userPage.getPages(), userPage.getRecords());
         return ServiceResult.success(result);
-
     }
 }

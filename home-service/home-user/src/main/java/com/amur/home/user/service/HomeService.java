@@ -3,11 +3,12 @@ package com.amur.home.user.service;
 import com.amur.home.user.entity.HomeInfo;
 import com.amur.home.user.entity.UserInfo;
 import com.amur.home.util.ServiceResult;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface HomeService {
@@ -38,6 +39,22 @@ public interface HomeService {
     ServiceResult<Void> removeHomeAdmin(Long homeId, Long userId);
 
     ServiceResult<Void> favHome(Long homeId, Long userId);
+
+    ServiceResult<Void> unfavHome(Long homeId, Long userId);
+
+    ServiceResult<List<HomeInfo>> getFavHome(Long userId);
+
+    ServiceResult<Page<HomeInfo>> queryHomeInfo(Map<String, Map<String, Object>> params, String sortField, String sortOrder, Integer pageNumber, Integer pageSize);
+
+    ServiceResult<List<UserInfo>> getHomeUser(Long homeId);
+
+    ServiceResult<Boolean> isLikeHome(Long homeId, Long userId);
+
+    ServiceResult<Boolean> isFavHome(Long homeId, Long userId);
+
+    ServiceResult<Void> unlikeHome(Long homeId, Long userId);
+
+    ServiceResult<Void> likeHome(Long homeId, Long userId);
 
 //    boolean addHomeImage(AddHomeImageDto request);
 }
