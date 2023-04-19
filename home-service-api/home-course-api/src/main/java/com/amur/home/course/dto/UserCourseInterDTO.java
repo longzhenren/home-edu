@@ -7,7 +7,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class UserCourseInterDTO {
     Boolean isFavorite;
-    Boolean isJoin;
+    Boolean isStudent;
+    Boolean isTeacher;
+    Boolean isCreator;
     Boolean isLike;
     Boolean isScore;
     Boolean isComment;
