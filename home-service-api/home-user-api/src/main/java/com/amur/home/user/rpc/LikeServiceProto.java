@@ -14,6 +14,3675 @@ public final class LikeServiceProto {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface GetLikeIssuesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetLikeIssuesRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.GetLikeIssuesRequest}
+   */
+  public static final class GetLikeIssuesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.GetLikeIssuesRequest)
+      GetLikeIssuesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetLikeIssuesRequest.newBuilder() to construct.
+    private GetLikeIssuesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetLikeIssuesRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetLikeIssuesRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetLikeIssuesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.class, com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest other = (com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.GetLikeIssuesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.GetLikeIssuesRequest)
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.class, com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest build() {
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest buildPartial() {
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest result = new com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest(this);
+        result.userId_ = userId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest) {
+          return mergeFrom((com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest other) {
+        if (other == com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.GetLikeIssuesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.GetLikeIssuesRequest)
+    private static final com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest();
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetLikeIssuesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetLikeIssuesRequest>() {
+      @java.lang.Override
+      public GetLikeIssuesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetLikeIssuesRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetLikeIssuesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetLikeIssuesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetLikeIssuesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetLikeIssuesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return A list containing the issueIds.
+     */
+    java.util.List<java.lang.Long> getIssueIdsList();
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return The count of issueIds.
+     */
+    int getIssueIdsCount();
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @param index The index of the element to return.
+     * @return The issueIds at the given index.
+     */
+    long getIssueIds(int index);
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.GetLikeIssuesResponse}
+   */
+  public static final class GetLikeIssuesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.GetLikeIssuesResponse)
+      GetLikeIssuesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetLikeIssuesResponse.newBuilder() to construct.
+    private GetLikeIssuesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetLikeIssuesResponse() {
+      issueIds_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetLikeIssuesResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetLikeIssuesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                issueIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              issueIds_.addLong(input.readInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                issueIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                issueIds_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 18: {
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          issueIds_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.class, com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.Builder.class);
+    }
+
+    public static final int ISSUEIDS_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList issueIds_;
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return A list containing the issueIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getIssueIdsList() {
+      return issueIds_;
+    }
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return The count of issueIds.
+     */
+    public int getIssueIdsCount() {
+      return issueIds_.size();
+    }
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @param index The index of the element to return.
+     * @return The issueIds at the given index.
+     */
+    public long getIssueIds(int index) {
+      return issueIds_.getLong(index);
+    }
+    private int issueIdsMemoizedSerializedSize = -1;
+
+    public static final int RESULT_FIELD_NUMBER = 2;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getIssueIdsList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(issueIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < issueIds_.size(); i++) {
+        output.writeInt64NoTag(issueIds_.getLong(i));
+      }
+      if (result_ != null) {
+        output.writeMessage(2, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < issueIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(issueIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getIssueIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        issueIdsMemoizedSerializedSize = dataSize;
+      }
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse other = (com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse) obj;
+
+      if (!getIssueIdsList()
+          .equals(other.getIssueIdsList())) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getIssueIdsCount() > 0) {
+        hash = (37 * hash) + ISSUEIDS_FIELD_NUMBER;
+        hash = (53 * hash) + getIssueIdsList().hashCode();
+      }
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.GetLikeIssuesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.GetLikeIssuesResponse)
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.class, com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        issueIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse build() {
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse buildPartial() {
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse result = new com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          issueIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.issueIds_ = issueIds_;
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse) {
+          return mergeFrom((com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse other) {
+        if (other == com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.getDefaultInstance()) return this;
+        if (!other.issueIds_.isEmpty()) {
+          if (issueIds_.isEmpty()) {
+            issueIds_ = other.issueIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureIssueIdsIsMutable();
+            issueIds_.addAll(other.issueIds_);
+          }
+          onChanged();
+        }
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Internal.LongList issueIds_ = emptyLongList();
+      private void ensureIssueIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          issueIds_ = mutableCopy(issueIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @return A list containing the issueIds.
+       */
+      public java.util.List<java.lang.Long>
+          getIssueIdsList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(issueIds_) : issueIds_;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @return The count of issueIds.
+       */
+      public int getIssueIdsCount() {
+        return issueIds_.size();
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param index The index of the element to return.
+       * @return The issueIds at the given index.
+       */
+      public long getIssueIds(int index) {
+        return issueIds_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The issueIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssueIds(
+          int index, long value) {
+        ensureIssueIdsIsMutable();
+        issueIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param value The issueIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addIssueIds(long value) {
+        ensureIssueIdsIsMutable();
+        issueIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param values The issueIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllIssueIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureIssueIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, issueIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIssueIds() {
+        issueIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.GetLikeIssuesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.GetLikeIssuesResponse)
+    private static final com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse();
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetLikeIssuesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetLikeIssuesResponse>() {
+      @java.lang.Override
+      public GetLikeIssuesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetLikeIssuesResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetLikeIssuesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetLikeIssuesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AddLikeIssueRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.AddLikeIssueRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    long getIssueId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.AddLikeIssueRequest}
+   */
+  public static final class AddLikeIssueRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.AddLikeIssueRequest)
+      AddLikeIssueRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddLikeIssueRequest.newBuilder() to construct.
+    private AddLikeIssueRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddLikeIssueRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddLikeIssueRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddLikeIssueRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              issueId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.class, com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    public static final int ISSUEID_FIELD_NUMBER = 2;
+    private long issueId_;
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    @java.lang.Override
+    public long getIssueId() {
+      return issueId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        output.writeInt64(2, issueId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, issueId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest other = (com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (getIssueId()
+          != other.getIssueId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (37 * hash) + ISSUEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIssueId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.AddLikeIssueRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.AddLikeIssueRequest)
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.class, com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        issueId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest build() {
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest buildPartial() {
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest result = new com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest(this);
+        result.userId_ = userId_;
+        result.issueId_ = issueId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest) {
+          return mergeFrom((com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest other) {
+        if (other == com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        if (other.getIssueId() != 0L) {
+          setIssueId(other.getIssueId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long issueId_ ;
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return The issueId.
+       */
+      @java.lang.Override
+      public long getIssueId() {
+        return issueId_;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @param value The issueId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssueId(long value) {
+        
+        issueId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIssueId() {
+        
+        issueId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.AddLikeIssueRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.AddLikeIssueRequest)
+    private static final com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest();
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddLikeIssueRequest>
+        PARSER = new com.google.protobuf.AbstractParser<AddLikeIssueRequest>() {
+      @java.lang.Override
+      public AddLikeIssueRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddLikeIssueRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddLikeIssueRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddLikeIssueRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AddLikeIssueResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.AddLikeIssueResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.AddLikeIssueResponse}
+   */
+  public static final class AddLikeIssueResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.AddLikeIssueResponse)
+      AddLikeIssueResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddLikeIssueResponse.newBuilder() to construct.
+    private AddLikeIssueResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddLikeIssueResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddLikeIssueResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddLikeIssueResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.class, com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.Builder.class);
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (result_ != null) {
+        output.writeMessage(1, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse other = (com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse) obj;
+
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.AddLikeIssueResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.AddLikeIssueResponse)
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.class, com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse build() {
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse buildPartial() {
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse result = new com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse(this);
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse) {
+          return mergeFrom((com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse other) {
+        if (other == com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.getDefaultInstance()) return this;
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.AddLikeIssueResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.AddLikeIssueResponse)
+    private static final com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse();
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddLikeIssueResponse>
+        PARSER = new com.google.protobuf.AbstractParser<AddLikeIssueResponse>() {
+      @java.lang.Override
+      public AddLikeIssueResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddLikeIssueResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddLikeIssueResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddLikeIssueResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DelLikeIssueRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.DelLikeIssueRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    long getIssueId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.DelLikeIssueRequest}
+   */
+  public static final class DelLikeIssueRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.DelLikeIssueRequest)
+      DelLikeIssueRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelLikeIssueRequest.newBuilder() to construct.
+    private DelLikeIssueRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelLikeIssueRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DelLikeIssueRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelLikeIssueRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              issueId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.class, com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    public static final int ISSUEID_FIELD_NUMBER = 2;
+    private long issueId_;
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    @java.lang.Override
+    public long getIssueId() {
+      return issueId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        output.writeInt64(2, issueId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, issueId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest other = (com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (getIssueId()
+          != other.getIssueId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (37 * hash) + ISSUEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIssueId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.DelLikeIssueRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.DelLikeIssueRequest)
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.class, com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        issueId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest build() {
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest buildPartial() {
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest result = new com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest(this);
+        result.userId_ = userId_;
+        result.issueId_ = issueId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest) {
+          return mergeFrom((com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest other) {
+        if (other == com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        if (other.getIssueId() != 0L) {
+          setIssueId(other.getIssueId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long issueId_ ;
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return The issueId.
+       */
+      @java.lang.Override
+      public long getIssueId() {
+        return issueId_;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @param value The issueId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssueId(long value) {
+        
+        issueId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIssueId() {
+        
+        issueId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.DelLikeIssueRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.DelLikeIssueRequest)
+    private static final com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest();
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelLikeIssueRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DelLikeIssueRequest>() {
+      @java.lang.Override
+      public DelLikeIssueRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelLikeIssueRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelLikeIssueRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelLikeIssueRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DelLikeIssueResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.DelLikeIssueResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.DelLikeIssueResponse}
+   */
+  public static final class DelLikeIssueResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.DelLikeIssueResponse)
+      DelLikeIssueResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelLikeIssueResponse.newBuilder() to construct.
+    private DelLikeIssueResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelLikeIssueResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DelLikeIssueResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelLikeIssueResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.class, com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.Builder.class);
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (result_ != null) {
+        output.writeMessage(1, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse other = (com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse) obj;
+
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.DelLikeIssueResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.DelLikeIssueResponse)
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.class, com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse build() {
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse buildPartial() {
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse result = new com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse(this);
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse) {
+          return mergeFrom((com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse other) {
+        if (other == com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.getDefaultInstance()) return this;
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.DelLikeIssueResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.DelLikeIssueResponse)
+    private static final com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse();
+    }
+
+    public static com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelLikeIssueResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DelLikeIssueResponse>() {
+      @java.lang.Override
+      public DelLikeIssueResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelLikeIssueResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelLikeIssueResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelLikeIssueResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetLikeHomesRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetLikeHomesRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -18360,6 +22029,36 @@ public final class LikeServiceProto {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_user_rpc_GetLikeHomesRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18519,287 +22218,342 @@ public final class LikeServiceProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\nlike.proto\022\026com.amur.home.user.rpc\032\023Se" +
-      "rviceResult.proto\"%\n\023GetLikeHomesRequest" +
-      "\022\016\n\006userId\030\001 \001(\003\"^\n\024GetLikeHomesResponse" +
-      "\022\017\n\007homeIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.com." +
-      "amur.home.user.rpc.ServiceResult\"4\n\022AddL" +
-      "ikeHomeRequest\022\016\n\006userId\030\001 \001(\003\022\016\n\006homeId" +
-      "\030\002 \001(\003\"L\n\023AddLikeHomeResponse\0225\n\006result\030" +
-      "\001 \001(\0132%.com.amur.home.user.rpc.ServiceRe" +
-      "sult\"4\n\022DelLikeHomeRequest\022\016\n\006userId\030\001 \001" +
-      "(\003\022\016\n\006homeId\030\002 \001(\003\"L\n\023DelLikeHomeRespons" +
-      "e\0225\n\006result\030\001 \001(\0132%.com.amur.home.user.r" +
-      "pc.ServiceResult\"%\n\023GetLikeUsersRequest\022" +
-      "\016\n\006userId\030\001 \001(\003\"^\n\024GetLikeUsersResponse\022" +
-      "\017\n\007userIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.com.a" +
-      "mur.home.user.rpc.ServiceResult\"8\n\022AddLi" +
-      "keUserRequest\022\016\n\006userId\030\001 \001(\003\022\022\n\nlikeUse" +
-      "rId\030\002 \001(\003\"L\n\023AddLikeUserResponse\0225\n\006resu" +
-      "lt\030\001 \001(\0132%.com.amur.home.user.rpc.Servic" +
-      "eResult\"8\n\022DelLikeUserRequest\022\016\n\006userId\030" +
-      "\001 \001(\003\022\022\n\nlikeUserId\030\002 \001(\003\"L\n\023DelLikeUser" +
-      "Response\0225\n\006result\030\001 \001(\0132%.com.amur.home" +
-      ".user.rpc.ServiceResult\"\'\n\025GetLikeCourse" +
-      "sRequest\022\016\n\006userId\030\001 \001(\003\"b\n\026GetLikeCours" +
-      "esResponse\022\021\n\tcourseIds\030\001 \003(\003\0225\n\006result\030" +
-      "\002 \001(\0132%.com.amur.home.user.rpc.ServiceRe" +
-      "sult\"8\n\024AddLikeCourseRequest\022\016\n\006userId\030\001" +
-      " \001(\003\022\020\n\010courseId\030\002 \001(\003\"N\n\025AddLikeCourseR" +
-      "esponse\0225\n\006result\030\001 \001(\0132%.com.amur.home." +
-      "user.rpc.ServiceResult\"8\n\024DelLikeCourseR" +
-      "equest\022\016\n\006userId\030\001 \001(\003\022\020\n\010courseId\030\002 \001(\003" +
-      "\"N\n\025DelLikeCourseResponse\0225\n\006result\030\001 \001(" +
+      "rviceResult.proto\"&\n\024GetLikeIssuesReques" +
+      "t\022\016\n\006userId\030\001 \001(\003\"`\n\025GetLikeIssuesRespon" +
+      "se\022\020\n\010issueIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.c" +
+      "om.amur.home.user.rpc.ServiceResult\"6\n\023A" +
+      "ddLikeIssueRequest\022\016\n\006userId\030\001 \001(\003\022\017\n\007is" +
+      "sueId\030\002 \001(\003\"M\n\024AddLikeIssueResponse\0225\n\006r" +
+      "esult\030\001 \001(\0132%.com.amur.home.user.rpc.Ser" +
+      "viceResult\"6\n\023DelLikeIssueRequest\022\016\n\006use" +
+      "rId\030\001 \001(\003\022\017\n\007issueId\030\002 \001(\003\"M\n\024DelLikeIss" +
+      "ueResponse\0225\n\006result\030\001 \001(\0132%.com.amur.ho" +
+      "me.user.rpc.ServiceResult\"%\n\023GetLikeHome" +
+      "sRequest\022\016\n\006userId\030\001 \001(\003\"^\n\024GetLikeHomes" +
+      "Response\022\017\n\007homeIds\030\001 \003(\003\0225\n\006result\030\002 \001(" +
       "\0132%.com.amur.home.user.rpc.ServiceResult" +
-      "\"+\n\031GetLikeCourseListsRequest\022\016\n\006userId\030" +
-      "\001 \001(\003\"j\n\032GetLikeCourseListsResponse\022\025\n\rc" +
-      "ourseListIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.com" +
-      ".amur.home.user.rpc.ServiceResult\"@\n\030Add" +
-      "LikeCourseListRequest\022\016\n\006userId\030\001 \001(\003\022\024\n" +
-      "\014courseListId\030\002 \001(\003\"R\n\031AddLikeCourseList" +
-      "Response\0225\n\006result\030\001 \001(\0132%.com.amur.home" +
-      ".user.rpc.ServiceResult\"@\n\030DelLikeCourse" +
-      "ListRequest\022\016\n\006userId\030\001 \001(\003\022\024\n\014courseLis" +
-      "tId\030\002 \001(\003\"R\n\031DelLikeCourseListResponse\0225" +
-      "\n\006result\030\001 \001(\0132%.com.amur.home.user.rpc." +
-      "ServiceResult\"+\n\031GetLikeCourseWaresReque" +
-      "st\022\016\n\006userId\030\001 \001(\003\"j\n\032GetLikeCourseWares" +
-      "Response\022\025\n\rcourseWareIds\030\001 \003(\003\0225\n\006resul" +
-      "t\030\002 \001(\0132%.com.amur.home.user.rpc.Service" +
-      "Result\"@\n\030AddLikeCourseWareRequest\022\016\n\006us" +
-      "erId\030\001 \001(\003\022\024\n\014courseWareId\030\002 \001(\003\"R\n\031AddL" +
-      "ikeCourseWareResponse\0225\n\006result\030\001 \001(\0132%." +
-      "com.amur.home.user.rpc.ServiceResult\"@\n\030" +
-      "DelLikeCourseWareRequest\022\016\n\006userId\030\001 \001(\003" +
-      "\022\024\n\014courseWareId\030\002 \001(\003\"R\n\031DelLikeCourseW" +
-      "areResponse\0225\n\006result\030\001 \001(\0132%.com.amur.h" +
-      "ome.user.rpc.ServiceResult2\320\r\n\013LikeServi" +
-      "ce\022q\n\016GetLikeCourses\022-.com.amur.home.use" +
-      "r.rpc.GetLikeCoursesRequest\032..com.amur.h" +
-      "ome.user.rpc.GetLikeCoursesResponse\"\000\022n\n" +
-      "\rAddLikeCourse\022,.com.amur.home.user.rpc." +
-      "AddLikeCourseRequest\032-.com.amur.home.use" +
-      "r.rpc.AddLikeCourseResponse\"\000\022n\n\rDelLike" +
-      "Course\022,.com.amur.home.user.rpc.DelLikeC" +
-      "ourseRequest\032-.com.amur.home.user.rpc.De" +
-      "lLikeCourseResponse\"\000\022k\n\014GetLikeHomes\022+." +
-      "com.amur.home.user.rpc.GetLikeHomesReque" +
-      "st\032,.com.amur.home.user.rpc.GetLikeHomes" +
-      "Response\"\000\022h\n\013AddLikeHome\022*.com.amur.hom" +
-      "e.user.rpc.AddLikeHomeRequest\032+.com.amur" +
-      ".home.user.rpc.AddLikeHomeResponse\"\000\022h\n\013" +
-      "DelLikeHome\022*.com.amur.home.user.rpc.Del" +
-      "LikeHomeRequest\032+.com.amur.home.user.rpc" +
-      ".DelLikeHomeResponse\"\000\022k\n\014GetLikeUsers\022+" +
-      ".com.amur.home.user.rpc.GetLikeUsersRequ" +
-      "est\032,.com.amur.home.user.rpc.GetLikeUser" +
-      "sResponse\"\000\022h\n\013AddLikeUser\022*.com.amur.ho" +
-      "me.user.rpc.AddLikeUserRequest\032+.com.amu" +
-      "r.home.user.rpc.AddLikeUserResponse\"\000\022h\n" +
-      "\013DelLikeUser\022*.com.amur.home.user.rpc.De" +
-      "lLikeUserRequest\032+.com.amur.home.user.rp" +
-      "c.DelLikeUserResponse\"\000\022}\n\022GetLikeCourse" +
-      "Lists\0221.com.amur.home.user.rpc.GetLikeCo" +
-      "urseListsRequest\0322.com.amur.home.user.rp" +
-      "c.GetLikeCourseListsResponse\"\000\022z\n\021AddLik" +
-      "eCourseList\0220.com.amur.home.user.rpc.Add" +
-      "LikeCourseListRequest\0321.com.amur.home.us" +
-      "er.rpc.AddLikeCourseListResponse\"\000\022z\n\021De" +
-      "lLikeCourseList\0220.com.amur.home.user.rpc" +
-      ".DelLikeCourseListRequest\0321.com.amur.hom" +
-      "e.user.rpc.DelLikeCourseListResponse\"\000\022}" +
-      "\n\022GetLikeCourseWares\0221.com.amur.home.use" +
-      "r.rpc.GetLikeCourseWaresRequest\0322.com.am" +
-      "ur.home.user.rpc.GetLikeCourseWaresRespo" +
-      "nse\"\000\022z\n\021AddLikeCourseWare\0220.com.amur.ho" +
-      "me.user.rpc.AddLikeCourseWareRequest\0321.c" +
-      "om.amur.home.user.rpc.AddLikeCourseWareR" +
-      "esponse\"\000\022z\n\021DelLikeCourseWare\0220.com.amu" +
-      "r.home.user.rpc.DelLikeCourseWareRequest" +
-      "\0321.com.amur.home.user.rpc.DelLikeCourseW" +
-      "areResponse\"\000B,\n\026com.amur.home.user.rpcB" +
-      "\020LikeServiceProtoP\000b\006proto3"
+      "\"4\n\022AddLikeHomeRequest\022\016\n\006userId\030\001 \001(\003\022\016" +
+      "\n\006homeId\030\002 \001(\003\"L\n\023AddLikeHomeResponse\0225\n" +
+      "\006result\030\001 \001(\0132%.com.amur.home.user.rpc.S" +
+      "erviceResult\"4\n\022DelLikeHomeRequest\022\016\n\006us" +
+      "erId\030\001 \001(\003\022\016\n\006homeId\030\002 \001(\003\"L\n\023DelLikeHom" +
+      "eResponse\0225\n\006result\030\001 \001(\0132%.com.amur.hom" +
+      "e.user.rpc.ServiceResult\"%\n\023GetLikeUsers" +
+      "Request\022\016\n\006userId\030\001 \001(\003\"^\n\024GetLikeUsersR" +
+      "esponse\022\017\n\007userIds\030\001 \003(\003\0225\n\006result\030\002 \001(\013" +
+      "2%.com.amur.home.user.rpc.ServiceResult\"" +
+      "8\n\022AddLikeUserRequest\022\016\n\006userId\030\001 \001(\003\022\022\n" +
+      "\nlikeUserId\030\002 \001(\003\"L\n\023AddLikeUserResponse" +
+      "\0225\n\006result\030\001 \001(\0132%.com.amur.home.user.rp" +
+      "c.ServiceResult\"8\n\022DelLikeUserRequest\022\016\n" +
+      "\006userId\030\001 \001(\003\022\022\n\nlikeUserId\030\002 \001(\003\"L\n\023Del" +
+      "LikeUserResponse\0225\n\006result\030\001 \001(\0132%.com.a" +
+      "mur.home.user.rpc.ServiceResult\"\'\n\025GetLi" +
+      "keCoursesRequest\022\016\n\006userId\030\001 \001(\003\"b\n\026GetL" +
+      "ikeCoursesResponse\022\021\n\tcourseIds\030\001 \003(\003\0225\n" +
+      "\006result\030\002 \001(\0132%.com.amur.home.user.rpc.S" +
+      "erviceResult\"8\n\024AddLikeCourseRequest\022\016\n\006" +
+      "userId\030\001 \001(\003\022\020\n\010courseId\030\002 \001(\003\"N\n\025AddLik" +
+      "eCourseResponse\0225\n\006result\030\001 \001(\0132%.com.am" +
+      "ur.home.user.rpc.ServiceResult\"8\n\024DelLik" +
+      "eCourseRequest\022\016\n\006userId\030\001 \001(\003\022\020\n\010course" +
+      "Id\030\002 \001(\003\"N\n\025DelLikeCourseResponse\0225\n\006res" +
+      "ult\030\001 \001(\0132%.com.amur.home.user.rpc.Servi" +
+      "ceResult\"+\n\031GetLikeCourseListsRequest\022\016\n" +
+      "\006userId\030\001 \001(\003\"j\n\032GetLikeCourseListsRespo" +
+      "nse\022\025\n\rcourseListIds\030\001 \003(\003\0225\n\006result\030\002 \001" +
+      "(\0132%.com.amur.home.user.rpc.ServiceResul" +
+      "t\"@\n\030AddLikeCourseListRequest\022\016\n\006userId\030" +
+      "\001 \001(\003\022\024\n\014courseListId\030\002 \001(\003\"R\n\031AddLikeCo" +
+      "urseListResponse\0225\n\006result\030\001 \001(\0132%.com.a" +
+      "mur.home.user.rpc.ServiceResult\"@\n\030DelLi" +
+      "keCourseListRequest\022\016\n\006userId\030\001 \001(\003\022\024\n\014c" +
+      "ourseListId\030\002 \001(\003\"R\n\031DelLikeCourseListRe" +
+      "sponse\0225\n\006result\030\001 \001(\0132%.com.amur.home.u" +
+      "ser.rpc.ServiceResult\"+\n\031GetLikeCourseWa" +
+      "resRequest\022\016\n\006userId\030\001 \001(\003\"j\n\032GetLikeCou" +
+      "rseWaresResponse\022\025\n\rcourseWareIds\030\001 \003(\003\022" +
+      "5\n\006result\030\002 \001(\0132%.com.amur.home.user.rpc" +
+      ".ServiceResult\"@\n\030AddLikeCourseWareReque" +
+      "st\022\016\n\006userId\030\001 \001(\003\022\024\n\014courseWareId\030\002 \001(\003" +
+      "\"R\n\031AddLikeCourseWareResponse\0225\n\006result\030" +
+      "\001 \001(\0132%.com.amur.home.user.rpc.ServiceRe" +
+      "sult\"@\n\030DelLikeCourseWareRequest\022\016\n\006user" +
+      "Id\030\001 \001(\003\022\024\n\014courseWareId\030\002 \001(\003\"R\n\031DelLik" +
+      "eCourseWareResponse\0225\n\006result\030\001 \001(\0132%.co" +
+      "m.amur.home.user.rpc.ServiceResult2\232\020\n\013L" +
+      "ikeService\022q\n\016GetLikeCourses\022-.com.amur." +
+      "home.user.rpc.GetLikeCoursesRequest\032..co" +
+      "m.amur.home.user.rpc.GetLikeCoursesRespo" +
+      "nse\"\000\022n\n\rAddLikeCourse\022,.com.amur.home.u" +
+      "ser.rpc.AddLikeCourseRequest\032-.com.amur." +
+      "home.user.rpc.AddLikeCourseResponse\"\000\022n\n" +
+      "\rDelLikeCourse\022,.com.amur.home.user.rpc." +
+      "DelLikeCourseRequest\032-.com.amur.home.use" +
+      "r.rpc.DelLikeCourseResponse\"\000\022k\n\014GetLike" +
+      "Homes\022+.com.amur.home.user.rpc.GetLikeHo" +
+      "mesRequest\032,.com.amur.home.user.rpc.GetL" +
+      "ikeHomesResponse\"\000\022h\n\013AddLikeHome\022*.com." +
+      "amur.home.user.rpc.AddLikeHomeRequest\032+." +
+      "com.amur.home.user.rpc.AddLikeHomeRespon" +
+      "se\"\000\022h\n\013DelLikeHome\022*.com.amur.home.user" +
+      ".rpc.DelLikeHomeRequest\032+.com.amur.home." +
+      "user.rpc.DelLikeHomeResponse\"\000\022k\n\014GetLik" +
+      "eUsers\022+.com.amur.home.user.rpc.GetLikeU" +
+      "sersRequest\032,.com.amur.home.user.rpc.Get" +
+      "LikeUsersResponse\"\000\022h\n\013AddLikeUser\022*.com" +
+      ".amur.home.user.rpc.AddLikeUserRequest\032+" +
+      ".com.amur.home.user.rpc.AddLikeUserRespo" +
+      "nse\"\000\022h\n\013DelLikeUser\022*.com.amur.home.use" +
+      "r.rpc.DelLikeUserRequest\032+.com.amur.home" +
+      ".user.rpc.DelLikeUserResponse\"\000\022}\n\022GetLi" +
+      "keCourseLists\0221.com.amur.home.user.rpc.G" +
+      "etLikeCourseListsRequest\0322.com.amur.home" +
+      ".user.rpc.GetLikeCourseListsResponse\"\000\022z" +
+      "\n\021AddLikeCourseList\0220.com.amur.home.user" +
+      ".rpc.AddLikeCourseListRequest\0321.com.amur" +
+      ".home.user.rpc.AddLikeCourseListResponse" +
+      "\"\000\022z\n\021DelLikeCourseList\0220.com.amur.home." +
+      "user.rpc.DelLikeCourseListRequest\0321.com." +
+      "amur.home.user.rpc.DelLikeCourseListResp" +
+      "onse\"\000\022}\n\022GetLikeCourseWares\0221.com.amur." +
+      "home.user.rpc.GetLikeCourseWaresRequest\032" +
+      "2.com.amur.home.user.rpc.GetLikeCourseWa" +
+      "resResponse\"\000\022z\n\021AddLikeCourseWare\0220.com" +
+      ".amur.home.user.rpc.AddLikeCourseWareReq" +
+      "uest\0321.com.amur.home.user.rpc.AddLikeCou" +
+      "rseWareResponse\"\000\022z\n\021DelLikeCourseWare\0220" +
+      ".com.amur.home.user.rpc.DelLikeCourseWar" +
+      "eRequest\0321.com.amur.home.user.rpc.DelLik" +
+      "eCourseWareResponse\"\000\022n\n\rGetLikeIssues\022," +
+      ".com.amur.home.user.rpc.GetLikeIssuesReq" +
+      "uest\032-.com.amur.home.user.rpc.GetLikeIss" +
+      "uesResponse\"\000\022k\n\014AddLikeIssue\022+.com.amur" +
+      ".home.user.rpc.AddLikeIssueRequest\032,.com" +
+      ".amur.home.user.rpc.AddLikeIssueResponse" +
+      "\"\000\022k\n\014DelLikeIssue\022+.com.amur.home.user." +
+      "rpc.DelLikeIssueRequest\032,.com.amur.home." +
+      "user.rpc.DelLikeIssueResponse\"\000B,\n\026com.a" +
+      "mur.home.user.rpcB\020LikeServiceProtoP\000b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.amur.home.user.rpc.ServiceResultProto.getDescriptor(),
         });
-    internal_static_com_amur_home_user_rpc_GetLikeHomesRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_GetLikeIssuesRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_GetLikeIssuesResponse_descriptor,
+        new java.lang.String[] { "IssueIds", "Result", });
+    internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_AddLikeIssueRequest_descriptor,
+        new java.lang.String[] { "UserId", "IssueId", });
+    internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_AddLikeIssueResponse_descriptor,
+        new java.lang.String[] { "Result", });
+    internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_DelLikeIssueRequest_descriptor,
+        new java.lang.String[] { "UserId", "IssueId", });
+    internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_DelLikeIssueResponse_descriptor,
+        new java.lang.String[] { "Result", });
+    internal_static_com_amur_home_user_rpc_GetLikeHomesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_amur_home_user_rpc_GetLikeHomesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeHomesRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetLikeHomesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_amur_home_user_rpc_GetLikeHomesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeHomesResponse_descriptor,
         new java.lang.String[] { "HomeIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddLikeHomeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_amur_home_user_rpc_AddLikeHomeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeHomeRequest_descriptor,
         new java.lang.String[] { "UserId", "HomeId", });
     internal_static_com_amur_home_user_rpc_AddLikeHomeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_amur_home_user_rpc_AddLikeHomeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeHomeResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelLikeHomeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_amur_home_user_rpc_DelLikeHomeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeHomeRequest_descriptor,
         new java.lang.String[] { "UserId", "HomeId", });
     internal_static_com_amur_home_user_rpc_DelLikeHomeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_amur_home_user_rpc_DelLikeHomeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeHomeResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_GetLikeUsersRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_amur_home_user_rpc_GetLikeUsersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeUsersRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetLikeUsersResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_amur_home_user_rpc_GetLikeUsersResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeUsersResponse_descriptor,
         new java.lang.String[] { "UserIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddLikeUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_amur_home_user_rpc_AddLikeUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeUserRequest_descriptor,
         new java.lang.String[] { "UserId", "LikeUserId", });
     internal_static_com_amur_home_user_rpc_AddLikeUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_amur_home_user_rpc_AddLikeUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeUserResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelLikeUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_amur_home_user_rpc_DelLikeUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeUserRequest_descriptor,
         new java.lang.String[] { "UserId", "LikeUserId", });
     internal_static_com_amur_home_user_rpc_DelLikeUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_amur_home_user_rpc_DelLikeUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeUserResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_GetLikeCoursesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_com_amur_home_user_rpc_GetLikeCoursesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeCoursesRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetLikeCoursesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_com_amur_home_user_rpc_GetLikeCoursesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeCoursesResponse_descriptor,
         new java.lang.String[] { "CourseIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddLikeCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_com_amur_home_user_rpc_AddLikeCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeCourseRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseId", });
     internal_static_com_amur_home_user_rpc_AddLikeCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_com_amur_home_user_rpc_AddLikeCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeCourseResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelLikeCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_com_amur_home_user_rpc_DelLikeCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeCourseRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseId", });
     internal_static_com_amur_home_user_rpc_DelLikeCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_com_amur_home_user_rpc_DelLikeCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeCourseResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_GetLikeCourseListsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_com_amur_home_user_rpc_GetLikeCourseListsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeCourseListsRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetLikeCourseListsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_com_amur_home_user_rpc_GetLikeCourseListsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeCourseListsResponse_descriptor,
         new java.lang.String[] { "CourseListIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddLikeCourseListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_com_amur_home_user_rpc_AddLikeCourseListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeCourseListRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseListId", });
     internal_static_com_amur_home_user_rpc_AddLikeCourseListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_com_amur_home_user_rpc_AddLikeCourseListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeCourseListResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelLikeCourseListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_com_amur_home_user_rpc_DelLikeCourseListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeCourseListRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseListId", });
     internal_static_com_amur_home_user_rpc_DelLikeCourseListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_com_amur_home_user_rpc_DelLikeCourseListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeCourseListResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_GetLikeCourseWaresRequest_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_com_amur_home_user_rpc_GetLikeCourseWaresRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeCourseWaresRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetLikeCourseWaresResponse_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_com_amur_home_user_rpc_GetLikeCourseWaresResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetLikeCourseWaresResponse_descriptor,
         new java.lang.String[] { "CourseWareIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddLikeCourseWareRequest_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_com_amur_home_user_rpc_AddLikeCourseWareRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeCourseWareRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseWareId", });
     internal_static_com_amur_home_user_rpc_AddLikeCourseWareResponse_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_com_amur_home_user_rpc_AddLikeCourseWareResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddLikeCourseWareResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelLikeCourseWareRequest_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_com_amur_home_user_rpc_DelLikeCourseWareRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeCourseWareRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseWareId", });
     internal_static_com_amur_home_user_rpc_DelLikeCourseWareResponse_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_com_amur_home_user_rpc_DelLikeCourseWareResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelLikeCourseWareResponse_descriptor,

@@ -17,8 +17,37 @@ service FavService {
   rpc GetFavCourseWares(GetFavCourseWaresRequest) returns (GetFavCourseWaresResponse) {}
   rpc AddFavCourseWare(AddFavCourseWareRequest) returns (AddFavCourseWareResponse) {}
   rpc DelFavCourseWare(DelFavCourseWareRequest) returns (DelFavCourseWareResponse) {}
+  rpc GetFavIssues(GetFavIssuesRequest) returns (GetFavIssuesResponse) {}
+  rpc AddFavIssue(AddFavIssueRequest) returns (AddFavIssueResponse) {}
+  rpc DelFavIssue(DelFavIssueRequest) returns (DelFavIssueResponse) {}
 }
 
+message GetFavIssuesRequest {
+  int64 userId = 1;
+}
+
+message GetFavIssuesResponse {
+  repeated int64 issueIds = 1;
+  ServiceResult result = 2;
+}
+
+message AddFavIssueRequest {
+  int64 userId = 1;
+  int64 issueId = 2;
+}
+
+message AddFavIssueResponse {
+  ServiceResult result = 1;
+}
+
+message DelFavIssueRequest {
+  int64 userId = 1;
+  int64 issueId = 2;
+}
+
+message DelFavIssueResponse {
+  ServiceResult result = 1;
+}
 
 message GetFavCoursesRequest {
   int64 userId = 1;

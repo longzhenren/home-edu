@@ -30,18 +30,6 @@ public class UnityController {
         return ResponseWrapper.data(userUnityService.getById(id));
     }
 
-//    @GetMapping
-//    @Operation(summary = "查询所有用户信息")
-//    public ResponseWrapper<List<UserUnity>> getAllUserUnity() {
-//        return ResponseWrapper.data(userUnityService.list());
-//    }
-//
-//    @PostMapping
-//    @Operation(summary = "添加用户信息")
-//    public ResponseWrapper<?> addUserUnity(@RequestBody UserUnity userUnity) {
-//        return ResponseWrapper.status(userUnityService.save(userUnity));
-//    }
-
     @PostMapping("/update/text")
     @Operation(summary = "根据ID更新用户信息")
     public ResponseWrapper<?> updateText(Long id, String text) {
@@ -69,11 +57,5 @@ public class UnityController {
         userUnity.setModelId(modelId);
         return ResponseWrapper.status(userUnityService.updateById(userUnity));
     }
-
-//    @DeleteMapping("/{id}")
-//    @Operation(summary = "根据ID删除用户信息")
-//    public ResponseWrapper<?> deleteUserUnity(@PathVariable Long id) {
-//        return userUnityService.removeById(id);
-//    }
 
 }

@@ -10,7 +10,7 @@ import java.util.Date;
 @Data
 @TableName(value = "issue_reply", autoResultMap = true)
 public class IssueReply {
-    @TableId(type = IdType.ASSIGN_UUID)
+    @TableId
     private Long id;
     private Long issueId;
     private Long userId;
@@ -30,4 +30,12 @@ public class IssueReply {
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Integer deleted;
+
+    public IssueReply(Long id, Long issueId, Long userId, String content) {
+        this.id = id;
+        this.issueId = issueId;
+        this.userId = userId;
+        this.content = content;
+        this.likeCount = 0L;
+    }
 }

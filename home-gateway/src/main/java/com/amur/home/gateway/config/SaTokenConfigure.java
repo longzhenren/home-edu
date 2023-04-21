@@ -32,6 +32,7 @@ public class SaTokenConfigure {
                 .addExclude("/home-tinyid/v3/**", "/home-tinyid/swagger-resources/**", "/home-tinyid/webjars/**", "/home-tinyid/swagger-ui.html/**", "/home-tinyid/doc.html", "/home-tinyid/actuator/**")
                 .addExclude("/home-rtc/v3/**", "/home-rtc/swagger-resources/**", "/home-rtc/webjars/**", "/home-rtc/swagger-ui.html/**", "/home-rtc/doc.html", "/home-rtc/actuator/**")
                 .addExclude("/home-msg/v3/**", "/home-msg/swagger-resources/**", "/home-msg/webjars/**", "/home-msg/swagger-ui.html/**", "/home-msg/doc.html", "/home-msg/actuator/**")
+                .addExclude("/home-course/courseware/**")
                 // 鉴权方法：每次访问进入
                 .setAuth(obj -> {
                     // 登录校验 -- 拦截所有路由，并放行登录

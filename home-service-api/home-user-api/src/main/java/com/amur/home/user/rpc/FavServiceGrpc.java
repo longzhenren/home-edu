@@ -294,6 +294,99 @@ public final class FavServiceGrpc {
     return getDelFavCourseWareMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest,
+      com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse> getGetFavIssuesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetFavIssues",
+      requestType = com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.class,
+      responseType = com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest,
+      com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse> getGetFavIssuesMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest, com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse> getGetFavIssuesMethod;
+    if ((getGetFavIssuesMethod = FavServiceGrpc.getGetFavIssuesMethod) == null) {
+      synchronized (FavServiceGrpc.class) {
+        if ((getGetFavIssuesMethod = FavServiceGrpc.getGetFavIssuesMethod) == null) {
+          FavServiceGrpc.getGetFavIssuesMethod = getGetFavIssuesMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest, com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetFavIssues"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FavServiceMethodDescriptorSupplier("GetFavIssues"))
+              .build();
+        }
+      }
+    }
+    return getGetFavIssuesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest,
+      com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse> getAddFavIssueMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "AddFavIssue",
+      requestType = com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.class,
+      responseType = com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest,
+      com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse> getAddFavIssueMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest, com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse> getAddFavIssueMethod;
+    if ((getAddFavIssueMethod = FavServiceGrpc.getAddFavIssueMethod) == null) {
+      synchronized (FavServiceGrpc.class) {
+        if ((getAddFavIssueMethod = FavServiceGrpc.getAddFavIssueMethod) == null) {
+          FavServiceGrpc.getAddFavIssueMethod = getAddFavIssueMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest, com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddFavIssue"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FavServiceMethodDescriptorSupplier("AddFavIssue"))
+              .build();
+        }
+      }
+    }
+    return getAddFavIssueMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest,
+      com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse> getDelFavIssueMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DelFavIssue",
+      requestType = com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.class,
+      responseType = com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest,
+      com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse> getDelFavIssueMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest, com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse> getDelFavIssueMethod;
+    if ((getDelFavIssueMethod = FavServiceGrpc.getDelFavIssueMethod) == null) {
+      synchronized (FavServiceGrpc.class) {
+        if ((getDelFavIssueMethod = FavServiceGrpc.getDelFavIssueMethod) == null) {
+          FavServiceGrpc.getDelFavIssueMethod = getDelFavIssueMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest, com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DelFavIssue"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FavServiceMethodDescriptorSupplier("DelFavIssue"))
+              .build();
+        }
+      }
+    }
+    return getDelFavIssueMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -405,6 +498,27 @@ public final class FavServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDelFavCourseWareMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getFavIssues(com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFavIssuesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void addFavIssue(com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddFavIssueMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void delFavIssue(com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDelFavIssueMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -470,6 +584,27 @@ public final class FavServiceGrpc {
                 com.amur.home.user.rpc.FavServiceProto.DelFavCourseWareRequest,
                 com.amur.home.user.rpc.FavServiceProto.DelFavCourseWareResponse>(
                   this, METHODID_DEL_FAV_COURSE_WARE)))
+          .addMethod(
+            getGetFavIssuesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest,
+                com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse>(
+                  this, METHODID_GET_FAV_ISSUES)))
+          .addMethod(
+            getAddFavIssueMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest,
+                com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse>(
+                  this, METHODID_ADD_FAV_ISSUE)))
+          .addMethod(
+            getDelFavIssueMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest,
+                com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse>(
+                  this, METHODID_DEL_FAV_ISSUE)))
           .build();
     }
   }
@@ -559,6 +694,30 @@ public final class FavServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDelFavCourseWareMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getFavIssues(com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetFavIssuesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void addFavIssue(com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getAddFavIssueMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void delFavIssue(com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDelFavIssueMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -636,6 +795,27 @@ public final class FavServiceGrpc {
     public com.amur.home.user.rpc.FavServiceProto.DelFavCourseWareResponse delFavCourseWare(com.amur.home.user.rpc.FavServiceProto.DelFavCourseWareRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDelFavCourseWareMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse getFavIssues(com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetFavIssuesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse addFavIssue(com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getAddFavIssueMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse delFavIssue(com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDelFavIssueMethod(), getCallOptions(), request);
     }
   }
 
@@ -724,6 +904,30 @@ public final class FavServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDelFavCourseWareMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse> getFavIssues(
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetFavIssuesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse> addFavIssue(
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getAddFavIssueMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse> delFavIssue(
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDelFavIssueMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_FAV_COURSES = 0;
@@ -735,6 +939,9 @@ public final class FavServiceGrpc {
   private static final int METHODID_GET_FAV_COURSE_WARES = 6;
   private static final int METHODID_ADD_FAV_COURSE_WARE = 7;
   private static final int METHODID_DEL_FAV_COURSE_WARE = 8;
+  private static final int METHODID_GET_FAV_ISSUES = 9;
+  private static final int METHODID_ADD_FAV_ISSUE = 10;
+  private static final int METHODID_DEL_FAV_ISSUE = 11;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -788,6 +995,18 @@ public final class FavServiceGrpc {
         case METHODID_DEL_FAV_COURSE_WARE:
           serviceImpl.delFavCourseWare((com.amur.home.user.rpc.FavServiceProto.DelFavCourseWareRequest) request,
               (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.DelFavCourseWareResponse>) responseObserver);
+          break;
+        case METHODID_GET_FAV_ISSUES:
+          serviceImpl.getFavIssues((com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse>) responseObserver);
+          break;
+        case METHODID_ADD_FAV_ISSUE:
+          serviceImpl.addFavIssue((com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse>) responseObserver);
+          break;
+        case METHODID_DEL_FAV_ISSUE:
+          serviceImpl.delFavIssue((com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -859,6 +1078,9 @@ public final class FavServiceGrpc {
               .addMethod(getGetFavCourseWaresMethod())
               .addMethod(getAddFavCourseWareMethod())
               .addMethod(getDelFavCourseWareMethod())
+              .addMethod(getGetFavIssuesMethod())
+              .addMethod(getAddFavIssueMethod())
+              .addMethod(getDelFavIssueMethod())
               .build();
         }
       }

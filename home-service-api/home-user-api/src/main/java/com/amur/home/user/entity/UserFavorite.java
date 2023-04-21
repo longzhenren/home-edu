@@ -24,6 +24,8 @@ public class UserFavorite {
     @TableField(typeHandler = SetTypeHandler.class)
     private Set<Long> courseIds;
     @TableField(typeHandler = SetTypeHandler.class)
+    private Set<Long> issueIds;
+    @TableField(typeHandler = SetTypeHandler.class)
     private Set<Long> courseWareIds;
     @TableField(typeHandler = SetTypeHandler.class)
     private Set<Long> courseListIds;
@@ -50,6 +52,7 @@ public class UserFavorite {
         this.userIds = Collections.emptySet();
         this.homeIds = Collections.emptySet();
         this.courseIds = Collections.emptySet();
+        this.issueIds = Collections.emptySet();
         this.courseWareIds = Collections.emptySet();
         this.courseListIds = Collections.emptySet();
     }

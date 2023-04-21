@@ -480,6 +480,99 @@ public final class LikeServiceGrpc {
     return getDelLikeCourseWareMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest,
+      com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse> getGetLikeIssuesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetLikeIssues",
+      requestType = com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.class,
+      responseType = com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest,
+      com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse> getGetLikeIssuesMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest, com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse> getGetLikeIssuesMethod;
+    if ((getGetLikeIssuesMethod = LikeServiceGrpc.getGetLikeIssuesMethod) == null) {
+      synchronized (LikeServiceGrpc.class) {
+        if ((getGetLikeIssuesMethod = LikeServiceGrpc.getGetLikeIssuesMethod) == null) {
+          LikeServiceGrpc.getGetLikeIssuesMethod = getGetLikeIssuesMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest, com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetLikeIssues"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new LikeServiceMethodDescriptorSupplier("GetLikeIssues"))
+              .build();
+        }
+      }
+    }
+    return getGetLikeIssuesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest,
+      com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse> getAddLikeIssueMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "AddLikeIssue",
+      requestType = com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.class,
+      responseType = com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest,
+      com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse> getAddLikeIssueMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest, com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse> getAddLikeIssueMethod;
+    if ((getAddLikeIssueMethod = LikeServiceGrpc.getAddLikeIssueMethod) == null) {
+      synchronized (LikeServiceGrpc.class) {
+        if ((getAddLikeIssueMethod = LikeServiceGrpc.getAddLikeIssueMethod) == null) {
+          LikeServiceGrpc.getAddLikeIssueMethod = getAddLikeIssueMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest, com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddLikeIssue"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new LikeServiceMethodDescriptorSupplier("AddLikeIssue"))
+              .build();
+        }
+      }
+    }
+    return getAddLikeIssueMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest,
+      com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse> getDelLikeIssueMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DelLikeIssue",
+      requestType = com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.class,
+      responseType = com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest,
+      com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse> getDelLikeIssueMethod() {
+    io.grpc.MethodDescriptor<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest, com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse> getDelLikeIssueMethod;
+    if ((getDelLikeIssueMethod = LikeServiceGrpc.getDelLikeIssueMethod) == null) {
+      synchronized (LikeServiceGrpc.class) {
+        if ((getDelLikeIssueMethod = LikeServiceGrpc.getDelLikeIssueMethod) == null) {
+          LikeServiceGrpc.getDelLikeIssueMethod = getDelLikeIssueMethod =
+              io.grpc.MethodDescriptor.<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest, com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DelLikeIssue"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new LikeServiceMethodDescriptorSupplier("DelLikeIssue"))
+              .build();
+        }
+      }
+    }
+    return getDelLikeIssueMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -633,6 +726,27 @@ public final class LikeServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDelLikeCourseWareMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getLikeIssues(com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetLikeIssuesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void addLikeIssue(com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddLikeIssueMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void delLikeIssue(com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDelLikeIssueMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -740,6 +854,27 @@ public final class LikeServiceGrpc {
                 com.amur.home.user.rpc.LikeServiceProto.DelLikeCourseWareRequest,
                 com.amur.home.user.rpc.LikeServiceProto.DelLikeCourseWareResponse>(
                   this, METHODID_DEL_LIKE_COURSE_WARE)))
+          .addMethod(
+            getGetLikeIssuesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest,
+                com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse>(
+                  this, METHODID_GET_LIKE_ISSUES)))
+          .addMethod(
+            getAddLikeIssueMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest,
+                com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse>(
+                  this, METHODID_ADD_LIKE_ISSUE)))
+          .addMethod(
+            getDelLikeIssueMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest,
+                com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse>(
+                  this, METHODID_DEL_LIKE_ISSUE)))
           .build();
     }
   }
@@ -877,6 +1012,30 @@ public final class LikeServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDelLikeCourseWareMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getLikeIssues(com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetLikeIssuesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void addLikeIssue(com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getAddLikeIssueMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void delLikeIssue(com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest request,
+        io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDelLikeIssueMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -996,6 +1155,27 @@ public final class LikeServiceGrpc {
     public com.amur.home.user.rpc.LikeServiceProto.DelLikeCourseWareResponse delLikeCourseWare(com.amur.home.user.rpc.LikeServiceProto.DelLikeCourseWareRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDelLikeCourseWareMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse getLikeIssues(com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetLikeIssuesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse addLikeIssue(com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getAddLikeIssueMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse delLikeIssue(com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDelLikeIssueMethod(), getCallOptions(), request);
     }
   }
 
@@ -1132,6 +1312,30 @@ public final class LikeServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDelLikeCourseWareMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse> getLikeIssues(
+        com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetLikeIssuesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse> addLikeIssue(
+        com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getAddLikeIssueMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse> delLikeIssue(
+        com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDelLikeIssueMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_LIKE_COURSES = 0;
@@ -1149,6 +1353,9 @@ public final class LikeServiceGrpc {
   private static final int METHODID_GET_LIKE_COURSE_WARES = 12;
   private static final int METHODID_ADD_LIKE_COURSE_WARE = 13;
   private static final int METHODID_DEL_LIKE_COURSE_WARE = 14;
+  private static final int METHODID_GET_LIKE_ISSUES = 15;
+  private static final int METHODID_ADD_LIKE_ISSUE = 16;
+  private static final int METHODID_DEL_LIKE_ISSUE = 17;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1227,6 +1434,18 @@ public final class LikeServiceGrpc {
           serviceImpl.delLikeCourseWare((com.amur.home.user.rpc.LikeServiceProto.DelLikeCourseWareRequest) request,
               (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.DelLikeCourseWareResponse>) responseObserver);
           break;
+        case METHODID_GET_LIKE_ISSUES:
+          serviceImpl.getLikeIssues((com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.GetLikeIssuesResponse>) responseObserver);
+          break;
+        case METHODID_ADD_LIKE_ISSUE:
+          serviceImpl.addLikeIssue((com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.AddLikeIssueResponse>) responseObserver);
+          break;
+        case METHODID_DEL_LIKE_ISSUE:
+          serviceImpl.delLikeIssue((com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueRequest) request,
+              (io.grpc.stub.StreamObserver<com.amur.home.user.rpc.LikeServiceProto.DelLikeIssueResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -1303,6 +1522,9 @@ public final class LikeServiceGrpc {
               .addMethod(getGetLikeCourseWaresMethod())
               .addMethod(getAddLikeCourseWareMethod())
               .addMethod(getDelLikeCourseWareMethod())
+              .addMethod(getGetLikeIssuesMethod())
+              .addMethod(getAddLikeIssueMethod())
+              .addMethod(getDelLikeIssueMethod())
               .build();
         }
       }

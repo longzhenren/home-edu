@@ -14,6 +14,3675 @@ public final class FavServiceProto {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface GetFavIssuesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetFavIssuesRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.GetFavIssuesRequest}
+   */
+  public static final class GetFavIssuesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.GetFavIssuesRequest)
+      GetFavIssuesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetFavIssuesRequest.newBuilder() to construct.
+    private GetFavIssuesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFavIssuesRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetFavIssuesRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetFavIssuesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.class, com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest other = (com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.GetFavIssuesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.GetFavIssuesRequest)
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.class, com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest build() {
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest buildPartial() {
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest result = new com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest(this);
+        result.userId_ = userId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest) {
+          return mergeFrom((com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest other) {
+        if (other == com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.GetFavIssuesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.GetFavIssuesRequest)
+    private static final com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest();
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFavIssuesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetFavIssuesRequest>() {
+      @java.lang.Override
+      public GetFavIssuesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetFavIssuesRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFavIssuesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetFavIssuesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetFavIssuesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetFavIssuesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return A list containing the issueIds.
+     */
+    java.util.List<java.lang.Long> getIssueIdsList();
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return The count of issueIds.
+     */
+    int getIssueIdsCount();
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @param index The index of the element to return.
+     * @return The issueIds at the given index.
+     */
+    long getIssueIds(int index);
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.GetFavIssuesResponse}
+   */
+  public static final class GetFavIssuesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.GetFavIssuesResponse)
+      GetFavIssuesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetFavIssuesResponse.newBuilder() to construct.
+    private GetFavIssuesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFavIssuesResponse() {
+      issueIds_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetFavIssuesResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetFavIssuesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                issueIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              issueIds_.addLong(input.readInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                issueIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                issueIds_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 18: {
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          issueIds_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.class, com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.Builder.class);
+    }
+
+    public static final int ISSUEIDS_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList issueIds_;
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return A list containing the issueIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getIssueIdsList() {
+      return issueIds_;
+    }
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @return The count of issueIds.
+     */
+    public int getIssueIdsCount() {
+      return issueIds_.size();
+    }
+    /**
+     * <code>repeated int64 issueIds = 1;</code>
+     * @param index The index of the element to return.
+     * @return The issueIds at the given index.
+     */
+    public long getIssueIds(int index) {
+      return issueIds_.getLong(index);
+    }
+    private int issueIdsMemoizedSerializedSize = -1;
+
+    public static final int RESULT_FIELD_NUMBER = 2;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getIssueIdsList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(issueIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < issueIds_.size(); i++) {
+        output.writeInt64NoTag(issueIds_.getLong(i));
+      }
+      if (result_ != null) {
+        output.writeMessage(2, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < issueIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(issueIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getIssueIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        issueIdsMemoizedSerializedSize = dataSize;
+      }
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse other = (com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse) obj;
+
+      if (!getIssueIdsList()
+          .equals(other.getIssueIdsList())) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getIssueIdsCount() > 0) {
+        hash = (37 * hash) + ISSUEIDS_FIELD_NUMBER;
+        hash = (53 * hash) + getIssueIdsList().hashCode();
+      }
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.GetFavIssuesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.GetFavIssuesResponse)
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.class, com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        issueIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse build() {
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse buildPartial() {
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse result = new com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          issueIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.issueIds_ = issueIds_;
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse) {
+          return mergeFrom((com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse other) {
+        if (other == com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse.getDefaultInstance()) return this;
+        if (!other.issueIds_.isEmpty()) {
+          if (issueIds_.isEmpty()) {
+            issueIds_ = other.issueIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureIssueIdsIsMutable();
+            issueIds_.addAll(other.issueIds_);
+          }
+          onChanged();
+        }
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Internal.LongList issueIds_ = emptyLongList();
+      private void ensureIssueIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          issueIds_ = mutableCopy(issueIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @return A list containing the issueIds.
+       */
+      public java.util.List<java.lang.Long>
+          getIssueIdsList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(issueIds_) : issueIds_;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @return The count of issueIds.
+       */
+      public int getIssueIdsCount() {
+        return issueIds_.size();
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param index The index of the element to return.
+       * @return The issueIds at the given index.
+       */
+      public long getIssueIds(int index) {
+        return issueIds_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The issueIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssueIds(
+          int index, long value) {
+        ensureIssueIdsIsMutable();
+        issueIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param value The issueIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addIssueIds(long value) {
+        ensureIssueIdsIsMutable();
+        issueIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @param values The issueIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllIssueIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureIssueIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, issueIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 issueIds = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIssueIds() {
+        issueIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.GetFavIssuesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.GetFavIssuesResponse)
+    private static final com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse();
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFavIssuesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetFavIssuesResponse>() {
+      @java.lang.Override
+      public GetFavIssuesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetFavIssuesResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFavIssuesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetFavIssuesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.FavServiceProto.GetFavIssuesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AddFavIssueRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.AddFavIssueRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    long getIssueId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.AddFavIssueRequest}
+   */
+  public static final class AddFavIssueRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.AddFavIssueRequest)
+      AddFavIssueRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddFavIssueRequest.newBuilder() to construct.
+    private AddFavIssueRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddFavIssueRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddFavIssueRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddFavIssueRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              issueId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.class, com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    public static final int ISSUEID_FIELD_NUMBER = 2;
+    private long issueId_;
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    @java.lang.Override
+    public long getIssueId() {
+      return issueId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        output.writeInt64(2, issueId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, issueId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest other = (com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (getIssueId()
+          != other.getIssueId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (37 * hash) + ISSUEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIssueId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.AddFavIssueRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.AddFavIssueRequest)
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.class, com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        issueId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest build() {
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest buildPartial() {
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest result = new com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest(this);
+        result.userId_ = userId_;
+        result.issueId_ = issueId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest) {
+          return mergeFrom((com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest other) {
+        if (other == com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        if (other.getIssueId() != 0L) {
+          setIssueId(other.getIssueId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long issueId_ ;
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return The issueId.
+       */
+      @java.lang.Override
+      public long getIssueId() {
+        return issueId_;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @param value The issueId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssueId(long value) {
+        
+        issueId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIssueId() {
+        
+        issueId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.AddFavIssueRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.AddFavIssueRequest)
+    private static final com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest();
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddFavIssueRequest>
+        PARSER = new com.google.protobuf.AbstractParser<AddFavIssueRequest>() {
+      @java.lang.Override
+      public AddFavIssueRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddFavIssueRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddFavIssueRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddFavIssueRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.FavServiceProto.AddFavIssueRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AddFavIssueResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.AddFavIssueResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.AddFavIssueResponse}
+   */
+  public static final class AddFavIssueResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.AddFavIssueResponse)
+      AddFavIssueResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddFavIssueResponse.newBuilder() to construct.
+    private AddFavIssueResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddFavIssueResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddFavIssueResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddFavIssueResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.class, com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.Builder.class);
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (result_ != null) {
+        output.writeMessage(1, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse other = (com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse) obj;
+
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.AddFavIssueResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.AddFavIssueResponse)
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.class, com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_AddFavIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse build() {
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse buildPartial() {
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse result = new com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse(this);
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse) {
+          return mergeFrom((com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse other) {
+        if (other == com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse.getDefaultInstance()) return this;
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.AddFavIssueResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.AddFavIssueResponse)
+    private static final com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse();
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddFavIssueResponse>
+        PARSER = new com.google.protobuf.AbstractParser<AddFavIssueResponse>() {
+      @java.lang.Override
+      public AddFavIssueResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddFavIssueResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddFavIssueResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddFavIssueResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.FavServiceProto.AddFavIssueResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DelFavIssueRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.DelFavIssueRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    long getUserId();
+
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    long getIssueId();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.DelFavIssueRequest}
+   */
+  public static final class DelFavIssueRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.DelFavIssueRequest)
+      DelFavIssueRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelFavIssueRequest.newBuilder() to construct.
+    private DelFavIssueRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelFavIssueRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DelFavIssueRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelFavIssueRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              userId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              issueId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.class, com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.Builder.class);
+    }
+
+    public static final int USERID_FIELD_NUMBER = 1;
+    private long userId_;
+    /**
+     * <code>int64 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+
+    public static final int ISSUEID_FIELD_NUMBER = 2;
+    private long issueId_;
+    /**
+     * <code>int64 issueId = 2;</code>
+     * @return The issueId.
+     */
+    @java.lang.Override
+    public long getIssueId() {
+      return issueId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != 0L) {
+        output.writeInt64(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        output.writeInt64(2, issueId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, userId_);
+      }
+      if (issueId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, issueId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest other = (com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest) obj;
+
+      if (getUserId()
+          != other.getUserId()) return false;
+      if (getIssueId()
+          != other.getIssueId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserId());
+      hash = (37 * hash) + ISSUEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIssueId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.DelFavIssueRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.DelFavIssueRequest)
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.class, com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0L;
+
+        issueId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest build() {
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest buildPartial() {
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest result = new com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest(this);
+        result.userId_ = userId_;
+        result.issueId_ = issueId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest) {
+          return mergeFrom((com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest other) {
+        if (other == com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest.getDefaultInstance()) return this;
+        if (other.getUserId() != 0L) {
+          setUserId(other.getUserId());
+        }
+        if (other.getIssueId() != 0L) {
+          setIssueId(other.getIssueId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userId_ ;
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(long value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long issueId_ ;
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return The issueId.
+       */
+      @java.lang.Override
+      public long getIssueId() {
+        return issueId_;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @param value The issueId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssueId(long value) {
+        
+        issueId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 issueId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIssueId() {
+        
+        issueId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.DelFavIssueRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.DelFavIssueRequest)
+    private static final com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest();
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelFavIssueRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DelFavIssueRequest>() {
+      @java.lang.Override
+      public DelFavIssueRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelFavIssueRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelFavIssueRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelFavIssueRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.FavServiceProto.DelFavIssueRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DelFavIssueResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.DelFavIssueResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    boolean hasResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult();
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.amur.home.user.rpc.DelFavIssueResponse}
+   */
+  public static final class DelFavIssueResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.amur.home.user.rpc.DelFavIssueResponse)
+      DelFavIssueResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelFavIssueResponse.newBuilder() to construct.
+    private DelFavIssueResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelFavIssueResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DelFavIssueResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelFavIssueResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(com.amur.home.user.rpc.ServiceResultProto.ServiceResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.class, com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.Builder.class);
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return Whether the result field is set.
+     */
+    @java.lang.Override
+    public boolean hasResult() {
+      return result_ != null;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     * @return The result.
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+      return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+    }
+    /**
+     * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+     */
+    @java.lang.Override
+    public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+      return getResult();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (result_ != null) {
+        output.writeMessage(1, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (result_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse)) {
+        return super.equals(obj);
+      }
+      com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse other = (com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse) obj;
+
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (!getResult()
+            .equals(other.getResult())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.amur.home.user.rpc.DelFavIssueResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.amur.home.user.rpc.DelFavIssueResponse)
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.class, com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.Builder.class);
+      }
+
+      // Construct using com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.amur.home.user.rpc.FavServiceProto.internal_static_com_amur_home_user_rpc_DelFavIssueResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse getDefaultInstanceForType() {
+        return com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse build() {
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse buildPartial() {
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse result = new com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse(this);
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse) {
+          return mergeFrom((com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse other) {
+        if (other == com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse.getDefaultInstance()) return this;
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.amur.home.user.rpc.ServiceResultProto.ServiceResult result_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> resultBuilder_;
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return Whether the result field is set.
+       */
+      public boolean hasResult() {
+        return resultBuilder_ != null || result_ != null;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       * @return The result.
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder setResult(
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder mergeResult(com.amur.home.user.rpc.ServiceResultProto.ServiceResult value) {
+        if (resultBuilder_ == null) {
+          if (result_ != null) {
+            result_ =
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
+          resultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder getResultBuilder() {
+        
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      public com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <code>.com.amur.home.user.rpc.ServiceResult result = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.amur.home.user.rpc.ServiceResultProto.ServiceResult, com.amur.home.user.rpc.ServiceResultProto.ServiceResult.Builder, com.amur.home.user.rpc.ServiceResultProto.ServiceResultOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.amur.home.user.rpc.DelFavIssueResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.amur.home.user.rpc.DelFavIssueResponse)
+    private static final com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse();
+    }
+
+    public static com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelFavIssueResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DelFavIssueResponse>() {
+      @java.lang.Override
+      public DelFavIssueResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelFavIssueResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelFavIssueResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelFavIssueResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.amur.home.user.rpc.FavServiceProto.DelFavIssueResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetFavCoursesRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.amur.home.user.rpc.GetFavCoursesRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -11022,6 +14691,36 @@ public final class FavServiceProto {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_AddFavIssueRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_AddFavIssueRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_AddFavIssueResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_AddFavIssueResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_DelFavIssueRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_DelFavIssueRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_amur_home_user_rpc_DelFavIssueResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_amur_home_user_rpc_DelFavIssueResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_amur_home_user_rpc_GetFavCoursesRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11121,178 +14820,232 @@ public final class FavServiceProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\tfav.proto\022\026com.amur.home.user.rpc\032\023Ser" +
-      "viceResult.proto\"&\n\024GetFavCoursesRequest" +
-      "\022\016\n\006userId\030\001 \001(\003\"a\n\025GetFavCoursesRespons" +
-      "e\022\021\n\tcourseIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.c" +
-      "om.amur.home.user.rpc.ServiceResult\"7\n\023A" +
-      "ddFavCourseRequest\022\016\n\006userId\030\001 \001(\003\022\020\n\010co" +
-      "urseId\030\002 \001(\003\"M\n\024AddFavCourseResponse\0225\n\006" +
-      "result\030\001 \001(\0132%.com.amur.home.user.rpc.Se" +
-      "rviceResult\"7\n\023DelFavCourseRequest\022\016\n\006us" +
-      "erId\030\001 \001(\003\022\020\n\010courseId\030\002 \001(\003\"M\n\024DelFavCo" +
-      "urseResponse\0225\n\006result\030\001 \001(\0132%.com.amur." +
-      "home.user.rpc.ServiceResult\"*\n\030GetFavCou" +
-      "rseListsRequest\022\016\n\006userId\030\001 \001(\003\"i\n\031GetFa" +
-      "vCourseListsResponse\022\025\n\rcourseListIds\030\001 " +
-      "\003(\003\0225\n\006result\030\002 \001(\0132%.com.amur.home.user" +
-      ".rpc.ServiceResult\"?\n\027AddFavCourseListRe" +
-      "quest\022\016\n\006userId\030\001 \001(\003\022\024\n\014courseListId\030\002 " +
-      "\001(\003\"Q\n\030AddFavCourseListResponse\0225\n\006resul" +
-      "t\030\001 \001(\0132%.com.amur.home.user.rpc.Service" +
-      "Result\"?\n\027DelFavCourseListRequest\022\016\n\006use" +
-      "rId\030\001 \001(\003\022\024\n\014courseListId\030\002 \001(\003\"Q\n\030DelFa" +
-      "vCourseListResponse\0225\n\006result\030\001 \001(\0132%.co" +
-      "m.amur.home.user.rpc.ServiceResult\"*\n\030Ge" +
-      "tFavCourseWaresRequest\022\016\n\006userId\030\001 \001(\003\"i" +
-      "\n\031GetFavCourseWaresResponse\022\025\n\rcourseWar" +
-      "eIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.com.amur.ho" +
-      "me.user.rpc.ServiceResult\"?\n\027AddFavCours" +
-      "eWareRequest\022\016\n\006userId\030\001 \001(\003\022\024\n\014courseWa" +
-      "reId\030\002 \001(\003\"Q\n\030AddFavCourseWareResponse\0225" +
+      "viceResult.proto\"%\n\023GetFavIssuesRequest\022" +
+      "\016\n\006userId\030\001 \001(\003\"_\n\024GetFavIssuesResponse\022" +
+      "\020\n\010issueIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.com." +
+      "amur.home.user.rpc.ServiceResult\"5\n\022AddF" +
+      "avIssueRequest\022\016\n\006userId\030\001 \001(\003\022\017\n\007issueI" +
+      "d\030\002 \001(\003\"L\n\023AddFavIssueResponse\0225\n\006result" +
+      "\030\001 \001(\0132%.com.amur.home.user.rpc.ServiceR" +
+      "esult\"5\n\022DelFavIssueRequest\022\016\n\006userId\030\001 " +
+      "\001(\003\022\017\n\007issueId\030\002 \001(\003\"L\n\023DelFavIssueRespo" +
+      "nse\0225\n\006result\030\001 \001(\0132%.com.amur.home.user" +
+      ".rpc.ServiceResult\"&\n\024GetFavCoursesReque" +
+      "st\022\016\n\006userId\030\001 \001(\003\"a\n\025GetFavCoursesRespo" +
+      "nse\022\021\n\tcourseIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%" +
+      ".com.amur.home.user.rpc.ServiceResult\"7\n" +
+      "\023AddFavCourseRequest\022\016\n\006userId\030\001 \001(\003\022\020\n\010" +
+      "courseId\030\002 \001(\003\"M\n\024AddFavCourseResponse\0225" +
       "\n\006result\030\001 \001(\0132%.com.amur.home.user.rpc." +
-      "ServiceResult\"?\n\027DelFavCourseWareRequest" +
-      "\022\016\n\006userId\030\001 \001(\003\022\024\n\014courseWareId\030\002 \001(\003\"Q" +
-      "\n\030DelFavCourseWareResponse\0225\n\006result\030\001 \001" +
-      "(\0132%.com.amur.home.user.rpc.ServiceResul" +
-      "t2\262\010\n\nFavService\022n\n\rGetFavCourses\022,.com." +
-      "amur.home.user.rpc.GetFavCoursesRequest\032" +
-      "-.com.amur.home.user.rpc.GetFavCoursesRe" +
-      "sponse\"\000\022k\n\014AddFavCourse\022+.com.amur.home" +
-      ".user.rpc.AddFavCourseRequest\032,.com.amur" +
-      ".home.user.rpc.AddFavCourseResponse\"\000\022k\n" +
-      "\014DelFavCourse\022+.com.amur.home.user.rpc.D" +
-      "elFavCourseRequest\032,.com.amur.home.user." +
-      "rpc.DelFavCourseResponse\"\000\022z\n\021GetFavCour" +
-      "seLists\0220.com.amur.home.user.rpc.GetFavC" +
-      "ourseListsRequest\0321.com.amur.home.user.r" +
-      "pc.GetFavCourseListsResponse\"\000\022w\n\020AddFav" +
-      "CourseList\022/.com.amur.home.user.rpc.AddF" +
-      "avCourseListRequest\0320.com.amur.home.user" +
-      ".rpc.AddFavCourseListResponse\"\000\022w\n\020DelFa" +
-      "vCourseList\022/.com.amur.home.user.rpc.Del" +
-      "FavCourseListRequest\0320.com.amur.home.use" +
-      "r.rpc.DelFavCourseListResponse\"\000\022z\n\021GetF" +
-      "avCourseWares\0220.com.amur.home.user.rpc.G" +
-      "etFavCourseWaresRequest\0321.com.amur.home." +
-      "user.rpc.GetFavCourseWaresResponse\"\000\022w\n\020" +
-      "AddFavCourseWare\022/.com.amur.home.user.rp" +
-      "c.AddFavCourseWareRequest\0320.com.amur.hom" +
-      "e.user.rpc.AddFavCourseWareResponse\"\000\022w\n" +
-      "\020DelFavCourseWare\022/.com.amur.home.user.r" +
-      "pc.DelFavCourseWareRequest\0320.com.amur.ho" +
-      "me.user.rpc.DelFavCourseWareResponse\"\000B+" +
-      "\n\026com.amur.home.user.rpcB\017FavServiceProt" +
-      "oP\000b\006proto3"
+      "ServiceResult\"7\n\023DelFavCourseRequest\022\016\n\006" +
+      "userId\030\001 \001(\003\022\020\n\010courseId\030\002 \001(\003\"M\n\024DelFav" +
+      "CourseResponse\0225\n\006result\030\001 \001(\0132%.com.amu" +
+      "r.home.user.rpc.ServiceResult\"*\n\030GetFavC" +
+      "ourseListsRequest\022\016\n\006userId\030\001 \001(\003\"i\n\031Get" +
+      "FavCourseListsResponse\022\025\n\rcourseListIds\030" +
+      "\001 \003(\003\0225\n\006result\030\002 \001(\0132%.com.amur.home.us" +
+      "er.rpc.ServiceResult\"?\n\027AddFavCourseList" +
+      "Request\022\016\n\006userId\030\001 \001(\003\022\024\n\014courseListId\030" +
+      "\002 \001(\003\"Q\n\030AddFavCourseListResponse\0225\n\006res" +
+      "ult\030\001 \001(\0132%.com.amur.home.user.rpc.Servi" +
+      "ceResult\"?\n\027DelFavCourseListRequest\022\016\n\006u" +
+      "serId\030\001 \001(\003\022\024\n\014courseListId\030\002 \001(\003\"Q\n\030Del" +
+      "FavCourseListResponse\0225\n\006result\030\001 \001(\0132%." +
+      "com.amur.home.user.rpc.ServiceResult\"*\n\030" +
+      "GetFavCourseWaresRequest\022\016\n\006userId\030\001 \001(\003" +
+      "\"i\n\031GetFavCourseWaresResponse\022\025\n\rcourseW" +
+      "areIds\030\001 \003(\003\0225\n\006result\030\002 \001(\0132%.com.amur." +
+      "home.user.rpc.ServiceResult\"?\n\027AddFavCou" +
+      "rseWareRequest\022\016\n\006userId\030\001 \001(\003\022\024\n\014course" +
+      "WareId\030\002 \001(\003\"Q\n\030AddFavCourseWareResponse" +
+      "\0225\n\006result\030\001 \001(\0132%.com.amur.home.user.rp" +
+      "c.ServiceResult\"?\n\027DelFavCourseWareReque" +
+      "st\022\016\n\006userId\030\001 \001(\003\022\024\n\014courseWareId\030\002 \001(\003" +
+      "\"Q\n\030DelFavCourseWareResponse\0225\n\006result\030\001" +
+      " \001(\0132%.com.amur.home.user.rpc.ServiceRes" +
+      "ult2\363\n\n\nFavService\022n\n\rGetFavCourses\022,.co" +
+      "m.amur.home.user.rpc.GetFavCoursesReques" +
+      "t\032-.com.amur.home.user.rpc.GetFavCourses" +
+      "Response\"\000\022k\n\014AddFavCourse\022+.com.amur.ho" +
+      "me.user.rpc.AddFavCourseRequest\032,.com.am" +
+      "ur.home.user.rpc.AddFavCourseResponse\"\000\022" +
+      "k\n\014DelFavCourse\022+.com.amur.home.user.rpc" +
+      ".DelFavCourseRequest\032,.com.amur.home.use" +
+      "r.rpc.DelFavCourseResponse\"\000\022z\n\021GetFavCo" +
+      "urseLists\0220.com.amur.home.user.rpc.GetFa" +
+      "vCourseListsRequest\0321.com.amur.home.user" +
+      ".rpc.GetFavCourseListsResponse\"\000\022w\n\020AddF" +
+      "avCourseList\022/.com.amur.home.user.rpc.Ad" +
+      "dFavCourseListRequest\0320.com.amur.home.us" +
+      "er.rpc.AddFavCourseListResponse\"\000\022w\n\020Del" +
+      "FavCourseList\022/.com.amur.home.user.rpc.D" +
+      "elFavCourseListRequest\0320.com.amur.home.u" +
+      "ser.rpc.DelFavCourseListResponse\"\000\022z\n\021Ge" +
+      "tFavCourseWares\0220.com.amur.home.user.rpc" +
+      ".GetFavCourseWaresRequest\0321.com.amur.hom" +
+      "e.user.rpc.GetFavCourseWaresResponse\"\000\022w" +
+      "\n\020AddFavCourseWare\022/.com.amur.home.user." +
+      "rpc.AddFavCourseWareRequest\0320.com.amur.h" +
+      "ome.user.rpc.AddFavCourseWareResponse\"\000\022" +
+      "w\n\020DelFavCourseWare\022/.com.amur.home.user" +
+      ".rpc.DelFavCourseWareRequest\0320.com.amur." +
+      "home.user.rpc.DelFavCourseWareResponse\"\000" +
+      "\022k\n\014GetFavIssues\022+.com.amur.home.user.rp" +
+      "c.GetFavIssuesRequest\032,.com.amur.home.us" +
+      "er.rpc.GetFavIssuesResponse\"\000\022h\n\013AddFavI" +
+      "ssue\022*.com.amur.home.user.rpc.AddFavIssu" +
+      "eRequest\032+.com.amur.home.user.rpc.AddFav" +
+      "IssueResponse\"\000\022h\n\013DelFavIssue\022*.com.amu" +
+      "r.home.user.rpc.DelFavIssueRequest\032+.com" +
+      ".amur.home.user.rpc.DelFavIssueResponse\"" +
+      "\000B+\n\026com.amur.home.user.rpcB\017FavServiceP" +
+      "rotoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.amur.home.user.rpc.ServiceResultProto.getDescriptor(),
         });
-    internal_static_com_amur_home_user_rpc_GetFavCoursesRequest_descriptor =
+    internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_GetFavIssuesRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_GetFavIssuesResponse_descriptor,
+        new java.lang.String[] { "IssueIds", "Result", });
+    internal_static_com_amur_home_user_rpc_AddFavIssueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_amur_home_user_rpc_AddFavIssueRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_AddFavIssueRequest_descriptor,
+        new java.lang.String[] { "UserId", "IssueId", });
+    internal_static_com_amur_home_user_rpc_AddFavIssueResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_amur_home_user_rpc_AddFavIssueResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_AddFavIssueResponse_descriptor,
+        new java.lang.String[] { "Result", });
+    internal_static_com_amur_home_user_rpc_DelFavIssueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_amur_home_user_rpc_DelFavIssueRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_DelFavIssueRequest_descriptor,
+        new java.lang.String[] { "UserId", "IssueId", });
+    internal_static_com_amur_home_user_rpc_DelFavIssueResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_amur_home_user_rpc_DelFavIssueResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_amur_home_user_rpc_DelFavIssueResponse_descriptor,
+        new java.lang.String[] { "Result", });
+    internal_static_com_amur_home_user_rpc_GetFavCoursesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_amur_home_user_rpc_GetFavCoursesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetFavCoursesRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetFavCoursesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_amur_home_user_rpc_GetFavCoursesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetFavCoursesResponse_descriptor,
         new java.lang.String[] { "CourseIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddFavCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_amur_home_user_rpc_AddFavCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddFavCourseRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseId", });
     internal_static_com_amur_home_user_rpc_AddFavCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_amur_home_user_rpc_AddFavCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddFavCourseResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelFavCourseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_amur_home_user_rpc_DelFavCourseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelFavCourseRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseId", });
     internal_static_com_amur_home_user_rpc_DelFavCourseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_amur_home_user_rpc_DelFavCourseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelFavCourseResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_GetFavCourseListsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_amur_home_user_rpc_GetFavCourseListsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetFavCourseListsRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetFavCourseListsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_amur_home_user_rpc_GetFavCourseListsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetFavCourseListsResponse_descriptor,
         new java.lang.String[] { "CourseListIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddFavCourseListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_amur_home_user_rpc_AddFavCourseListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddFavCourseListRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseListId", });
     internal_static_com_amur_home_user_rpc_AddFavCourseListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_amur_home_user_rpc_AddFavCourseListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddFavCourseListResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelFavCourseListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_amur_home_user_rpc_DelFavCourseListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelFavCourseListRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseListId", });
     internal_static_com_amur_home_user_rpc_DelFavCourseListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_amur_home_user_rpc_DelFavCourseListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelFavCourseListResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_GetFavCourseWaresRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_com_amur_home_user_rpc_GetFavCourseWaresRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetFavCourseWaresRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_amur_home_user_rpc_GetFavCourseWaresResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_com_amur_home_user_rpc_GetFavCourseWaresResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_GetFavCourseWaresResponse_descriptor,
         new java.lang.String[] { "CourseWareIds", "Result", });
     internal_static_com_amur_home_user_rpc_AddFavCourseWareRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_com_amur_home_user_rpc_AddFavCourseWareRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddFavCourseWareRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseWareId", });
     internal_static_com_amur_home_user_rpc_AddFavCourseWareResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_com_amur_home_user_rpc_AddFavCourseWareResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_AddFavCourseWareResponse_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_com_amur_home_user_rpc_DelFavCourseWareRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_com_amur_home_user_rpc_DelFavCourseWareRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelFavCourseWareRequest_descriptor,
         new java.lang.String[] { "UserId", "CourseWareId", });
     internal_static_com_amur_home_user_rpc_DelFavCourseWareResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_com_amur_home_user_rpc_DelFavCourseWareResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_amur_home_user_rpc_DelFavCourseWareResponse_descriptor,
