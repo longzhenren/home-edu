@@ -30,6 +30,19 @@ spring:
       - optional:nacos:home-tinyid.yml
   banner:
     location: banner.txt
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8801
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
 
 mybatis-plus:
   global-config:

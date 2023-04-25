@@ -15,7 +15,6 @@
         <module>home-course</module>
         <module>home-user</module>
         <module>home-msg</module>
-        <module>home-rtc</module>
         <module>home-tinyid</module>
         <module>home-auth</module>
         <module>home-schedule</module>
@@ -36,6 +35,10 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
