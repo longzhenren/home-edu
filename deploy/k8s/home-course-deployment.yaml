@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-course
+  name: home-course
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: home-course
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-amur: "true"
+        com.amur.service: home-course
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: JAVA_OPTS
+              value: -Xms256m -Xmx256m
+            - name: SPRING_CLOUD_NACOS_CONFIG_GROUP
+              value: DEFAULT_GROUP
+            - name: SPRING_CLOUD_NACOS_CONFIG_SERVERADDR
+              value: nacos:8848
+            - name: SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR
+              value: nacos:8848
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: root
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+          image: registry.cn-beijing.aliyuncs.com/amur/home-course:latest
+          name: home-course
+          ports:
+            - containerPort: 8704
+            - containerPort: 9704
+          resources: {}
+      restartPolicy: Always
+status: {}
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-course
+  name: home-course
+spec:
+  ports:
+    - name: "8704"
+      port: 8704
+      targetPort: 8704
+    - name: "9704"
+      port: 9704
+      targetPort: 9704
+  selector:
+    com.amur.service: home-course
+status:
+  loadBalancer: {}
