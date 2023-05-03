@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-tinyid
+  name: home-tinyid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: home-tinyid
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-amur: "true"
+        com.amur.service: home-tinyid
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: DATASOURCE_TINYID_PRIMARY_PASSWORD
+              value: root
+            - name: DATASOURCE_TINYID_PRIMARY_URL
+              value: jdbc:mysql://db:3306/tinyid?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+            - name: DATASOURCE_TINYID_PRIMARY_USERNAME
+              value: root
+            - name: JAVA_OPTS
+              value: -Xms256m -Xmx256m
+            - name: SPRING_CLOUD_NACOS_CONFIG_GROUP
+              value: DEFAULT_GROUP
+            - name: SPRING_CLOUD_NACOS_CONFIG_SERVERADDR
+              value: nacos:8848
+            - name: SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR
+              value: nacos:8848
+          image: registry.cn-beijing.aliyuncs.com/amur/home-tinyid:latest
+          name: home-tinyid
+          ports:
+            - containerPort: 8700
+            - containerPort: 9700
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-tinyid
+  name: home-tinyid
+spec:
+  ports:
+    - name: "8700"
+      port: 8700
+      targetPort: 8700
+    - name: "9700"
+      port: 9700
+      targetPort: 9700
+  selector:
+    com.amur.service: home-tinyid
+status:
+  loadBalancer: {}
