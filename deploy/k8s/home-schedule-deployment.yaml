@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-schedule
+  name: home-schedule
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: home-schedule
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-amur: "true"
+        com.amur.service: home-schedule
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: JAVA_OPTS
+              value: -Xms256m -Xmx256m
+            - name: SPRING_CLOUD_NACOS_CONFIG_GROUP
+              value: DEFAULT_GROUP
+            - name: SPRING_CLOUD_NACOS_CONFIG_SERVERADDR
+              value: nacos:8848
+            - name: SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR
+              value: nacos:8848
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: root
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+          image: registry.cn-beijing.aliyuncs.com/amur/home-schedule:latest
+          name: home-schedule
+          ports:
+            - containerPort: 8706
+            - containerPort: 9706
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-schedule
+  name: home-schedule
+spec:
+  ports:
+    - name: "8706"
+      port: 8706
+      targetPort: 8706
+    - name: "9706"
+      port: 9706
+      targetPort: 9706
+  selector:
+    com.amur.service: home-schedule
+status:
+  loadBalancer: {}
