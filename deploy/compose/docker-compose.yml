@@ -1,0 +1,391 @@
+version: "3.4"
+services:
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    ports:
+      - "8890:9000"
+    volumes:
+      - /home/app/portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+  db:
+    image: registry.cn-beijing.aliyuncs.com/amur/db:latest
+    container_name: db
+    hostname: db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nacos
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    networks:
+      - amur
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  redis:
+    image: redis:7.0.8
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - amur
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+  minio:
+    image: minio/minio:RELEASE.2022-06-02T16-16-26Z
+    container_name: minio
+    volumes:
+      - /data/minio:/data
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    command: server /data --console-address ":9000" --address ":9001"
+    networks:
+      - amur
+  nacos:
+    image: registry.cn-beijing.aliyuncs.com/amur/nacos:latest
+    container_name: nacos
+    hostname: nacos
+    restart: always
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=db
+      - MYSQL_SERVICE_DB_NAME=nacos
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=user
+      - MYSQL_SERVICE_PASSWORD=password
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9555:9555"
+    networks:
+      - amur
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "http://127.0.0.1:8848/nacos/actuator/health" ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+  rabbitMQ:
+    image: rabbitmq:3.11-management
+    container_name: rabbitMQ
+    hostname: rabbitMQ
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - amur
+  seata:
+#    image: seataio/seata-server:1.6.0
+    image: registry.cn-beijing.aliyuncs.com/amur/seata:latest
+    hostname: seata-server
+    ports:
+      - "8091:8091"
+      - "7091:7091"
+    environment:
+      - SEATA_PORT=8091
+      - STORE_MODE=file
+      - SEATA_REGISTRY_TYPE=nacos
+      - SEATA_REGISTRY_NACOS_SERVER_ADDR=nacos:8848
+      - SEATA_REGISTRY_NACOS_USERNAME=nacos
+      - SEATA_REGISTRY_NACOS_PASSWORD=nacos
+    networks:
+      - amur
+  home-auth:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-auth:latest
+    container_name: home-auth
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-auth
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    #      - SPRING_CLOUD_NACOS_CONFIG_NAMESPACE=public
+    #      - NACOS_CONFIG_FILE_EXTENSION=yml
+    #      - NACOS_CONFIG_DATA_ID=home-auth
+    #      - NACOS_CONFIG_REFRESH_ENABLED=true
+    #      - NACOS_CONFIG_REFRESH_INTERVAL=30000
+    #      - SPRING_CLOUD_NACOS_CONFIG_SHARED_CONFIGS=home-auth.yml
+    ports:
+      - "8705:8705"
+      - "9705:9705"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  home-gateway:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-gateway:latest
+    container_name: home-gateway
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-gateway
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+    networks:
+      - amur
+  home-tinyid:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-tinyid:latest
+    container_name: home-tinyid
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - DATASOURCE_TINYID_PRIMARY_URL=jdbc:mysql://db:3306/tinyid?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - DATASOURCE_TINYID_PRIMARY_USERNAME=root
+      - DATASOURCE_TINYID_PRIMARY_PASSWORD=root
+      - SW_AGENT_NAME=home-tinyid
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    ports:
+      - "8700:8700"
+      - "9700:9700"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-user:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-user:latest
+    container_name: home-user
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-user
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    ports:
+      - "8701:8701"
+      - "9701:9701"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-schedule:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-schedule:latest
+    container_name: home-schedule
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-schedule
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    ports:
+      - "8706:8706"
+      - "9706:9706"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-course:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-course:latest
+    container_name: home-course
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-course
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    ports:
+      - "8704:8704"
+      - "9704:9704"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-msg:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-msg:latest
+    container_name: home-msg
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-msg
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    ports:
+      - "8702:8702"
+      - "9702:9702"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  home-rtc:
+    image: registry.cn-beijing.aliyuncs.com/amur/home-rtc:latest
+    container_name: home-rtc
+    restart: always
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx256m
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVERADDR=nacos:8848
+      - SPRING_CLOUD_NACOS_CONFIG_GROUP=DEFAULT_GROUP
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SW_AGENT_NAME=home-rtc
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
+    ports:
+      - "8703:8703"
+      - "9703:9703"
+    networks:
+      - amur
+    depends_on:
+      nacos:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  es7:
+    container_name: es7
+    hostname: es7
+    image: elasticsearch:7.16.2
+    expose:
+      - 9200
+      - 9300
+    ports:
+      - 9200:9200
+    networks:
+      - skywalking
+    environment:
+      #      - TAKE_FILE_OWNERSHIP=true #volumes 挂载权限 如果不想要挂载es文件改配置可以删除
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    #    volumes:
+    #      - /Users/zhangzhibo/Documents/Development/data/elasticsearch/data:/usr/share/elasticsearch/data
+    #      - /Users/zhangzhibo/Documents/Development/data/elasticsearch/logs:/usr/share/elasticsearch/logs
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9200" ]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+  oap:
+    container_name: oap
+    hostname: oap
+    image: apache/skywalking-oap-server:9.3.0
+    expose:
+      - 11800
+      - 12800
+      - 5005
+    ports:
+      - "11800:11800"
+      - "12800:12800"
+    networks:
+      - skywalking
+      - amur
+    restart: unless-stopped
+    environment:
+      - SW_STORAGE=elasticsearch
+      - SW_STORAGE_ES_CLUSTER_NODES="es7:9200"
+      - TZ=Asia/Shanghai
+    depends_on:
+      es7:
+        condition: service_healthy
+
+  ui:
+    image: registry.cn-beijing.aliyuncs.com/amur/skywalking-ui:latest
+    container_name: skywalking-ui
+    ports:
+      - "8808:8808"
+    networks:
+      - skywalking
+    environment:
+      - SW_PROXY_TARGET=http://oap:12800
+      - TZ=Asia/Shanghai
+    depends_on:
+      - oap
+    restart: unless-stopped
+    links:
+      - oap
+
+networks:
+  skywalking:
+    driver: bridge
+  amur:
+    driver: bridge
