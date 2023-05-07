@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: redis
+  name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: redis
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-amur: "true"
+        com.amur.service: redis
+    spec:
+      containers:
+        - image: redis:7.0.8
+          livenessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+            failureThreshold: 10
+            periodSeconds: 30
+            timeoutSeconds: 10
+          name: redis
+          ports:
+            - containerPort: 6379
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  creationTimestamp: null
+  labels:
+    com.amur.service: redis
+  name: redis
+spec:
+  type: NodePort
+  ports:
+    - name: "6379"
+      port: 6379
+      targetPort: 6379
+      # nodePort: 6379
+  selector:
+    com.amur.service: redis
+status:
+  loadBalancer: {}
