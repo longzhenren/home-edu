@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: rabbitmq
+  name: rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: rabbitmq
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-amur: "true"
+        com.amur.service: rabbitmq
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: RABBITMQ_DEFAULT_PASS
+              value: guest
+            - name: RABBITMQ_DEFAULT_USER
+              value: guest
+          image: rabbitmq:3.11-management
+          name: rabbitmq
+          ports:
+            - containerPort: 5672
+            - containerPort: 15672
+          resources: {}
+      hostname: rabbitmq
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: rabbitmq
+  name: rabbitmq
+spec:
+  type: NodePort
+  ports:
+    - name: "5672"
+      port: 5672
+      targetPort: 5672
+      # nodePort: 5672
+    - name: "15672"
+      port: 15672
+      targetPort: 15672
+      # nodePort: 15672
+  selector:
+    com.amur.service: rabbitmq
+status:
+  loadBalancer: {}
