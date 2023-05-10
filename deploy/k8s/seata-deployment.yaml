@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: seata
+  name: seata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: seata
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-amur: "true"
+        com.amur.service: seata
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: SEATA_PORT
+              value: "8091"
+            - name: STORE_MODE
+              value: file
+#           image: registry.cn-beijing.aliyuncs.com/amur/seata:latest
+          image: seataio/seata-server:1.6.0
+          name: seata
+          ports:
+            - containerPort: 8091
+            - containerPort: 7091
+          resources: {}
+      hostname: seata-server
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: seata
+  name: seata
+spec:
+  type: NodePort
+  ports:
+    - name: "8091"
+      port: 8091
+      targetPort: 8091
+      # nodePort: 8091
+    - name: "7091"
+      port: 7091
+      targetPort: 7091
+      # nodePort: 7091
+  selector:
+    com.amur.service: seata
+status:
+  loadBalancer: {}
