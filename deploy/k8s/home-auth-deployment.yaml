@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-auth
+  name: home-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: home-auth
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-amur: "true"
+        com.amur.service: home-auth
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: JAVA_OPTS
+              value: -Xms256m -Xmx256m
+            - name: SPRING_CLOUD_NACOS_CONFIG_GROUP
+              value: DEFAULT_GROUP
+            - name: SPRING_CLOUD_NACOS_CONFIG_SERVERADDR
+              value: nacos:8848
+            - name: SPRING_CLOUD_NACOS_DISCOVERY_SERVERADDR
+              value: nacos:8848
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: root
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://db:3306/homeedu?characterEncoding=utf8&connectTimeout=5000&socketTimeout=10000&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+          image: registry.cn-beijing.aliyuncs.com/amur/home-auth:latest
+          name: home-auth
+          ports:
+            - containerPort: 8705
+            - containerPort: 9705
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: home-auth
+  name: home-auth
+spec:
+#   type: NodePort
+  ports:
+    - name: "8705"
+      port: 8705
+      targetPort: 8705
+       # nodePort: 8705
+    - name: "9705"
+      port: 9705
+      targetPort: 9705
+       # nodePort: 9705
+  selector:
+    com.amur.service: home-auth
+status:
+  loadBalancer: {}
