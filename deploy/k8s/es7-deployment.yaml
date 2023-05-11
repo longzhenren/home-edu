@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: es7
+  name: es7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      com.amur.service: es7
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.amur.network/compose-skywalking: "true"
+        com.amur.service: es7
+    spec:
+      imagePullSecrets:
+        - name: aliyun
+      containers:
+        - env:
+            - name: ES_JAVA_OPTS
+              value: -Xms512m -Xmx512m
+            - name: discovery.type
+              value: single-node
+          image: elasticsearch:7.16.2
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:9200
+            failureThreshold: 10
+            periodSeconds: 20
+            timeoutSeconds: 10
+          name: es7
+          ports:
+            - containerPort: 9200
+            - containerPort: 9300
+          resources: {}
+      hostname: es7
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: es7
+  name: es7
+spec:
+  type: NodePort
+  ports:
+    - name: "9200"
+      port: 9200
+      targetPort: 9200
+    - name: "9300"
+      port: 9300
+      targetPort: 9300
+  selector:
+    com.amur.service: es7
+status:
+  loadBalancer: {}
