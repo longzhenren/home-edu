@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.network/compose-skywalking: "true"
+    com.amur.service: oap
+  name: oap
+spec:
+  containers:
+    - env:
+        - name: SW_STORAGE
+          value: elasticsearch
+        - name: SW_STORAGE_ES_CLUSTER_NODES
+          value: '"es7:9200"'
+        - name: TZ
+          value: Asia/Shanghai
+      image: apache/skywalking-oap-server:9.3.0
+      name: oap
+      ports:
+        - containerPort: 11800
+        - containerPort: 12800
+        - containerPort: 5005
+      resources: {}
+  hostname: oap
+  restartPolicy: OnFailure
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    com.amur.service: oap
+  name: oap
+spec:
+  ports:
+    - name: "11800"
+      port: 11800
+      targetPort: 11800
+    - name: "12800"
+      port: 12800
+      targetPort: 12800
+    - name: "5005"
+      port: 5005
+      targetPort: 5005
+  selector:
+    com.amur.service: oap
+status:
+  loadBalancer: {}
