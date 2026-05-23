@@ -17,6 +17,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -38,7 +40,8 @@ public class AiChatServiceImpl implements AiChatService {
     @Resource
     private AiMessageMapper messageMapper;
 
-    @Resource
+    @Autowired
+    @Qualifier("stringRedisTemplate")
     private StringRedisTemplate redisTemplate;
 
     @Override

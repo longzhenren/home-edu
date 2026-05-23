@@ -41,16 +41,20 @@ public class DashScopeClient {
 
     private void loadApiKey() throws Exception {
         String envKey = System.getenv("DASHSCOPE_API_KEY");
-        if (envKey != null && !envKey.isEmpty()) {
+        if (envKey != null && !envKey.trim().isEmpty()) {
             resolvedApiKey = envKey;
-        } else if (config.getEncryptedKey() != null && config.getDecryptionKey() != null) {
+            log.info("DashScope API key loaded from environment variable");
+        } else if (config.getEncryptedKey() != null && !config.getEncryptedKey().trim().isEmpty()
+                && config.getDecryptionKey() != null && !config.getDecryptionKey().trim().isEmpty()) {
             resolvedApiKey = CredentialEncryptor.decrypt(config.getEncryptedKey(), config.getDecryptionKey());
-        } else if (config.getApiKey() != null) {
+            log.info("DashScope API key loaded from encrypted config");
+        } else if (config.getApiKey() != null && !config.getApiKey().trim().isEmpty()) {
             resolvedApiKey = config.getApiKey();
+            log.info("DashScope API key loaded from config");
         } else {
-            throw new IllegalStateException("DashScope API key not configured.");
+            log.warn("DashScope API key not configured. AI features will be unavailable until key is set.");
+            resolvedApiKey = null;
         }
-        log.info("DashScope API key loaded successfully");
     }
 
     public ChatResponse chat(List<Map<String, Object>> messages) throws IOException {
@@ -64,6 +68,9 @@ public class DashScopeClient {
                 objectMapper.writeValueAsString(body),
                 MediaType.parse("application/json"));
 
+        if (resolvedApiKey == null) {
+            throw new IllegalStateException("DashScope API key not configured. Please set DASHSCOPE_API_KEY environment variable.");
+        }
         Request request = new Request.Builder()
                 .url(config.getBaseUrl())
                 .header("Authorization", "Bearer " + resolvedApiKey)
