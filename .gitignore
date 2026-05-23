@@ -37,3 +37,19 @@ build/
 
 ### Mac OS ###
 .DS_Store
+### Sensitive / Credentials ###
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+seata-grpc-starter/
+home-rtc-starter/
+home-service/home-ai/src/main/resources/application-local.yml
+home-service/home-ai/src/main/resources/application-dev.yml
+.env
+.env.local
+.env.production
+# AI service credentials
+ai-credentials/
+!ai-credentials/.gitkeep

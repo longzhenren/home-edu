@@ -16,6 +16,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -48,7 +50,7 @@ public class UserControllerTest {
         ServiceResult<UserInfo> serviceResult = ServiceResult.success(userInfo);
         when(userService.getUserInfo(userId)).thenReturn(serviceResult);
 
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/user/get_info")
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/user/info")
                         .param("userId", String.valueOf(userId)))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -63,13 +65,17 @@ public class UserControllerTest {
      */
     @Test
     public void testUpdateUser() throws Exception {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setId(123L);
-        userInfo.setName("test");
-
+        when(userService.updateUser(anyLong(), anyString(), anyString(), anyString(), anyString(), anyString(), any(), any()))
+                .thenReturn(ServiceResult.success());
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/user/update")
-                        .param("userInfo", userInfo.toString()))
+                        .param("userId", "123")
+                        .param("description", "test desc")
+                        .param("phone", "13800000000")
+                        .param("email", "test@example.com")
+                        .param("avatarUrl", "http://example.com/avatar.png")
+                        .param("sex", "男")
+                        .param("age", "25"))
                 .andExpect(status().isOk())
                 .andReturn();
 

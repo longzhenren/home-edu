@@ -138,6 +138,16 @@ spring:
                 key-resolver: "#{@remoteAddressKeyResolver}"
                 redis-rate-limiter.replenishRate: ${REQ_RATE:50}
                 redis-rate-limiter.burstCapacity: 1
+        - id: home-ai
+          uri: lb://home-ai
+          predicates:
+            - Path=/home-ai/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: "#{@remoteAddressKeyResolver}"
+                redis-rate-limiter.replenishRate: ${REQ_RATE:50}
+                redis-rate-limiter.burstCapacity: 1
         - id: home-msg-ws
           uri: lb:ws//home-msg
           predicates:
@@ -220,3 +230,7 @@ knife4j:
         url: /home-schedule/v3/api-docs?group=default
         service-name: schedule-service
         order: 6
+      - name: AI智能服务
+        url: /home-ai/v3/api-docs?group=default
+        service-name: ai-service
+        order: 7
