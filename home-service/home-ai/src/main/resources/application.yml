@@ -1,0 +1,111 @@
+spring:
+  application:
+    name: home-ai
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: true
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+  config:
+    import:
+      - optional:nacos:home-ai.yml
+  aop:
+    auto: true
+    proxy-target-class: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/homeedu?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 2
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+    banner: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.amur.home.ai.controller
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-host: true
+    enable-host-text: 127.0.0.1/home-ai
+  production: false
+
+server:
+  port: 8707
+
+ai:
+  service:
+    provider: dashscope
+    base-url: ${AI_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions}
+    model: ${AI_MODEL:qwen-plus}
+    api-key: ${DASHSCOPE_API_KEY:}
+    encrypted-key: ${AI_ENCRYPTED_KEY:}
+    decryption-key: ${AI_DECRYPTION_KEY:}
+    max-tokens: ${AI_MAX_TOKENS:2048}
+    temperature: ${AI_TEMPERATURE:0.7}
+    timeout: ${AI_TIMEOUT:30000}
+    stream-enabled: false
+
+sa-token:
+  token-name: "Authorization"
+  timeout: 86400
+  activity-timeout: -1
+  is-concurrent: true
+  is-share: false
+  token-style: uuid
+  is-log: false
+  is-read-cookie: false
+  is-read-header: true
+  is-write-header: true
+  is-print: off
+  tokenPrefix: "Bearer"

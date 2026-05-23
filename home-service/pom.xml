@@ -18,6 +18,7 @@
         <module>home-tinyid</module>
         <module>home-auth</module>
         <module>home-schedule</module>
+        <module>home-ai</module>
     </modules>
 
     <properties>
